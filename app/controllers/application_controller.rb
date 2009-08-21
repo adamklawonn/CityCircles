@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
   
+  def index
+    @user_session = ( current_user_session.nil? ? UserSession.new : current_user_session )
+  end
+  
   private
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
