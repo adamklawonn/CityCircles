@@ -1,6 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :interest_points
+
+  map.resources :events
+
+  map.resources :news
+
   map.resource :user_session
-  map.resource :user_sessions, :controller => "user_sessions"
   map.resource :account, :controller => "users"
   map.resource :users
   map.root :controller => "application", :action => "index" # optional, this just sets the root route

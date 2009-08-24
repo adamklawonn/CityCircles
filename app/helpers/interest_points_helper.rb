@@ -1,0 +1,2 @@
+module InterestPointsHelper
+end
