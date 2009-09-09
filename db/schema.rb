@@ -9,7 +9,74 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090817042718) do
+ActiveRecord::Schema.define(:version => 20090909042716) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",          :null => false
+    t.string   "body",           :null => false
+    t.integer  "author_id",      :null => false
+    t.integer  "commenter_id"
+    t.string   "commenter_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "headline",   :null => false
+    t.string   "body",       :null => false
+    t.datetime "starts_at",  :null => false
+    t.datetime "ends_at",    :null => false
+    t.integer  "author_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interest_points", :force => true do |t|
+    t.string   "label",       :null => false
+    t.string   "description"
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "author_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "maps", :force => true do |t|
+    t.string   "title",       :null => false
+    t.string   "description", :null => false
+    t.integer  "author_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "headline",   :null => false
+    t.string   "body",       :null => false
+    t.integer  "author_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "title",              :null => false
+    t.string   "caption"
+    t.string   "photo_file_name",    :null => false
+    t.string   "photo_content_type", :null => false
+    t.integer  "photo_file_size",    :null => false
+    t.integer  "photoable_id"
+    t.string   "photoable_type"
+    t.integer  "author_id",          :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "promos", :force => true do |t|
+    t.string   "title",       :null => false
+    t.string   "description", :null => false
+    t.integer  "author_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                              :null => false

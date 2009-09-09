@@ -76,3 +76,12 @@ a:hover {text-decoration:none; color:#7e8781;}
 
 
 
+.sidebar-entry {text-decoration:none; border:1px solid silver;}
+a.sidebar-entry {color:#000; text-decoration: none; margin-left:20px}
+a.sidebar-entry:hover {background-color:#eee; text-decoration: none}
+a.sidebar-entry:focus {background-color:#ccf; text-decoration: none}
+.sidebar-cat-header {background-color:#eee; margin:1px; font-weight:bold;}
+.hilight-cat-header {background-color:#ccf;}
+.iw-header {background-color:#eee;font-weight:bold}
+.iw-directions {display: block; margin-top:20px; width:80px}
+#sidebar {height:200px; overflow:auto}

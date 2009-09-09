@@ -11,16 +11,6 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password 
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
-  
-  def index
-    
-    @user_session = ( current_user_session.nil? ? UserSession.new : current_user_session )
-    @map = GMap.new( "midmap" )
-    @map.control_init( :large_map => true,:map_type => true )
-    @map.center_zoom_init( [ 33.454401, -112.073849 ], 10 )
-    @map.overlay_init( GMarker.new( [ 33.454401, -112.073849 ], :title => "Walter Cronkite School", :info_window => "Bam! Just landed on Cronk.") )
-
-  end
 
   private
     def current_user_session

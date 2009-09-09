@@ -1,6 +1,6 @@
 class CreateEvents < ActiveRecord::Migration
   def self.up
-    create_table :events do |t|
+    create_table :events, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.string :headline, :null => false
       t.string :body, :length => 5000, :null => false
       t.datetime :starts_at, :null => false

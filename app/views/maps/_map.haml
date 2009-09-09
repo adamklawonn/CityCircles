@@ -1,0 +1,11 @@
+%script{ :type => "text/javascript" }
+  var map = new citycircles.maps.Map();
+  document.observe("dom:loaded", function() { map.load("map", "markerdata.xml") });
+  
+#map{ :style => "float:left; width: 495px; height: 399px; border: 1px solid black" }
+#sidebar{ :style => "float:left; width: 122px; height: 399px; border: 1px solid black; border-left: none" }
+  %input#restaurantCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('restaurant')", :CHECKED => "" }
+  Restaurants
+  %br
+  %input#barCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('bar')", :CHECKED => "" }
+  Bars
