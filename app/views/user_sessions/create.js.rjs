@@ -1,1 +1,0 @@
-page.replace_html "signindialog", :partial => "user_sessions/new.haml", :object => @user_session

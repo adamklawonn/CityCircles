@@ -2,7 +2,7 @@
 !!! Strict
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en" }
   %head
-    %title oo City Circles oo
+    %title oo City Circles Administration oo
     = stylesheet_link_tag "reset"
     = stylesheet_link_tag "text"
     = stylesheet_link_tag "960"
@@ -16,46 +16,28 @@
       var $j = jQuery.noConflict();
       $j(document).ready(
         function(){
-          //$j( "#signindialog" ).dialog( { width : 400, autoOpen : false, resizable : false, draggable : false } );
-          //$j( "#signinlink" ).click( function() { $j( "#signindialog" ).dialog( "open" ); } );
+          $j( "#signindialog" ).dialog( { width : 400, autoOpen : false, resizable : false, draggable : false } );
+          $j( "#signinlink" ).click( function() { $j( "#signindialog" ).dialog( "open" ); } );
         }
       );
     = GMap.header
 
   %body{ :onunload => "GUnload()" }
     #wrapper
-      #navigation.container_12
-        .grid_12
-          ad
-        .clear
+      #admin.container_12
         .grid_4
-          logo
-        .grid_5
-          %ul
+          %h2 City Circles Administration
+        .grid_8
+          %ul#adminnavigation
             %li
               -if current_user_session.nil?
-                %a#signinlink{ :href => new_user_session_path } sign in
+                %a#signinlink{ :href => "#" } sign in
               -else 
                 = link_to "sign out (#{ current_user.login })", user_session_url( current_user ), :method => :delete
-            %li
-              %a{ :href => "profile.html" }
-                profile
-        #addcontent.grid_3
-          %a.iframe{ :href => "createcontent.html" }
-          %h3
-            add content
-
+        .clear
+        
       = yield
-
-      #footer.container_12
-        .grid_12
-          %ul
-            %li
-              %a{ :href => "#" }
-                contact
-            %li
-              %a{ :href => "#" }
-                about
-            %li
-              %a{ :href => "#" }
-                advertise
+                
+      #signindialog{ :title => "Sign In" } 
+        - if current_user_session.nil?
+          = render :partial => "user_sessions/new.haml", :object => @user_session

@@ -1,0 +1,4 @@
+.grid_12
+  - form_for :user_session, :url => user_session_path, :html => { :id => 'signindialog' } do |f|
+    = f.error_messages :header_message => "Login Failed"
+    = render :partial => 'user_sessions/form', :locals => { :f => f }
