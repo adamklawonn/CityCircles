@@ -1,4 +1,5 @@
-.grid_12
-  - form_for :user_session, :url => user_session_path, :html => { :id => 'signindialog' } do |f|
-    = f.error_messages :header_message => "Login Failed"
+.grid_3
+.grid_5
+  - form_for :user_session, :url => user_session_path, :html => { :id => 'signindialog' }, :live_validations => true do |f|
     = render :partial => 'user_sessions/form', :locals => { :f => f }
+.grid_3

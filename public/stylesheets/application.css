@@ -97,3 +97,20 @@ ul#adminnavigation { font-family: Arial, Helvetica, sans-serif; list-style: none
 #admin a:active {}
 #admin a:visited {}
 #admin a:hover {}
+
+
+/*======================
+         LOGIN
+=====================*/
+fieldset#signin { background-color: #fff; border: 4px solid #d3d3d3; padding: 10px; }
+fieldset#signin legend { color: rgb(39, 49, 28); font-size: 1.4em; font-weight: bold; }
+
+
+/*======================
+         ERROR MESSAGES
+=====================*/
+.errorExplanation { background-color: #BA5246; color: #fff; }
+.errorExplanation ul { list-style-type: none; text-align: center; }
+.LV_validation_message { font-size: 0.9em; }
+.LV_valid { color: #B1C55E; }
+.LV_invalid { color: #BA5246; }
