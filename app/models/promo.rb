@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090913223316
+# Schema version: 20090921083414
 #
 # Table name: promos
 #

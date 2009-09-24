@@ -2,8 +2,8 @@
   var map = new citycircles.maps.Map();
   document.observe("dom:loaded", function() { map.load("map", "markerdata.xml") });
   
-#map{ :style => "float:left; width: 495px; height: 399px; border: 1px solid black" }
-#sidebar{ :style => "float:left; width: 122px; height: 399px; border: 1px solid black; border-left: none" }
+#map{ :style => "float:left; width: 495px; height: 399px; border: 3px solid #d3d3d3;" }
+#sidebar{ :style => "float:left; width: 116px; height: 399px; border: 3px solid #d3d3d3; border-left: none; color: #27311c;" }
   %input#restaurantCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('restaurant')", :CHECKED => "" }
   Restaurants
   %br

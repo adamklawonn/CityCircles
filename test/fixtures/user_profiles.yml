@@ -1,14 +1,12 @@
 # == Schema Information
 # Schema version: 20090921083414
 #
-# Table name: events
+# Table name: user_profiles
 #
 #  id         :integer(4)      not null, primary key
-#  headline   :string(255)     not null
-#  body       :string(255)     not null
-#  starts_at  :datetime        not null
-#  ends_at    :datetime        not null
-#  author_id  :integer(4)      not null
+#  first_name :string(255)     not null
+#  last_name  :string(255)     not null
+#  about_me   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #

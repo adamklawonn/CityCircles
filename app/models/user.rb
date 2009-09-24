@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090913223316
+# Schema version: 20090921083414
 #
 # Table name: users
 #
@@ -24,7 +24,9 @@
 #
 
 class User < ActiveRecord::Base
- 
+
+  has_one :user_profile
+
   acts_as_authentic
   
   serialize :roles, Array
@@ -32,7 +34,7 @@ class User < ActiveRecord::Base
   before_validation_on_create :make_default_roles
 
   attr_accessible :login, :password, :password_confirmation, :email, :first_name, :last_name
-
+  
   def admin?
     has_role?( "admin" )
   end

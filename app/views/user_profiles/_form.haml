@@ -1,17 +1,20 @@
 %fieldset#fancyform
-  %legend Sign In
-  = f.label :username
+  %legend Update my Profile
+  = f.label :first_name
   %br
-  = f.text_field :login
-  %div#loginValidatorMsg
-  = f.label :password
+  = f.text_field :first_name
+  %div#firstNameValidatorMsg
   %br
-  = f.password_field :password
-  %div#passwordValidatorMsg
-  = f.check_box :remember_me
-  = f.label :remember_me
+  = f.label :last_name
   %br
-  = f.submit "Login"
+  = f.text_field :last_name
+  %div#lastNameValidatorMsg
+  %br
+  = f.label :about_me
+  %br
+  = f.text_area :about_me
+  #about_me
+  = f.submit "Update Profile"
 
 :javascript
   var loginValidator = new LiveValidation( 'user_session_login', { validMessage: "Ok", insertAfterWhatNode: "loginValidatorMsg" } );

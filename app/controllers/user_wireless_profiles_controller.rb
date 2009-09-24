@@ -1,0 +1,2 @@
+class UserWirelessProfilesController < ApplicationController
+end

@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "geokit"
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
+  config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
     
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -42,4 +43,8 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  
+  ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcZfQgAAAAAAGOII0ryh_w5BOjq7GK4Td7Y2Y3R'
+  ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcZfQgAAAAAACIo0Q5yt79bY7o6XNFtpMzz4WLQ'
+  
 end

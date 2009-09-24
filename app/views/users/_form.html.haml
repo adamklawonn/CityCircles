@@ -1,14 +1,40 @@
-= form.label :login
-%br
-= form.text_field :login
-%br
-%br
-= form.label :password, form.object.new_record? ? nil : "Change password"
-%br
-= form.password_field :password
-%br
-%br
-= form.label :password_confirmation
-%br
-= form.password_field :password_confirmation
-%br
+%fieldset#fancyform
+  %legend Register
+  = form.label :username
+  %br
+  = form.text_field :login
+  %div#loginValidatorMsg
+  %br
+  = form.label :password, form.object.new_record? ? nil : "Change password"
+  %br
+  = form.password_field :password
+  %div#passwordValidatorMsg
+  %br
+  = form.label :retype_password
+  %br
+  = form.password_field :password_confirmation
+  %div#confirmPasswordValidatorMsg
+  %br
+  = form.label :email
+  %br
+  = form.text_field :email
+  %div#emailValidatorMsg
+  %br
+  = recaptcha_tags :ajax => true
+  %br
+  = form.submit "Register"
+  
+:javascript
+  var loginValidator = new LiveValidation( 'user_login', { validMessage: "Ok", insertAfterWhatNode: "loginValidatorMsg" } );
+  loginValidator.add( Validate.Presence, { failureMessage: "Cannot be blank!" } );
+  loginValidator.add( Validate.Length, { minimum: 5, tooShortMessage: "Must be greater than 5 characters in length!" } );
+  var passwordValidator = new LiveValidation( 'user_password', { validMessage: "Ok", insertAfterWhatNode: "passwordValidatorMsg" } );
+  passwordValidator.add( Validate.Presence, { failureMessage: "Cannot be blank!" } );
+  passwordValidator.add( Validate.Length, { minimum: 5, tooShortMessage: "Must be greater than 5 characters in length!" } );
+  var confirmPasswordValidator = new LiveValidation( 'user_password_confirmation', { validMessage: "Ok", insertAfterWhatNode: "confirmPasswordValidatorMsg" } );
+  confirmPasswordValidator.add( Validate.Presence, { failureMessage: "Cannot be blank!" } );
+  confirmPasswordValidator.add( Validate.Length, { minimum: 5, tooShortMessage: "Must be greater than 5 characters in length!" } );
+  confirmPasswordValidator.add( Validate.Confirmation, { match: 'user_password', failureMessage: "Your passwords don't match!" } );
+  var emailValidator = new LiveValidation( 'user_email', { validMessage: "Ok", insertAfterWhatNode: "emailValidatorMsg" } );
+  emailValidator.add( Validate.Presence, { failureMessage: "Cannot be blank!" } );
+  emailValidator.add( Validate.Email );

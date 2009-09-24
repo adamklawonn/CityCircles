@@ -1,7 +1,7 @@
 /*======================
        STRUCTURE
 =====================*/
-body{background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; background-color:#eef4ec;font-family:Arial, Helvetica, sans-serif; font-size: 1em;}
+body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; background-color:#eef4ec;font-family:Arial, Helvetica, sans-serif; font-size: 1em; }
 #wrapper {width:960px; margin-left:auto; margin-right:auto;}
 #smallmap {height:300px;background-color:#fff;}
 #midmap {height:400px; background-color:#fff;}
@@ -15,14 +15,14 @@ body{background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; ba
 /*======================
        INFO BOXES
 =====================*/
-#content .infoblock {width:280px; background-color:#fff; padding-left:10px; padding-right:10px; padding-bottom:5px; padding-top:5px;}
-#content #news{border-bottom: 5px solid #d2c76b;}
-#content #events{border-bottom: 5px solid #4e8fb5;}
-#content #promos{border-bottom: 5px solid #b05858;}
-#content #stuff{border-bottom: 5px solid #79ab75;}
-#content #network{border-bottom: 5px solid #b07b3d;}
-#content #fixit{margin-bottom:5px;}
-#content .buttonfloat {float:right; padding-left:2px;padding-top:5px;}
+.infoblock {width:280px; background-color:#fff; padding-left:10px; padding-right:10px; padding-bottom:5px; padding-top:5px;}
+#news{border-bottom: 5px solid #d2c76b;}
+#events{border-bottom: 5px solid #4e8fb5;}
+#promos{border-bottom: 5px solid #b05858;}
+#stuff{border-bottom: 5px solid #79ab75;}
+#network{border-bottom: 5px solid #b07b3d;}
+#fixit{margin-bottom:5px;}
+.buttonfloat {float:right; padding-left:2px;padding-top:5px;}
 
 /*======================
        PROFILE
@@ -55,14 +55,15 @@ a:hover {text-decoration:none; color:#7e8781;}
 /*======================
       NAVIGATION
 =====================*/
-#navigation {}
-#navigation ul {float: right;font-family:Arial, Helvetica, sans-serif;list-style: none; padding: 0; margin: 0;}
-#navigation li {font-size: 1.5em;padding-top:72px;float:right; font-weight:bold;padding-left:1em;}
+#navigation { position: relative; }
+#navigation ul { text-align: right; font-family: Arial, Helvetica, sans-serif; list-style: none; padding: 0; margin: 0; }
+#navigation li { display: inline; font-size: 1em; padding-top: 0px; font-weight: bold; padding-left: 1em; margin: 0; }
 #navigation a:link {}
 #navigation a:active {}
 #navigation a:visited {}
 #navigation a:hover {}
-#navigation #addcontent{height:100px;background-image:url('../images/insert.png'); background-repeat:no-repeat;background-position: 120px}
+#navigation ul li span { color: #27311c; }
+#searchbar { float: right; }
 
 /*======================
          FOOTER
@@ -100,10 +101,11 @@ ul#adminnavigation { font-family: Arial, Helvetica, sans-serif; list-style: none
 
 
 /*======================
-         LOGIN
+         forms
 =====================*/
-fieldset#signin { background-color: #fff; border: 4px solid #d3d3d3; padding: 10px; }
-fieldset#signin legend { color: rgb(39, 49, 28); font-size: 1.4em; font-weight: bold; }
+fieldset#fancyform { background-color: #fff; border: 4px solid #d3d3d3; padding: 10px; }
+fieldset#fancyform legend { color: rgb(39, 49, 28); font-size: 1.4em; font-weight: bold; }
+#fancyform label { font-size: 0.9em; }
 
 
 /*======================

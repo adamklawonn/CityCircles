@@ -1,7 +1,5 @@
-%h1
-  Register
-- form_for @user, :url => account_path do |f|
-= f.error_messages
-= render :partial => "form", :object => f
-= f.submit "Register"
-- end
+.grid_3
+.grid_5
+  - form_for @user, :url => account_path do |f|
+    = render :partial => "form", :object => f
+.grid_3

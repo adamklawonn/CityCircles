@@ -1,10 +1,33 @@
-#content.container_12
-  #midmap.grid_8
+#content.grid_12
+  #midmap.grid_8.alpha
     = render :partial => 'maps/map'
-  #twitter.grid_4
-    twitter
+  #twitter.grid_4.omega
+    #twtr-search-widget
+    = javascript_include_tag "http://widgets.twimg.com/j/1/widget.js"
+    = stylesheet_link_tag "http://widgets.twimg.com/j/1/widget.css"
+    :javascript
+      new TWTR.Widget({
+        search: '_citycircles OR #citycircles',
+        id: 'twtr-search-widget',
+        loop: true,
+        title: 'City Circles',
+        subject: 'twittersphere',
+        width: 300,
+        height: 312,
+        theme: {
+          shell: {
+            background: '#78ab75',
+            color: '#ffffff'
+          },
+          tweets: {
+            background: '#ffffff',
+            color: '#444444',
+            links: '#1985b5'
+          }
+        }
+      }).render().start();
   .clear
-  #news.grid_4
+  #news.grid_4.alpha
     %a{ :href => "#" }
       %img.buttonfloat{ :src => "images/smalladd.png", :border => "0" }
     %a{ :href => "#" }
@@ -48,7 +71,7 @@
         headline
       %h5
         more>>
-  #promos.grid_4
+  #promos.grid_4.omega
     %a{ :href => "#" }
       %img.buttonfloat{ :src => "images/smalladd.png", :border => "0" }
     %a{ :href => "#" }
@@ -71,7 +94,7 @@
       %h5
         more>>
   .clear
-  #network.grid_4
+  #network.grid_4.alpha
     %a{ :href => "#" }
       %img.buttonfloat{ :src => "images/smalladd.png", :border => "0" }
     %a{ :href => "#" }
@@ -115,7 +138,7 @@
         headline
       %h5
         more>>
-  .grid_4
+  .grid_4.omega
     %a{ :href => "#" }
       %img.buttonfloat{ :src => "images/smalladd.png", :border => "0" }
     %a{ :href => "#" }
@@ -142,3 +165,4 @@
         headline
       %h5
         more>>
+  .clear

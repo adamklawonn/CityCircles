@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :profile, :controller => "users"
+  map.resources :register, :controller => "users"
+  map.resources :user_wireless_profiles
+  map.resources :user_profiles
   map.resources :comments
   map.resources :photos
   map.resources :promos
@@ -7,7 +11,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events
   map.resources :news
   map.resource :user_session
-  map.resource :account, :controller => "users"
+  map.resources :accounts, :controller => "users" do | accounts |
+    accounts.resources :profile, :controller => "user_profiles"
+  end
   map.resource :users
   map.namespace :admin do | admin |
     admin.root :controller => "citycircles", :action => "index"
