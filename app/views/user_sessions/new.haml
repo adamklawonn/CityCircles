@@ -1,5 +1,9 @@
 .grid_3
 .grid_5
+  = error_messages_for 'user_session', :header_message => nil, :message => nil, :class => "errorExplanation"
+  - if flash[ :notice ].nil? == false
+    #notice.grid_12
+      = flash[ :notice ]
   - form_for :user_session, :url => user_session_path, :html => { :id => 'signindialog' }, :live_validations => true do |f|
     = render :partial => 'user_sessions/form', :locals => { :f => f }
 .grid_3

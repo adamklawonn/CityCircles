@@ -44,7 +44,13 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
   
+  config.action_controller.session_store = :active_record_store
+  
   ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcZfQgAAAAAAGOII0ryh_w5BOjq7GK4Td7Y2Y3R'
   ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcZfQgAAAAAACIo0Q5yt79bY7o6XNFtpMzz4WLQ'
   
 end
+
+# Fix sloppy Rails error handling code in form helpers.
+ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|
+"<span class=\"fieldWithErrors\">#{html_tag}</span>" }

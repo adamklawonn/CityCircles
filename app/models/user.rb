@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090921083414
+# Schema version: 20090928044320
 #
 # Table name: users
 #
@@ -26,6 +26,7 @@
 class User < ActiveRecord::Base
 
   has_one :user_profile
+  has_many :user_wireless_profiles
 
   acts_as_authentic
   
@@ -34,6 +35,10 @@ class User < ActiveRecord::Base
   before_validation_on_create :make_default_roles
 
   attr_accessible :login, :password, :password_confirmation, :email, :first_name, :last_name
+  
+  validates_presence_of :login
+  validates_length_of :login, :in => 3..20
+  validates_uniqueness_of :login
   
   def admin?
     has_role?( "admin" )

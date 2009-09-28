@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.user_profile = UserProfile.new
     if verify_recaptcha( :model => @user, :message => "Captcha response was incorrect!" ) && @user.save
       flash[:notice] = "Account registered!"
       redirect_back_or_default account_url
@@ -33,4 +34,5 @@ class UsersController < ApplicationController
       render :action => :edit
     end
   end
+
 end

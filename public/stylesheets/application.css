@@ -109,10 +109,19 @@ fieldset#fancyform legend { color: rgb(39, 49, 28); font-size: 1.4em; font-weigh
 
 
 /*======================
-         ERROR MESSAGES
+         MESSAGES
 =====================*/
-.errorExplanation { background-color: #BA5246; color: #fff; }
-.errorExplanation ul { list-style-type: none; text-align: center; }
 .LV_validation_message { font-size: 0.9em; }
 .LV_valid { color: #B1C55E; }
 .LV_invalid { color: #BA5246; }
+#notice { padding: 3px; text-align: center; background-color: #FFE59F; }
+
+/*======================
+         Rails
+=====================*/
+.fieldWithErrors input { display: inline; border: 2px solid #BA5246; }
+
+html {
+     overflow-y: -moz-scrollbars-vertical;
+     overflow-y: scroll;
+}

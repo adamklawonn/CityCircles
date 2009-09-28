@@ -1,0 +1,16 @@
+.grid_12
+  - if flash[ :notice ].nil? == false
+    #notice.grid_12
+      = flash[ :notice ]
+.clear
+.grid_3.alpha
+.grid_5
+  %fieldset#fancyform
+    %legend Register
+    - form_for @user, :url => accounts_url do |f|
+      = render :partial => "form", :object => f
+      %br
+      = recaptcha_tags :ajax => true
+      %br
+      = f.submit "Register"
+.grid_3.omega

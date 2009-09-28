@@ -1,25 +1,14 @@
-%fieldset#fancyform
-  %legend Update my Profile
-  = f.label :first_name
-  %br
-  = f.text_field :first_name
-  %div#firstNameValidatorMsg
-  %br
-  = f.label :last_name
-  %br
-  = f.text_field :last_name
-  %div#lastNameValidatorMsg
-  %br
-  = f.label :about_me
-  %br
-  = f.text_area :about_me
-  #about_me
-  = f.submit "Update Profile"
-
-:javascript
-  var loginValidator = new LiveValidation( 'user_session_login', { validMessage: "Ok", insertAfterWhatNode: "loginValidatorMsg" } );
-  loginValidator.add( Validate.Presence, { failureMessage: "Cannot be blank!" } );
-  loginValidator.add( Validate.Length, { minimum: 5, tooShortMessage: "Must be greater than 5 characters in length!" } );
-  var passwordValidator = new LiveValidation( 'user_session_password', { validMessage: "Ok", insertAfterWhatNode: "passwordValidatorMsg" } );
-  passwordValidator.add( Validate.Presence, { failureMessage: "Cannot be blank!" } );
-  passwordValidator.add( Validate.Length, { minimum: 5, tooShortMessage: "Must be greater than 5 characters in length!" } );
+= f.label :first_name
+%br
+= f.text_field :first_name
+= error_message_on "user_profile", "first_name"
+%br
+= f.label :last_name
+%br
+= f.text_field :last_name
+= error_message_on "user_profile", "last_name"
+%br
+= f.label :about_me
+%br
+= f.text_area :about_me, :rows => 5
+= error_message_on "user_profile", "about_me"

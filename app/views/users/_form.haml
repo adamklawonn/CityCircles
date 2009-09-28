@@ -1,0 +1,20 @@
+= form.label :login, "Username"
+%br
+= form.text_field :login
+= error_message_on "user", "login"
+%br
+= form.label :password
+%br
+= form.password_field :password, :value => ""
+= error_message_on "user", "password"
+%br
+= form.label :retype_password
+%br
+= form.password_field :password_confirmation, :value => ""
+= error_message_on "user", "password_confirmation"
+%br
+= form.label :email
+%br
+= form.text_field :email
+= error_message_on "user", "email"
+%br

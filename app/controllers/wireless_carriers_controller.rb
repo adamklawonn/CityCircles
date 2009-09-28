@@ -1,0 +1,2 @@
+class WirelessCarriersController < ApplicationController
+end

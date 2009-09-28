@@ -1,0 +1,4 @@
+- remote_form_for :user, @user, :url => { :controller => :user_settings, :action => :update_user }, :html => { :method => :put } do |f|
+  = render :partial => "users/form", :locals => { :user => @user, :form => f }
+  %br
+  = f.submit "Save"

@@ -33,29 +33,30 @@
     #wrapper.container_12
 
       .grid_4
-        = link_to image_tag( "logo.png", :alt => 'City Circles' ), root_path
+        = link_to image_tag( "logo.png", :alt => 'City Circles' ), root_url
       #navigation.grid_8
         %ul
           %li
             -if current_user_session.nil?
-              %a#signinlink{ :href => new_user_session_path } sign in
+              %a#signinlink{ :href => new_user_session_url } sign in
               %span
                 or
-              %a#registerlink{ :href => new_account_path } register
+              %a#registerlink{ :href => new_account_url } register
             -else 
-              = link_to "sign out (#{ current_user.login })", user_session_path( current_user ), :method => :delete
+              = link_to "sign out (#{ current_user.login })", user_session_url, :method => :delete
           %li
-            = link_to "profile", account_profile_path( current_user.id )
+            = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
           %li
             = link_to "post", "#"
         #searchbar
           - form_tag "/search" do
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"
+        %br
       .clear
-      
-      = error_messages_for 'user_session', 'user', :header_message => nil, :message => nil, :class => "errorExplanation .grid_12"
-            
+
       .grid_12{ :style => "margin-top: 0;" }
+        #notice{ :style => "display: none;"}
+          = flash[ :notice ]
         = yield
       .clear
 

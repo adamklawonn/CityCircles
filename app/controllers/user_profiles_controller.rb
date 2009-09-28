@@ -11,6 +11,7 @@ class UserProfilesController < ApplicationController
       redirect_to account_profile @user_profile
     else
       render :action => :edit
+    end
   end
   
   def show

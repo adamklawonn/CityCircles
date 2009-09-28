@@ -1,0 +1,2 @@
+%li
+  = "#{ phone.wireless_number } (#{ phone.wireless_carrier.name }) #{ link_to_remote 'Remove', :url => { :action => 'remove_phone', :phone_id => phone.id } }"

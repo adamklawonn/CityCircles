@@ -1,0 +1,24 @@
+.grid_12
+  #tabs
+    %ul
+      %li
+        %a{ :href => "#account-settings" } Account Settings
+      %li
+        %a{ :href => "#profile" } Profile
+      %li
+        %a{ :href => "#phones" } Phones
+    #account-settings
+      #user_form
+        = render :partial => "account_settings", :locals => { :user => @user }
+    #profile
+      #user_profile_form
+        = render :partial => "profile", :locals => { :user_profile => @user.user_profile }
+    #phones
+      - # Need to use the collection iterator partial. Then add a form for creating wireless profiles.
+      %ul#phone_list
+        = render :partial => "phone", :collection => @user.user_wireless_profiles
+      #user_wireless_profile_form
+        = render :partial => "user_wireless_profile", :locals => { :user_wireless_profile => @user_wireless_profile }
+
+:javascript
+  $j( function() { $j( "#tabs" ).tabs(); } );

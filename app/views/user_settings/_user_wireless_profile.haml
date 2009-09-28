@@ -1,0 +1,11 @@
+- remote_form_for :user_wireless_profile, @user_wireless_profile, :url => { :action => "add_phone" } do |f|
+  = f.label :wireless_number
+  %br
+  = f.text_field :wireless_number
+  %br
+  = f.label :wireless_carrier
+  %br
+  = f.select :wireless_carrier_id, WirelessCarrier.all.collect { | wc | [ wc.name, wc.id ] }
+  %br
+  %br
+  = f.submit "Add Phone"
