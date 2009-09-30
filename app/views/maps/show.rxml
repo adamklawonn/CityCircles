@@ -1,0 +1,5 @@
+xml.markers do
+  @map.interest_points.each do |poi|
+    xml.marker( :name => poi.label, :address => "", :lat => poi.lat, :lng => poi.lng, :type => poi.map_layer.shortname )
+  end
+end

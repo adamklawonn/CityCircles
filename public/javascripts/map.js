@@ -1,5 +1,5 @@
 citycircles.maps.Map = function() {
-	
+		
     var iconBlue = new GIcon();
     iconBlue.image = 'http://labs.google.com/ridefinder/images/mm_20_blue.png';
     iconBlue.shadow = 'http://labs.google.com/ridefinder/images/mm_20_shadow.png';
@@ -16,18 +16,21 @@ citycircles.maps.Map = function() {
     iconRed.iconAnchor = new GPoint(6, 20);
     iconRed.infoWindowAnchor = new GPoint(5, 1);
 
-    var customIcons = [];
-    customIcons["restaurant"] = iconBlue;
-    customIcons["bar"] = iconRed;
-    var markerGroups = {
-        "restaurant": [],
-        "bar": []
-    };
+    var customIcons = {};
+		
+		this.addCustomIcon = function ( group, iconType ) {
+			customIcons[ group ] = eval( iconType );
+		};
+		
+    var markerGroups = {};
 
-    this.load = function(mapEl, datasourceURI) {
+		this.addMarkerGroup = function ( group ) {
+			markerGroups[ group ] = new Array();
+		};
+    this.load = function(mapEl, datasourceURI, lat, lng, zoom) {
         if (GBrowserIsCompatible()) {
-            var map = new GMap2($(mapEl));
-            map.setCenter(new GLatLng(47.614495, -122.341861), 13);
+            this.map = new GMap2($(mapEl));
+            this.map.setCenter(new GLatLng(lat, lng), zoom);
 
             GDownloadUrl(datasourceURI,
             function(data) {
@@ -37,10 +40,9 @@ citycircles.maps.Map = function() {
                     var name = markers[i].getAttribute("name");
                     var address = markers[i].getAttribute("address");
                     var type = markers[i].getAttribute("type");
-                    var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
-                    parseFloat(markers[i].getAttribute("lng")));
+                    var point = new GLatLng( parseFloat( markers[ i ].getAttribute( "lat" ) ), parseFloat( markers[ i ].getAttribute( "lng" ) ) );
                     var marker = this.createMarker(point, name, address, type);
-                    map.addOverlay(marker);
+                    this.map.addOverlay(marker);
                 }
             }.bind(this)); // Using bind to ensure correct scope.
         }

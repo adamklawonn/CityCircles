@@ -1,6 +1,6 @@
 class CreatePhotos < ActiveRecord::Migration
   def self.up
-    create_table :photos do |t|
+    create_table :photos, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.string :title, :null => false
       t.string :caption, :default => nil
       t.string :photo_file_name, :null => false

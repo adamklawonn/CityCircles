@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :wireless_carriers
+  map.resources :map_layers
 
+  map.resources :wireless_carriers
   map.settings "/settings", :controller => "user_settings", :action => "index"
   map.resources :profile, :controller => "user_profiles"
   map.resources :register, :controller => "users"
@@ -19,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resource :user
   map.namespace :admin do | admin |
-    admin.root :controller => "citycircles", :action => "index"
+    admin.root :controller => "admin", :action => "index"
   end
   map.root :controller => "citycircles", :action => "index" # optional, this just sets the root route
     

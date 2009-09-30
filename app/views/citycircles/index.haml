@@ -1,6 +1,6 @@
 #content.grid_12
   #midmap.grid_8.alpha
-    = render :partial => 'maps/map'
+    = render :partial => 'maps/map', :locals => { :map => @map }
   #twitter.grid_4.omega
     #twtr-search-widget
     = javascript_include_tag "http://widgets.twimg.com/j/1/widget.js"
@@ -55,7 +55,7 @@
     %a{ :href => "#" }
       %img.buttonfloat{ :src => "images/smallrss.png", :border => "0" }
     %h1
-      event
+      events
     .infoblock
       %h2
         headline

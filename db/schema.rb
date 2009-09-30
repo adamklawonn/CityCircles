@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090928044320) do
+ActiveRecord::Schema.define(:version => 20090930070503) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",          :null => false
@@ -32,19 +32,35 @@ ActiveRecord::Schema.define(:version => 20090928044320) do
   end
 
   create_table "interest_points", :force => true do |t|
-    t.string   "label",       :null => false
+    t.integer  "map_id",                                      :null => false
+    t.integer  "map_layer_id",                                :null => false
+    t.string   "label",                                       :null => false
     t.string   "description"
-    t.float    "lat"
-    t.float    "lng"
+    t.decimal  "lat",          :precision => 10, :scale => 6
+    t.decimal  "lng",          :precision => 10, :scale => 6
+    t.integer  "author_id",                                   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "map_layers", :force => true do |t|
+    t.integer  "map_id",      :null => false
+    t.string   "title",       :null => false
+    t.string   "shortname",   :null => false
+    t.string   "description"
     t.integer  "author_id",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "maps", :force => true do |t|
-    t.string   "title",       :null => false
-    t.string   "description", :null => false
-    t.integer  "author_id",   :null => false
+    t.string   "title",                                                     :null => false
+    t.string   "description",                                               :null => false
+    t.string   "shortname",                                                 :null => false
+    t.decimal  "lat",         :precision => 10, :scale => 6,                :null => false
+    t.decimal  "lng",         :precision => 10, :scale => 6,                :null => false
+    t.integer  "zoom",                                       :default => 0
+    t.integer  "author_id",                                                 :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,8 @@
+- if @content.empty?
+  Nothing in the inbox...so lonely.
+- else
+  %ul
+  - @content.each do |c|
+    %li
+      c
+  

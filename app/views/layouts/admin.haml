@@ -14,30 +14,31 @@
     = javascript_include_tag "map.js"
     :javascript
       var $j = jQuery.noConflict();
-      $j(document).ready(
-        function(){
-          $j( "#signindialog" ).dialog( { width : 400, autoOpen : false, resizable : false, draggable : false } );
-          $j( "#signinlink" ).click( function() { $j( "#signindialog" ).dialog( "open" ); } );
-        }
-      );
     = GMap.header
 
   %body{ :onunload => "GUnload()" }
     #wrapper
       #admin.container_12
-        .grid_4
-          %h2 City Circles Administration
-        .grid_8
-          %ul#adminnavigation
-            %li
-              -if current_user_session.nil?
-                %a#signinlink{ :href => "#" } sign in
-              -else 
-                = link_to "sign out (#{ current_user.login })", user_session_url( current_user ), :method => :delete
+        #admin_bar.grid_12
+          .grid_4.alpha
+            %strong City Circles Administration
+          .grid_8.omega
+            %ul#adminnavigation
+              %li
+                = link_to "view site", root_url
+              %li
+                -if current_user_session.nil?
+                  %a#signinlink{ :href => "#" } sign in
+                -else 
+                  = link_to "sign out (#{ current_user.login })", user_session_url( current_user ), :method => :delete
+          .clear
         .clear
         
-      = yield
-                
-      #signindialog{ :title => "Sign In" } 
-        - if current_user_session.nil?
-          = render :partial => "user_sessions/new.haml", :object => @user_session
+        #admin_container.grid_12
+          %table#admin_body
+            %tr
+              %td#admin_sidebar
+                = render :partial => 'admin/admin/sidebar'
+              %td#admin_content
+                = yield
+        .clear

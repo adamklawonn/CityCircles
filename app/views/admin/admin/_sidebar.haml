@@ -1,0 +1,23 @@
+%ul
+  %li{ :class => request.url.match( '/admin/inbox' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Inbox", :controller => "inbox", :action => "index"
+  %li{ :class => request.url.match( '/admin/maps' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Maps", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/news' ) ? "admin_sidebar_selected" : "" }
+    = link_to "News", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/events' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Events", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/promos' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Promos", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/stuff' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Stuff", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/improve' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Fix/Better", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/users' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Users", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/advertisers' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Advertisers", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/mobile' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Mobile", :controller => "mobile", :action => "index"
+  %li{ :class => request.url.match( '/admin/pages' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Pages", :controller => "pages", :action => "index"

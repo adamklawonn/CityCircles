@@ -46,6 +46,9 @@
               = link_to "sign out (#{ current_user.login })", user_session_url, :method => :delete
           %li
             = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
+          - if !current_user.nil? and current_user.admin?
+            %li
+              = link_to "admin", admin_root_url
           %li
             = link_to "post", "#"
         #searchbar
@@ -55,8 +58,12 @@
       .clear
 
       .grid_12{ :style => "margin-top: 0;" }
-        #notice{ :style => "display: none;"}
-          = flash[ :notice ]
+        - if flash[ :notice ].nil?
+          #notice{ :style => "display: none;" }
+            = flash[ :notice ]
+        - else
+          #notice
+            = flash[ :notice ]
         = yield
       .clear
 

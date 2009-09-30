@@ -91,13 +91,25 @@ a.sidebar-entry:focus {background-color:#ccf; text-decoration: none}
 /*======================
          ADMIN
 =====================*/
+#admin_bar{ border-bottom: 1px solid #adbbb1; }
 #adminnavigation { float: right; }
 ul#adminnavigation { font-family: Arial, Helvetica, sans-serif; list-style: none; padding: 0; margin: 0; }
-#adminnavigation ul li { font-size: 1em; font-weight: bold; padding-left: 1em; }
+ul#adminnavigation li { display: inline; font-size: 1em; padding-top: 0px; font-weight: bold; padding-left: 1em; margin: 0; }
 #admin a:link {}
 #admin a:active {}
 #admin a:visited {}
 #admin a:hover {}
+#admin_container{ margin: 0px 9px 0px 11px; }
+#admin_body{ width: 100%; }
+#admin_sidebar{ width: 100px; padding-top: 5px; border-top: 1px solid #adbbb1; border-left: 1px solid #adbbb1; border-right: 5px solid #adbbb1; border-bottom: 5px solid #79AB75; background: #fff; text-align: right; vertical-align: top; }
+#admin_sidebar ul { list-style-type: none; }
+#admin_sidebar ul li { margin: 0px; padding-right: 10px; }
+#admin_sidebar ul li:hover { background: #79AB75; }
+#admin_sidebar ul li:hover a { color: white; }
+#admin_sidebar ul li:hover a:hover { background: #79AB75; }
+.admin_sidebar_selected { background-color: #79AB75; }
+.admin_sidebar_selected a { color: #fff; }
+#admin_content{ width: 752px; height: 500px; padding: 10px 0px 0px 10px; background: #fff; border-top: 1px solid #adbbb1; border-right: 1px solid #adbbb1; border-left: 0px; border-bottom: 5px solid #79AB75; overflow-y: scroll; }
 
 
 /*======================
