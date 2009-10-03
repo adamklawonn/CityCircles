@@ -13,6 +13,7 @@
     = javascript_include_tag "jquery-ui-1.7.2.custom.min.js"
     = javascript_include_tag "map.js"
     = javascript_include_tag "livevalidation_standalone.js"
+    = GMap.header
     :javascript
       var $j = jQuery.noConflict();
       $j(document).ready(
@@ -21,9 +22,7 @@
           //$j( "#signinlink" ).click( function() { $j( "#signindialog" ).dialog( "open" ); } );
         }
       );
-
-    = GMap.header
-    :javascript
+      
       // Call GUnload when page unloads. Memory :)
       Event.observe( window, "onunload", GUnload );
 
