@@ -19,7 +19,7 @@ namespace :db do
     user_caige.save!
     
     # Create default map, layers, and interest points
-    map = Map.new( :title => "Light Rail", :description => "METRO Light Rail is a 20-mile (32 km) light rail line operating in the cities of Phoenix, Tempe, and Mesa, Arizona and is part of the Valley Metro public transit system. Construction began in March 2005; operation started December 27, 2008.", :shortname => "lightrail", :lat => 33.4336444444, :lng => -111.98665, :zoom => 11 )
+    map = Map.new( :title => "Light Rail", :description => "METRO Light Rail is a 20-mile (32 km) light rail line operating in the cities of Phoenix, Tempe, and Mesa, Arizona and is part of the Valley Metro public transit system. Construction began in March 2005; operation started December 27, 2008.", :shortname => "lightrail", :lat => 33.474644, :lng => -111.98665, :zoom => 11 )
     map.author = user
     map.save!
     # Create map layers

@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :map_layers
-
   map.resources :wireless_carriers
   map.settings "/settings", :controller => "user_settings", :action => "index"
   map.resources :profile, :controller => "user_profiles"
@@ -11,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :photos
   map.resources :promos
   map.resources :maps
+  map.place "/place", :controller => "interest_points", :action => "show"
   map.resources :interest_points
   map.resources :events
   map.resources :news

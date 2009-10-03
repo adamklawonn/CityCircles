@@ -1,31 +1,7 @@
-%script{ :type => "text/javascript" }
-  var map = new citycircles.maps.Map();
-  :ruby
-    @map.map_layers.each do |layer|
-      print "map.addCustomIcon( '#{ layer.shortname }', 'iconBlue' );"
-      print "map.addMarkerGroup( '#{ layer.shortname }' );"
-    end
-  document.observe("dom:loaded", function() { map.load( "map", "#{ map_url @map, :format => :xml }", #{ @map.lat }, #{ @map.lng }, #{ @map.zoom } ) } );
-  
+= @map.to_html
 #map{ :style => "float:left; width: 495px; height: 399px; border: 3px solid #d3d3d3;" }
+  = @map.div
 #sidebar{ :style => "float:left; width: 116px; height: 399px; border: 3px solid #d3d3d3; border-left: none; color: #27311c;" }
-  - @map.map_layers.each do |layer|
-    %input#railCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup(\"#{ layer.shortname }\")", :CHECKED => "" }
+  - @default_map.map_layers.each do |layer|
+    %input#railCheckbox{ :type => "checkbox", :onclick => "#{ layer.shortname }.activate( this.checked )", :CHECKED => true }
     = layer.title
-  -#%input#railCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('rail_stop')", :CHECKED => "" }
-  -#Light Rail
-  -#%br
-  -#%input#restaurantCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('news')", :CHECKED => "" }
-  -#News
-  -#%br
-  -#%input#barCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('events')", :CHECKED => "" }
-  -#Events
-  -#%br
-  -#%input#barCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('promos')", :CHECKED => "" }
-  -#Promotions
-  -#%br
-  -#%input#barCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('stuff')", :CHECKED => "" }
-  -#Stuff
-  -#%br
-  -#%input#barCheckbox{ :type => "checkbox", :onclick => "map.toggleGroup('improve')", :CHECKED => "" }
-  -#Improve

@@ -109,9 +109,9 @@ function addMarkersToManager(manager,managedMarkers){
 
 
 var INVISIBLE = new GLatLng(0,0); //almost always invisible
-
-if(self.Event && Event.observe){
+// Commenting this out as I call it in the application template.
+/*if(self.Event && Event.observe){
     Event.observe(window, 'unload', GUnload);
 }else{
     window.onunload = GUnload;
-}
+}*/
