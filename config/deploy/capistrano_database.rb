@@ -120,7 +120,7 @@ Capistrano::Configuration.instance.load do
           adapter: mysql
           encoding: utf8
           database: #{ application }-production
-          username: #{ user }
+          username: #{ Capistrano::CLI.ui.ask( "Enter MySQL database username: " ) }
           password: #{ Capistrano::CLI.ui.ask( "Enter MySQL database password: " ) }
       
       EOF
