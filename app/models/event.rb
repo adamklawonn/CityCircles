@@ -1,16 +1,17 @@
 # == Schema Information
-# Schema version: 20090930070503
+# Schema version: 20091003085734
 #
 # Table name: events
 #
-#  id         :integer(4)      not null, primary key
-#  headline   :string(255)     not null
-#  body       :string(255)     not null
-#  starts_at  :datetime        not null
-#  ends_at    :datetime        not null
-#  author_id  :integer(4)      not null
-#  created_at :datetime
-#  updated_at :datetime
+#  id                :integer(4)      not null, primary key
+#  interest_point_id :integer(4)      not null
+#  headline          :string(255)     not null
+#  body              :string(255)     not null
+#  starts_at         :datetime        not null
+#  ends_at           :datetime        not null
+#  author_id         :integer(4)      not null
+#  created_at        :datetime
+#  updated_at        :datetime
 #
 
 class Event < ActiveRecord::Base

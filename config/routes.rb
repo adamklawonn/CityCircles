@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :organizations
+
   map.resources :map_layers
   map.resources :wireless_carriers
   map.settings "/settings", :controller => "user_settings", :action => "index"
@@ -10,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :photos
   map.resources :promos
   map.resources :maps
-  map.place "/place", :controller => "interest_points", :action => "show"
+  map.places "/places/:id", :controller => "interest_points", :action => "show"
   map.resources :interest_points
   map.resources :events
   map.resources :news

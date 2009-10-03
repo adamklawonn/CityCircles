@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090930070503
+# Schema version: 20091003085734
 #
 # Table name: maps
 #
@@ -16,12 +16,26 @@
 #
 
 class Map < ActiveRecord::Base
+    
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   has_many :map_layers
   has_many :interest_points
   has_many :comments, :as => :commenter
   
-  def marker_xml
+  def self.generate_gmap( map )
+    
+    marker_groups = []
+    map.map_layers.each do | layer |
+      marker_groups << { :layer_name => layer.shortname, :markers => layer.interest_points.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :title => poi.label, :info_window => "<strong>#{ poi.label }</strong><br /><a href='places/#{ poi.id }'>Jump to this place</a>" ) } }
+    end
+    gmap = GMap.new( "map" )
+    gmap.control_init( :large_map => true, :map_type => true )
+    gmap.center_zoom_init( [ map.lat, map.lng ], map.zoom )
+    marker_groups.each do | mg |
+      gmap.overlay_global_init GMarkerGroup.new( true, mg[:markers] ), mg[:layer_name]
+    end
+    
+    gmap
     
   end
   
