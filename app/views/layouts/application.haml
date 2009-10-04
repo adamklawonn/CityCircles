@@ -24,13 +24,18 @@
       
       // Call GUnload when page unloads. Memory :)
       Event.observe( window, "onunload", GUnload );
-
+    
   %body
     #wrapper.container_12
 
-      .grid_4
+    
+      .grid_4#logo
         = link_to image_tag( "logo.png", :alt => 'City Circles' ), root_url
-      #navigation.grid_8
+      .grid_5#navigation
+        #searchbar
+          - form_tag "/search" do
+            = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"
+        %br
         %ul
           %li
             -if current_user_session.nil?
@@ -45,11 +50,11 @@
           - if !current_user.nil? and current_user.admin?
             %li
               = link_to "admin", admin_root_url
-          %li
-            = link_to "post", "#"
-        #searchbar
-          - form_tag "/search" do
-            = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"
+      
+      #addcontent.grid_3
+        %h3
+          = link_to "add content", "#"
+       
         %br
       .clear
 
