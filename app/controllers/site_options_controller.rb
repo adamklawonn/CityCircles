@@ -1,0 +1,2 @@
+class SiteOptionsController < ApplicationController
+end

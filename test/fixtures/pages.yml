@@ -1,0 +1,24 @@
+# == Schema Information
+# Schema version: 20091004012535
+#
+# Table name: pages
+#
+#  id                 :integer(4)      not null, primary key
+#  parent_id          :string(255)
+#  title              :string(255)     not null
+#  shortname          :string(255)     not null
+#  show_in_navigation :boolean(1)
+#  description        :string(255)
+#  body               :text
+#  author_id          :integer(4)      not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value

@@ -14,10 +14,10 @@
   %li{ :class => request.url.match( '/admin/improve' ) ? "admin_sidebar_selected" : "" }
     = link_to "Fix/Better", :controller => "maps", :action => "index"
   %li{ :class => request.url.match( '/admin/users' ) ? "admin_sidebar_selected" : "" }
-    = link_to "Users", :controller => "maps", :action => "index"
+    = link_to "Users", index_admin_users_url
   %li{ :class => request.url.match( '/admin/advertisers' ) ? "admin_sidebar_selected" : "" }
     = link_to "Advertisers", :controller => "maps", :action => "index"
   %li{ :class => request.url.match( '/admin/mobile' ) ? "admin_sidebar_selected" : "" }
     = link_to "Mobile", :controller => "mobile", :action => "index"
   %li{ :class => request.url.match( '/admin/pages' ) ? "admin_sidebar_selected" : "" }
-    = link_to "Pages", :controller => "pages", :action => "index"
+    = link_to "Pages", index_admin_pages_url

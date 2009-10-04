@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091003085734
+# Schema version: 20091004012535
 #
 # Table name: wireless_carriers
 #

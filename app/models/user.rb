@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091003085734
+# Schema version: 20091004012535
 #
 # Table name: users
 #
@@ -29,8 +29,6 @@ class User < ActiveRecord::Base
   has_many :user_wireless_profiles
 
   acts_as_authentic
-  
-  serialize :roles, Array
 
   before_validation_on_create :make_default_roles
 
@@ -40,33 +38,49 @@ class User < ActiveRecord::Base
   validates_length_of :login, :in => 3..20
   validates_uniqueness_of :login
   
+  def self.find_admins
+    self.find( :all, :conditions => "find_in_set( 'admin', users.roles )" )
+  end
+  
+  def get_roles
+    self.roles.split ","
+  end
+  
   def admin?
     has_role?( "admin" )
   end
 
   def has_role?( role )
-    roles.include?( role )
+    get_roles.include?( role )
   end
 
   def add_role( role )
-    self.roles << role
+    if !get_roles.include? role
+      self.roles = get_roles.push( role ).join ","
+    end    
   end
 
   def remove_role( role )
-    self.roles.delete( role )
+    current_roles = get_roles
+    current_roles.delete( role )
+    self.roles = current_roles.join ","
   end
 
   def clear_roles
-    self.roles = []
+    self.roles = ""
   end
 
   def kaboom!
     r = RegExp.new( "foo" )
   end
-
+  
+  def to_s
+    login
+  end
+  
 private
   def make_default_roles
-    clear_roles if roles.nil?
+    clear_roles if roles.empty?
   end
   
 end

@@ -27,6 +27,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user
   map.namespace :admin do | admin |
     admin.root :controller => "admin", :action => "index"
+    admin.resource :inbox, :controller => "inbox", :collection => { :index => :get }
+    admin.resource :maps, :collection => { :index => :get }
+    admin.resource :pages, :collection => { :index => :get }
+    admin.resource :users, :collection => { :index => :get }
   end
   map.root :controller => "citycircles", :action => "index" # optional, this just sets the root route
     

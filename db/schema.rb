@@ -86,11 +86,13 @@ ActiveRecord::Schema.define(:version => 20091004012535) do
 
   create_table "pages", :force => true do |t|
     t.string   "parent_id"
-    t.string   "title",       :null => false
-    t.string   "shortname",   :null => false
+    t.string   "title",                                 :null => false
+    t.string   "shortname",                             :null => false
+    t.boolean  "show_in_navigation", :default => false
     t.string   "description"
     t.text     "body"
-    t.integer  "author_id",   :null => false
+    t.integer  "page_order",         :default => 1
+    t.integer  "author_id",                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -155,15 +157,15 @@ ActiveRecord::Schema.define(:version => 20091004012535) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                              :null => false
-    t.string   "email",                              :null => false
-    t.string   "crypted_password",                   :null => false
-    t.string   "password_salt",                      :null => false
-    t.string   "persistence_token",                  :null => false
-    t.string   "single_access_token",                :null => false
-    t.string   "perishable_token",                   :null => false
-    t.integer  "login_count",         :default => 0, :null => false
-    t.integer  "failed_login_count",  :default => 0, :null => false
+    t.string   "login",                               :null => false
+    t.string   "email",                               :null => false
+    t.string   "crypted_password",                    :null => false
+    t.string   "password_salt",                       :null => false
+    t.string   "persistence_token",                   :null => false
+    t.string   "single_access_token",                 :null => false
+    t.string   "perishable_token",                    :null => false
+    t.integer  "login_count",         :default => 0,  :null => false
+    t.integer  "failed_login_count",  :default => 0,  :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
@@ -171,7 +173,7 @@ ActiveRecord::Schema.define(:version => 20091004012535) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "roles"
+    t.string   "roles",               :default => ""
   end
 
   create_table "wireless_carriers", :force => true do |t|

@@ -5,7 +5,7 @@ class Admin::AdminController < ApplicationController
   before_filter :require_user
   
   def index
-    redirect_to :controller => "inbox", :action => "index"
+    redirect_to :controller => "admin/inbox", :action => "index"
   end
   
 end
