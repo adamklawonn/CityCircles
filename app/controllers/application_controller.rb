@@ -7,12 +7,18 @@ class ApplicationController < ActionController::Base
   
   layout proc{ |c| c.request.xhr? ? false : "application" }
   
+  before_filter :get_pages 
+  
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
-
+  
   private
+    def get_pages
+      @pages = Page.find( :all, :conditions => [ "show_in_navigation = ? and parent_id is ?", true, nil ], :order => "sort asc" )
+    end
+  
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find

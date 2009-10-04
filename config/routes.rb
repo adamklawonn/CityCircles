@@ -1,10 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :site_options
-
+  map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
   map.resources :pages
-
   map.resources :organizations
-
   map.resources :map_layers
   map.resources :wireless_carriers
   map.settings "/settings", :controller => "user_settings", :action => "index"

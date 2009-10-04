@@ -5,7 +5,7 @@ namespace :db do
   desc "Populate database with test data."
   task :populate => [ :environment, :drop, :create, :migrate ] do
     
-    # Create default user
+    # Create default user.
     user = User.new( :login => 'citycircles', :email => 'caigesn@gmail.com', :password => 'dailyphx', :password_confirmation => 'dailyphx' )
     user.user_profile = UserProfile.new
     user.save!
@@ -36,11 +36,11 @@ namespace :db do
     user_scott.add_role "admin"
     user_scott.save!
     
-    # Create default map, layers, and interest points
+    # Create default map, layers, and interest points.
     map = Map.new( :title => "Light Rail", :description => "METRO Light Rail is a 20-mile (32 km) light rail line operating in the cities of Phoenix, Tempe, and Mesa, Arizona and is part of the Valley Metro public transit system. Construction began in March 2005; operation started December 27, 2008.", :shortname => "lightrail", :lat => 33.474644, :lng => -111.98665, :zoom => 11 )
     map.author = user
     map.save!
-    # Create map layers
+    # Create map layers.
     light_rail_layer = MapLayer.new( :title => "Light Rail", :shortname => "lightrailline" )
     light_rail_layer.author = user
     light_rail_layer.map = map
@@ -54,13 +54,20 @@ namespace :db do
       poi.save!
     end
     
-    # Create wireless profiles
+    # Create wireless profiles.
     att = WirelessCarrier.new( :name => "AT&T", :email_gateway => "txt.att.net" )
     att.save!
     
     sprint = WirelessCarrier.new( :name => "Sprint", :email_gateway => "messaging.sprintpcs.com" )
     sprint.save!
     
+    # Create default pages.
+    about_page = Page.new( :title => "About", :shortname => "about", :description => "The about page.", :body => "This is the about page", :author_id => user.id, :show_in_navigation => true, :sort => 1 )
+    about_page.save!
+    advertise_page = Page.new( :title => "Advertise", :shortname => "advertise", :description => "The advertise page.", :body => "This is the advertise page", :author_id => user.id, :show_in_navigation => true, :sort => 2 )
+    advertise_page.save!
+    contact_page = Page.new( :title => "Contact", :shortname => "contact", :description => "The contact page.", :body => "This is the contact page", :author_id => user.id, :show_in_navigation => true, :sort => 3 )
+    contact_page.save!
   end
   
 end
