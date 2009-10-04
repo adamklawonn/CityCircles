@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091003085734) do
+ActiveRecord::Schema.define(:version => 20091004012535) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",          :null => false
@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(:version => 20091003085734) do
     t.integer  "interest_point_id", :null => false
     t.string   "name",              :null => false
     t.string   "description"
+    t.integer  "author_id",         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "parent_id"
+    t.string   "title",       :null => false
+    t.string   "shortname",   :null => false
+    t.string   "description"
+    t.text     "body"
+    t.integer  "author_id",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -115,6 +127,13 @@ ActiveRecord::Schema.define(:version => 20091003085734) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "site_options", :force => true do |t|
+    t.string   "name"
+    t.string   "option_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id",    :null => false

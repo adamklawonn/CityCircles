@@ -4,6 +4,7 @@ class CreateOrganizations < ActiveRecord::Migration
       t.integer :interest_point_id, :null => false
       t.string :name, :null => false
       t.string :description, :length => 5000, :default => nil
+      t.integer :author_id, :null => false
       t.timestamps
     end
   end

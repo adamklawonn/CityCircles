@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :site_options
+
+  map.resources :pages
+
   map.resources :organizations
 
   map.resources :map_layers
