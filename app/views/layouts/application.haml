@@ -31,7 +31,7 @@
     
       .grid_4#logo
         = link_to image_tag( "logo.png", :alt => 'City Circles' ), root_url
-      .grid_5#navigation
+      .grid_6#navigation
         #searchbar
           - form_tag "/search" do
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"
@@ -50,10 +50,12 @@
           - if !current_user.nil? and current_user.admin?
             %li
               = link_to "admin", admin_root_url
-      
-      #addcontent.grid_3{ :onclick => "alert( 'clicked' );" }
-        %h3 add content
+      #addcontent.grid_2
+        %a{ :href => "#" }
+          %ul
+            %li add content
       .clear
+     
 
       .grid_12{ :style => "margin-top: 0;" }
         - if flash[ :notice ].nil?

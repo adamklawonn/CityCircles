@@ -45,7 +45,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 =====================*/
 h1{font-size:1.8em; font-weight:bold; color:#27311c; padding-left:2px;}
 h2{font-size:1.1em; font-weight:bold; line-height:1.5em; }
-h3{font-size: 1.3em;padding-top:80px;padding-left:22px;}
+h3{font-size: 1em;}
 h4{}
 h5{font-size:.8em; font-weight:bold; color:#27311c; text-align: right;}
 p{font-size:.9em;}
@@ -60,14 +60,16 @@ a:hover {text-decoration:none; color:#7e8781;}
 =====================*/
 #logo {height:100px; position: relative; }
 #navigation {height:100px; position: relative; }
-#navigation ul { font-family: Arial, Helvetica, sans-serif; list-style: none; padding: 0; margin: 0; }
-#navigation li { text-align: right; display: inline; font-size: 1.3em; padding-top: 80px; font-weight: bold; padding-left: 1em; margin: 0; }
+#navigation ul {font-family: Arial, Helvetica, sans-serif; list-style: none; padding-right: 0px; margin: 0; }
+#navigation li {float: right; display: inline; font-size: 1em; padding-top: 0px; font-weight: bold; padding-left: 1em; margin: 0; }
+#addcontent ul {font-family: Arial, Helvetica, sans-serif; list-style: none; padding: 0; margin: 0; }
+#addcontent li{float: left; padding-top:80px; padding-right:47px; display: inline; font-size: 1em; font-weight: bold; margin: 0;}
 #navigation a:link {}
 #navigation a:active {}
 #navigation a:visited {}
 #navigation a:hover {}
 #navigation ul li span { color: #27311c; }
-#addcontent{height:100px;background-image:url('../images/insert.png'); background-repeat:no-repeat;background-position: 120px;}
+#addcontent{height:100px;background-image:url('../images/addcontent.png'); background-repeat:no-repeat;background-position: 60px 17px;}
 #searchbar { float: right; margin: 48px 0px 10px 200px;color:#fCf;  }
 
 /*======================
