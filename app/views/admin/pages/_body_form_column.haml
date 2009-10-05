@@ -6,3 +6,4 @@
 
 :javascript
   ckeditorManager.makeInstance( 'record_body' );
+  $j( "input.submit" ).click( function() { $( "record_body" ).innerHTML = CKEDITOR.instances.record_body.getData(); } );

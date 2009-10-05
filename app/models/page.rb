@@ -17,7 +17,7 @@
 #
 
 class Page < ActiveRecord::Base
-  acts_as_tree :order => "page_order asc"
+  acts_as_tree :order => "sort asc"
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   
   validates_uniqueness_of :shortname, :scope => "parent_id"
