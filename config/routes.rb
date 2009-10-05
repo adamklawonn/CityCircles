@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :interest_point_icons
+
+  map.resources :interest_lines
+
   map.resources :site_options
   map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
   map.resources :pages

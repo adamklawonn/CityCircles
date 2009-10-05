@@ -1,6 +1,5 @@
 = @map.to_html
-#map{ :style => "float:left; width: 495px; height: 399px; border: 3px solid #d3d3d3;" }
-  = @map.div
+= @map.div( :class => "map" )
 #sidebar{ :style => "float:left; width: 116px; height: 399px; border: 3px solid #d3d3d3; border-left: none; color: #27311c;" }
   - @default_map.map_layers.each do |layer|
     %input#railCheckbox{ :type => "checkbox", :onclick => "#{ layer.shortname }.activate( this.checked )", :CHECKED => true }

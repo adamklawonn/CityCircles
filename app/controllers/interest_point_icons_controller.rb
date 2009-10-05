@@ -1,0 +1,2 @@
+class InterestPointIconsController < ApplicationController
+end

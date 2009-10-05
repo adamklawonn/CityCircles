@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091004012535
+# Schema version: 20091005071144
 #
 # Table name: news
 #
@@ -17,4 +17,5 @@ class News < ActiveRecord::Base
   belongs_to :author, :class_name => "User", :foreign_key => "user_id"
   has_many :comments, :as => :commenter
   has_many :photos, :as => :photoable
+  acts_as_mappable :through => :interest_point, :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
 end

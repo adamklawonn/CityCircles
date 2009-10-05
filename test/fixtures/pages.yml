@@ -1,15 +1,16 @@
 # == Schema Information
-# Schema version: 20091004012535
+# Schema version: 20091005071144
 #
 # Table name: pages
 #
 #  id                 :integer(4)      not null, primary key
-#  parent_id          :string(255)
+#  parent_id          :integer(4)
 #  title              :string(255)     not null
 #  shortname          :string(255)     not null
 #  show_in_navigation :boolean(1)
 #  description        :string(255)
 #  body               :text
+#  sort               :integer(4)      default(1)
 #  author_id          :integer(4)      not null
 #  created_at         :datetime
 #  updated_at         :datetime

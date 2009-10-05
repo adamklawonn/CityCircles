@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091004012535) do
+ActiveRecord::Schema.define(:version => 20091005071144) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",          :null => false
@@ -32,14 +32,39 @@ ActiveRecord::Schema.define(:version => 20091004012535) do
     t.datetime "updated_at"
   end
 
-  create_table "interest_points", :force => true do |t|
+  create_table "interest_lines", :force => true do |t|
     t.integer  "map_id",                                      :null => false
     t.integer  "map_layer_id",                                :null => false
     t.string   "label",                                       :null => false
+    t.string   "shortname",                                   :null => false
     t.string   "description"
     t.decimal  "lat",          :precision => 10, :scale => 6
     t.decimal  "lng",          :precision => 10, :scale => 6
     t.integer  "author_id",                                   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interest_point_icons", :force => true do |t|
+    t.string   "image_url",                           :null => false
+    t.string   "shadow_url"
+    t.string   "icon_anchor",        :default => "0"
+    t.string   "info_window_anchor", :default => "0"
+    t.integer  "author_id",                           :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interest_points", :force => true do |t|
+    t.integer  "map_id",                                                :null => false
+    t.integer  "map_layer_id",                                          :null => false
+    t.integer  "interest_point_icon_id",                                :null => false
+    t.string   "label",                                                 :null => false
+    t.string   "body"
+    t.string   "description"
+    t.decimal  "lat",                    :precision => 10, :scale => 6
+    t.decimal  "lng",                    :precision => 10, :scale => 6
+    t.integer  "author_id",                                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -8,7 +8,8 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #smallmap {height:300px;background-color:#fff;margin-top: 0px;}
 #midmap {height:400px; background-color:#fff;margin-top: 0px;}
 #bigmap {height:500px;background-color:#fff;margin-top: 0px;}
-
+.map { float:left; width: 495px; height: 399px; border: 3px solid #d3d3d3; }
+.poi_map { float:left; width: 815px; height: 399px; border: 3px solid #d3d3d3; }
 
 /*======================
        960Add On

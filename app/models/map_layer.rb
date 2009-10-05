@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091004012535
+# Schema version: 20091005071144
 #
 # Table name: map_layers
 #
@@ -17,4 +17,5 @@ class MapLayer < ActiveRecord::Base
   belongs_to :map
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   has_many :interest_points
+  has_many :interest_lines
 end

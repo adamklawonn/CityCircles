@@ -45,9 +45,32 @@ namespace :db do
     light_rail_layer.author = user
     light_rail_layer.map = map
     light_rail_layer.save!
+    # Create interest point icon.
+    poi_icon = InterestPointIcon.new :image_url => "http://maps.gstatic.com/intl/en_us/mapfiles/markerTransparent.png", :author_id => user.id
+    poi_icon.save!
+    poi_stop_icon = InterestPointIcon.new :image_url => "/images/map_icons/stopcon.png", :author_id => user.id
+    poi_stop_icon.save!
     # Create interest points.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail.csv" ) do |row|
       poi = InterestPoint.new( :label => row[ 2 ], :lat => row[ 1 ].to_f, :lng => row[ 0 ].to_f )
+      poi.interest_point_icon = poi_stop_icon
+      poi.author = user
+      poi.map = map
+      poi.map_layer = light_rail_layer
+      poi.save!
+      poi.body = "<strong>#{ poi.label }</strong><br /><br /><a href='/places/#{ poi.id }'>Jump to this place</a>"
+      poi.save!
+    end
+    # Create interest lines.
+    CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail_line.csv" ) do |row|
+      poi = InterestLine.new( :label => "Valley Metro Light Rail Line", :shortname => "VMLRL", :lat => row[ 1 ].to_f, :lng => row[ 0 ].to_f )
+      poi.author = user
+      poi.map = map
+      poi.map_layer = light_rail_layer
+      poi.save!
+    end
+    CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail_line_north_route_downtown.csv" ) do |row|
+      poi = InterestLine.new( :label => "Valley Metro Light Rail Line (North Route Downtown)", :shortname => "VMLRLNRD", :lat => row[ 1 ].to_f, :lng => row[ 0 ].to_f )
       poi.author = user
       poi.map = map
       poi.map_layer = light_rail_layer

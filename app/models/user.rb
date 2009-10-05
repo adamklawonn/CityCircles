@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091004012535
+# Schema version: 20091005071144
 #
 # Table name: users
 #
@@ -20,7 +20,7 @@
 #  last_login_ip       :string(255)
 #  created_at          :datetime
 #  updated_at          :datetime
-#  roles               :string(255)
+#  roles               :string(255)     default("")
 #
 
 class User < ActiveRecord::Base

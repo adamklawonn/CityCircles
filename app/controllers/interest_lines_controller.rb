@@ -1,0 +1,2 @@
+class InterestLinesController < ApplicationController
+end
