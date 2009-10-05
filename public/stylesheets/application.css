@@ -5,6 +5,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #content {margin-top: 0px;}
 #wrapper {width:960px; margin-left:auto; margin-right:auto;}
 #twitter {margin-top: 0px;}
+
 #smallmap {height:300px;background-color:#fff;margin-top: 0px;}
 #midmap {height:400px; background-color:#fff;margin-top: 0px;}
 #bigmap {height:500px;background-color:#fff;margin-top: 0px;}
@@ -60,18 +61,19 @@ a:hover {text-decoration:none; color:#7e8781;}
       NAVIGATION
 =====================*/
 #logo {height:100px; position: relative; }
-#navigation {height:100px; position: relative; }
-#navigation ul {font-family: Arial, Helvetica, sans-serif; list-style: none; padding-right: 0px; margin: 0; }
-#navigation li {float: right; display: inline; font-size: 1em; padding-top: 0px; font-weight: bold; padding-left: 1em; margin: 0; }
+#navigation {height:100px; position: relative; height:100px;background-image:url('../images/addcontent.png'); background-repeat:no-repeat;background-position: 600px 17px;}}
+#navigation ul {font-family: Arial, Helvetica, sans-serif; list-style: none; padding-right:47px; margin-right:47px; margin: 0;}
+#navigation li {float: right; display: inline;font-size: 1em; font-weight: bold; padding-left: 1em; margin: 0; }
 #addcontent ul {font-family: Arial, Helvetica, sans-serif; list-style: none; padding: 0; margin: 0; }
-#addcontent li{float: left; padding-top:80px; padding-right:47px; display: inline; font-size: 1em; font-weight: bold; margin: 0;}
+#addcontent li{float: left;  padding-right:47px; display: inline; font-size: 1em; font-weight: bold; padding-top:80px;}
 #navigation a:link {}
 #navigation a:active {}
 #navigation a:visited {}
 #navigation a:hover {}
 #navigation ul li span { color: #27311c; }
-#addcontent{height:100px;background-image:url('../images/addcontent.png'); background-repeat:no-repeat;background-position: 60px 17px;}
-#searchbar { float: right; margin: 48px 0px 10px 200px;color:#fCf;  }
+.push {padding-right:72px;}
+#addzone {float: right; margin-top:10px; margin-right:20px; height:70px; width:80px; }
+#searchbar { float: left;margin-top:55px; margin-left:330px; margin-bottom:5px; width:255px; }
 
 /*======================
          FOOTER
@@ -135,7 +137,7 @@ label { font-size: 0.9em; }
 .LV_validation_message { font-size: 0.9em; }
 .LV_valid { color: #B1C55E; }
 .LV_invalid { color: #BA5246; }
-#notice { padding: 3px; text-align: center; background-color: #FFE59F; }
+#notice {width:600px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 3px; text-align: center; background-color:#c8d1cb; margin-left: auto; margin-right: auto; margin-bottom:4px;font-size:.8em; font-weight:bold; color:#fff;}
 
 /*======================
          Rails
