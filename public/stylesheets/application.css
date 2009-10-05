@@ -5,7 +5,6 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #content {margin-top: 0px;}
 #wrapper {width:960px; margin-left:auto; margin-right:auto;}
 #twitter {margin-top: 0px;}
-
 #smallmap {height:300px;background-color:#fff;margin-top: 0px;}
 #midmap {height:400px; background-color:#fff;margin-top: 0px;}
 #bigmap {height:500px;background-color:#fff;margin-top: 0px;}
@@ -21,13 +20,15 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
        INFO BOXES
 =====================*/
 .infoblock {width:280px; background-color:#fff; padding-left:10px; padding-right:10px; padding-bottom:5px; padding-top:5px;}
-#news{border-bottom: 5px solid #d2c76b;}
-#events{border-bottom: 5px solid #4e8fb5;}
-#promos{border-bottom: 5px solid #b05858;}
-#stuff{border-bottom: 5px solid #79ab75;}
-#network{border-bottom: 5px solid #b07b3d;}
+#news{border-bottom: 8px solid #d2c76b;}
+#events{border-bottom: 8px solid #4e8fb5;}
+#promos{border-bottom: 8px solid #b05858;}
+#stuff{border-bottom: 8px solid #79ab75;}
+#network{border-bottom: 8px solid #b07b3d;}
 #fixit{margin-bottom:5px;}
-.buttonfloat {float:right; padding-left:2px;padding-top:5px;}
+#infohead {float:left;}
+.buttonfloat {float:right;padding-top:5px;}
+.buttonfloatleft {float:left;margin-left:5px;}
 
 /*======================
        PROFILE
