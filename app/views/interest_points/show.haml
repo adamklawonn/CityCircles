@@ -6,9 +6,12 @@
   #midmap.grid_12.alpha
     = render :partial => 'maps/poi_map', :locals => { :map => @map }
   .clear
+  #postcontent.grid_12.alpha
+  .clear
   #news.grid_4.alpha
     %a{ :href => "#" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :update => "postcontent", :url => { :controller => "news", :action => "new" }
+      
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
