@@ -1,9 +1,10 @@
 # == Schema Information
 # Schema version: 20091005071144
 #
-# Table name: interest_point_icons
+# Table name: map_icons
 #
 #  id                 :integer(4)      not null, primary key
+#  shortname          :string(255)     not null
 #  image_url          :string(255)     not null
 #  shadow_url         :string(255)
 #  icon_anchor        :string(255)     default("0")

@@ -1,6 +1,7 @@
-class CreateInterestPointIcons < ActiveRecord::Migration
+class CreateMapIcons < ActiveRecord::Migration
   def self.up
-    create_table :interest_point_icons, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :map_icons, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+      t.string :shortname, :null => false
       t.string :image_url, :null => false
       t.string :shadow_url, :default => nil
       t.string :icon_anchor, :default => 0
@@ -11,6 +12,6 @@ class CreateInterestPointIcons < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :interest_point_icons
+    drop_table :map_icons
   end
 end

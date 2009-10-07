@@ -6,29 +6,22 @@
   #midmap.grid_12.alpha
     = render :partial => 'maps/poi_map', :locals => { :map => @map }
   .clear
-  #postcontent.grid_12.alpha
-  .clear
   #news.grid_4.alpha
-    %a{ :href => "#" }
-      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :update => "postcontent", :url => { :controller => "news", :action => "new" }
-      
+    - if current_user
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "news", :poi_id => @poi.id }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );"
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       news
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
+      - unless @news.empty?
+        - @news.each do |news|
+          %h2
+            = link_to truncate( news.headline, 30 ), news_url( news )
+      - else
+        %h2 No news...be the first to post!
       %h5
         more>>
   #events.grid_4
@@ -148,3 +141,20 @@
       %h5
         more>>
   .clear
+
+#postcontent{ :title => "Post New Content" }
+  %table{ :width => "100%" }
+    %tr
+      %td{ :style => "vertical-align: top;" }
+        #postcontentform
+      %td{ :align => "right" }
+        Set the location
+        %br
+        %br
+        :javascript
+          var poiBounds = null;
+        = render :partial => "maps/post_map", :locals => { :poi => @poi }
+
+:javascript
+  $j( '#postcontent' ).dialog( { width : 800, position : [ -10000, -10000 ] } );
+  $j( '#postcontent' ).dialog( 'option', 'center', 'true' );

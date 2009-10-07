@@ -22,12 +22,15 @@ ActiveRecord::Schema.define(:version => 20091005071144) do
   end
 
   create_table "events", :force => true do |t|
-    t.integer  "interest_point_id", :null => false
-    t.string   "headline",          :null => false
-    t.string   "body",              :null => false
-    t.datetime "starts_at",         :null => false
-    t.datetime "ends_at",           :null => false
-    t.integer  "author_id",         :null => false
+    t.integer  "interest_point_id",                                :null => false
+    t.integer  "map_icon_id",                                      :null => false
+    t.decimal  "lat",               :precision => 10, :scale => 6
+    t.decimal  "lng",               :precision => 10, :scale => 6
+    t.string   "headline",                                         :null => false
+    t.string   "body",                                             :null => false
+    t.datetime "starts_at",                                        :null => false
+    t.datetime "ends_at",                                          :null => false
+    t.integer  "author_id",                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,26 +48,27 @@ ActiveRecord::Schema.define(:version => 20091005071144) do
     t.datetime "updated_at"
   end
 
-  create_table "interest_point_icons", :force => true do |t|
+  create_table "interest_points", :force => true do |t|
+    t.integer  "map_id",                                      :null => false
+    t.integer  "map_layer_id",                                :null => false
+    t.integer  "map_icon_id",                                 :null => false
+    t.string   "label",                                       :null => false
+    t.string   "body"
+    t.string   "description"
+    t.decimal  "lat",          :precision => 10, :scale => 6
+    t.decimal  "lng",          :precision => 10, :scale => 6
+    t.integer  "author_id",                                   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "map_icons", :force => true do |t|
+    t.string   "shortname",                           :null => false
     t.string   "image_url",                           :null => false
     t.string   "shadow_url"
     t.string   "icon_anchor",        :default => "0"
     t.string   "info_window_anchor", :default => "0"
     t.integer  "author_id",                           :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "interest_points", :force => true do |t|
-    t.integer  "map_id",                                                :null => false
-    t.integer  "map_layer_id",                                          :null => false
-    t.integer  "interest_point_icon_id",                                :null => false
-    t.string   "label",                                                 :null => false
-    t.string   "body"
-    t.string   "description"
-    t.decimal  "lat",                    :precision => 10, :scale => 6
-    t.decimal  "lng",                    :precision => 10, :scale => 6
-    t.integer  "author_id",                                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,10 +96,14 @@ ActiveRecord::Schema.define(:version => 20091005071144) do
   end
 
   create_table "news", :force => true do |t|
-    t.integer  "interest_point_id", :null => false
-    t.string   "headline",          :null => false
-    t.string   "body",              :null => false
-    t.integer  "author_id",         :null => false
+    t.integer  "interest_point_id",                                :null => false
+    t.integer  "map_layer_id",                                     :null => false
+    t.integer  "map_icon_id",                                      :null => false
+    t.decimal  "lat",               :precision => 10, :scale => 6
+    t.decimal  "lng",               :precision => 10, :scale => 6
+    t.string   "headline",                                         :null => false
+    t.string   "body",                                             :null => false
+    t.integer  "author_id",                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -123,24 +131,29 @@ ActiveRecord::Schema.define(:version => 20091005071144) do
   end
 
   create_table "photos", :force => true do |t|
-    t.string   "title",              :null => false
+    t.string   "title",                                             :null => false
     t.string   "caption"
-    t.string   "photo_file_name",    :null => false
-    t.string   "photo_content_type", :null => false
-    t.integer  "photo_file_size",    :null => false
+    t.string   "photo_file_name",                                   :null => false
+    t.string   "photo_content_type",                                :null => false
+    t.integer  "photo_file_size",                                   :null => false
     t.integer  "photoable_id"
     t.string   "photoable_type"
-    t.integer  "author_id",          :null => false
+    t.decimal  "lat",                :precision => 10, :scale => 6
+    t.decimal  "lng",                :precision => 10, :scale => 6
+    t.integer  "author_id",                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "promos", :force => true do |t|
-    t.integer  "organization_id",   :null => false
-    t.integer  "interest_point_id", :null => false
-    t.string   "title",             :null => false
-    t.string   "description",       :null => false
-    t.integer  "author_id",         :null => false
+    t.integer  "organization_id",                                  :null => false
+    t.integer  "interest_point_id",                                :null => false
+    t.integer  "map_icon_id",                                      :null => false
+    t.decimal  "lat",               :precision => 10, :scale => 6
+    t.decimal  "lng",               :precision => 10, :scale => 6
+    t.string   "title",                                            :null => false
+    t.string   "description",                                      :null => false
+    t.integer  "author_id",                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

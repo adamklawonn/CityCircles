@@ -1,7 +1,5 @@
-- @map = generate_poi_gmap( @poi )
-= @map.to_html
-= @map.div( :class => "poi_map" )
+- map = generate_poi_gmap( @poi )
+= map.to_html
+= map.div( :class => "poi_map" )
 #sidebar{ :style => "float:left; width: 116px; height: 399px; border: 3px solid #d3d3d3; border-left: none; color: #27311c;" }
-  - @default_map.map_layers.each do |layer|
-    %input#railCheckbox{ :type => "checkbox", :onclick => "#{ layer.shortname }.activate( this.checked )", :CHECKED => true }
-    = layer.title
+  = render :partial => "maps/sidebar", :locals => { :default_map => @default_map }

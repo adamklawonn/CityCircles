@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091005061926
+# Schema version: 20091005071144
 #
 # Table name: maps
 #

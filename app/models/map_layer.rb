@@ -17,5 +17,23 @@ class MapLayer < ActiveRecord::Base
   belongs_to :map
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   has_many :interest_points
+  has_many :news
   has_many :interest_lines
+  
+  def points
+    
+    mapable_points = []
+    
+    self.interest_points.each do | poi |
+      mapable_points << poi.to_point
+    end
+    
+    self.news.each do | poi |
+      mapable_points << poi.to_point
+    end
+    
+    mapable_points
+    
+  end
+  
 end
