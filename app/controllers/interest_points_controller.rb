@@ -4,7 +4,7 @@ class InterestPointsController < ApplicationController
     @poi = InterestPoint.find( params[ :id ] )
     @default_map = @poi.map
     
-    @news = News.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.25 )
+    @news = News.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.27 )
   end
   
   def add_content
@@ -32,7 +32,7 @@ class InterestPointsController < ApplicationController
           page << "postcontentmap.savePosition();"
           page << "} else {"
           page << "postcontentmap.removeOverlay( poiBounds );"
-          page << "poiBounds = GCircle( postcontentmap, new GLatLng( #{ @poi.lat }, #{ @poi.lng } ), new GLatLng( #{ @poi.lat } + 0.004166666666667, #{ @poi.lng } ), '#000000', '#79AB75' );"
+          page << "poiBounds = GCircle( postcontentmap, new GLatLng( #{ @poi.lat }, #{ @poi.lng } ), new GLatLng( #{ @poi.lat }, #{ @poi.lng } + 0.004166666666667 ), '#000000', '#79AB75' );"
           page << "}"
           page << "postcontentmap.addOverlay( poiBounds );"
           page << "postcontentmap.returnToSavedPosition();"
