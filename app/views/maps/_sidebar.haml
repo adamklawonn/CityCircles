@@ -1,0 +1,4 @@
+- default_map.map_layers.each do |layer|
+  %input#railCheckbox{ :type => "checkbox", :onclick => "#{ layer.shortname }.activate( this.checked )", :CHECKED => true }
+  = layer.title
+  %br

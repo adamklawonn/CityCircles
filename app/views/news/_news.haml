@@ -1,0 +1,14 @@
+- remote_form_for news, :url => news_index_url, :onsubmit => "$( 'news_lat' ).value = $( 'poi_bounds_latitude' ).value;" do |f|
+  = hidden_field_tag :lat
+  = hidden_field_tag :lng
+  = hidden_field_tag :interest_point_id, poi.id
+  = f.label :headline
+  %br
+  = f.text_field :headline
+  %br
+  = f.label :body
+  %br
+  = f.text_area :body, :class => "news_body ckeditor_init"
+  %br
+  %br
+  = f.submit "Post"

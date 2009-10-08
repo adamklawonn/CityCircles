@@ -7,6 +7,8 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :photo_content_type, :null => false
       t.integer :photo_file_size, :null => false
       t.references :photoable, :polymorphic => true
+      t.decimal :lat, :precision => 10, :scale => 6, :default => nil
+      t.decimal :lng, :precision => 10, :scale => 6, :default => nil
       t.integer :author_id, :null => false
       t.timestamps
     end

@@ -38,18 +38,12 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     .clear
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
+      - unless @news.empty?
+        - @news.each do |news|
+          %h2
+            = link_to truncate( news.headline, :length => 30 ), news_url( news )
+      - else
+        %h2 No news...be the first to post!
       %h5
         more>>
   #events.grid_4

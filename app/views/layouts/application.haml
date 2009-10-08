@@ -11,14 +11,16 @@
     = javascript_include_tag "jquery-1.3.2.min.js"
     = javascript_include_tag "jquery-ui-1.7.2.custom.min.js"
     = javascript_include_tag "livevalidation_standalone.js"
+    = javascript_include_tag "ckeditor/ckeditor.js"
+    = javascript_include_tag "ckeditorManager.js"
     = GMap.header
     = javascript_include_tag "markerGroup"
+    = javascript_include_tag "gmap-extras"
     :javascript
       var $j = jQuery.noConflict();
       $j(document).ready(
         function(){
-          //$j( "#signindialog" ).dialog( { width : 400, autoOpen : false, resizable : false, draggable : false } );
-          //$j( "#signinlink" ).click( function() { $j( "#signindialog" ).dialog( "open" ); } );
+          // onload stuff goes here.
         }
       );
       
@@ -26,6 +28,7 @@
       Event.observe( window, "onunload", GUnload );
     
   %body
+  
     #wrapper.container_12
 
     
@@ -78,3 +81,8 @@
               %li
                 = link_to page.title, page_by_shortname_url( page.shortname )
       .clear
+    #whoops{ :title => "Whoops!" }
+      #whoops_message
+    :javascript
+      $j( '#whoops' ).dialog( { autoOpen : false, resizable : false } );
+      $j( '#whoops' ).dialog( 'option', 'buttons', { "Ok" : function() { $j( this ).dialog( "close" ); } } );

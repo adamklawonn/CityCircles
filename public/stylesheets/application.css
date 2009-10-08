@@ -11,6 +11,15 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 .map { float:left; width: 495px; height: 399px; border: 3px solid #d3d3d3; }
 .poi_map { float:left; width: 815px; height: 399px; border: 3px solid #d3d3d3; }
 
+
+/*======================
+       POST CONTENT
+=====================*/
+#postcontent {}
+#postcontentmap { width: 260px; height: 260px; border: 3px solid #d3d3d3; }
+#smc { top: 28px !important; }
+.news_body { width: 400px; height: 400px; }
+
 /*======================
        960Add On
 =====================*/

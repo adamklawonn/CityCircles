@@ -3,7 +3,7 @@ class CreateInterestPoints < ActiveRecord::Migration
     create_table :interest_points, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.integer :map_id, :null => false
       t.integer :map_layer_id, :null => false
-      t.integer :interest_point_icon_id, :null => false
+      t.integer :map_icon_id, :null => false
       t.string :label, :null => false
       t.string :body, :default => nil
       t.string :description, :default => nil
