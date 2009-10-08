@@ -23,7 +23,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #posts #post #comments { font-size: .8em;width:500px; margin-left:auto; margin-right:auto; padding-top:10px}
 #comments span {padding:0 0 0 25px;text-align: left;font-size:1.1em; font-weight:bold; color:#ccc;}
 #comments .comment {  -moz-border-radius: 10px; -webkit-border-radius: 10px; background-color:#dce3da;float:left;width:400px; min-height:40px;margin-top:10px; padding:10px; margin-left:5px}
-#comments .userimage{float:left;margin-left:15px;margin-top:5px; border:1px solid #ccc;padding:0; height:50px;width:50px;margin-bottom:10px;}
+#comments .userimage{float:left;margin-left:15px;margin-top:10px; border:1px solid #ccc;padding:0; height:50px;width:50px;margin-bottom:10px;}
 #storyside #mostread  {margin-top:10px;}
 #storyside #mostread .infoblock {height:250px;}
 #posts #post .articleimage { margin:10px 0 10px 0; padding:10px; height:300px;width:480px; background-color:#fff;}
