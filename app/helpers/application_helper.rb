@@ -23,7 +23,7 @@ module ApplicationHelper
           
         when "news"
           line_categories = InterestLine.find_by_sql "select distinct shortname from interest_lines where map_layer_id = #{ layer.id }"
-          marker_group = { :layer_name => layer.shortname, :markers => layer.news.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( 20, 20 ), :icon_anchor => GPoint.new( 10, 10 ), :info_window_anchor => GPoint.new( 10, 10 ) ), :title => poi.label, :info_window => poi.body ) } }
+          marker_group = { :layer_name => layer.shortname, :markers => layer.news.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( poi.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.map_icon.shadow_url, :shadow_size => GSize.new( poi.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.body ) } }
           line_categories.each do | lc | 
             marker_group[ :markers ] << GPolyline.new( InterestLine.find( :all, :conditions => [ "shortname = ?", lc.shortname ] ).collect { | poi | [ poi.lat, poi.lng ] }, "#8F2323", 5, 0.5 )
           end
@@ -32,8 +32,9 @@ module ApplicationHelper
     end
     
     # Initialize the map.
-    gmap = GMap.new( "map" )
+    gmap = GMap.new( "map", "map" )
     gmap.control_init( :large_map => true, :map_type => true )
+    gmap.record_init "map.enableScrollWheelZoom();"
     
     # Set location based on map default or poi override.
     if poi_override.nil?

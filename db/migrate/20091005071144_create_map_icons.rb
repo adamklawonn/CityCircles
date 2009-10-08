@@ -5,8 +5,9 @@ class CreateMapIcons < ActiveRecord::Migration
       t.string :image_url, :null => false
       t.string :icon_size, :null => false
       t.string :shadow_url, :default => nil
-      t.string :icon_anchor, :default => 0
-      t.string :info_window_anchor, :default => 0
+      t.string :shadow_size, :default => nil
+      t.string :icon_anchor, :default => "0, 0"
+      t.string :info_window_anchor, :default => "0, 0"
       t.integer :author_id, :null => false
       t.timestamps
     end

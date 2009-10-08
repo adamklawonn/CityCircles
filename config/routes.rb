@@ -20,10 +20,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :photos
   map.resources :promos
   map.resources :maps
-  map.places "/places/:id", :controller => "interest_points", :action => "show"
-  map.resources :interest_points
+  map.resources :interest_points, :as => "places", :has_many => [ :news]
   map.resources :events
-  map.resources :news
+  map.resources :news, :collection => { :poi => :get }
   map.resource :user_session
   map.resources :accounts, :controller => "users" do | accounts |
     accounts.resources :profile, :controller => "user_profiles"

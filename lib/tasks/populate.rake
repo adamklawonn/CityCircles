@@ -49,13 +49,37 @@ namespace :db do
     news_layer.author = user
     news_layer.map = map
     news_layer.save!
+    events_layer = MapLayer.new( :title => "Events", :shortname => "events" )
+    events_layer.author = user
+    events_layer.map = map
+    events_layer.save!
+    network_layer = MapLayer.new( :title => "Network", :shortname => "network" )
+    network_layer.author = user
+    network_layer.map = map
+    network_layer.save!
+    promos_layer = MapLayer.new( :title => "Promos", :shortname => "promos" )
+    promos_layer.author = user
+    promos_layer.map = map
+    promos_layer.save!
+    stuff_layer = MapLayer.new( :title => "Stuff", :shortname => "stuff" )
+    stuff_layer.author = user
+    stuff_layer.map = map
+    stuff_layer.save!
     # Create interest point icon.
-    poi_icon = MapIcon.new :shortname => "default", :image_url => "http://maps.gstatic.com/intl/en_us/mapfiles/markerTransparent.png", :author_id => user.id
+    poi_icon = MapIcon.new :shortname => "default", :image_url => "http://maps.gstatic.com/intl/en_us/mapfiles/markerTransparent.png", :icon_size => "20, 20", :author_id => user.id
     poi_icon.save!
-    poi_stop_icon = MapIcon.new :shortname => "interestpoint", :image_url => "/images/map_icons/stopcon.png", :author_id => user.id
+    poi_stop_icon = MapIcon.new :shortname => "interestpoint", :image_url => "/images/map_icons/stopcon.png", :icon_size => "20, 20", :author_id => user.id
     poi_stop_icon.save!
-    news_icon = MapIcon.new :shortname => "news", :image_url => "/images/map_icons/newscon.png", :author_id => user.id
+    news_icon = MapIcon.new :shortname => "news", :image_url => "/images/map_icons/news/newsimage.png", :shadow_url => "/images/map_icons/news/newsshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
     news_icon.save!
+    events_icon = MapIcon.new :shortname => "events", :image_url => "/images/map_icons/events/eventsimage.png", :shadow_url => "/images/map_icons/events/eventsshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
+    events_icon.save!
+    network_icon = MapIcon.new :shortname => "network", :image_url => "/images/map_icons/network/networkimage.png", :shadow_url => "/images/map_icons/network/networkshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
+    network_icon.save!
+    promos_icon = MapIcon.new :shortname => "promos", :image_url => "/images/map_icons/promos/promosimage.png", :shadow_url => "/images/map_icons/promos/promosshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
+    promos_icon.save!
+    stuff_icon = MapIcon.new :shortname => "stuff", :image_url => "/images/map_icons/stuff/stuffimage.png", :shadow_url => "/images/map_icons/stuff/stuffshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
+    stuff_icon.save!
     # Create interest points.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail.csv" ) do |row|
       poi = InterestPoint.new( :label => row[ 2 ], :lat => row[ 1 ].to_f, :lng => row[ 0 ].to_f )

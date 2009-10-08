@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091005071144) do
+ActiveRecord::Schema.define(:version => 20091007235621) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",          :null => false
@@ -63,12 +63,14 @@ ActiveRecord::Schema.define(:version => 20091005071144) do
   end
 
   create_table "map_icons", :force => true do |t|
-    t.string   "shortname",                           :null => false
-    t.string   "image_url",                           :null => false
+    t.string   "shortname",                              :null => false
+    t.string   "image_url",                              :null => false
+    t.string   "icon_size",                              :null => false
     t.string   "shadow_url"
-    t.string   "icon_anchor",        :default => "0"
-    t.string   "info_window_anchor", :default => "0"
-    t.integer  "author_id",                           :null => false
+    t.string   "shadow_size"
+    t.string   "icon_anchor",        :default => "0, 0"
+    t.string   "info_window_anchor", :default => "0, 0"
+    t.integer  "author_id",                              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -175,11 +177,17 @@ ActiveRecord::Schema.define(:version => 20091005071144) do
     t.datetime "updated_at"
   end
 
+  create_table "user_locations", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "about_me"
+    t.string   "hobbies"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

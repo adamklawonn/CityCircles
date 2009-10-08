@@ -23,7 +23,10 @@
       - else
         %h2 No news...be the first to post!
       %h5
-        more>>
+        - unless @news.empty?
+          = link_to "more>>", interest_point_news_index_url( @poi )
+        -else
+          more>>
   #events.grid_4
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }

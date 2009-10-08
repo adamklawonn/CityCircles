@@ -1,5 +1,10 @@
 class NewsController < ApplicationController
   
+  def index
+    @poi = InterestPoint.find params[ :interest_point_id ]
+    @news = News.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.25 )
+  end
+  
   def new
     @news = News.new
   end
@@ -26,6 +31,10 @@ class NewsController < ApplicationController
       end
     end
     
+  end
+  
+  def show
+    @news = News.find( params[ :id ] )
   end
   
 end
