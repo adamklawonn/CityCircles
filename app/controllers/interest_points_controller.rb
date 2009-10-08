@@ -21,7 +21,7 @@ class InterestPointsController < ApplicationController
           page << "$j( '#postcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$j( '#postcontent' ).dialog( 'open' );"
           page << "$j( '#ui-dialog-title-postcontent' ).html( 'Post #{ content_type.camelize }' );"
           page << "ckeditorManager.makeInstance( '#{ content_type }_body' );"
-          page << "$j( 'input.submit' ).click( function() { $( '#{ content_type }_body' ).innerHTML = CKEDITOR.instances.#{ content_type }_body.getData(); } );"
+          page << "$j( '##{ content_type }_submit' ).click( function() { $( '#{ content_type }_body' ).innerHTML = CKEDITOR.instances.#{ content_type }_body.getData(); } );"
           page << "if( poiBounds == null ) {"
           page << "poiBounds = GCircle( postcontentmap, new GLatLng( #{ @poi.lat }, #{ @poi.lng } ), new GLatLng( #{ @poi.lat } + 0.004166666666667, #{ @poi.lng } ), '#000000', '#79AB75' );"
           page << "latlngMarker = null;"
