@@ -47,16 +47,20 @@
             %li 
               .push
                 add content
-          %li
+          
             -if current_user_session.nil?
-              %a#signinlink{ :href => new_user_session_url } sign in
-              %span
-                or
-              %a#registerlink{ :href => new_account_url } register
-            -else 
-              = link_to "sign out (#{ current_user.login })", user_session_url, :method => :delete
-          %li
-            = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
+              %li
+                %a#signinlink{ :href => new_user_session_url } sign in
+                %span
+                  or
+                %a#registerlink{ :href => new_account_url } register
+            -else
+              %li
+                = link_to "sign out (#{ current_user.login })", user_session_url, :method => :delete
+              %li
+                = link_to "profile", ( current_user_session.nil? ? "#" : user_url )
+              %li
+                = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
           - if !current_user.nil? and current_user.admin?
             %li
               = link_to "admin", admin_root_url

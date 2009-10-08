@@ -1,2 +1,10 @@
 %li
-  = "#{ phone.wireless_number } (#{ phone.wireless_carrier.name }) #{ link_to_remote 'Remove', :url => { :action => 'remove_phone', :phone_id => phone.id } }"
+  %br
+  = "#{ phone.wireless_number } (#{ phone.wireless_carrier.name })"
+  %br
+  = label_tag "subscriptions", "Send updates to this device?"
+  = check_box_tag "subscriptions"
+  %br
+  = "#{ link_to_remote 'Remove', :url => { :action => 'remove_phone', :phone_id => phone.id } }"
+  %br
+  %br

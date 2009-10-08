@@ -1,0 +1,7 @@
+%li
+  %br
+  = "#{ location.interest_point.label }"
+  %br
+  = "#{ link_to_remote 'Remove', :url => { :action => 'remove_location', :user_location_id => location.id } }"
+  %br
+  %br

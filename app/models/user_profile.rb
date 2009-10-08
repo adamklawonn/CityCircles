@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091005071144
+# Schema version: 20091007235621
 #
 # Table name: user_profiles
 #
@@ -8,6 +8,7 @@
 #  first_name :string(255)
 #  last_name  :string(255)
 #  about_me   :string(255)
+#  hobbies    :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
