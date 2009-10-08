@@ -1,6 +1,6 @@
-class CreateUserProfiles < ActiveRecord::Migration
+class CreateUserDetails < ActiveRecord::Migration
   def self.up
-    create_table :user_profiles, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :user_details, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.integer :user_id, :null => false
       t.string :first_name, :default => nil
       t.string :last_name, :default => nil
@@ -11,6 +11,6 @@ class CreateUserProfiles < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :user_profiles
+    drop_table :user_details
   end
 end

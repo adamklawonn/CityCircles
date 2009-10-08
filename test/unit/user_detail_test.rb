@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: user_profiles
+# Table name: user_details
 #
 #  id         :integer(4)      not null, primary key
 #  user_id    :integer(4)      not null
@@ -14,7 +14,7 @@
 
 require 'test_helper'
 
-class UserProfileTest < ActiveSupport::TestCase
+class UserDetailTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   test "the truth" do
     assert true

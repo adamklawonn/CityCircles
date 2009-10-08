@@ -1,7 +1,7 @@
 # == Schema Information
 # Schema version: 20091007235621
 #
-# Table name: user_profiles
+# Table name: user_details
 #
 #  id         :integer(4)      not null, primary key
 #  user_id    :integer(4)      not null
@@ -13,7 +13,7 @@
 #  updated_at :datetime
 #
 
-class UserProfile < ActiveRecord::Base
+class UserDetail < ActiveRecord::Base
 
   belongs_to :user
 

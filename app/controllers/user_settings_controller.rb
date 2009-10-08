@@ -2,7 +2,7 @@ class UserSettingsController < ApplicationController
   
   def index
     @user = User.find( current_user.id )
-    @user_profile = @user.user_profile
+    @user_detail = @user.user_detail
     @user_wireless_profile = UserWirelessProfile.new
     @user_location = UserLocation.new
   end
@@ -25,12 +25,12 @@ class UserSettingsController < ApplicationController
     end
   end
 
-  def update_user_profile
+  def update_user_detail
     user = current_user
-    @user_profile = user.user_profile
-    if @user_profile.update_attributes(params[:user_profile])
+    @user_detail = user.user_detail
+    if @user_detail.update_attributes(params[:user_detail])
       render :update do | page |
-        page.replace_html "user_profile_form", :partial => "profile"
+        page.replace_html "user_detail_form", :partial => "profile"
         page.replace_html "notice", "Profile updated."
         page.visual_effect :toggle_blind, 'notice'
         page.delay 3 do
@@ -39,7 +39,7 @@ class UserSettingsController < ApplicationController
       end
     else
       render :update do | page |
-        page.replace_html "user_profile_form", :partial => "profile"
+        page.replace_html "user_detail_form", :partial => "profile"
       end
     end
   end

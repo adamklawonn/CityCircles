@@ -1,6 +1,6 @@
 %h1
   Edit My Profile
-- form_for @user_profile, :url => account_profile @user_profile do |f|
+- form_for @user_detail, :url => account_profile @user_detail do |f|
   = render :partial => "form", :object => f
   = f.submit "Update"
 

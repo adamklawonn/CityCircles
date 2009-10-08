@@ -25,7 +25,7 @@
 
 class User < ActiveRecord::Base
 
-  has_one :user_profile
+  has_one :user_detail
   has_many :user_wireless_profiles
   has_many :user_locations
   has_many :news, :foreign_key => "author_id"
