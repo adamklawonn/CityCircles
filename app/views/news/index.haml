@@ -1,13 +1,18 @@
+
 #content.grid_12
-  #midmap.grid_12.alpha
-    = render :partial => 'maps/poi_map', :locals => { :map => @map }
+  #feed
+    %h1
+      News feed
+    %a{ :href => "#" }
+      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+    %a{ :href => "#" }
+      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     .clear
-  
-
-- @news.each do |news_item|
-  = news_item.headline
-  %br
-  = news_item.body
-  %br
-
+    - @news.each do |news_item| 
+      #listitem 
+        %h2= news_item.headline
+        %p= news_item.body
+        
 = debug @news
+
+
