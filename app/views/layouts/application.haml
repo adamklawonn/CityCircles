@@ -94,7 +94,14 @@
     .panel
       %h3 Sliding Panel
       %p Magic sliding panels are kewl.
-    %a{ :class => "trigger", :href => "#" } infos  
+    %a{ :class => "trigger", :href => "#" }   
+      %center
+        <em>B</em>
+        <em>e</em>
+        <em>t</em>
+        <em>t</em>
+        <em>e</em>
+        <em>r</em>  
     :javascript
       $j( '#whoops' ).dialog( { autoOpen : false, resizable : false } );
       $j( '#whoops' ).dialog( 'option', 'buttons', { "Ok" : function() { $j( this ).dialog( "close" ); } } );
