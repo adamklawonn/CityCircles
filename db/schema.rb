@@ -177,19 +177,19 @@ ActiveRecord::Schema.define(:version => 20091007235621) do
     t.datetime "updated_at"
   end
 
-  create_table "user_locations", :force => true do |t|
-    t.integer  "user_id",           :null => false
-    t.integer  "interest_point_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_profiles", :force => true do |t|
+  create_table "user_details", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "about_me"
     t.string   "hobbies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_locations", :force => true do |t|
+    t.integer  "user_id",           :null => false
+    t.integer  "interest_point_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
