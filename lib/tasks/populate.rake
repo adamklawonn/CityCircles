@@ -1,4 +1,6 @@
 require 'csv'
+require 'rubygems'
+require 'random_data'
 
 namespace :db do
   
@@ -8,8 +10,6 @@ namespace :db do
     # Create default user.
     user = User.new( :login => 'citycircles', :email => 'caigesn@gmail.com', :password => 'dailyphx', :password_confirmation => 'dailyphx' )
     user.user_detail = UserDetail.new
-    user.save!
-    user.add_role "admin"
     user.save!
     
     user_caige = User.new( :login => 'caiges', :email => 'caige@sevenblend.com', :password => 'railsphx', :password_confirmation => 'railsphx' )
@@ -90,6 +90,26 @@ namespace :db do
       poi.save!
       poi.body = "<strong>#{ poi.label }</strong><br /><br /><a href='/places/#{ poi.id }'>Jump to this place</a>"
       poi.save!
+      
+      # Generate suedo random news items.
+      titles = [ "Homeless population skyrockets as economy sinks", "Budget cuts impact iconic Phoenix park", "Filmmaker's rise shows Phoenix's movie-industry potential", "Never too late to remember", "One bullish Matador", "For black artists, a new home is a work in progress", "That’s ‘Mrs. Green’ to you" ]
+      
+      if rand( 2 ) == 1
+        title = titles[ rand( titles.length ) ]
+        north = 1
+        while north > 0.3 and north != 0
+          north = rand
+        end
+        east = 1
+        while east > 0.3 and east != 0
+          east = rand
+        end
+        north_east = [ north, east ]
+        latlng = poi.endpoint( [ 0, 90 ][ rand( 2 ) ], north_east[ rand( 2 ) ] )
+        news_item = News.new( :headline => title, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => news_layer.id, :map_icon_id => news_icon.id )
+        news_item.save!
+      end
+      
     end
     # Create interest lines.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail_line.csv" ) do |row|

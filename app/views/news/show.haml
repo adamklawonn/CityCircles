@@ -7,10 +7,9 @@
       #article
       
         %h1
-          Headline
-        = image_tag "smalladd.png", { :class => "articleimage", :border => 0 }
+          = @news.headline
         %p
-          Right now your best tools are meta keywords (you can add local keywords to your web pages), links from local sites, and targeted local PPC ads.
+          = @news.body
          
       #comments
         %span
@@ -33,7 +32,7 @@
         title: 'City Circles',
         subject: 'twittersphere',
         width: 300,
-        height: 312,
+        height: 302,
         theme: {
           shell: {
             background: '#c7dacd',
@@ -51,45 +50,12 @@
       %h1
         most read stories
       .infoblock
-        %h2
-          headline
-        %h2
-          headline
-        %h2
-          headline
-        %h2
-          headline
-        %h2
-          headline
-        %h2
-          headline
-        %h2
-          headline
-        %h2
-          headline  
-        %h2
-          headline
+        - News.find( :all, :limit => 9 ).each do |news_item|
+          %h2
+            = link_to truncate( news_item.headline, 30 ), news_url( news_item )
         %h5
           more>>
       
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 :javascript
 
   function loadNewsMap() {
