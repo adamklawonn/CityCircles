@@ -184,7 +184,7 @@ ActiveRecord::Schema.define(:version => 20091007235621) do
     t.datetime "updated_at"
   end
 
-  create_table "user_profiles", :force => true do |t|
+  create_table "user_details", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "first_name"
     t.string   "last_name"
