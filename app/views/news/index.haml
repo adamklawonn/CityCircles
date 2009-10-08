@@ -1,3 +1,9 @@
+#content.grid_12
+  #midmap.grid_12.alpha
+    = render :partial => 'maps/poi_map', :locals => { :map => @map }
+    .clear
+  
+
 - @news.each do |news_item|
   = news_item.headline
   %br

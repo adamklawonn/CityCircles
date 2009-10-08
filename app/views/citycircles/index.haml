@@ -16,7 +16,7 @@
         height: 312,
         theme: {
           shell: {
-            background: '#78ab75',
+            background: '#c7dacd',
             color: '#ffffff'
           },
           tweets: {
@@ -29,14 +29,13 @@
   .clear
   #news.grid_4.alpha
     #infohead
-      %h1
-        news
-    = image_tag "newscon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    .clear
+    %h1
+      news
+      = image_tag "newscon.png", { :border => 0 }
     .infoblock
       - unless @news.empty?
         - @news.each do |news|
@@ -46,16 +45,15 @@
         %h2 No news...be the first to post!
       %h5
         more>>
+ 
   #events.grid_4
-    #infohead
-      %h1
-        events
-    = image_tag "eventscon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    .clear
+    %h1
+      events
+      = image_tag "eventscon.png", { :border => 0 }
     .infoblock
       %h2
         headline
@@ -72,15 +70,13 @@
       %h5
         more>>
   #promos.grid_4.omega
-    #infohead
-      %h1
-        promos
-    = image_tag "promocon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    .clear
+    %h1
+      promos
+      = image_tag "promocon.png", { :border => 0 }
     .infoblock
       %h2
         headline
@@ -96,17 +92,14 @@
         headline
       %h5
         more>>
-  .clear
   #network.grid_4.alpha
-    #infohead
-      %h1
-        network
-    = image_tag "networkcon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    .clear
+    %h1
+      network
+      = image_tag "networkcon.png", { :border => 0 }
     .infoblock
       %h2
         headline
@@ -123,15 +116,13 @@
       %h5
         more>>
   #stuff.grid_4
-    #infohead
-      %h1
-        stuff
-    = image_tag "stuffcon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }      
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    .clear
+    %h1
+      stuff
+      = image_tag "stuffcon.png", { :border => 0 }
     .infoblock
       %h2
         headline
@@ -155,19 +146,6 @@
     %h1
       fix it
     #fixit.infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
-    %a{ :href => "#" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
-    %a{ :href => "#" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    %h1
-      better
-    .infoblock
       %h2
         headline
       %h2

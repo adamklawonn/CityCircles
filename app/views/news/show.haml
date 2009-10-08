@@ -1,7 +1,81 @@
-= debug @news
 
-- # The map will take on the dimensions of it's container. In this case "news-map".
-#news-map{ :style => "width: 200px; height: 200px;" }
+#content.grid_12
+  .grid_8#posts.alpha
+    #midmap
+      #news-map
+    #post
+      #article
+        %h1
+          Headline
+        %p
+          Right now your best tools are meta keywords (you can add local keywords to your web pages), links from local sites, and targeted local PPC ads.
+          But you're about to get another very important tool: Twitter.
+
+          Last week Twitter announced that it's going local -- it's going to make it possible to tie a location to tweets. This is big deal for marketers. It means that customers, businesses and search engines will be able to sort Twitter traffic by place.
+
+          There are at least three basic ways marketers focused on specific locations can take advantage of this new function:
+
+          (1)To Find People Looking for Their Service -- Right now it's possible to search Twitter for keywords like "cleaning service" but you get a worldwide search. That's not very helpful for a business that serves customers within a specific geography.
+
+          But consider what happens when you can search "cleaning service" and narrow the results to a specific geography; all of a sudden the results of that Twitter search become a source of new business. Anytime somebody on Twitter asks for cleaning service suggestions, you can reach out to them.
+
+          (2) For Customers to Find Them -- As soon as it's possible to sort tweets by location, customers will get a powerful new tool for finding local business. Looking for a cleaner? Just search Twitter in your geographic area. The results will make it easy to see what the options are -- and what their reputations are.
+
+          If you're a local business, this means you need to get started building relationships and reputation on Twitter now.
+
+          (3)For Search Engine Optimization -- Twitter and other social media tools are now a significant factor in Search Engine Optimization. The links and authority thatsocial media sites help your business create help you rank
+          = debug @news
+      #comments
+        %span
+          comments
+        .comment
+          hey dude
+        .userimage
+          = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+      .clear
+          
+  .grid_4#storyside.omega
+    #twtr-search-widget
+    = javascript_include_tag "http://widgets.twimg.com/j/1/widget.js"
+    = stylesheet_link_tag "http://widgets.twimg.com/j/1/widget.css"
+    :javascript
+      new TWTR.Widget({
+        search: '_citycircles OR #citycircles',
+        id: 'twtr-search-widget',
+        loop: true,
+        title: 'City Circles',
+        subject: 'twittersphere',
+        width: 300,
+        height: 312,
+        theme: {
+          shell: {
+            background: '#c7dacd',
+            color: '#ffffff'
+          },
+          tweets: {
+            background: '#ffffff',
+            color: '#444444',
+            links: '#1985b5'
+          }
+        }
+      }).render().start();
+    .clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 :javascript
 
