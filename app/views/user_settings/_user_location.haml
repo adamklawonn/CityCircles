@@ -1,0 +1,7 @@
+- remote_form_for :user_location, @user_location, :url => { :action => "add_location" } do |f|
+  = f.label :place
+  %br
+  = f.select :interest_point_id, InterestPoint.all.collect { | ip | [ ip.label, ip.id ] }
+  %br
+  %br
+  = f.submit "Add Location"

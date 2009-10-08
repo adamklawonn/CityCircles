@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = @current_user
+    @user = User.find( current_user.id, :include => [ :news, :events, :user_locations, :user_wireless_profiles ] )
   end
  
   def edit

@@ -7,6 +7,8 @@
         %a{ :href => "#profile" } Profile
       %li
         %a{ :href => "#phones" } Phones
+      %li
+        %a{ :href => "#places" } Places
     #account-settings
       #user_form
         = render :partial => "account_settings", :locals => { :user => @user }
@@ -19,6 +21,12 @@
         = render :partial => "phone", :collection => @user.user_wireless_profiles
       #user_wireless_profile_form
         = render :partial => "user_wireless_profile", :locals => { :user_wireless_profile => @user_wireless_profile }
+    #places
+      - # Need to use the collection iterator partial. Then add a form for creating wireless profiles.
+      %ul#location_list
+        = render :partial => "location", :collection => @user.user_locations
+      #user_location_form
+        = render :partial => "user_location", :locals => { :location => @user_location }
 
 :javascript
   $j( function() { $j( "#tabs" ).tabs(); } );
