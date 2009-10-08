@@ -13,8 +13,8 @@
       #user_form
         = render :partial => "account_settings", :locals => { :user => @user }
     #profile
-      #user_profile_form
-        = render :partial => "profile", :locals => { :user_profile => @user.user_profile }
+      #user_detail_form
+        = render :partial => "profile", :locals => { :user_detail => @user.user_detail }
     #phones
       - # Need to use the collection iterator partial. Then add a form for creating wireless profiles.
       %ul#phone_list

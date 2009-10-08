@@ -1,5 +1,5 @@
-- remote_form_for :user_profile, @user_profile, :url => { :controller => :user_settings, :action => :update_user_profile }, :html => { :method => :put } do |f|
-  = render :partial => "user_profiles/form", :locals => { :user_profile => @user_profile, :f => f }
+- remote_form_for :user_detail, @user_detail, :url => { :controller => :user_settings, :action => :update_user_detail }, :html => { :method => :put } do |f|
+  = render :partial => "user_details/form", :locals => { :user_detail => @user_detail, :f => f }
   %br
   %br
   = f.submit "Save"
