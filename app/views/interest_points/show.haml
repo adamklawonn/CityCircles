@@ -9,13 +9,16 @@
   #postcontent.grid_12.alpha
   .clear
   #news.grid_4.alpha
+    #infohead
+      %h1
+        news
+    = image_tag "newscon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :update => "postcontent", :url => { :controller => "news", :action => "new" }
       
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    %h1
-      news
+    .clear 
     .infoblock
       %h2
         headline
@@ -32,12 +35,15 @@
       %h5
         more>>
   #events.grid_4
+    #infohead
+      %h1
+        events
+    = image_tag "eventscon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    %h1
-      events
+    .clear 
     .infoblock
       %h2
         headline
@@ -54,12 +60,15 @@
       %h5
         more>>
   #promos.grid_4.omega
+    #infohead
+      %h1
+        promos
+    = image_tag "promocon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    %h1
-      promos
+    .clear
     .infoblock
       %h2
         headline
@@ -77,12 +86,15 @@
         more>>
   .clear
   #network.grid_4.alpha
+    #infohead
+      %h1
+        network
+    = image_tag "networkcon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    %h1
-      network
+    .clear
     .infoblock
       %h2
         headline
@@ -99,12 +111,15 @@
       %h5
         more>>
   #stuff.grid_4
+    #infohead
+      %h1
+        stuff
+    = image_tag "stuffcon.png", { :class => "buttonfloatleft", :border => 0 }
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }      
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
-    %h1
-      stuff
+    .clear
     .infoblock
       %h2
         headline

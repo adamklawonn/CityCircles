@@ -27,7 +27,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #network{border-bottom: 8px solid #b07b3d;}
 #fixit{margin-bottom:5px;}
 #infohead {float:left;}
-.buttonfloat {float:right;padding-top:5px;}
+.buttonfloat {float:right;padding-top:5px;margin-right:3px;}
 .buttonfloatleft {float:left;margin-left:5px;}
 
 /*======================
