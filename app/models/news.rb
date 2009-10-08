@@ -29,7 +29,7 @@ class News < ActiveRecord::Base
     headline
   end
   
-  def body 
+  def info_window
     "<strong>#{ headline }</strong><br /><br /><a href='/news/#{ id }'>Read this story >></a>"
   end
   
