@@ -1,4 +1,4 @@
-class Admin::UserDetailController < ApplicationController
+class Admin::UserDetailsController < ApplicationController
   
   active_scaffold :user_detail
   
