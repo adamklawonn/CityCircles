@@ -37,20 +37,17 @@
       events
       = image_tag "eventscon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
+      - unless @events.empty?
+        - @events.each do |event|
+          %h2
+            = link_to truncate( event.headline, 30 ), event_url( event )
+      - else
+        %h2 No events...be the first to post!
       %h5
-        more>>
+        - unless @events.empty?
+          = link_to "more>>", interest_point_news_index_url( @poi )
+        -else
+          more>>
   #promos.grid_4.omega
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
@@ -60,20 +57,7 @@
       promos
       = image_tag "promocon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No promos...be the first to post!
   .clear
   #network.grid_4.alpha
     %a{ :href => "#" }
@@ -84,20 +68,7 @@
       network
       = image_tag "networkcon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No networks...be the first to post!
   #stuff.grid_4
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }      
@@ -105,22 +76,9 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       stuff
-      = image_tag "", { :border => 0 }
+      = image_tag "stuffcon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No stuff...be the first to post!
   .grid_4.omega
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
@@ -129,12 +87,7 @@
     %h1
       fix it
     #fixit.infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No projects...be the first to post!
 
 
 #postcontent{ :title => "Post New Content" }

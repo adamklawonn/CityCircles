@@ -9,15 +9,21 @@
         %h1
           = @news.headline
         %p
+          = "By #{ @news.author.login }"
+        %p
           = @news.body
          
       #comments
         %span
           comments
         .comment
-          hey dude
+          I hope the demo is going well. :)
+          %br
+          %br
+          = Time.now.strftime( "%m/%d/%y at %I:%M %p " )
+          by caiges
         .userimage
-          = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+          = image_tag "caige.jpg", { :class => "buttonfloat", :border => 0 }
       .clear
           
   .grid_4#storyside.omega

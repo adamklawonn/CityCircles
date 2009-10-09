@@ -1,20 +1,55 @@
 #content.container_12
   #userpicture.grid_2.alpha
     #pic
+      = image_tag "scott.jpg"
   
   
   #userinfo.grid_7
-    
+    %h2{ :style => "padding: 20px 0px 0px 20px;" }
+      = "#{ @user.user_detail.first_name } #{ @user.user_detail.last_name }"
+    %p{ :style => "padding: 10px 20px 0px 20px;" }
+      %strong About Me
+      %br
+      = @user.user_detail.about_me
+      %br
+      %strong Interest / Hobbies
+      %br
+      = @user.user_detail.hobbies
   #userstops.grid_3.omega
-  
+    %h2{ :style => "padding: 20px 0px 0px 20px;" }
+      My Places
+    %br
+    - @user.user_locations.each do |place|
+      %strong{ :style => "padding: 20px;" }
+        = link_to place.interest_point.label, interest_point_url( place.interest_point )
+      %br
+      %br
   .clear
   
   #userpost.grid_3.alpha
+    %h2{ :style => "padding: 20px 0px 0px 20px;" }
+      My News
+      = image_tag "newscon.png"
+    %p{ :style => "padding: 10px 20px 0px 20px;" }
+      - @user.news[ 0..3 ].each do |news_item|
+        = news_item.headline
   #userpost.grid_3
-  #userpost.grid_3    
+    %h2{ :style => "padding: 20px 0px 0px 20px;" }
+      My Events
+      = image_tag "eventscon.png"
+    %p{ :style => "padding: 10px 20px 0px 20px;" }
+      - @user.events[ 0..3 ].each do |events_item|
+        = events_item.headline
+  #userpost.grid_3 
+    %h2{ :style => "padding: 20px 0px 0px 20px;" }
+      My Networks
+      = image_tag "networkcon.png"
+    %p{ :style => "padding: 10px 20px 0px 20px;" }
+      You have no networks.
   #userpost.grid_3.omega
-  
-  
+    %h2{ :style => "padding: 20px 0px 0px 20px;" }
+      My Stuff
+      = image_tag "stuffcon.png"
+    %p{ :style => "padding: 10px 20px 0px 20px;" }
+      You have no stuff.
 
-
-= debug @user

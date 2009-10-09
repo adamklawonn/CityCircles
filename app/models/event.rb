@@ -19,5 +19,17 @@
 
 class Event < ActiveRecord::Base
   has_many :comments, :as => :commenter
+  belongs_to :interest_point
+  belongs_to :map_layer
+  belongs_to :map_icon
   belongs_to :author, :class_name => "User", :foreign_key => "user_id"
+  acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
+  def label 
+    headline
+  end
+  
+  def info_window
+    "<strong>#{ headline }</strong><br /><br />#{ body }<br /><a href='/events/#{ id }'>RSVP for this event >></a>"
+  end
+  
 end

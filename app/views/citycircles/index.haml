@@ -54,20 +54,12 @@
       events
       = image_tag "eventscon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      - unless @events.empty?
+        - @events.each do |event|
+          %h2
+            = link_to truncate( event.headline, :length => 30 ), events_url( event )
+      - else
+        %h2 No events...be the first to post!
   #promos.grid_4.omega
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
@@ -77,20 +69,7 @@
       promos
       = image_tag "promocon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No promos...be the first to post!
   #network.grid_4.alpha
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
@@ -100,20 +79,7 @@
       network
       = image_tag "networkcon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No networks...be the first to post!
   #stuff.grid_4
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }      
@@ -123,20 +89,7 @@
       stuff
       = image_tag "stuffcon.png", { :border => 0 }
     .infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No stuff...be the first to post!
   .grid_4.omega
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
@@ -145,10 +98,5 @@
     %h1
       fix it
     #fixit.infoblock
-      %h2
-        headline
-      %h2
-        headline
-      %h5
-        more>>
+      %h2 No projects...be the first to post!
   .clear

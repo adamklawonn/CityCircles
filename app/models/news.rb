@@ -19,7 +19,7 @@
 class News < ActiveRecord::Base
   belongs_to :interest_point
   belongs_to :map_layer
-  belongs_to :author, :class_name => "User", :foreign_key => "user_id"
+  belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   belongs_to :map_icon
   has_many :comments, :as => :commenter
   has_many :photos, :as => :photoable

@@ -9,7 +9,7 @@ namespace :db do
     
     # Create default user.
     user = User.new( :login => 'citycircles', :email => 'caigesn@gmail.com', :password => 'dailyphx', :password_confirmation => 'dailyphx' )
-    user.user_detail = UserDetail.new
+    user.user_detail = UserDetail.new( :first_name => "City", :last_name => "Circles" )
     user.save!
     
     user_caige = User.new( :login => 'caiges', :email => 'caige@sevenblend.com', :password => 'railsphx', :password_confirmation => 'railsphx' )
@@ -65,6 +65,7 @@ namespace :db do
     stuff_layer.author = user
     stuff_layer.map = map
     stuff_layer.save!
+    map_layers = [ news_layer, events_layer, network_layer, promos_layer, stuff_layer ]
     # Create interest point icon.
     poi_icon = MapIcon.new :shortname => "default", :image_url => "http://maps.gstatic.com/intl/en_us/mapfiles/markerTransparent.png", :icon_size => "20, 20", :author_id => user.id
     poi_icon.save!
@@ -92,10 +93,12 @@ namespace :db do
       poi.save!
       
       # Generate suedo random news items.
-      titles = [ "Homeless population skyrockets as economy sinks", "Budget cuts impact iconic Phoenix park", "Filmmaker's rise shows Phoenix's movie-industry potential", "Never too late to remember", "One bullish Matador", "For black artists, a new home is a work in progress", "That’s ‘Mrs. Green’ to you" ]
+      news_headlines = [ "Homeless population skyrockets as economy sinks", "Budget cuts impact iconic Phoenix park", "Filmmaker's rise shows Phoenix's movie-industry potential", "Never too late to remember", "One bullish Matador", "For black artists, a new home is a work in progress", "That’s ‘Mrs. Green’ to you" ]
+      events_headlines = [ "City Circles Private Alpha Launches", "P.F. Chang's Rock 'n' Roll Arizona Marathon and 1/2 Marathon Kickoff", "Music of The Doors with Ray Manzarek, Robby Krieger and The Phoenix Symphony", "The Subdudes", "Mae", "Independent Film Movement Series", "Read For The Record", "Mac Barnett and Adam Rex", "Basic Digital Photography Class" ]
       
       if rand( 2 ) == 1
-        title = titles[ rand( titles.length ) ]
+        # News
+        news_headline = news_headlines[ rand( news_headlines.length ) ]
         north = 1
         while north > 0.3 and north != 0
           north = rand
@@ -106,8 +109,23 @@ namespace :db do
         end
         north_east = [ north, east ]
         latlng = poi.endpoint( [ 0, 90 ][ rand( 2 ) ], north_east[ rand( 2 ) ] )
-        news_item = News.new( :headline => title, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => news_layer.id, :map_icon_id => news_icon.id )
-        news_item.save!
+        news_item = News.new( :headline => news_headline, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => news_layer.id, :map_icon_id => news_icon.id )
+        news_item.save! if rand( 2 ) == 1
+        
+        # Events
+        events_headline = events_headlines[ rand( events_headlines.length ) ]
+        south = 1
+        while south > 0.3 and south != 0
+          south = rand
+        end
+        west = 1
+        while west > 0.3 and west != 0
+          west = rand
+        end
+        south_west = [ south, west ]
+        latlng = poi.endpoint( [ 0, 180 ][ rand( 2 ) ], south_west[ rand( 2 ) ] )
+        event_item = Event.new( :headline => events_headline, :body => "<p>#{ Time.now.strftime( "%m/%d/%y @ %I:%M %p ")}</p>", :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => events_layer.id, :map_icon_id => events_icon.id, :starts_at => Time.now, :ends_at => Time.now )
+        event_item.save! if rand( 2 ) == 1
       end
       
     end
@@ -132,6 +150,9 @@ namespace :db do
     att.save!
     
     sprint = WirelessCarrier.new( :name => "Sprint", :email_gateway => "messaging.sprintpcs.com" )
+    sprint.save!
+    
+    sprint = WirelessCarrier.new( :name => "Verizon", :email_gateway => "messaging.sprintpcs.com" )
     sprint.save!
     
     # Create default pages.

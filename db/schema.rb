@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20091007235621) do
 
   create_table "events", :force => true do |t|
     t.integer  "interest_point_id",                                :null => false
+    t.integer  "map_layer_id",                                     :null => false
     t.integer  "map_icon_id",                                      :null => false
     t.decimal  "lat",               :precision => 10, :scale => 6
     t.decimal  "lng",               :precision => 10, :scale => 6

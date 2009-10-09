@@ -25,6 +25,11 @@
       		$j( this ).toggleClass( "active" );
       		return false;
       	} );
+      	$j( "#suggestion_submit" ).click( function(){
+      		$j( ".panel" ).toggle( "fast" );
+      		$j( this ).toggleClass( "active" );
+      		return false;
+      	} );
       } );
       
       // Call GUnload when page unloads. Memory :)
@@ -92,8 +97,18 @@
       #whoops_message
     
     .panel
-      %h3 Sliding Panel
-      %p Magic sliding panels are kewl.
+      %h3 Make us Better!
+      %br
+      #form{ :action => "#" }
+        %label Your Email
+        %br
+        %input{ :type => "text" }
+        %br
+        %label Suggestion
+        %br
+        %textarea{ :rows => 5, :cols => 30 }
+        %br
+        %input{ :id => "suggestion_submit", :type => "submit", :value => "Submit Suggestion" }
     %a{ :class => "trigger", :href => "#" }   
       %center
         <em>B</em>

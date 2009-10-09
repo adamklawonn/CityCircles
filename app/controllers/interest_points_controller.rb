@@ -5,6 +5,7 @@ class InterestPointsController < ApplicationController
     @default_map = @poi.map
     
     @news = News.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc', :limit => 6 )
+     @events = Event.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc', :limit => 6 )
   end
   
   def add_content
