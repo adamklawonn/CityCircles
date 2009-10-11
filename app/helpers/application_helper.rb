@@ -40,7 +40,6 @@ module ApplicationHelper
     # Initialize the map.
     gmap = GMap.new( "map", "map" )
     gmap.control_init( :large_map => true, :map_type => true )
-    gmap.record_init "map.enableScrollWheelZoom();"
     
     # Set location based on map default or poi override.
     if poi_override.nil?
@@ -48,6 +47,7 @@ module ApplicationHelper
     else
       gmap.center_zoom_init( [ poi_override.lat, poi_override.lng ], 15 )
       gmap.record_init "map.openInfoWindowHtml( new GLatLng( #{ poi_override.lat }, #{ poi_override.lng }, true ), '#{ poi_override.body }' );" if poi_override_options[ :open_info_window_onload ]
+      gmap.record_init "map.enableScrollWheelZoom();"
     end
     
     # Add markers to each individual layer on the map.
