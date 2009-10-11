@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(:version => 20091007235621) do
     t.decimal  "lat",               :precision => 10, :scale => 6
     t.decimal  "lng",               :precision => 10, :scale => 6
     t.string   "headline",                                         :null => false
-    t.string   "body",                                             :null => false
+    t.text     "body",                                             :null => false
     t.integer  "author_id",                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
