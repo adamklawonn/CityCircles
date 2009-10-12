@@ -1,10 +1,11 @@
 # == Schema Information
-# Schema version: 20091007235621
+# Schema version: 20091011224850
 #
 # Table name: events
 #
 #  id                :integer(4)      not null, primary key
 #  interest_point_id :integer(4)      not null
+#  map_layer_id      :integer(4)      not null
 #  map_icon_id       :integer(4)      not null
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)

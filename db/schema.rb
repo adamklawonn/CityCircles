@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091007235621) do
+ActiveRecord::Schema.define(:version => 20091011224850) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",          :null => false
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(:version => 20091007235621) do
     t.datetime "starts_at",                                        :null => false
     t.datetime "ends_at",                                          :null => false
     t.integer  "author_id",                                        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "file_attachments", :force => true do |t|
+    t.string   "title",                        :null => false
+    t.string   "file_attachment_file_name",    :null => false
+    t.string   "file_attachment_content_type", :null => false
+    t.integer  "file_attachment_file_size",    :null => false
+    t.integer  "file_attachable_id"
+    t.string   "file_attachable_type"
+    t.integer  "author_id",                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

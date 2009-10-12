@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :file_attachments
+
   map.resources :user_locations
 
   map.resources :interest_point_icons

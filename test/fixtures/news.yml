@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091007235621
+# Schema version: 20091011224850
 #
 # Table name: news
 #
@@ -10,7 +10,7 @@
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)
 #  headline          :string(255)     not null
-#  body              :string(255)     not null
+#  body              :text            default(""), not null
 #  author_id         :integer(4)      not null
 #  created_at        :datetime
 #  updated_at        :datetime
