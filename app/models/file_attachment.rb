@@ -15,4 +15,14 @@
 #
 
 class FileAttachment < ActiveRecord::Base
+
+  belongs_to :file_attachable, :polymorphic => true
+  belongs_to :author, :class_name => "User", :foreign_key => "user_id"
+  has_many :comments, :as => :commenter
+  has_attached_file :file_attachment
+  
+  def photable_type=( sType )
+    super( sType.to_s.classify.constantize.base_class.to_s )
+  end
+  
 end

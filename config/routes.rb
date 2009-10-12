@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :suggestions
+
   map.resources :fix_its
 
   map.resources :stuffs
@@ -38,6 +40,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resource :maps, :collection => { :index => :get }
     admin.resource :pages, :collection => { :index => :get }
     admin.resource :users, :collection => { :index => :get }
+    admin.resource :networks, :collection => { :index => :get }
+    admin.resources :stuffs, :collection => { :index => :get }
+    admin.resources :fix_its, :collection => { :index => :get }
+    admin.resources :suggestions, :collection => { :index => :get }
   end
   map.root :controller => "citycircles", :action => "index" # optional, this just sets the root route
     

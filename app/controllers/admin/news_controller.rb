@@ -1,4 +1,4 @@
-class Admin::NewsController < ApplicationController
+class Admin::NewsController < Admin::AdminController
   
   active_scaffold :news do | config |
     config.list.columns = [ :headline, :author, :created_at ]

@@ -26,11 +26,6 @@
       		$j( this ).toggleClass( "active" );
       		return false;
       	} );
-      	$j( "#suggestion_submit" ).click( function(){
-      		$j( ".panel" ).toggle( "fast" );
-      		$j( this ).toggleClass( "active" );
-      		return false;
-      	} );
       } );
       
       tinyMCE.init( {
@@ -109,16 +104,16 @@
     .panel
       %h3 Make us Better!
       %br
-      #form{ :action => "#" }
-        %label Your Email
+      - remote_form_for @suggestion do |f|
+        = f.label "Your Email"
         %br
-        %input{ :type => "text" }
+        = f.text_field :email
         %br
-        %label Suggestion
+        = f.label "Suggestion"
         %br
-        %textarea{ :rows => 5, :cols => 30 }
+        = f.text_area :body, { :rows => 5, :cols => 30 }
         %br
-        %input{ :id => "suggestion_submit", :type => "submit", :value => "Submit Suggestion" }
+        = f.submit "Submit Suggestion", { :id => "suggestion_submit" }
     %a{ :class => "trigger", :href => "#" }   
       %center
         <em>B</em>
