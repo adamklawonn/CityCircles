@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091011224850
+# Schema version: 20091012043941
 #
 # Table name: events
 #
@@ -10,7 +10,7 @@
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)
 #  headline          :string(255)     not null
-#  body              :string(255)     not null
+#  body              :string(5000)    not null
 #  starts_at         :datetime        not null
 #  ends_at           :datetime        not null
 #  author_id         :integer(4)      not null
@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
   belongs_to :interest_point
   belongs_to :map_layer
   belongs_to :map_icon
-  belongs_to :author, :class_name => "User", :foreign_key => "user_id"
+  belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
   def label 
     headline

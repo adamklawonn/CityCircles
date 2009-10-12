@@ -1,2 +1,2 @@
-class InterestPointIconsController < ApplicationController
+class MapIconsController < ApplicationController
 end

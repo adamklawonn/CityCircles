@@ -4,7 +4,7 @@
   %li{ :class => request.url.match( '/admin/maps' ) ? "admin_sidebar_selected" : "" }
     = link_to "Maps", :controller => "maps", :action => "index"
   %li{ :class => request.url.match( '/admin/news' ) ? "admin_sidebar_selected" : "" }
-    = link_to "News", :controller => "maps", :action => "index"
+    = link_to "News", :controller => "news", :action => "index"
   %li{ :class => request.url.match( '/admin/events' ) ? "admin_sidebar_selected" : "" }
     = link_to "Events", :controller => "maps", :action => "index"
   %li{ :class => request.url.match( '/admin/promos' ) ? "admin_sidebar_selected" : "" }

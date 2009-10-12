@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091011224850
+# Schema version: 20091012043941
 #
 # Table name: events
 #
@@ -10,7 +10,7 @@
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)
 #  headline          :string(255)     not null
-#  body              :string(255)     not null
+#  body              :string(5000)    not null
 #  starts_at         :datetime        not null
 #  ends_at           :datetime        not null
 #  author_id         :integer(4)      not null

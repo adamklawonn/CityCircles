@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091011224850) do
+ActiveRecord::Schema.define(:version => 20091012043941) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",          :null => false
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(:version => 20091011224850) do
     t.integer  "file_attachable_id"
     t.string   "file_attachable_type"
     t.integer  "author_id",                    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fix_its", :force => true do |t|
+    t.integer  "interest_point_id",                                                 :null => false
+    t.integer  "map_layer_id",                                                      :null => false
+    t.integer  "map_icon_id",                                                       :null => false
+    t.decimal  "lat",                                :precision => 10, :scale => 6
+    t.decimal  "lng",                                :precision => 10, :scale => 6
+    t.string   "headline",                                                          :null => false
+    t.string   "body",              :limit => 10000,                                :null => false
+    t.integer  "author_id",                                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,15 +122,28 @@ ActiveRecord::Schema.define(:version => 20091011224850) do
     t.datetime "updated_at"
   end
 
+  create_table "networks", :force => true do |t|
+    t.integer  "interest_point_id",                                                 :null => false
+    t.integer  "map_layer_id",                                                      :null => false
+    t.integer  "map_icon_id",                                                       :null => false
+    t.decimal  "lat",                                :precision => 10, :scale => 6
+    t.decimal  "lng",                                :precision => 10, :scale => 6
+    t.string   "headline",                                                          :null => false
+    t.string   "body",              :limit => 10000,                                :null => false
+    t.integer  "author_id",                                                         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "news", :force => true do |t|
-    t.integer  "interest_point_id",                                :null => false
-    t.integer  "map_layer_id",                                     :null => false
-    t.integer  "map_icon_id",                                      :null => false
-    t.decimal  "lat",               :precision => 10, :scale => 6
-    t.decimal  "lng",               :precision => 10, :scale => 6
-    t.string   "headline",                                         :null => false
-    t.text     "body",                                             :null => false
-    t.integer  "author_id",                                        :null => false
+    t.integer  "interest_point_id",                                                 :null => false
+    t.integer  "map_layer_id",                                                      :null => false
+    t.integer  "map_icon_id",                                                       :null => false
+    t.decimal  "lat",                                :precision => 10, :scale => 6
+    t.decimal  "lng",                                :precision => 10, :scale => 6
+    t.string   "headline",                                                          :null => false
+    t.string   "body",              :limit => 10000,                                :null => false
+    t.integer  "author_id",                                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -185,6 +211,19 @@ ActiveRecord::Schema.define(:version => 20091011224850) do
   create_table "site_options", :force => true do |t|
     t.string   "name"
     t.string   "option_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stuffs", :force => true do |t|
+    t.integer  "interest_point_id",                                                 :null => false
+    t.integer  "map_layer_id",                                                      :null => false
+    t.integer  "map_icon_id",                                                       :null => false
+    t.decimal  "lat",                                :precision => 10, :scale => 6
+    t.decimal  "lng",                                :precision => 10, :scale => 6
+    t.string   "headline",                                                          :null => false
+    t.string   "body",              :limit => 10000,                                :null => false
+    t.integer  "author_id",                                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -65,7 +65,11 @@ namespace :db do
     stuff_layer.author = user
     stuff_layer.map = map
     stuff_layer.save!
-    map_layers = [ news_layer, events_layer, network_layer, promos_layer, stuff_layer ]
+    fix_it_layer = MapLayer.new( :title => "Fix It", :shortname => "fixit" )
+    fix_it_layer.author = user
+    fix_it_layer.map = map
+    fix_it_layer.save!
+    map_layers = [ news_layer, events_layer, network_layer, promos_layer, stuff_layer, fix_it_layer ]
     # Create interest point icon.
     poi_icon = MapIcon.new :shortname => "default", :image_url => "http://maps.gstatic.com/intl/en_us/mapfiles/markerTransparent.png", :icon_size => "20, 20", :author_id => user.id
     poi_icon.save!
@@ -81,6 +85,8 @@ namespace :db do
     promos_icon.save!
     stuff_icon = MapIcon.new :shortname => "stuff", :image_url => "/images/map_icons/stuff/stuffimage.png", :shadow_url => "/images/map_icons/stuff/stuffshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
     stuff_icon.save!
+    fix_it_icon = MapIcon.new :shortname => "fixit", :image_url => "/images/map_icons/stuff/stuffimage.png", :shadow_url => "/images/map_icons/stuff/stuffshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
+    fix_it_icon.save!
     # Create interest points.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail.csv" ) do |row|
       poi = InterestPoint.new( :label => row[ 2 ], :lat => row[ 1 ].to_f, :lng => row[ 0 ].to_f )
@@ -152,8 +158,11 @@ namespace :db do
     sprint = WirelessCarrier.new( :name => "Sprint", :email_gateway => "messaging.sprintpcs.com" )
     sprint.save!
     
-    sprint = WirelessCarrier.new( :name => "Verizon", :email_gateway => "messaging.sprintpcs.com" )
-    sprint.save!
+    verizon = WirelessCarrier.new( :name => "Verizon", :email_gateway => "vzwpix.com" )
+    verizon.save!
+    
+    tmobile = WirelessCarrier.new( :name => "T-Mobile", :email_gateway => "tmomail.net" )
+    tmobile.save!
     
     # Create default pages.
     about_page = Page.new( :title => "About", :shortname => "about", :description => "The about page.", :body => "This is the about page", :author_id => user.id, :show_in_navigation => true, :sort => 1 )

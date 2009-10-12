@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fix_its
+
+  map.resources :stuffs
+
+  map.resources :networks
+
   map.resources :file_attachments
   map.resources :user_locations
   map.resources :interest_point_icons
@@ -18,7 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :photos
   map.resources :promos
   map.resources :maps
-  map.resources :interest_points, :as => "places", :has_many => [ :news]
+  map.resources :interest_points, :as => "places", :has_many => [ :news, :events, :networks, :stuffs, :fix_its ]
   map.resources :events
   map.resources :news, :collection => { :poi => :get }
   map.resource :user_session

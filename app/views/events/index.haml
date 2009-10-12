@@ -1,0 +1,19 @@
+#content.grid_12
+  #feed
+    %h1
+      Events for 
+      = @poi.label
+    %a{ :href => "#" }
+      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+    .clear
+    - @events.each do |event| 
+      #listitem 
+        %h2= event.headline
+        %p 
+          by 
+          = event.author.login
+          @
+          = friendly_datetime( event.created_at )
+        %br
+        %p
+          = event.body

@@ -1,0 +1,19 @@
+#content.grid_12
+  #feed
+    %h1
+      Networks for 
+      = @poi.label
+    %a{ :href => "#" }
+      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+    .clear
+    - @networks.each do |network| 
+      #listitem 
+        %h2= network.headline
+        %p 
+          by 
+          = network.author.login
+          @
+          = friendly_datetime( network.created_at )
+        %br
+        %p
+          = network.body

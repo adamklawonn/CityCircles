@@ -1,5 +1,16 @@
 class EventsController < ApplicationController
   
+  def index
+    @poi = InterestPoint.find params[ :interest_point_id ]
+    @events = Event.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc' )
+    
+    respond_to do | format |
+      format.html
+      format.xml { render :index, :layout => false }
+    end
+    
+  end
+  
   def new
     @event = Event.new
   end

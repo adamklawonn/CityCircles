@@ -1,0 +1,25 @@
+xml.instruct!
+
+xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
+
+  xml.title   "Events for #{ @poi.label }"
+  xml.link    "rel" => "self", "href" => interest_point_events_url( @poi )
+  xml.id      interest_point_events_url @poi
+  xml.updated @events.first.updated_at.strftime "%Y-%m-%dT%H:%M:%SZ" if @events.any?
+  xml.author  { xml.name "City Circles" }
+
+  @events.each do |post|
+    xml.entry do
+      xml.title   post.headline
+      xml.link    "rel" => "alternate", "href" => interest_point_events_url( @poi.id, post.id )
+      xml.id      interest_point_events_url @poi.id, post.id
+      xml.updated post.updated_at.strftime "%Y-%m-%dT%H:%M:%SZ"
+      xml.author  { xml.name post.author.login }
+      xml.summary "Post summary"
+      xml.content "type" => "html" do
+        xml.text! post.body
+      end
+    end
+  end
+
+end

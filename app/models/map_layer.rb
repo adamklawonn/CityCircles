@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091011224850
+# Schema version: 20091012043941
 #
 # Table name: map_layers
 #
@@ -19,6 +19,9 @@ class MapLayer < ActiveRecord::Base
   has_many :interest_points
   has_many :news
   has_many :events
+  has_many :networks
+  has_many :stuffs
+  has_many :fix_its
   has_many :interest_lines
   
   def points

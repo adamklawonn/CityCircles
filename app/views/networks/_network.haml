@@ -1,0 +1,14 @@
+- remote_form_for network, :url => networks_url, :onsubmit => "" do |f|
+  = hidden_field_tag :lat
+  = hidden_field_tag :lng
+  = hidden_field_tag :interest_point_id, poi.id
+  = f.label :headline
+  %br
+  = f.text_field :headline
+  %br
+  = f.label :body
+  %br
+  = f.text_area :body, :class => "networks_body wysiwyg"
+  %br
+  %br
+  = f.submit "Post"
