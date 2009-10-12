@@ -22,7 +22,7 @@ Rails::Initializer.run do |config|
   
   config.gem "authlogic"
   config.gem "geokit"
-  config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
+  config.gem "thoughtbot-paperclip", :lib => "paperclip", :source => "http://gems.github.com"
   config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
     
   # Only load the plugins named here, in the order given (default is alphabetical).

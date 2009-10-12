@@ -36,6 +36,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #postcontentmap { width: 260px; height: 260px; border: 3px solid #d3d3d3; }
 #smc { top: 28px !important; }
 .news_body { width: 400px; height: 400px; }
+.events_body { width: 400px; height: 200px; }
 
 /*======================
        FEED

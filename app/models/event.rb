@@ -30,7 +30,7 @@ class Event < ActiveRecord::Base
   end
   
   def info_window
-    "<strong>#{ headline }</strong><br /><br />#{ body }<br /><a href='/events/#{ id }'>RSVP for this event >></a>"
+    "<strong>#{ headline }</strong><br /><br />#{ body[ 0..50 ] }<br /><strong>When:</strong><p>#{ starts_at.strftime( "%a %b %d, %Y %I:%M %p" ) }  -  #{ ends_at.strftime( "%a %b %d, %Y %I:%M %p" ) }</p><br />"
   end
   
 end

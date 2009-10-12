@@ -11,8 +11,7 @@
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "news", :poi_id => @poi.id }
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );"
-    %a{ :href => "#" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_news_index_url( @poi, :format => "xml" )
     %h1
       news
       = image_tag "newscon.png", { :border => 0 }
@@ -29,8 +28,10 @@
         -else
           more>>
   #events.grid_4
-    %a{ :href => "#" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+    - if current_user
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "event", :poi_id => @poi.id }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );"
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1

@@ -80,4 +80,8 @@ module ApplicationHelper
     
   end
   
+  def friendly_datetime( datetime )
+    datetime.strftime( "%a %b %d %y %I:%M %p" )
+  end
+  
 end

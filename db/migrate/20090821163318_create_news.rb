@@ -7,7 +7,7 @@ class CreateNews < ActiveRecord::Migration
       t.decimal :lat, :precision => 10, :scale => 6, :default => nil
       t.decimal :lng, :precision => 10, :scale => 6, :default => nil
       t.string :headline, :null => false
-      t.text :body, :null => false
+      t.string :body, :limit => 10000, :null => false
       t.integer :author_id, :null => false
       t.timestamps
     end

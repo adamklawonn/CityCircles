@@ -1,13 +1,19 @@
 #content.grid_12
   #feed
     %h1
-      News feed
-    %a{ :href => "#" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+      News for 
+      = @poi.label
     %a{ :href => "#" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     .clear
     - @news.each do |news_item| 
       #listitem 
         %h2= news_item.headline
-        %p= news_item.body
+        %p 
+          by 
+          = news_item.author.login
+          @
+          = friendly_datetime( news_item.created_at )
+        %br
+        %p
+          = news_item.body

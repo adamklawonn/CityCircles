@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.decimal :lat, :precision => 10, :scale => 6, :default => nil
       t.decimal :lng, :precision => 10, :scale => 6, :default => nil
       t.string :headline, :null => false
-      t.string :body, :length => 5000, :null => false
+      t.string :body, :limit => 5000, :null => false
       t.datetime :starts_at, :null => false
       t.datetime :ends_at, :null => false
       t.integer :author_id, :null => false

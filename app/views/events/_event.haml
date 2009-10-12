@@ -1,0 +1,23 @@
+- remote_form_for event, :url => events_url, :onsubmit => "" do |f|
+  = hidden_field_tag :lat
+  = hidden_field_tag :lng
+  = hidden_field_tag :interest_point_id, poi.id
+  = f.label :headline
+  %br
+  = f.text_field :headline
+  %br
+  = f.label :starts_at
+  %br
+  = f.datetime_select :starts_at, :twelve_hour => true
+  %br
+  = f.label :ends_at
+  %br
+  = f.datetime_select :ends_at, :twelve_hour => true
+  %br
+  = f.label :body
+  %br
+  = f.text_area :body, :class => "events_body wysiwyg"
+  %br
+  %br
+  = f.submit "Post"
+  

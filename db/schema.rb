@@ -22,22 +22,21 @@ ActiveRecord::Schema.define(:version => 20091011224850) do
   end
 
   create_table "events", :force => true do |t|
-    t.integer  "interest_point_id",                                :null => false
-    t.integer  "map_layer_id",                                     :null => false
-    t.integer  "map_icon_id",                                      :null => false
-    t.decimal  "lat",               :precision => 10, :scale => 6
-    t.decimal  "lng",               :precision => 10, :scale => 6
-    t.string   "headline",                                         :null => false
-    t.string   "body",                                             :null => false
-    t.datetime "starts_at",                                        :null => false
-    t.datetime "ends_at",                                          :null => false
-    t.integer  "author_id",                                        :null => false
+    t.integer  "interest_point_id",                                                :null => false
+    t.integer  "map_layer_id",                                                     :null => false
+    t.integer  "map_icon_id",                                                      :null => false
+    t.decimal  "lat",                               :precision => 10, :scale => 6
+    t.decimal  "lng",                               :precision => 10, :scale => 6
+    t.string   "headline",                                                         :null => false
+    t.string   "body",              :limit => 5000,                                :null => false
+    t.datetime "starts_at",                                                        :null => false
+    t.datetime "ends_at",                                                          :null => false
+    t.integer  "author_id",                                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "file_attachments", :force => true do |t|
-    t.string   "title",                        :null => false
     t.string   "file_attachment_file_name",    :null => false
     t.string   "file_attachment_content_type", :null => false
     t.integer  "file_attachment_file_size",    :null => false
