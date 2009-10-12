@@ -57,7 +57,7 @@
       - unless @events.empty?
         - @events.each do |event|
           %h2
-            = link_to truncate( event.headline, :length => 30 ), events_url( event )
+            = link_to truncate( event.headline, :length => 30 ), event_url( event )
       - else
         %h2 No events...be the first to post!
   #promos.grid_4.omega
@@ -79,7 +79,12 @@
       network
       = image_tag "networkcon.png", { :border => 0 }
     .infoblock
-      %h2 No networks...be the first to post!
+      - unless @networks.empty?
+        - @networks.each do |network|
+          %h2
+            = link_to truncate( network.headline, 30 ), network_url( network )
+      - else
+        %h2 No networks...be the first to post!
   #stuff.grid_4
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }      
@@ -89,7 +94,12 @@
       stuff
       = image_tag "stuffcon.png", { :border => 0 }
     .infoblock
-      %h2 No stuff...be the first to post!
+      - unless @stuffs.empty?
+        - @stuffs.each do |stuff|
+          %h2
+            = link_to truncate( stuff.headline, 30 ), stuff_url( stuff )
+      - else
+        %h2 No networks...be the first to post!
   .grid_4.omega
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
@@ -98,5 +108,10 @@
     %h1
       fix it
     #fixit.infoblock
-      %h2 No projects...be the first to post!
+      - unless @fix_its.empty?
+        - @fix_its.each do |fix_it|
+          %h2
+            = link_to truncate( fix_it.headline, 30 ), fix_it_url( fix_it )
+      - else
+        %h2 No networks...be the first to post!
   .clear
