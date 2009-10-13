@@ -8,7 +8,6 @@ class CitycirclesController < ApplicationController
     @networks = Network.find( :all, :conditions => [ 'map_layers.map_id = ?', @default_map.id ], :include => [ :map_layer => :map ], :order => "networks.created_at desc", :limit => 6 )
     @stuffs = Stuff.find( :all, :conditions => [ 'map_layers.map_id = ?', @default_map.id ], :include => [ :map_layer => :map ], :order => "stuffs.created_at desc", :limit => 6 )
     @fix_its = FixIt.find( :all, :conditions => [ 'map_layers.map_id = ?', @default_map.id ], :include => [ :map_layer => :map ], :order => "fix_its.created_at desc", :limit => 6 )
-    @suggestion = Suggestion.new
   end
   
 end

@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   
   layout proc{ |c| c.request.xhr? ? false : "application" }
   
-  before_filter :get_pages 
+  before_filter :get_pages
+  before_filter :new_suggestion
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
   private
     def get_pages
       @pages = Page.find( :all, :conditions => [ "show_in_navigation = ? and parent_id is ?", true, nil ], :order => "sort asc" )
+    end
+    
+    def new_suggestion
+      @suggestion = Suggestion.new
     end
   
     def current_user_session
