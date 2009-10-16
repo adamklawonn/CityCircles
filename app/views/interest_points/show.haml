@@ -109,6 +109,7 @@
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_fix_its_url( @poi, :format => "xml" )
     %h1
       fix it
+      = image_tag "fixcon.png", { :border => 0 }
     #fixit.infoblock
       - unless @fix_its.empty?
         - @fix_its.each do |fix_it|
