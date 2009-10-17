@@ -29,9 +29,9 @@
   .clear
   #news.grid_4.alpha
     #infohead
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Post News" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       news
@@ -46,9 +46,9 @@
       
  
   #events.grid_4
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Post Event" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Event Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       events
@@ -63,7 +63,7 @@
   #promos.grid_4.omega
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Business Promotions Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       biz promos
@@ -71,9 +71,9 @@
     .infoblock
       %h2 No promos...be the first to post!
   #network.grid_4.alpha
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Post Network Item" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Network Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       network
@@ -86,9 +86,9 @@
       - else
         %h2 No networks...be the first to post!
   #stuff.grid_4
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Post your Stuff" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }      
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to the Stuff Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       stuff
@@ -101,9 +101,9 @@
       - else
         %h2 No networks...be the first to post!
   .grid_4.omega
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Post Community Project" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
-    %a{ :href => "#" }
+    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Community Projects Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       let's fix it
@@ -116,3 +116,6 @@
       - else
         %h2 No networks...be the first to post!
   .clear
+  
+:javascript
+  $j( "a.tooltip" ).tooltip( { track: true, delay: 0, showURL: false, showBody: " - ", fade: 250 } );

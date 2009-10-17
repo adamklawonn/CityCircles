@@ -41,7 +41,7 @@ namespace :db do
     map.author = user
     map.save!
     # Create map layers.
-    light_rail_layer = MapLayer.new( :title => "Light Rail", :shortname => "lightrailline" )
+    light_rail_layer = MapLayer.new( :title => "Stations", :shortname => "lightrailline" )
     light_rail_layer.author = user
     light_rail_layer.map = map
     light_rail_layer.save!
