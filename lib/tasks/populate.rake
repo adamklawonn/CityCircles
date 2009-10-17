@@ -57,7 +57,7 @@ namespace :db do
     network_layer.author = user
     network_layer.map = map
     network_layer.save!
-    promos_layer = MapLayer.new( :title => "Promos", :shortname => "promos" )
+    promos_layer = MapLayer.new( :title => "Biz Promos", :shortname => "promos" )
     promos_layer.author = user
     promos_layer.map = map
     promos_layer.save!
