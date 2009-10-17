@@ -65,7 +65,7 @@ namespace :db do
     stuff_layer.author = user
     stuff_layer.map = map
     stuff_layer.save!
-    fix_it_layer = MapLayer.new( :title => "Fix It", :shortname => "fixit" )
+    fix_it_layer = MapLayer.new( :title => "Let's Fix It", :shortname => "fixit" )
     fix_it_layer.author = user
     fix_it_layer.map = map
     fix_it_layer.save!
