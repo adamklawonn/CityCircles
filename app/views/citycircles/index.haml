@@ -82,7 +82,7 @@
       - unless @networks.empty?
         - @networks.each do |network|
           %h2
-            = link_to truncate( network.headline, 30 ), network_url( network )
+            = link_to truncate( network.headline, :length => 30 ), network_url( network )
       - else
         %h2 No networks...be the first to post!
   #stuff.grid_4
@@ -97,7 +97,7 @@
       - unless @stuffs.empty?
         - @stuffs.each do |stuff|
           %h2
-            = link_to truncate( stuff.headline, 30 ), stuff_url( stuff )
+            = link_to truncate( stuff.headline, :length => 30 ), stuff_url( stuff )
       - else
         %h2 No networks...be the first to post!
   .grid_4.omega
@@ -112,7 +112,7 @@
       - unless @fix_its.empty?
         - @fix_its.each do |fix_it|
           %h2
-            = link_to truncate( fix_it.headline, 30 ), fix_it_url( fix_it )
+            = link_to truncate( fix_it.headline, :length => 30 ), fix_it_url( fix_it )
       - else
         %h2 No networks...be the first to post!
   .clear
