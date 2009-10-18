@@ -85,7 +85,7 @@ namespace :db do
     promos_icon.save!
     stuff_icon = MapIcon.new :shortname => "stuff", :image_url => "/images/map_icons/stuff/stuffimage.png", :shadow_url => "/images/map_icons/stuff/stuffshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
     stuff_icon.save!
-    fix_it_icon = MapIcon.new :shortname => "fixit", :image_url => "/images/map_icons/stuff/stuffimage.png", :shadow_url => "/images/map_icons/stuff/stuffshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
+    fix_it_icon = MapIcon.new :shortname => "fixit", :image_url => "/images/map_icons/fixit/fixitimage.png", :shadow_url => "/images/map_icons/fixit/fixitshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
     fix_it_icon.save!
     # Create interest points.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail.csv" ) do |row|
