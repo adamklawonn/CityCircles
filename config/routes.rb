@@ -1,12 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.signin "/signin", :controller => "user_sessions", :action => "new"
+  map.signout "/signout", :controller => "user_sessions", :action => "destroy"
+  map.signup "/signup", :controller => "users", :action => "new"
   map.resources :suggestions
-
   map.resources :fix_its
-
   map.resources :stuffs
-
   map.resources :networks
-
   map.resources :file_attachments
   map.resources :user_locations
   map.resources :interest_point_icons
