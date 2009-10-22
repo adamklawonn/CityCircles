@@ -2,6 +2,8 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  # SSL
+  include SslRequirement
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -59,6 +61,18 @@ class ApplicationController < ActionController::Base
     def redirect_back_or_default(default)
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
+    end
+    
+    def ssl_required?
+
+      # (Comment this one line out if you want to test ssl locally)
+      return false if local_request? 
+
+      # always return false for tests
+      return false if RAILS_ENV == 'test'
+
+      # otherwise, use the filters.
+      super
     end
 
 end
