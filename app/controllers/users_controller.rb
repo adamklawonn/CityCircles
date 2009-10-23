@@ -12,14 +12,14 @@ class UsersController < ApplicationController
     @user.user_detail = UserDetail.new
     if verify_recaptcha( :model => @user, :message => "Captcha response was incorrect!" ) && @user.save
       flash[:notice] = "Account registered!"
-      redirect_back_or_default account_url
+      redirect_to profile_url
     else
       render :action => :new
     end
   end
   
   def show
-    @user = User.find( current_user.id, :include => [ :news, :events, :user_locations, :user_wireless_profiles ] )
+    @user = User.find( current_user.id, :include => [ :user_detail, :news, :events, :user_locations, :user_wireless_profiles ] )
   end
  
   def edit

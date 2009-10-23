@@ -30,7 +30,9 @@ class User < ActiveRecord::Base
   has_many :user_locations
   has_many :news, :foreign_key => "author_id"
   has_many :events, :foreign_key => "author_id"
-
+  has_many :networks, :foreign_key => "author_id"
+  has_many :stuffs, :foreign_key => "author_id"
+  
   acts_as_authentic
 
   before_validation_on_create :make_default_roles
@@ -40,6 +42,7 @@ class User < ActiveRecord::Base
   validates_presence_of :login
   validates_length_of :login, :in => 3..20
   validates_uniqueness_of :login
+  validates_uniqueness_of :email
   
   def self.find_admins
     self.find( :all, :conditions => "find_in_set( 'admin', users.roles )" )

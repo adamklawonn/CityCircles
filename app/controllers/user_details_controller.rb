@@ -15,7 +15,7 @@ class UserDetailsController < ApplicationController
   end
   
   def show
-    @user_detail = UserDetail.find_or_create( params[ :account_id ] )
+    @user_detail = UserDetail.find_or_create_by_id( params[ :id ] )
   end
   
 end

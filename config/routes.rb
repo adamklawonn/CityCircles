@@ -2,6 +2,9 @@ ActionController::Routing::Routes.draw do |map|
   map.signin "/signin", :controller => "user_sessions", :action => "new"
   map.signout "/signout", :controller => "user_sessions", :action => "destroy"
   map.signup "/signup", :controller => "users", :action => "new"
+  map.settings "/settings", :controller => "user_settings", :action => "index"
+  map.profile "/profile", :controller => "users", :action => "show"
+  map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
   map.resources :suggestions
   map.resources :fix_its
   map.resources :stuffs
@@ -11,13 +14,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :interest_point_icons
   map.resources :interest_lines
   map.resources :site_options
-  map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
   map.resources :pages
   map.resources :organizations
   map.resources :map_layers
   map.resources :wireless_carriers
-  map.settings "/settings", :controller => "user_settings", :action => "index"
-  map.resources :profile, :controller => "user_details"
   map.resources :register, :controller => "users"
   map.resources :user_wireless_profiles
   map.resources :user_details
