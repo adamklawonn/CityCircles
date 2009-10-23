@@ -35,8 +35,11 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #postcontent {}
 #postcontentmap { width: 260px; height: 260px; border: 3px solid #d3d3d3; }
 #smc { top: 28px !important; }
-.news_body { width: 400px; height: 400px; }
-.events_body { width: 400px; height: 200px; }
+.news_body { width: 340px; height: 200px; }
+.events_body { width: 340px; height: 200px; }
+.networks_body { width: 340px; height: 200px; }
+.stuffs_body { width: 340px; height: 200px; }
+.fix_its_body { width: 340px; height: 200px; }
 
 /*======================
        FEED
