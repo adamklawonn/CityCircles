@@ -29,8 +29,7 @@
   .clear
   #news.grid_4.alpha
     #infohead
-    %a{ :href => "#", :class => "tooltip", :title => "Post News" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Post News" } 
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -46,8 +45,7 @@
       
  
   #events.grid_4
-    %a{ :href => "#", :class => "tooltip", :title => "Post Event" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 1 ].selected = true;", { :class => "tooltip", :title => "Post Event" } 
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Event Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -71,8 +69,7 @@
     .infoblock
       %h2 No promos...be the first to post!
   #network.grid_4.alpha
-    %a{ :href => "#", :class => "tooltip", :title => "Post Network Item" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 2 ].selected = true;", { :class => "tooltip", :title => "Post Network Item" } 
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Network Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -86,8 +83,7 @@
       - else
         %h2 No networks...be the first to post!
   #stuff.grid_4
-    %a{ :href => "#", :class => "tooltip", :title => "Post your Stuff" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }      
+    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 3 ].selected = true;", { :class => "tooltip", :title => "Post Your Stuff" } 
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to the Stuff Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -101,8 +97,7 @@
       - else
         %h2 No networks...be the first to post!
   .grid_4.omega
-    %a{ :href => "#", :class => "tooltip", :title => "Post Community Project" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
+    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 4 ].selected = true;", { :class => "tooltip", :title => "Post Community Project" } 
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Community Projects Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -116,6 +111,6 @@
       - else
         %h2 No networks...be the first to post!
   .clear
-  
+
 :javascript
   $j( "a.tooltip" ).tooltip( { track: true, delay: 0, showURL: false, showBody: " - ", fade: 250 } );

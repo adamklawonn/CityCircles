@@ -1,0 +1,9 @@
+%table{ :width => "100%" }
+  %tr
+    %td{ :style => "vertical-align: top;" }
+      #postcontentform
+    %td{ :align => "right" }
+      Set the location
+      %br
+      %br
+      = render :partial => "maps/post_map", :locals => { :poi => @poi }

@@ -45,4 +45,17 @@ class InterestPointsController < ApplicationController
     
   end
   
+  def add_universal_content
+    
+    if request.xhr?
+      
+      @poi = InterestPoint.find( params[ :poi_id ] )
+      
+      render :update do | page |
+         page.redirect_to interest_point_url( @poi, :content_type => params[ :content_type ] )
+      end
+    end
+    
+  end
+  
 end

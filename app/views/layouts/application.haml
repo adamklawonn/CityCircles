@@ -60,13 +60,13 @@
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"  
         #addzone
           %a{ :href => "#" }
-            = image_tag "addblank.png", { :border => 0 }
+            = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" } 
       
         %ul
           %a{ :href => "#" }
             %li 
               .push
-                add content
+                = link_to_function "add content", "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" } 
           
             -if current_user_session.nil?
               %li
@@ -108,6 +108,25 @@
     #whoops{ :title => "Whoops!" }
       #whoops_message
     
+    -if @default_map != nil
+      #postuniversalcontent{ :title => "Which Station?" }
+        - form_remote_tag :url => "/interest_points/add_universal_content" do |f|
+          = hidden_field_tag "universal_post", "universal_post"
+          %br
+          = label_tag :station
+          %br
+          = select_tag "poi_id", options_for_select( @default_map.interest_points.collect { |poi| [ poi.label, poi.id ] } )
+          %br
+          = label_tag :what_type_of_content
+          %br
+          = select_tag "content_type", options_for_select( [ [ "News", "news" ], [ "Event", "event" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Community Project", "fix_it" ] ] )
+          %br
+          %br
+          = submit_tag "Ok"
+      :javascript
+        $j( '#postuniversalcontent' ).dialog( { width : 300, position : [ -10000, -10000 ] } );
+        $j( '#postuniversalcontent' ).dialog( 'option', 'center', 'true' );
+        $j( '#postuniversalcontent' ).dialog( 'option', 'resizable', false );
     .panel
       %h3 Make us Better!
       %br

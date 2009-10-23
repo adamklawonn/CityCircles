@@ -125,20 +125,14 @@
 
 
 #postcontent{ :title => "Post New Content" }
-  %table{ :width => "100%" }
-    %tr
-      %td{ :style => "vertical-align: top;" }
-        #postcontentform
-      %td{ :align => "right" }
-        Set the location
-        %br
-        %br
-        :javascript
-          var poiBounds = null;
-        = render :partial => "maps/post_map", :locals => { :poi => @poi }
+  = render :partial => "citycircles/post_content", :locals => { :poi => @poi }
 
 :javascript
   $j( '#postcontent' ).dialog( { width : 800, position : [ -10000, -10000 ] } );
   $j( '#postcontent' ).dialog( 'option', 'center', 'true' );
   $j( '#postcontent' ).dialog( 'option', 'resizable', false );
   $j( "a.tooltip" ).tooltip( { track: true, delay: 0, showURL: false, showBody: " - ", fade: 250 } );
+  
+- if params[ :content_type ]
+  :javascript
+    new Ajax.Request('/interest_points/add_content?content_type=#{params[ :content_type ]}&poi_id=#{ @poi.id }', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{ session[ :_csrf_token ] }')});
