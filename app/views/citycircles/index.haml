@@ -29,7 +29,10 @@
   .clear
   #news.grid_4.alpha
     #infohead
-    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Post News" } 
+    - if current_user
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Post News" } 
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -45,7 +48,10 @@
       
  
   #events.grid_4
-    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 1 ].selected = true;", { :class => "tooltip", :title => "Post Event" } 
+    - if current_user
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 1 ].selected = true;", { :class => "tooltip", :title => "Post Event" } 
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Event"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Event Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -69,7 +75,10 @@
     .infoblock
       %h2 No promos...be the first to post!
   #network.grid_4.alpha
-    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 2 ].selected = true;", { :class => "tooltip", :title => "Post Network Item" } 
+    - if current_user
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 2 ].selected = true;", { :class => "tooltip", :title => "Post Network Item" } 
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Network Item"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Network Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -83,7 +92,10 @@
       - else
         %h2 No networks...be the first to post!
   #stuff.grid_4
-    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 3 ].selected = true;", { :class => "tooltip", :title => "Post Your Stuff" } 
+    - if current_user
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 3 ].selected = true;", { :class => "tooltip", :title => "Post Your Stuff" } 
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Your Stuff"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to the Stuff Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
@@ -97,7 +109,10 @@
       - else
         %h2 No networks...be the first to post!
   .grid_4.omega
-    = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 4 ].selected = true;", { :class => "tooltip", :title => "Post Community Project" } 
+    - if current_user
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 4 ].selected = true;", { :class => "tooltip", :title => "Post Community Project" }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Community Project"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Community Projects Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
