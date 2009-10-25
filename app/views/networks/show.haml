@@ -6,12 +6,12 @@
       #article
       
         %h1
-          = @news.headline
+          = @network.headline
         %p
-          = "By #{ @news.author.login }"
+          = "By #{ @network.author.login }"
         %br
         %p
-          = @news.body
+          = @network.body
          
       #comments
         %span
@@ -54,38 +54,37 @@
     .clear
     #mostread
       %h1
-        most read stories
+        most read networks
       .infoblock
-        - News.find( :all, :limit => 9 ).each do |news_item|
+        - Network.find( :all, :limit => 9 ).each do |network|
           %h2
-            = link_to truncate( news_item.headline, 30 ), news_url( news_item )
+            = link_to truncate( network.headline, 30 ), network_url( network )
         %h5
           more>>
       
 :javascript
 
-  function loadNewsMap() {
+  function loadNetworkMap() {
     if ( GBrowserIsCompatible() ) {
       
       // Create news icon.
-      newsIcon = new GIcon();
-      newsAnchor = new GPoint( #{ @news.map_icon.icon_anchor } );
-      newsIcon.image = "#{ @news.map_icon.image_url }";
-      newsIcon.iconAnchor = newsAnchor;
-      newsIcon.infoWindowMarker = newsAnchor;
-      newsIcon.iconSize = new GSize( 43, 30 );
-      newsIcon.shadow = "#{ @news.map_icon.shadow_url }";
-      newsIcon.shadowSize = new GSize( 43, 30 );
+      networkIcon = new GIcon();
+      networkAnchor = new GPoint( #{ @network.map_icon.icon_anchor } );
+      networkIcon.image = "#{ @network.map_icon.image_url }";
+      networkIcon.iconAnchor = networkAnchor;
+      networkIcon.infoWindowMarker = networkAnchor;
+      networkIcon.iconSize = new GSize( 43, 30 );
+      networkIcon.shadow = "#{ @network.map_icon.shadow_url }";
+      networkIcon.shadowSize = new GSize( 43, 30 );
       
-      var newsMap = new GMap2( $( "content-spotlight-map" ) );
-      newsMap.disableDragging();
-      newsMap.disableDoubleClickZoom();
-      newsMap.disableScrollWheelZoom();
-      var newsMarker = new GMarker( new GLatLng( #{ @news.lat }, #{ @news.lng } ), { icon : newsIcon } );
-      newsMap.setCenter( new GLatLng( #{ @news.lat }, #{ @news.lng } ), 17 ); 
-      newsMap.addOverlay( newsMarker );
+      var networkMap = new GMap2( $( "content-spotlight-map" ) );
+      networkMap.disableDragging();
+      networkMap.disableDoubleClickZoom();
+      networkMap.disableScrollWheelZoom();
+      var networkMarker = new GMarker( new GLatLng( #{ @network.lat }, #{ @network.lng } ), { icon : networkIcon } );
+      networkMap.setCenter( new GLatLng( #{ @network.lat }, #{ @network.lng } ), 17 ); 
+      networkMap.addOverlay( networkMarker );
     }
   }
   
-  $j( document ).ready( loadNewsMap );
-  
+  $j( document ).ready( loadNetworkMap );

@@ -30,13 +30,17 @@ class EventsController < ApplicationController
         flash[ :notice ] = "Event posted."
         render :update do | page |
           page << "$j( '#postcontent' ).dialog( 'close' );"
-          page.reload 
+          page.redirect_to interest_point_url( @event.interest_point ) 
         end
       else
     
       end
     end
     
+  end
+  
+  def show
+    @event = Event.find( params[ :id ] )
   end
   
 end

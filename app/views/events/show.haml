@@ -6,12 +6,13 @@
       #article
       
         %h1
-          = @news.headline
+          = @event.headline
         %p
-          = "By #{ @news.author.login }"
+          = "By #{ @event.author.login }"
         %br
         %p
-          = @news.body
+          %strong When
+          = @event.body
          
       #comments
         %span
@@ -54,38 +55,37 @@
     .clear
     #mostread
       %h1
-        most read stories
+        most talked about
       .infoblock
-        - News.find( :all, :limit => 9 ).each do |news_item|
+        - Event.find( :all, :limit => 9 ).each do |event|
           %h2
-            = link_to truncate( news_item.headline, 30 ), news_url( news_item )
+            = link_to truncate( event.headline, 30 ), event_url( event )
         %h5
           more>>
       
 :javascript
 
-  function loadNewsMap() {
+  function loadEventMap() {
     if ( GBrowserIsCompatible() ) {
       
       // Create news icon.
-      newsIcon = new GIcon();
-      newsAnchor = new GPoint( #{ @news.map_icon.icon_anchor } );
-      newsIcon.image = "#{ @news.map_icon.image_url }";
-      newsIcon.iconAnchor = newsAnchor;
-      newsIcon.infoWindowMarker = newsAnchor;
-      newsIcon.iconSize = new GSize( 43, 30 );
-      newsIcon.shadow = "#{ @news.map_icon.shadow_url }";
-      newsIcon.shadowSize = new GSize( 43, 30 );
+      eventIcon = new GIcon();
+      eventAnchor = new GPoint( #{ @event.map_icon.icon_anchor } );
+      eventIcon.image = "#{ @event.map_icon.image_url }";
+      eventIcon.iconAnchor = eventAnchor;
+      eventIcon.infoWindowMarker = eventAnchor;
+      eventIcon.iconSize = new GSize( 43, 30 );
+      eventIcon.shadow = "#{ @event.map_icon.shadow_url }";
+      eventIcon.shadowSize = new GSize( 43, 30 );
       
-      var newsMap = new GMap2( $( "content-spotlight-map" ) );
-      newsMap.disableDragging();
-      newsMap.disableDoubleClickZoom();
-      newsMap.disableScrollWheelZoom();
-      var newsMarker = new GMarker( new GLatLng( #{ @news.lat }, #{ @news.lng } ), { icon : newsIcon } );
-      newsMap.setCenter( new GLatLng( #{ @news.lat }, #{ @news.lng } ), 17 ); 
-      newsMap.addOverlay( newsMarker );
+      var eventMap = new GMap2( $( "content-spotlight-map" ) );
+      eventMap.disableDragging();
+      eventMap.disableDoubleClickZoom();
+      eventMap.disableScrollWheelZoom();
+      var eventMarker = new GMarker( new GLatLng( #{ @event.lat }, #{ @event.lng } ), { icon : eventIcon } );
+      eventMap.setCenter( new GLatLng( #{ @event.lat }, #{ @event.lng } ), 17 ); 
+      eventMap.addOverlay( eventMarker );
     }
   }
   
-  $j( document ).ready( loadNewsMap );
-  
+  $j( document ).ready( loadEventMap );

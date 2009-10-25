@@ -159,6 +159,7 @@
     :javascript
       $j( '#whoops' ).dialog( { autoOpen : false, resizable : false } );
       $j( '#whoops' ).dialog( 'option', 'buttons', { "Ok" : function() { $j( this ).dialog( "close" ); } } );
+      $j( '#whoops' ).dialog( 'option', 'height', "175" );
       
       // Google Analytics
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

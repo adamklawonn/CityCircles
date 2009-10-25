@@ -6,8 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.profile "/profile", :controller => "users", :action => "show"
   map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
   map.resources :suggestions
-  map.resources :fix_its
-  map.resources :stuffs
+  map.resources :fix_it, :controller => "fix_its"
+  map.resources :stuff, :controller => "stuffs"
   map.resources :networks
   map.resources :file_attachments
   map.resources :user_locations

@@ -6,12 +6,12 @@
       #article
       
         %h1
-          = @news.headline
+          = @fix_it.headline
         %p
-          = "By #{ @news.author.login }"
+          = "By #{ @fix_it.author.login }"
         %br
         %p
-          = @news.body
+          = @fix_it.body
          
       #comments
         %span
@@ -54,38 +54,37 @@
     .clear
     #mostread
       %h1
-        most read stories
+        most recent community projects
       .infoblock
-        - News.find( :all, :limit => 9 ).each do |news_item|
+        - FixIt.find( :all, :limit => 9 ).each do |fix_it|
           %h2
-            = link_to truncate( news_item.headline, 30 ), news_url( news_item )
+            = link_to truncate( fix_it.headline, 30 ), fix_it_url( fix_it )
         %h5
           more>>
       
 :javascript
 
-  function loadNewsMap() {
+  function loadFixItMap() {
     if ( GBrowserIsCompatible() ) {
       
       // Create news icon.
-      newsIcon = new GIcon();
-      newsAnchor = new GPoint( #{ @news.map_icon.icon_anchor } );
-      newsIcon.image = "#{ @news.map_icon.image_url }";
-      newsIcon.iconAnchor = newsAnchor;
-      newsIcon.infoWindowMarker = newsAnchor;
-      newsIcon.iconSize = new GSize( 43, 30 );
-      newsIcon.shadow = "#{ @news.map_icon.shadow_url }";
-      newsIcon.shadowSize = new GSize( 43, 30 );
+      fixItIcon = new GIcon();
+      fixItAnchor = new GPoint( #{ @fix_it.map_icon.icon_anchor } );
+      fixItIcon.image = "#{ @fix_it.map_icon.image_url }";
+      fixItIcon.iconAnchor = fixItAnchor;
+      fixItIcon.infoWindowMarker = fixItAnchor;
+      fixItIcon.iconSize = new GSize( 43, 30 );
+      fixItIcon.shadow = "#{ @fix_it.map_icon.shadow_url }";
+      fixItIcon.shadowSize = new GSize( 43, 30 );
       
-      var newsMap = new GMap2( $( "content-spotlight-map" ) );
-      newsMap.disableDragging();
-      newsMap.disableDoubleClickZoom();
-      newsMap.disableScrollWheelZoom();
-      var newsMarker = new GMarker( new GLatLng( #{ @news.lat }, #{ @news.lng } ), { icon : newsIcon } );
-      newsMap.setCenter( new GLatLng( #{ @news.lat }, #{ @news.lng } ), 17 ); 
-      newsMap.addOverlay( newsMarker );
+      var fixItMap = new GMap2( $( "content-spotlight-map" ) );
+      fixItMap.disableDragging();
+      fixItMap.disableDoubleClickZoom();
+      fixItMap.disableScrollWheelZoom();
+      var fixItMarker = new GMarker( new GLatLng( #{ @fix_it.lat }, #{ @fix_it.lng } ), { icon : fixItIcon } );
+      fixItMap.setCenter( new GLatLng( #{ @fix_it.lat }, #{ @fix_it.lng } ), 17 ); 
+      fixItMap.addOverlay( fixItMarker );
     }
   }
   
-  $j( document ).ready( loadNewsMap );
-  
+  $j( document ).ready( loadFixItMap );

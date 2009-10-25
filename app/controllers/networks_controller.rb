@@ -30,7 +30,7 @@ class NetworksController < ApplicationController
         flash[ :notice ] = "Network posted."
         render :update do | page |
           page << "$j( '#postcontent' ).dialog( 'close' );"
-          page.reload 
+          page.redirect_to interest_point_url( @network.interest_point ) 
         end
       else
     

@@ -30,7 +30,7 @@ class NewsController < ApplicationController
         flash[ :notice ] = "News item posted."
         render :update do | page |
           page << "$j( '#postcontent' ).dialog( 'close' );"
-          page.reload 
+          page.redirect_to interest_point_url( @news.interest_point ) 
         end
       else
     
