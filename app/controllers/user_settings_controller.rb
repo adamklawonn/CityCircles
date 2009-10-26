@@ -111,4 +111,35 @@ class UserSettingsController < ApplicationController
     end
   end
 
+  def add_hobby
+    user = current_user
+    @user_location = UserLocation.new( params[ :user_location ] )
+    @user_location.user = user
+    if @user_location.save
+      render :update do | page |
+        page.insert_html :bottom, 'location_list', :partial => "location", :locals => { :location => @user_location }
+        page.replace_html "user_location_form", :partial => "user_location"
+        page.replace_html "notice", "Place added."
+        page.visual_effect :toggle_blind, 'notice'
+        page.delay 3 do
+          page.visual_effect :toggle_blind, 'notice'
+        end
+      end
+    else
+      render :update do | page |
+        page.replace_html "user_location_form", :partial => "user_location"
+      end
+    end    
+  end
+  
+  def remove_hobby
+    @user_location = UserLocation.find( params[ :user_location_id ] )
+    @user_location.destroy
+    user = current_user
+    render :update do | page |
+      page.replace_html "location_list", :partial => "location", :collection => user.user_locations
+    end
+  end
+
+
 end

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091012063947
+# Schema version: 20091026161410
 #
 # Table name: users
 #
@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
   has_many :events, :foreign_key => "author_id"
   has_many :networks, :foreign_key => "author_id"
   has_many :stuffs, :foreign_key => "author_id"
+  has_many :user_interests
+  has_many :user_hobbies
   
   acts_as_authentic
 

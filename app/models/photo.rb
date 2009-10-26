@@ -1,14 +1,14 @@
 # == Schema Information
-# Schema version: 20091012063947
+# Schema version: 20091026161410
 #
 # Table name: photos
 #
 #  id                 :integer(4)      not null, primary key
 #  title              :string(255)     not null
 #  caption            :string(255)
-#  photo_file_name    :string(255)     not null
-#  photo_content_type :string(255)     not null
-#  photo_file_size    :integer(4)      not null
+#  image_file_name    :string(255)     not null
+#  image_content_type :string(255)     not null
+#  image_file_size    :integer(4)      not null
 #  photoable_id       :integer(4)
 #  photoable_type     :string(255)
 #  lat                :decimal(10, 6)

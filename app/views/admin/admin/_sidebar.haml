@@ -17,6 +17,10 @@
     = link_to "Fix/Better", :controller => "improve", :action => "index"
   %li{ :class => request.url.match( '/admin/users' ) ? "admin_sidebar_selected" : "" }
     = link_to "Users", index_admin_users_url
+  %li{ :class => request.url.match( '/admin/interests' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Interests", index_admin_interests_url
+  %li{ :class => request.url.match( '/admin/hobbies' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Hobbies", index_admin_hobbies_url
   %li{ :class => request.url.match( '/admin/advertisers' ) ? "admin_sidebar_selected" : "" }
     = link_to "Advertisers", :controller => "maps", :action => "index"
   %li{ :class => request.url.match( '/admin/mobile' ) ? "admin_sidebar_selected" : "" }

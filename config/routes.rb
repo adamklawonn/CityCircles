@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :user_hobbies
+  map.resources :user_interests
+  map.resources :hobbies
+  map.resources :interests
   map.signin "/signin", :controller => "user_sessions", :action => "new"
   map.signout "/signout", :controller => "user_sessions", :action => "destroy"
   map.signup "/signup", :controller => "users", :action => "new"
@@ -39,6 +43,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resource :maps, :collection => { :index => :get }
     admin.resource :pages, :collection => { :index => :get }
     admin.resource :users, :collection => { :index => :get }
+    admin.resource :interests, :collection => { :index => :get}
+    admin.resource :hobbies, :collection => { :index => :get }
     admin.resource :networks, :collection => { :index => :get }
     admin.resources :stuffs, :collection => { :index => :get }
     admin.resources :fix_its, :collection => { :index => :get }

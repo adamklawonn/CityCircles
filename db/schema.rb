@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091026075430) do
+ActiveRecord::Schema.define(:version => 20091026161410) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :null => false
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(:version => 20091026075430) do
     t.datetime "updated_at"
   end
 
+  create_table "hobbies", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "interest_lines", :force => true do |t|
     t.integer  "map_id",                                      :null => false
     t.integer  "map_layer_id",                                :null => false
@@ -83,6 +89,12 @@ ActiveRecord::Schema.define(:version => 20091026075430) do
     t.decimal  "lat",          :precision => 10, :scale => 6
     t.decimal  "lng",          :precision => 10, :scale => 6
     t.integer  "author_id",                                   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interests", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -247,6 +259,20 @@ ActiveRecord::Schema.define(:version => 20091026075430) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "user_hobbies", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "hobby_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_interests", :force => true do |t|
+    t.integer  "user_id",     :null => false
+    t.integer  "interest_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_locations", :force => true do |t|
