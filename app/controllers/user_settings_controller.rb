@@ -5,6 +5,7 @@ class UserSettingsController < ApplicationController
     @user_detail = @user.user_detail
     @user_wireless_profile = UserWirelessProfile.new
     @user_location = UserLocation.new
+    @default_map = Map.find_by_shortname( "lightrail", :include => [ :map_layers, :interest_points ] )
   end
   
   def update_user

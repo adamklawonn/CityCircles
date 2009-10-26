@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :get_pages
   before_filter :new_suggestion
+  before_filter :get_default_map
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
@@ -24,6 +25,10 @@ class ApplicationController < ActionController::Base
     
     def new_suggestion
       @suggestion = Suggestion.new
+    end
+    
+    def get_default_map
+      @default_map = Map.find_by_shortname( "lightrail", :include => [ :map_layers, :interest_points ] )
     end
   
     def current_user_session
