@@ -16,5 +16,5 @@
 class UserDetail < ActiveRecord::Base
 
   belongs_to :user
-  has_attached_file :avatar, :styles => { :small => "50x50>", :medium => "100x100>", :large => "150x150>" }  
+  has_attached_file :avatar, :styles => { :small => "50x50>", :medium => "100x100>", :large => "150x150>", :huge => "300x300>" }, :path => ":rails_root/public/user_details/avatars/:id/:style_:basename.:extension", :url => "/user_details/avatars/:id/:style_:basename.:extension"
 end
