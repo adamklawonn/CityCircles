@@ -88,6 +88,12 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #content #userpost h2 {padding-left:10px; line-height:1.7em; }
 
 /*======================
+       PROFILE
+=====================*/
+#content #page{background-color:#fff;height:160px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc; padding: 20px; }
+
+
+/*======================
          INFO
 =====================*/
 #spotlight{height:200px;}

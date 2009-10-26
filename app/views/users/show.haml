@@ -1,7 +1,7 @@
 #content.container_12
   #userpicture.grid_2.alpha
     #pic
-      = image_tag "scott.jpg"
+      = image_tag @user.user_detail.avatar.url( :small )
   
   
   #userinfo.grid_7

@@ -30,12 +30,18 @@ class UserSettingsController < ApplicationController
     user = current_user
     @user_detail = user.user_detail
     if @user_detail.update_attributes(params[:user_detail])
-      render :update do | page |
-        page.replace_html "user_detail_form", :partial => "profile"
-        page.replace_html "notice", "Profile updated."
-        page.visual_effect :toggle_blind, 'notice'
-        page.delay 3 do
-          page.visual_effect :toggle_blind, 'notice'
+      respond_to do | format |
+        format.js do
+          responds_to_parent do
+            render :update do | page |
+              page.replace_html "user_detail_form", :partial => "profile"
+              page.replace_html "notice", "Profile updated."
+              page.visual_effect :toggle_blind, 'notice'
+              page.delay 3 do
+                page.visual_effect :toggle_blind, 'notice'
+              end
+            end
+          end
         end
       end
     else

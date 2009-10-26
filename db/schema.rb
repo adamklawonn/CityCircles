@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091012063947) do
+ActiveRecord::Schema.define(:version => 20091026075430) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :null => false
@@ -173,9 +173,9 @@ ActiveRecord::Schema.define(:version => 20091012063947) do
   create_table "photos", :force => true do |t|
     t.string   "title",                                             :null => false
     t.string   "caption"
-    t.string   "photo_file_name",                                   :null => false
-    t.string   "photo_content_type",                                :null => false
-    t.integer  "photo_file_size",                                   :null => false
+    t.string   "image_file_name",                                   :null => false
+    t.string   "image_content_type",                                :null => false
+    t.integer  "image_file_size",                                   :null => false
     t.integer  "photoable_id"
     t.string   "photoable_type"
     t.decimal  "lat",                :precision => 10, :scale => 6
@@ -236,13 +236,17 @@ ActiveRecord::Schema.define(:version => 20091012063947) do
   end
 
   create_table "user_details", :force => true do |t|
-    t.integer  "user_id",    :null => false
+    t.integer  "user_id",             :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "about_me"
     t.string   "hobbies"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "user_locations", :force => true do |t|
