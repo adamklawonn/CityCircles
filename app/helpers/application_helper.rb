@@ -63,7 +63,7 @@ module ApplicationHelper
     else
       gmap.center_zoom_init( [ poi_override.lat, poi_override.lng ], 15 )
       gmap.record_init "map.openInfoWindowHtml( new GLatLng( #{ poi_override.lat }, #{ poi_override.lng }, true ), '#{ poi_override.body }' );" if poi_override_options[ :open_info_window_onload ]
-      gmap.record_init "map.enableScrollWheelZoom();"
+      gmap.record_init "map.enableScrollWheelZoom();" if poi_override_options[ :enable_scroll_zoom ]
     end
     
     # Add markers to each individual layer on the map.
@@ -75,17 +75,19 @@ module ApplicationHelper
     
   end
   
+  # The map for the interest point (places) page.
   def generate_poi_gmap( poi )
     
     if poi.class.class_name == "InterestPoint"
       poi.body = "<strong>#{ poi.label }</strong><br /><br />You have jumped to this place."
-      pmap = self.generate_gmap( poi.map, poi, { :open_info_window_onload => true } )
+      pmap = self.generate_gmap( poi.map, poi, { :open_info_window_onload => true, :enable_scroll_zoom => false } )
     end
     
     pmap
     
   end
   
+  # The little map inside the post content dialog.
   def generate_poi_post_map( poi )
     
     post_gmap = GMap.new( "postcontentmap", "postcontentmap" )
@@ -97,7 +99,12 @@ module ApplicationHelper
   end
   
   def friendly_datetime( datetime )
-    datetime.strftime( "%a %b %d %y %I:%M %p" )
+    datetime.strftime( "%a, %b %d, %Y %I:%M %p" )
+  end
+  
+  def commentable_url
+    commentable = controller.controller_name.singularize
+    comments_path( :commentable_type => commentable, :commentable_id => controller.instance_variable_get( "@#{ commentable }" ).id )
   end
   
 end

@@ -12,11 +12,11 @@
 ActiveRecord::Schema.define(:version => 20091012063947) do
 
   create_table "comments", :force => true do |t|
-    t.string   "title",          :null => false
-    t.string   "body",           :null => false
-    t.integer  "author_id",      :null => false
-    t.integer  "commenter_id"
-    t.string   "commenter_type"
+    t.string   "title",            :null => false
+    t.string   "body",             :null => false
+    t.integer  "author_id",        :null => false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

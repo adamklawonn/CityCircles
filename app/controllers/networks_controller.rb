@@ -41,6 +41,7 @@ class NetworksController < ApplicationController
   
   def show
     @network = Network.find( params[ :id ] )
+    @comment = Comment.new
   end
   
 end

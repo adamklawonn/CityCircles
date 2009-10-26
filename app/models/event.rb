@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091012043941
+# Schema version: 20091012063947
 #
 # Table name: events
 #
@@ -19,12 +19,13 @@
 #
 
 class Event < ActiveRecord::Base
-  has_many :comments, :as => :commenter
   belongs_to :interest_point
   belongs_to :map_layer
   belongs_to :map_icon
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
+  has_many :comments, :as => :commentable
   acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
+  
   def label 
     headline
   end

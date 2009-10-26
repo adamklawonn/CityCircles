@@ -41,6 +41,7 @@ class StuffsController < ApplicationController
   
   def show
     @stuff = Stuff.find( params[ :id ] )
+    @comment = Comment.new
   end
   
 end

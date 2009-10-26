@@ -6,8 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.profile "/profile", :controller => "users", :action => "show"
   map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
   map.resources :suggestions
-  map.resources :fix_it, :controller => "fix_its"
-  map.resources :stuff, :controller => "stuffs"
+  map.resources :fix_its
+  map.resources :stuffs
   map.resources :networks
   map.resources :file_attachments
   map.resources :user_locations
@@ -27,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :maps
   map.resources :interest_points, :as => "places", :has_many => [ :news, :events, :networks, :stuffs, :fix_its ]
   map.resources :events
-  map.resources :news, :collection => { :poi => :get }
+  map.resources :news, :collection => { :poi => :get }, :has_many => [ :comments ]
   map.resource :user_session
   map.resources :accounts, :controller => "users" do | accounts |
     accounts.resources :profile, :controller => "user_details"

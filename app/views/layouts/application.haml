@@ -128,7 +128,7 @@
           = select_tag "content_type", options_for_select( [ [ "News", "news" ], [ "Event", "event" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Community Project", "fix_it" ] ] )
           %br
           %br
-          = submit_tag "Ok"
+          = submit_tag "OK"
       :javascript
         $j( '#postuniversalcontent' ).dialog( { width : 300, position : [ -10000, -10000 ] } );
         $j( '#postuniversalcontent' ).dialog( 'option', 'center', 'true' );
@@ -158,7 +158,7 @@
         <em>k</em>
     :javascript
       $j( '#whoops' ).dialog( { autoOpen : false, resizable : false } );
-      $j( '#whoops' ).dialog( 'option', 'buttons', { "Ok" : function() { $j( this ).dialog( "close" ); } } );
+      $j( '#whoops' ).dialog( 'option', 'buttons', { "OK" : function() { $j( this ).dialog( "close" ); } } );
       $j( '#whoops' ).dialog( 'option', 'height', "175" );
       
       // Google Analytics

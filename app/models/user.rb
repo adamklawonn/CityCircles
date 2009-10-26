@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091012043941
+# Schema version: 20091012063947
 #
 # Table name: users
 #
@@ -24,10 +24,11 @@
 #
 
 class User < ActiveRecord::Base
-
+  
   has_one :user_detail
   has_many :user_wireless_profiles
   has_many :user_locations
+  has_many :comments, :foreign_key => "author_id"
   has_many :news, :foreign_key => "author_id"
   has_many :events, :foreign_key => "author_id"
   has_many :networks, :foreign_key => "author_id"

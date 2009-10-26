@@ -41,6 +41,7 @@ class FixItsController < ApplicationController
   
   def show
     @fix_it = FixIt.find( params[ :id ] )
+    @comment = Comment.new
   end
   
 end

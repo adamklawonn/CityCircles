@@ -1,0 +1,24 @@
+#twtr-search-widget
+= javascript_include_tag "http://widgets.twimg.com/j/1/widget.js"
+= stylesheet_link_tag "http://widgets.twimg.com/j/1/widget.css"
+:javascript
+  new TWTR.Widget({
+    search: 'CityCirc OR #citycircles',
+    id: 'twtr-search-widget',
+    loop: true,
+    title: 'City Circles',
+    subject: 'twittersphere',
+    width: 300,
+    height: 302,
+    theme: {
+      shell: {
+        background: '#c7dacd',
+        color: '#ffffff'
+      },
+      tweets: {
+        background: '#ffffff',
+        color: '#444444',
+        links: '#1985b5'
+      }
+    }
+  }).render().start();
