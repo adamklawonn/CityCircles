@@ -79,7 +79,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 =====================*/
 #content #userpicture{height:160px;}
 #content #userpicture #pic{height:140px; width:120px;background-color:#000;margin:10px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
-#content #userinfo{background-color:#fff;height:160px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
+#content #userinfo{background-color:#fff;padding-bottom: 20px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 #content #userstops h3 {padding-left:20px; color:#46543a;}
 #content #userstops{background-color:#fff; height:160px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 #content #userinterest{; height:180px;padding-top:4px;overflow:y:auto;}
@@ -202,6 +202,8 @@ label { font-size: 0.9em; }
          Rails
 =====================*/
 .fieldWithErrors input { display: inline; border: 2px solid #BA5246; }
+
+.formError { color: #BA5246; }
 
 html {
      overflow-y: -moz-scrollbars-vertical;

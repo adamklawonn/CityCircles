@@ -15,4 +15,6 @@ class UserHobby < ActiveRecord::Base
   belongs_to :hobby
   belongs_to :user
   
+  validates_uniqueness_of :hobby_id, :scope => :user_id, :message => "The same hobby cannot be added more than once."
+  
 end

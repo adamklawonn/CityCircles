@@ -185,9 +185,9 @@ ActiveRecord::Schema.define(:version => 20091026161410) do
   create_table "photos", :force => true do |t|
     t.string   "title",                                             :null => false
     t.string   "caption"
-    t.string   "image_file_name",                                   :null => false
-    t.string   "image_content_type",                                :null => false
-    t.integer  "image_file_size",                                   :null => false
+    t.string   "photo_file_name",                                   :null => false
+    t.string   "photo_content_type",                                :null => false
+    t.integer  "photo_file_size",                                   :null => false
     t.integer  "photoable_id"
     t.string   "photoable_type"
     t.decimal  "lat",                :precision => 10, :scale => 6

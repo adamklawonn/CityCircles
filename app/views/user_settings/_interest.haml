@@ -1,0 +1,7 @@
+%li
+  %br
+  = "#{ interest.interest.name }"
+  %br
+  = "#{ link_to_remote 'Remove', :url => { :action => 'remove_interest', :user_interest_id => interest.interest.id } }"
+  %br
+  %br
