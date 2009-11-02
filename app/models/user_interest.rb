@@ -15,4 +15,6 @@ class UserInterest < ActiveRecord::Base
   belongs_to :user
   belongs_to :interest
   
+  validates_uniqueness_of :interest_id, :scope => :user_id, :message => "The same interest cannot be added more than once."
+  
 end

@@ -5,7 +5,8 @@ class UserSettingsController < ApplicationController
     @user_detail = @user.user_detail
     @user_wireless_profile = UserWirelessProfile.new
     @user_location = UserLocation.new
-    @default_map = Map.find_by_shortname( "lightrail", :include => [ :map_layers, :interest_points ] )
+    @hobbies = Hobby.find( :all, :order => "name asc" )
+    @interests = Interest.find( :all, :order => "name asc" )
   end
   
   def update_user
@@ -112,14 +113,15 @@ class UserSettingsController < ApplicationController
   end
 
   def add_hobby
+    @hobbies = Hobby.find( :all, :order => "name asc" )
     user = current_user
-    @user_location = UserLocation.new( params[ :user_location ] )
-    @user_location.user = user
-    if @user_location.save
+    @user_hobby = UserHobby.new( params[ :user_hobby ] )
+    @user_hobby.user = user
+    if @user_hobby.save
       render :update do | page |
-        page.insert_html :bottom, 'location_list', :partial => "location", :locals => { :location => @user_location }
-        page.replace_html "user_location_form", :partial => "user_location"
-        page.replace_html "notice", "Place added."
+        page.insert_html :bottom, 'hobby_list', :partial => "hobby", :locals => { :hobby => @user_hobby }
+        page.replace_html "user_hobby_form", :partial => "user_hobby"
+        page.replace_html "notice", "Hobby added."
         page.visual_effect :toggle_blind, 'notice'
         page.delay 3 do
           page.visual_effect :toggle_blind, 'notice'
@@ -127,19 +129,49 @@ class UserSettingsController < ApplicationController
       end
     else
       render :update do | page |
-        page.replace_html "user_location_form", :partial => "user_location"
+        page.replace_html "user_hobby_form", :partial => "user_hobby"
       end
     end    
   end
   
   def remove_hobby
-    @user_location = UserLocation.find( params[ :user_location_id ] )
-    @user_location.destroy
+    @user_hobby = UserHobby.find( params[ :user_hobby_id ] )
+    @user_hobby.destroy
     user = current_user
     render :update do | page |
-      page.replace_html "location_list", :partial => "location", :collection => user.user_locations
+      page.replace_html "hobby_list", :partial => "hobby", :collection => user.user_hobbies
     end
   end
-
+  
+  def add_interest
+    @interests = Interest.find( :all, :order => "name asc" )
+    user = current_user
+    @user_interest = UserInterest.new( params[ :user_interest ] )
+    @user_interest.user = user
+    if @user_interest.save
+      render :update do | page |
+        page.insert_html :bottom, 'interest_list', :partial => "interest", :locals => { :interest => @user_interest }
+        page.replace_html "user_interest_form", :partial => "user_interest"
+        page.replace_html "notice", "Interest added."
+        page.visual_effect :toggle_blind, 'notice'
+        page.delay 3 do
+          page.visual_effect :toggle_blind, 'notice'
+        end
+      end
+    else
+      render :update do | page |
+        page.replace_html "user_interest_form", :partial => "user_interest"
+      end
+    end
+  end
+  
+  def remove_interest
+    @user_interest = UserInterest.find( params[ :user_interest_id ] )
+    @user_interest.destroy
+    user = current_user
+    render :update do | page |
+      page.replace_html "interest_list", :partial => "interest", :collection => user.user_interests
+    end
+  end
 
 end

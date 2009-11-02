@@ -1,6 +1,6 @@
 %li
   %br
-  = "#{ hobby.name }"
+  = "#{ hobby.hobby.name }"
   %br
   = "#{ link_to_remote 'Remove', :url => { :action => 'remove_hobby', :user_hobby_id => hobby.id } }"
   %br
