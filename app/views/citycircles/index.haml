@@ -1,8 +1,9 @@
 #content.grid_12
-  #midmap.grid_8.alpha
+  #midmap.grid_12.alpha
     = render :partial => "maps/map", :locals => { :map => @map }
-  #twitter.grid_4.omega
-    = render :partial => "citycircles/twitter_feed"
+  .clear
+  .grid_12.alpha
+    = render :partial => "citycircles/mini_twitter_feed"
   .clear
   #news.grid_4.alpha
     #infohead
@@ -106,3 +107,11 @@
 
 :javascript
   $j( "a.tooltip" ).tooltip( { track: true, delay: 0, showURL: false, showBody: " - ", fade: 250 } );
+  
+  $j( document ).ready( function() {
+    $j( "#mini-twtr-feed" ).tweet( {
+      query : "%40citycirc+OR+%23citycircles",
+      count : 3,
+      loading_text : "loading tweets..."
+    } );
+  } );

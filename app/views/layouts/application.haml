@@ -23,15 +23,19 @@
     = GMap.header
     = javascript_include_tag "markerGroup"
     = javascript_include_tag "citycircles/CCGMapExtras"
+    = javascript_include_tag "jquery.tweet"
+    = javascript_include_tag "jcarousellite_1.0.1.pack"
     :javascript
       var $j = jQuery.noConflict();
       
       $j( document ).ready( function(){
+      	
       	$j( ".trigger" ).click( function(){
       		$j( ".panel" ).toggle( "fast" );
       		$j( this ).toggleClass( "active" );
       		return false;
       	} );
+      	
       } );
       
       tinyMCE.init( {
