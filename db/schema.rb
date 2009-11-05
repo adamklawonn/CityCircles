@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091026161410) do
+ActiveRecord::Schema.define(:version => 20091104061546) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :null => false
@@ -161,12 +161,14 @@ ActiveRecord::Schema.define(:version => 20091026161410) do
   end
 
   create_table "organizations", :force => true do |t|
-    t.integer  "interest_point_id", :null => false
-    t.string   "name",              :null => false
+    t.integer  "interest_point_id",                                :null => false
+    t.string   "name",                                             :null => false
     t.string   "description"
-    t.integer  "author_id",         :null => false
+    t.integer  "author_id",                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "lat",               :precision => 10, :scale => 6
+    t.decimal  "lng",               :precision => 10, :scale => 6
   end
 
   create_table "pages", :force => true do |t|
@@ -185,9 +187,9 @@ ActiveRecord::Schema.define(:version => 20091026161410) do
   create_table "photos", :force => true do |t|
     t.string   "title",                                             :null => false
     t.string   "caption"
-    t.string   "photo_file_name",                                   :null => false
-    t.string   "photo_content_type",                                :null => false
-    t.integer  "photo_file_size",                                   :null => false
+    t.string   "image_file_name",                                   :null => false
+    t.string   "image_content_type",                                :null => false
+    t.integer  "image_file_size",                                   :null => false
     t.integer  "photoable_id"
     t.string   "photoable_type"
     t.decimal  "lat",                :precision => 10, :scale => 6

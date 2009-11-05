@@ -28,7 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments
   map.resources :photos
   map.resources :promos
-  map.resources :maps
+  map.resources :maps, :collection => { :nextgen => :get }
   map.resources :interest_points, :as => "places", :has_many => [ :news, :events, :networks, :stuffs, :fix_its ]
   map.resources :events
   map.resources :news, :collection => { :poi => :get }, :has_many => [ :comments ]
@@ -49,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :stuffs, :collection => { :index => :get }
     admin.resources :fix_its, :collection => { :index => :get }
     admin.resources :suggestions, :collection => { :index => :get }
+    admin.resources :organizations, :collection => { :index => :get }
   end
   map.root :controller => "citycircles", :action => "index" # optional, this just sets the root route
   map.connect ':controller/:action/:id'

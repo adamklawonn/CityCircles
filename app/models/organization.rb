@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091026161410
+# Schema version: 20091104061546
 #
 # Table name: organizations
 #
@@ -10,9 +10,12 @@
 #  author_id         :integer(4)      not null
 #  created_at        :datetime
 #  updated_at        :datetime
+#  lat               :decimal(10, 6)
+#  lng               :decimal(10, 6)
 #
 
 class Organization < ActiveRecord::Base
   belongs_to :interest_point
+  belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   has_many :promos
 end

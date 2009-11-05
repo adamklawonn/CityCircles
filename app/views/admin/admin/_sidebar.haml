@@ -21,8 +21,8 @@
     = link_to "Interests", index_admin_interests_url
   %li{ :class => request.url.match( '/admin/hobbies' ) ? "admin_sidebar_selected" : "" }
     = link_to "Hobbies", index_admin_hobbies_url
-  %li{ :class => request.url.match( '/admin/advertisers' ) ? "admin_sidebar_selected" : "" }
-    = link_to "Advertisers", :controller => "maps", :action => "index"
+  %li{ :class => request.url.match( '/admin/organizations' ) ? "admin_sidebar_selected" : "" }
+    = link_to "Organizations", :controller => "organizations", :action => "index"
   %li{ :class => request.url.match( '/admin/mobile' ) ? "admin_sidebar_selected" : "" }
     = link_to "Mobile", :controller => "mobile", :action => "index"
   %li{ :class => request.url.match( '/admin/pages' ) ? "admin_sidebar_selected" : "" }

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091026161410
+# Schema version: 20091104061546
 #
 # Table name: user_wireless_profiles
 #

@@ -9,4 +9,8 @@ class MapsController < ApplicationController
     
   end
   
+  def nextgen
+    
+  end
+  
 end
