@@ -4,7 +4,6 @@
 # Table name: pages
 #
 #  id                 :integer(4)      not null, primary key
-#  parent_id          :integer(4)
 #  title              :string(255)     not null
 #  shortname          :string(255)     not null
 #  show_in_navigation :boolean(1)
