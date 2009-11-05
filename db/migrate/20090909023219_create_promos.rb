@@ -3,6 +3,7 @@ class CreatePromos < ActiveRecord::Migration
     create_table :promos, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.integer :organization_id, :null => false
       t.integer :interest_point_id, :null => false
+      t.integer :map_layer_id, :null => false
       t.integer :map_icon_id, :null => false
       t.decimal :lat, :precision => 10, :scale => 6, :default => nil
       t.decimal :lng, :precision => 10, :scale => 6, :default => nil
@@ -11,6 +12,10 @@ class CreatePromos < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :promos, :map_layer_id
+    add_index :promos, :map_icon_id
+    
   end
 
   def self.down

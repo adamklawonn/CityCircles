@@ -11,6 +11,7 @@ class CreateMapIcons < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
   end
 
   def self.down

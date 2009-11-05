@@ -12,9 +12,15 @@ class CreateInterestPoints < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :interest_points, :map_id
+    add_index :interest_points, :map_layer_id
+    add_index :interest_points, :map_icon_id
+    
   end
 
   def self.down
+    remove_index :interest_points, :map_id
     drop_table :interest_points
   end
 end

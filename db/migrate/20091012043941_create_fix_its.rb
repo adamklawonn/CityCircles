@@ -11,6 +11,10 @@ class CreateFixIts < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :fix_its, :map_layer_id
+    add_index :fix_its, :map_icon_id
+    
   end
 
   def self.down

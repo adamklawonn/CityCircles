@@ -11,6 +11,10 @@ class CreateNews < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :news, :map_layer_id
+    add_index :news, :map_icon_id
+    
   end
 
   def self.down

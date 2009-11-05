@@ -11,6 +11,11 @@ class CreateInterestLines < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :interest_lines, :map_id
+    add_index :interest_lines, :map_layer_id
+    add_index :interest_lines, :shortname
+    
   end
 
   def self.down
