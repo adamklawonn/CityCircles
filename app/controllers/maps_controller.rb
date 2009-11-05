@@ -9,8 +9,8 @@ class MapsController < ApplicationController
     
   end
   
-  def nextgen
-    
+  def next
+    @map = Map.find_by_shortname( "lightrail" )    
   end
   
 end

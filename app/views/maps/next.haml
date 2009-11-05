@@ -1,0 +1,11 @@
+%h1 Fantastic new mapping technology!
+#map-container{ :style => "position: relative; width: 600px; height: 300px; margin: 10px;" }
+  #map{ :style => "position: absolute; left: 0px; top: 0px; width: 500px; height: 300px;" }
+  #map-control{ :style => "position: absolute; right: 0px; top: 0px; width: 100px; height: 300px;" }
+
+:javascript
+  google.load( "maps", "2" );
+  var options = { map_id : #{ @map.id }, center : [ #{ @map.lat }, #{ @map.lng } ], zoom : #{ @map.zoom }, mouseZoom : true }
+  document.observe( "dom:loaded", function() { 
+    map = new citycircles.maps.Map( "map", options );
+  } );

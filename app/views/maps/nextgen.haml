@@ -1,7 +1,0 @@
-%h1 Fantastic new mapping technology!
-#map{ :style => "width: 300px; height: 300px;" }
-
-:javascript
-  google.load( "maps", "2" );
-  var options = { center : [ 33.474644, -111.986650 ], zoom : 15 }
-  document.observe( "dom:loaded", function() { new citycircles.maps.Map( "map", options ); } );

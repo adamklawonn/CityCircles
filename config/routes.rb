@@ -20,7 +20,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :site_options
   map.resources :pages
   map.resources :organizations
-  map.resources :map_layers
   map.resources :wireless_carriers
   map.resources :register, :controller => "users"
   map.resources :user_wireless_profiles
@@ -28,7 +27,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments
   map.resources :photos
   map.resources :promos
-  map.resources :maps, :collection => { :nextgen => :get }
+  map.resources :map_layers, :has_many => [ :interest_points ]
+  map.resources :maps, :collection => { :next => :get }, :has_many => [ :map_layers ]
   map.resources :interest_points, :as => "places", :has_many => [ :news, :events, :networks, :stuffs, :fix_its ]
   map.resources :events
   map.resources :news, :collection => { :poi => :get }, :has_many => [ :comments ]
