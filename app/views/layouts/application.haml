@@ -64,39 +64,37 @@
         #searchbar
           - form_tag "/search" do
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"  
-        #addzone
-          %a{ :href => "#" }
-            - if current_user
-              = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" }
-            - else
-              = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
+        #addzone  
+          - if current_user
+            = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" }
+          - else
+            = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
       
         %ul
-          %a{ :href => "#" }
-            %li 
-              .push
-                - if current_user
-                  = link_to_function "add content", "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" }
-                - else
-                  = link_to_function "add content", "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
-          
-            -if current_user_session.nil?
-              %li
-                %a#signinlink{ :href => signin_url } sign in
-                %span
-                  or
-                %a#registerlink{ :href => signup_url } register
-            -else
-              %li
-                = link_to "sign out (#{ current_user.login })", signout_url, :method => :delete
-              %li
-                = link_to "profile", ( current_user_session.nil? ? "#" : user_url )
-              %li
-                = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
-          - if !current_user.nil? and current_user.admin?
+          %li 
+            .push
+              - if current_user
+                = link_to_function "add content", "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" }
+              - else
+                = link_to_function "add content", "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
+        
+          -if current_user_session.nil?
             %li
-              = link_to "admin", admin_root_url
-          
+              %a#signinlink{ :href => signin_url } sign in
+              %span
+                or
+              %a#registerlink{ :href => signup_url } register
+          -else
+            %li
+              = link_to "sign out (#{ current_user.login })", signout_url, :method => :delete
+            %li
+              = link_to "profile", ( current_user_session.nil? ? "#" : user_url )
+            %li
+              = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
+        - if !current_user.nil? and current_user.admin?
+          %li
+            = link_to "admin", admin_root_url
+        
       .clear
      
 
