@@ -16,6 +16,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 .loading { padding-top: 15px; padding-bottom: 15px; }
 .tweet_even { padding-top: 15px; padding-bottom: 15px; }
 .tweet_odd { padding-top: 15px; padding-bottom: 15px; }
+#query { width: 250px; }
 
 /*======================
        POST PAGE

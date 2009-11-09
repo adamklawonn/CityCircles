@@ -63,7 +63,7 @@
       .grid_9#navigation
         #searchbar
           - form_tag "/search" do
-            = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"  
+            = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
         #addzone  
           - if current_user
             = link_to_remote image_tag( "addblank.png", { :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 0 }, :html => { :class => "tooltip", :title => "Add Content" }
