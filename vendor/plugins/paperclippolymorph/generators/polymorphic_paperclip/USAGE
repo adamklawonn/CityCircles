@@ -1,0 +1,8 @@
+Description:
+    This generator creates the migrations needed to use polymorphic paperclip
+
+Example:
+    ./script/generate polymorphic_paperclip
+
+    This will create:
+      - A migration, which adds an assets and attachings table.

@@ -23,7 +23,7 @@ class News < ActiveRecord::Base
   belongs_to :map_icon
   has_many :comments, :as => :commentable
   #has_many :photos, :as => :photoable
-  #has_many :attachments, :as => :file_attachable
+  has_many :attachments, :as => :file_attachable
   acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
   
   def label 
