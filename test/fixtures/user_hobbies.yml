@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091104061546
+# Schema version: 20091112051900
 #
 # Table name: user_hobbies
 #

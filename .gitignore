@@ -3,3 +3,4 @@ config/database.yml
 log/*.log
 public/user_details
 public/system
+*.swp
