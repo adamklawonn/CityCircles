@@ -113,7 +113,7 @@
           %ul
             - @pages.each do |page|
               %li
-                = link_to page[ :title ], page_by_shortname_url( page[ :shortname ] )
+                = link_to page[ "title" ], page_by_shortname_url( page[ "shortname" ] )
       .clear
     #whoops{ :title => "Whoops!" }
       #whoops_message
