@@ -61,6 +61,25 @@
       .grid_3#logo
         = link_to image_tag( "logo.png", :alt => 'City Circles' ), root_url
       .grid_9#navigation
+        #navbar
+          %ul
+            %li
+              = link_to "start", admin_root_url
+            %li
+              = link_to "about", admin_root_url
+            %li
+              = link_to "advertise", admin_root_url
+            %li
+              = link_to "contact", admin_root_url
+            %li
+              = link_to "facebook", admin_root_url
+            %li
+              = link_to "twitter", admin_root_url   
+            %li
+              = link_to "FAQ", admin_root_url            
+              
+              
+                
         #searchbar
           - form_tag "/search" do
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
