@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091012043941
+# Schema version: 20091112051900
 #
 # Table name: map_layers
 #

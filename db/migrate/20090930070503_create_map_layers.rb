@@ -8,6 +8,9 @@ class CreateMapLayers < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :map_layers, :map_id
+    
   end
 
   def self.down

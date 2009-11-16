@@ -9,6 +9,8 @@
 #  author_id         :integer(4)      not null
 #  created_at        :datetime
 #  updated_at        :datetime
+#  lat               :decimal(10, 6)
+#  lng               :decimal(10, 6)
 #
 
 require 'test_helper'

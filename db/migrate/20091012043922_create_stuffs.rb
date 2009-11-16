@@ -11,6 +11,10 @@ class CreateStuffs < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :stuffs, :map_layer_id
+    add_index :stuffs, :map_icon_id
+    
   end
 
   def self.down

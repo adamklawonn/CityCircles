@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   
   private
     def get_pages
-      @pages = Page.find( :all, :conditions => [ "show_in_navigation = ? and parent_id is ?", true, nil ], :order => "sort asc" )
+      @pages = Page.connection.select_all( "select id, title, shortname from pages where show_in_navigation = 1 order by sort asc" )
     end
     
     def new_suggestion

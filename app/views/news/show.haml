@@ -12,45 +12,33 @@
         %br
         %p
           = @news.body
-         
-      #comments
-        %span
-          comments
-        .comment
-          I hope the demo is going well. :)
+      
+      - if current_user
+        #comments
+          %span
+            comment on this
           %br
           %br
-          = Time.now.strftime( "%m/%d/%y at %I:%M %p " )
-          by caiges
-        .userimage
-          = image_tag "caige.jpg", { :border => 0 }
-      .clear
+          - form_for @comment, :url => commentable_url do |f|
+            = render :partial => "citycircles/comment_form", :locals => { :f => f }
+          - if !@news.comments.empty?
+            - @news.comments.each do |comment|
+              .comment
+                %strong 
+                  = comment.title
+                %br
+                %br
+                  = comment.body
+                %br
+                %br
+                = friendly_datetime comment.created_at
+                = "by #{ comment.author.login }"
+              .userimage
+                = image_tag "caige.jpg", { :border => 0 }
+        .clear
           
   .grid_4#storyside.omega
-    #twtr-search-widget
-    = javascript_include_tag "http://widgets.twimg.com/j/1/widget.js"
-    = stylesheet_link_tag "http://widgets.twimg.com/j/1/widget.css"
-    :javascript
-      new TWTR.Widget({
-        search: '_citycircles OR #citycircles',
-        id: 'twtr-search-widget',
-        loop: true,
-        title: 'City Circles',
-        subject: 'twittersphere',
-        width: 300,
-        height: 302,
-        theme: {
-          shell: {
-            background: '#c7dacd',
-            color: '#ffffff'
-          },
-          tweets: {
-            background: '#ffffff',
-            color: '#444444',
-            links: '#1985b5'
-          }
-        }
-      }).render().start();
+    = render :partial => "citycircles/twitter_feed"
     .clear
     #mostread
       %h1

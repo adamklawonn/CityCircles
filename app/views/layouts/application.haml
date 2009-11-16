@@ -9,6 +9,7 @@
     = stylesheet_link_tag "custom-theme/jquery-ui-1.7.2.custom.css"
     = stylesheet_link_tag "jquery.tooltip.css"
     = javascript_include_tag :defaults
+    = javascript_include_tag "http://www.google.com/jsapi?key=ABQIAAAAgNf91CMgBhPMbBtP4TMCUxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSnBjj5J6-THURi28fEE0ZrJ-p-OQ"
     = javascript_include_tag "jquery-1.3.2.min.js"
     = javascript_include_tag "jquery-ui-1.7.2.custom.min.js"
     = javascript_include_tag "jquery.dimensions.min.js"
@@ -23,15 +24,20 @@
     = GMap.header
     = javascript_include_tag "markerGroup"
     = javascript_include_tag "citycircles/CCGMapExtras"
+    = javascript_include_tag "citycircles/ccmap"
+    = javascript_include_tag "jquery.tweet"
+    = javascript_include_tag "jcarousellite_1.0.1.pack"
     :javascript
       var $j = jQuery.noConflict();
       
       $j( document ).ready( function(){
+      	
       	$j( ".trigger" ).click( function(){
       		$j( ".panel" ).toggle( "fast" );
       		$j( this ).toggleClass( "active" );
       		return false;
       	} );
+      	
       } );
       
       tinyMCE.init( {
@@ -76,40 +82,38 @@
                 
         #searchbar
           - form_tag "/search" do
-            = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )", :size => "35"  
-        #addzone
-          %a{ :href => "#" }
-            - if current_user
-              = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" }
-            - else
-              = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
+            = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
+        #addzone  
+          - if current_user
+            = link_to_remote image_tag( "addblank.png", { :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 0 }, :html => { :class => "tooltip", :title => "Add Content" }
+          - else
+            = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
       
         %ul
-          %a{ :href => "#" }
-            %li 
-              .push
-                - if current_user
-                  = link_to_function "add content", "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Add Content" }
-                - else
-                  = link_to_function "add content", "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
-          
-            -if current_user_session.nil?
-              %li
-                %a#signinlink{ :href => signin_url } sign in
-                %span
-                  or
-                %a#registerlink{ :href => signup_url } register
-            -else
-              %li
-                = link_to "sign out (#{ current_user.login })", signout_url, :method => :delete
-              %li
-                = link_to "profile", ( current_user_session.nil? ? "#" : user_url )
-              %li
-                = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
-          - if !current_user.nil? and current_user.admin?
+          %li 
+            .push
+              - if current_user
+                = link_to_remote "add content", :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 0 }, :html => { :class => "tooltip", :title => "Add Content" }
+              - else
+                = link_to_function "add content", "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
+        
+          -if current_user_session.nil?
             %li
-              = link_to "admin", admin_root_url
-          
+              %a#signinlink{ :href => signin_url } sign in
+              %span
+                or
+              %a#registerlink{ :href => signup_url } register
+          -else
+            %li
+              = link_to "sign out (#{ current_user.login })", signout_url, :method => :delete
+            %li
+              = link_to "profile", ( current_user_session.nil? ? "#" : user_url )
+            %li
+              = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
+        - if !current_user.nil? and current_user.admin?
+          %li
+            = link_to "admin", admin_root_url
+        
       .clear
      
 
@@ -128,30 +132,16 @@
           %ul
             - @pages.each do |page|
               %li
-                = link_to page.title, page_by_shortname_url( page.shortname )
+                = link_to page[ :title ], page_by_shortname_url( page[ :shortname ] )
       .clear
     #whoops{ :title => "Whoops!" }
       #whoops_message
     
-    -if @default_map != nil
-      #postuniversalcontent{ :title => "Which Station?" }
-        - form_remote_tag :url => "/interest_points/add_universal_content" do |f|
-          = hidden_field_tag "universal_post", "universal_post"
-          %br
-          = label_tag :station
-          %br
-          = select_tag "poi_id", options_for_select( @default_map.interest_points.collect { |poi| [ poi.label, poi.id ] } )
-          %br
-          = label_tag :what_type_of_content
-          %br
-          = select_tag "content_type", options_for_select( [ [ "News", "news" ], [ "Event", "event" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Community Project", "fix_it" ] ] )
-          %br
-          %br
-          = submit_tag "Ok"
-      :javascript
-        $j( '#postuniversalcontent' ).dialog( { width : 300, position : [ -10000, -10000 ] } );
-        $j( '#postuniversalcontent' ).dialog( 'option', 'center', 'true' );
-        $j( '#postuniversalcontent' ).dialog( 'option', 'resizable', false );
+    #postuniversalcontent{ :title => "Which Station?" }
+    :javascript
+      $j( '#postuniversalcontent' ).dialog( { width : 300, position : [ -10000, -10000 ] } );
+      $j( '#postuniversalcontent' ).dialog( 'option', 'center', 'true' );
+      $j( '#postuniversalcontent' ).dialog( 'option', 'resizable', false );
     .panel
       %h3 Make us Better!
       %br
@@ -177,7 +167,7 @@
         <em>k</em>
     :javascript
       $j( '#whoops' ).dialog( { autoOpen : false, resizable : false } );
-      $j( '#whoops' ).dialog( 'option', 'buttons', { "Ok" : function() { $j( this ).dialog( "close" ); } } );
+      $j( '#whoops' ).dialog( 'option', 'buttons', { "OK" : function() { $j( this ).dialog( "close" ); } } );
       $j( '#whoops' ).dialog( 'option', 'height', "175" );
       
       // Google Analytics

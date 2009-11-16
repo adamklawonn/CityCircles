@@ -8,9 +8,15 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #smallmap {height:300px;background-color:#fff;margin-top: 0px;}
 #midmap {height:380px; padding-top:10px; background-color:#fff;margin-top: 0px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 #bigmap {height:409px;padding-top:10px; background-color:#fff;margin-top: 0px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
-.map { float:left; width: 470px; height: 370px; border: none; margin-left:10px;}
+.map { float:left; width: 790px; height: 370px; border: none; margin-left:10px;}
 .poi_map { float:left; width: 790px;margin-left:10px; height: 399px; border: none; }
 #content-spotlight-map {width: 600px; height: 360px; padding-top:10px; margin-left:auto; margin-right:auto;}
+#mini-twtr-feed { height: 43px; padding: 10px; background-color: #fff; box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc; }
+.tweet_list { font-size: 0.8em; }
+.loading { padding-top: 15px; padding-bottom: 15px; }
+.tweet_even { padding-top: 15px; padding-bottom: 15px; }
+.tweet_odd { padding-top: 15px; padding-bottom: 15px; }
+#query { width: 250px; }
 
 /*======================
        POST PAGE
@@ -79,13 +85,19 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 =====================*/
 #content #userpicture{height:160px;}
 #content #userpicture #pic{height:140px; width:120px;background-color:#000;margin:10px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
-#content #userinfo{background-color:#fff;height:160px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
+#content #userinfo{background-color:#fff;padding-bottom: 20px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 #content #userstops h3 {padding-left:20px; color:#46543a;}
 #content #userstops{background-color:#fff; height:160px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 #content #userinterest{; height:180px;padding-top:4px;overflow:y:auto;}
 #content #userinterest h2 {line-height:2em;padding-left:10px; font-weight:100;}
 #content #userpost{background-color:#fff; height:180px;padding-top:4px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 #content #userpost h2 {padding-left:10px; line-height:1.7em; }
+
+/*======================
+       PROFILE
+=====================*/
+#content #page{background-color:#fff;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc; padding: 20px; }
+
 
 /*======================
          INFO
@@ -203,6 +215,8 @@ label { font-size: 0.9em; }
          Rails
 =====================*/
 .fieldWithErrors input { display: inline; border: 2px solid #BA5246; }
+
+.formError { color: #BA5246; }
 
 html {
      overflow-y: -moz-scrollbars-vertical;

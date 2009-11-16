@@ -9,7 +9,7 @@
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)
 #  headline          :string(255)     not null
-#  body              :string(255)     not null
+#  body              :string(10000)   not null
 #  author_id         :integer(4)      not null
 #  created_at        :datetime
 #  updated_at        :datetime

@@ -35,12 +35,16 @@ class NewsController < ApplicationController
       else
     
       end
+    else
+      # Regular POST
+      
     end
     
   end
   
   def show
-    @news = News.find( params[ :id ] )
+    @news = News.find( params[ :id ], :include => [ :comments, :author ] )
+    @comment = Comment.new
   end
   
 end

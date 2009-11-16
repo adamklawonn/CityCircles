@@ -26,3 +26,6 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcVfQgAAAAAAGmKqHu0_RGs_0qDaUGjzSbTPKBZ'
+ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcVfQgAAAAAANd8jkGfxxRRnGEOkdgYQKgAIa9G'

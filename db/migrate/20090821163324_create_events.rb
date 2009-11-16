@@ -13,6 +13,10 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :events, :map_layer_id
+    add_index :events, :map_icon_id
+    
   end
 
   def self.down

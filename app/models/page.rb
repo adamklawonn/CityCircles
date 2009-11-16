@@ -1,10 +1,9 @@
 # == Schema Information
-# Schema version: 20091012043941
+# Schema version: 20091112051900
 #
 # Table name: pages
 #
 #  id                 :integer(4)      not null, primary key
-#  parent_id          :integer(4)
 #  title              :string(255)     not null
 #  shortname          :string(255)     not null
 #  show_in_navigation :boolean(1)
@@ -17,8 +16,9 @@
 #
 
 class Page < ActiveRecord::Base
-  acts_as_tree :order => "sort asc"
+
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   
-  validates_uniqueness_of :shortname, :scope => "parent_id"
+  validates_uniqueness_of :shortname
+
 end

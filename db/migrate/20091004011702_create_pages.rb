@@ -1,7 +1,6 @@
 class CreatePages < ActiveRecord::Migration
   def self.up
     create_table :pages, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-      t.integer :parent_id, :default => nil
       t.string :title, :null => false
       t.string :shortname, :null => false
       t.boolean :show_in_navigation, :default => false
@@ -11,6 +10,9 @@ class CreatePages < ActiveRecord::Migration
       t.integer :author_id, :null => false
       t.timestamps
     end
+    
+    add_index :pages, :show_in_navigation
+        
   end
 
   def self.down

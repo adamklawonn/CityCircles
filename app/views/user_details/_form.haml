@@ -8,6 +8,11 @@
 = f.text_field :last_name
 = error_message_on "user_detail", "last_name"
 %br
+= f.label :avatar
+%br
+= f.file_field :data
+= error_message_on "user_detail", "data"
+%br
 = f.label :about_me
 %br
 = f.text_area :about_me, :rows => 5

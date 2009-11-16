@@ -1,11 +1,12 @@
 # == Schema Information
-# Schema version: 20091012043941
+# Schema version: 20091112051900
 #
 # Table name: promos
 #
 #  id                :integer(4)      not null, primary key
 #  organization_id   :integer(4)      not null
 #  interest_point_id :integer(4)      not null
+#  map_layer_id      :integer(4)      not null
 #  map_icon_id       :integer(4)      not null
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)

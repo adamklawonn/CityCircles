@@ -1,5 +1,8 @@
-%br  
-  %h1
-    = @page.title
-
-= @page.body
+#content
+  #page  
+    %h1
+      = @page.title  
+    = "by #{ @page.author.login }"
+    %br
+    %br
+    = @page.body

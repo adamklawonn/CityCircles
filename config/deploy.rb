@@ -17,9 +17,18 @@ set :ssh_options, { :forward_agent => true }
 require 'config/deploy/capistrano_database'
 
 namespace :deploy do
+  
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
+  end
+  
+  task :after_update_code, :roles => :app do
+    %w{user_details}.each do |share|
+      run "rm -rf #{release_path}/public/#{share}"
+      run "mkdir -p #{shared_path}/system/#{share}"
+      run "ln -nfs #{shared_path}/system/#{share} #{release_path}/public/#{share}"
+    end
   end
   
   [:start, :stop].each do |t|

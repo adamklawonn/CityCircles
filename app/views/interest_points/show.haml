@@ -114,7 +114,7 @@
       - unless @fix_its.empty?
         - @fix_its.each do |fix_it|
           %h2
-            = link_to truncate( fix_it.headline, 30 ), fix_its_url( fix_it )
+            = link_to truncate( fix_it.headline, 30 ), fix_it_url( fix_it )
       - else
         %h2 No projects...be the first to post!
       %h5
@@ -135,4 +135,4 @@
   
 - if params[ :content_type ]
   :javascript
-    new Ajax.Request('/interest_points/add_content?content_type=#{params[ :content_type ]}&poi_id=#{ @poi.id }', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{ session[ :_csrf_token ] }')});
+    $j( document ).ready( function () { new Ajax.Request('/interest_points/add_content?content_type=#{params[ :content_type ]}&poi_id=#{ @poi.id }', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{ session[ :_csrf_token ] }')}); } );

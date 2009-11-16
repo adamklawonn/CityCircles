@@ -1,0 +1,12 @@
+= f.label :title
+%br
+= f.text_field :title
+%div#commentValidatorMsg
+  = error_message_on "comment", "title"
+= f.label :comment
+%br
+= f.text_area :body, :rows => 5
+%div#commentValidatorMsg
+  = error_message_on "comment", "body"
+%br
+= f.submit "Post Comment"

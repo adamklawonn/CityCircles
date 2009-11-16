@@ -1,0 +1,16 @@
+- form_remote_tag :url => "/interest_points/add_universal_content" do |f|
+  = hidden_field_tag "universal_post", "universal_post"
+  %br
+  = label_tag :station
+  %br
+  = select_tag "poi_id", options_for_select( @default_map.interest_points.collect { |poi| [ poi.label, poi.id ] } )
+  %br
+  = label_tag :what_type_of_content
+  %br
+  = select_tag "content_type", options_for_select( [ [ "News", "news" ], [ "Event", "event" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Community Project", "fix_it" ] ] )
+  %br
+  %br
+  = submit_tag "OK"
+  
+:javascript
+  setSelectedContentType( 0 );

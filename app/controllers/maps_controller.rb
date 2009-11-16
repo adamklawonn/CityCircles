@@ -9,4 +9,8 @@ class MapsController < ApplicationController
     
   end
   
+  def next
+    @map = Map.find_by_shortname( "lightrail" )    
+  end
+  
 end

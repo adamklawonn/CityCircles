@@ -1,5 +1,6 @@
-- remote_form_for :user_detail, @user_detail, :url => { :controller => :user_settings, :action => :update_user_detail }, :html => { :method => :put } do |f|
+- form_for :user_detail, @user_detail, :url => { :controller => :user_settings, :action => :update_user_detail, :format => "js" }, :html => { :method => :put, :multipart => true, :target => "upload_frame" } do |f|
   = render :partial => "user_details/form", :locals => { :user_detail => @user_detail, :f => f }
   %br
   %br
   = f.submit "Save"
+%iframe{ :id => "upload_frame", :name => "upload_frame", :style => "width: 1px; height: 1px; border: 0px", :src => "about:blank" }

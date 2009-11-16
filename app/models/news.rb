@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091012043941
+# Schema version: 20091112051900
 #
 # Table name: news
 #
@@ -10,7 +10,7 @@
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)
 #  headline          :string(255)     not null
-#  body              :text            default(""), not null
+#  body              :string(10000)   not null
 #  author_id         :integer(4)      not null
 #  created_at        :datetime
 #  updated_at        :datetime
@@ -21,9 +21,9 @@ class News < ActiveRecord::Base
   belongs_to :map_layer
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   belongs_to :map_icon
-  has_many :comments, :as => :commenter
-  #has_many :photos, :as => :photoable
-  #has_many :attachments, :as => :file_attachable
+  has_many :comments, :as => :commentable
+	# Paperclip
+	acts_as_polymorphic_paperclip
   acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
   
   def label 

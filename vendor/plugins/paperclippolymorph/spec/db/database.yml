@@ -1,0 +1,3 @@
+sqlite3:
+  :adapter: sqlite3
+  :dbfile: vendor/plugins/paperclip_polymorph/spec/db/acts_as_polymorphic_paperclip.sqlite3.db

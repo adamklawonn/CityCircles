@@ -1,36 +1,14 @@
 #content.grid_12
-  #midmap.grid_8.alpha
-    = render :partial => 'maps/map', :locals => { :map => @map }
-  #twitter.grid_4.omega
-    #twtr-search-widget
-    = javascript_include_tag "http://widgets.twimg.com/j/1/widget.js"
-    = stylesheet_link_tag "http://widgets.twimg.com/j/1/widget.css"
-    :javascript
-      new TWTR.Widget({
-        search: '_citycircles OR #citycircles',
-        id: 'twtr-search-widget',
-        loop: true,
-        title: 'City Circles',
-        subject: 'twittersphere',
-        width: 300,
-        height: 302,
-        theme: {
-          shell: {
-            background: '#c7dacd',
-            color: '#ffffff'
-          },
-          tweets: {
-            background: '#ffffff',
-            color: '#444444',
-            links: '#1985b5'
-          }
-        }
-      }).render().start();
+  #midmap.grid_12.alpha
+    = render :partial => "maps/map", :locals => { :map => @map }
+  .clear
+  .grid_12.alpha
+    = render :partial => "citycircles/mini_twitter_feed"
   .clear
   #news.grid_4.alpha
     #infohead
     - if current_user
-      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 0 ].selected = true;", { :class => "tooltip", :title => "Post News" } 
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 0 }, :html => { :class => "tooltip", :title => "Post News" }
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
@@ -49,7 +27,7 @@
  
   #events.grid_4
     - if current_user
-      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 1 ].selected = true;", { :class => "tooltip", :title => "Post Event" } 
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 1 }, :html => { :class => "tooltip", :title => "Post Event" }
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Event"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Event Feed" }
@@ -76,7 +54,7 @@
       %h2 No promos...be the first to post!
   #network.grid_4.alpha
     - if current_user
-      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 2 ].selected = true;", { :class => "tooltip", :title => "Post Network Item" } 
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 2 }, :html => { :class => "tooltip", :title => "Post Network Item" } 
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Network Item"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Network Feed" }
@@ -93,7 +71,7 @@
         %h2 No networks...be the first to post!
   #stuff.grid_4
     - if current_user
-      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 3 ].selected = true;", { :class => "tooltip", :title => "Post Your Stuff" } 
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 3 }, :html => { :class => "tooltip", :title => "Post Your Stuff" }
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Your Stuff"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to the Stuff Feed" }
@@ -110,7 +88,7 @@
         %h2 No networks...be the first to post!
   .grid_4.omega
     - if current_user
-      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'content_type' ).options[ 4 ].selected = true;", { :class => "tooltip", :title => "Post Community Project" }
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 4 }, :html => { :class => "tooltip", :title => "Post Community Project" }
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Community Project"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Community Projects Feed" }
@@ -129,3 +107,11 @@
 
 :javascript
   $j( "a.tooltip" ).tooltip( { track: true, delay: 0, showURL: false, showBody: " - ", fade: 250 } );
+  
+  $j( document ).ready( function() {
+    $j( "#mini-twtr-feed" ).tweet( {
+      query : "%40citycirc+OR+%23citycircles",
+      count : 3,
+      loading_text : "loading tweets..."
+    } );
+  } );

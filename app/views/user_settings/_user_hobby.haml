@@ -1,0 +1,8 @@
+- remote_form_for :user_hobby, @user_hobby, :url => { :action => "add_hobby" } do |f|
+  = f.label :hobby
+  %br
+  = f.select :hobby_id, @hobbies.collect { | hobby | [ hobby.name, hobby.id ] }
+  = error_message_on "user_hobby", "hobby_id"
+  %br
+  %br
+  = f.submit "Add Hobby"

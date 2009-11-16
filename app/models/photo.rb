@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091012043941
+# Schema version: 20091112051900
 #
 # Table name: photos
 #
@@ -19,12 +19,13 @@
 #
 
 class Photo < ActiveRecord::Base
+  
   belongs_to :photoable, :polymorphic => true
   belongs_to :author, :class_name => "User", :foreign_key => "user_id"
-  has_many :comments, :as => :commenter
-  has_attached_file :photo
+  has_many :comments, :as => :commentable
+  has_attached_file :photo, :styles => { :small => "50x50>", :medium => "100x100>", :large => "150x150>" }
   
-  def photable_type=( sType )
+  def photoable_type=( sType )
     super( sType.to_s.classify.constantize.base_class.to_s )
   end
   

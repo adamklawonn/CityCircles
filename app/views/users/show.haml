@@ -1,7 +1,6 @@
 #content.container_12
   #userpicture.grid_2.alpha
-    #pic
-      = image_tag "scott.jpg"
+    = image_tag @user.user_detail.assets.first.url( :small )
   
   
   #userinfo.grid_7
@@ -18,11 +17,8 @@
       %br
       %strong Interest / Hobbies
       %br
-      - if !@user.user_detail.hobbies.nil?
-        = @user.user_detail.hobbies
-      - else
-        = link_to "Fill out your profile >>", settings_url
-        %br
+      = @user_hobbies_interests
+      = link_to "Fill out your profile >>", settings_url if @user_hobbies_interests.empty?
   #userstops.grid_3.omega
     %h2{ :style => "padding: 20px 0px 0px 20px;" }
       My Places
