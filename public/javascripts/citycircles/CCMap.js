@@ -18,7 +18,7 @@
 	map.prototype.render = function() {
 		
 		this.renderMap();
-		this.getLayers();
+		this.renderLayers();
 	};
 	
 	map.prototype.renderMap = function() {
@@ -32,7 +32,7 @@
 		
 	};
 		
-	map.prototype.getLayers = function() {
+	map.prototype.renderLayers = function() {
 		
 		var url = "/maps/" + this.options.map_id + "/map_layers.json";
 		
@@ -69,6 +69,13 @@
 		
 		this.name = name;
 		
-	};
+	};  
+
+  /*
+  * Defined the citycircles line shape type.
+  */
+  citycircles.maps.Line = function( LatLngs ) {
+
+  };
 
 }());
