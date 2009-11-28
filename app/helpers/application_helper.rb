@@ -17,7 +17,8 @@ module ApplicationHelper
           line_categories = InterestLine.find( :all, :group => "shortname", :conditions => [ "map_layer_id = ?", layer.id ] )
           marker_group = { :layer_name => layer.shortname, :markers => layer.interest_points.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( 20, 20 ), :icon_anchor => GPoint.new( 10, 10 ), :info_window_anchor => GPoint.new( 10, 10 ) ), :title => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.label : poi.label ), :info_window => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.body : poi.body ) ) } }
           line_categories.each do | lc | 
-            marker_group[ :markers ] << GPolyline.new( InterestLine.find( :all, :select => "lat, lng", :conditions => [ "shortname = ?", lc.shortname ] ).collect { | poi | [ poi.lat, poi.lng ] }, "#8F2323", 5, 0.5 )
+            marker_group[ :markers ] << GPolyline.new( InterestLine.find( :all, :select => "lat, lng", :conditions => [ "shortname = ?", lc.shortname ] ).collect { | poi | [ poi.lat, poi.lng ] }, "#FFFFFF", 9, 1 )
+            marker_group[ :markers ] << GPolyline.new( InterestLine.find( :all, :select => "lat, lng", :conditions => [ "shortname = ?", lc.shortname ] ).collect { | poi | [ poi.lat, poi.lng ] }, "#8F2323", 5, 1 )
           end
           marker_groups << marker_group
           
@@ -51,6 +52,7 @@ module ApplicationHelper
     # Set location based on map default or poi override.
     if poi_override.nil?
       gmap.center_zoom_init( [ map.lat, map.lng ], map.zoom )
+      gmap.record_init "map.enableScrollWheelZoom();"
     else
       gmap.center_zoom_init( [ poi_override.lat, poi_override.lng ], 15 )
       gmap.record_init "map.openInfoWindowHtml( new GLatLng( #{ poi_override.lat }, #{ poi_override.lng }, true ), '#{ poi_override.body }' );" if poi_override_options[ :open_info_window_onload ]
@@ -71,7 +73,7 @@ module ApplicationHelper
     
     if poi.class.class_name == "InterestPoint"
       poi.body = "<strong>#{ poi.label }</strong><br /><br />You have jumped to this place."
-      pmap = self.generate_gmap( poi.map, poi, { :open_info_window_onload => true, :enable_scroll_zoom => false } )
+      pmap = self.generate_gmap( poi.map, poi, { :open_info_window_onload => true, :enable_scroll_zoom => true } )
     end
     
     pmap
