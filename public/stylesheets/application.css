@@ -137,7 +137,7 @@ a:hover {text-decoration:none; color:#7e8781;}
 .push {padding-right:30px;}
 #addzone {float: right; margin-top:0px; margin-right:20px; height:40px; width:80px; }
 #searchbar { float: left;margin-top:30px; margin-left:330px; margin-bottom:5px; width:255px; }
-#navbar {margin-left:60px; float: left; height:20px; padding-top:2.5px; width:380px; background-color:#543a44; -moz-border-radius-bottomright: 8px; -webkit-border-bottom-right-radius: 8px; -moz-border-radius-bottomleft: 8px; -webkit-border-bottom-left-radius: 8px;filter: alpha(opacity=80); opacity: .80;}
+#navbar {margin-left:205px; float: left; height:20px; padding-top:2.5px; width:380px; background-color:#543a44; -moz-border-radius-bottomright: 8px; -webkit-border-bottom-right-radius: 8px; -moz-border-radius-bottomleft: 8px; -webkit-border-bottom-left-radius: 8px;filter: alpha(opacity=80); opacity: .80;}
 #navbar ul {float: none;  padding-right:25px; text-align:center;  }
 #navbar li{float: none;  padding-right:5px; padding-top:5px; display: inline; font-size: .72em; text-align:center;  }
 #navbar a:link {color:#fff;}
@@ -262,7 +262,7 @@ font-family: verdana, helvetica, arial, sans-serif;
 color:#fff;
 padding: 10px 10px 10px 10px;
 font-weight: 700;
-background:#543a44;
+background:#557440;
 border:1px solid #444444;
 -moz-border-radius-topright: 8px;
 -webkit-border-top-right-radius: 8px;
@@ -285,7 +285,7 @@ font-family: verdana, helvetica, arial, sans-serif;
 color:#fff;
 padding: 10px 10px 10px 15px;
 font-weight: 700;
-background:#543a44;
+background:#557440;
 border:1px solid #444444;
 -moz-border-radius-topright: 8px;
 -webkit-border-top-right-radius: 8px;
@@ -298,7 +298,7 @@ display: block;
 
 a.active.trigger {
 padding: 10px 10px 10px 15px;
-background:#543a44;
+background:#557440;
 
 }
 
