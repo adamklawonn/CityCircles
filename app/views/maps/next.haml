@@ -8,4 +8,5 @@
   var options = { map_id : #{ @map.id }, center : [ #{ @map.lat }, #{ @map.lng } ], zoom : #{ @map.zoom }, mouseZoom : true }
   document.observe( "dom:loaded", function() { 
     map = new citycircles.maps.Map( "map", options );
+    map.render();
   } );
