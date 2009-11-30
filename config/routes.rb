@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tweets
+
+  map.resources :post_types
+
+  map.resources :posts
+
   map.resources :user_hobbies
   map.resources :user_interests
   map.resources :hobbies
@@ -9,11 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.settings "/settings", :controller => "user_settings", :action => "index"
   map.profile "/profile", :controller => "users", :action => "show"
   map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
-  map.resources :suggestions
-  map.resources :fix_its
-  map.resources :stuffs
-  map.resources :networks
-  map.resources :file_attachments
+  map.resources :suggestions  #map.resources :stuffs  map.resources :file_attachments
   map.resources :user_locations
   map.resources :interest_point_icons
   map.resources :interest_lines
@@ -24,8 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :register, :controller => "users"
   map.resources :user_wireless_profiles
   map.resources :user_details
-  map.resources :comments
-  map.resources :photos
+  map.resources :comments  
   map.resources :promos
   map.resources :map_layers, :has_many => [ :interest_points ]
   map.resources :maps, :collection => { :next => :get }, :has_many => [ :map_layers ]

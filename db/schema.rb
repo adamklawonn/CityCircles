@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091112051900) do
+ActiveRecord::Schema.define(:version => 20091128210317) do
 
   create_table "assets", :force => true do |t|
     t.string   "data_file_name"
@@ -42,22 +42,12 @@ ActiveRecord::Schema.define(:version => 20091112051900) do
   end
 
   create_table "events", :force => true do |t|
-    t.integer  "interest_point_id",                                                :null => false
-    t.integer  "map_layer_id",                                                     :null => false
-    t.integer  "map_icon_id",                                                      :null => false
-    t.decimal  "lat",                               :precision => 10, :scale => 6
-    t.decimal  "lng",                               :precision => 10, :scale => 6
-    t.string   "headline",                                                         :null => false
-    t.string   "body",              :limit => 5000,                                :null => false
-    t.datetime "starts_at",                                                        :null => false
-    t.datetime "ends_at",                                                          :null => false
-    t.integer  "author_id",                                                        :null => false
+    t.integer  "post_id",    :null => false
+    t.datetime "starts_at",  :null => false
+    t.datetime "ends_at",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "events", ["map_icon_id"], :name => "index_events_on_map_icon_id"
-  add_index "events", ["map_layer_id"], :name => "index_events_on_map_layer_id"
 
   create_table "file_attachments", :force => true do |t|
     t.string   "file_attachment_file_name",    :null => false
@@ -69,22 +59,6 @@ ActiveRecord::Schema.define(:version => 20091112051900) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "fix_its", :force => true do |t|
-    t.integer  "interest_point_id",                                                 :null => false
-    t.integer  "map_layer_id",                                                      :null => false
-    t.integer  "map_icon_id",                                                       :null => false
-    t.decimal  "lat",                                :precision => 10, :scale => 6
-    t.decimal  "lng",                                :precision => 10, :scale => 6
-    t.string   "headline",                                                          :null => false
-    t.string   "body",              :limit => 10000,                                :null => false
-    t.integer  "author_id",                                                         :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "fix_its", ["map_icon_id"], :name => "index_fix_its_on_map_icon_id"
-  add_index "fix_its", ["map_layer_id"], :name => "index_fix_its_on_map_layer_id"
 
   create_table "hobbies", :force => true do |t|
     t.string   "name"
@@ -110,15 +84,16 @@ ActiveRecord::Schema.define(:version => 20091112051900) do
   add_index "interest_lines", ["shortname"], :name => "index_interest_lines_on_shortname"
 
   create_table "interest_points", :force => true do |t|
-    t.integer  "map_id",                                      :null => false
-    t.integer  "map_layer_id",                                :null => false
-    t.integer  "map_icon_id",                                 :null => false
-    t.string   "label",                                       :null => false
+    t.integer  "map_id",                                         :null => false
+    t.integer  "map_layer_id",                                   :null => false
+    t.integer  "map_icon_id",                                    :null => false
+    t.string   "label",                                          :null => false
     t.string   "body"
     t.string   "description"
-    t.decimal  "lat",          :precision => 10, :scale => 6
-    t.decimal  "lng",          :precision => 10, :scale => 6
-    t.integer  "author_id",                                   :null => false
+    t.string   "twitter_hashtag"
+    t.decimal  "lat",             :precision => 10, :scale => 6
+    t.decimal  "lng",             :precision => 10, :scale => 6
+    t.integer  "author_id",                                      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -170,38 +145,6 @@ ActiveRecord::Schema.define(:version => 20091112051900) do
     t.datetime "updated_at"
   end
 
-  create_table "networks", :force => true do |t|
-    t.integer  "interest_point_id",                                                 :null => false
-    t.integer  "map_layer_id",                                                      :null => false
-    t.integer  "map_icon_id",                                                       :null => false
-    t.decimal  "lat",                                :precision => 10, :scale => 6
-    t.decimal  "lng",                                :precision => 10, :scale => 6
-    t.string   "headline",                                                          :null => false
-    t.string   "body",              :limit => 10000,                                :null => false
-    t.integer  "author_id",                                                         :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "networks", ["map_icon_id"], :name => "index_networks_on_map_icon_id"
-  add_index "networks", ["map_layer_id"], :name => "index_networks_on_map_layer_id"
-
-  create_table "news", :force => true do |t|
-    t.integer  "interest_point_id",                                                 :null => false
-    t.integer  "map_layer_id",                                                      :null => false
-    t.integer  "map_icon_id",                                                       :null => false
-    t.decimal  "lat",                                :precision => 10, :scale => 6
-    t.decimal  "lng",                                :precision => 10, :scale => 6
-    t.string   "headline",                                                          :null => false
-    t.string   "body",              :limit => 10000,                                :null => false
-    t.integer  "author_id",                                                         :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "news", ["map_icon_id"], :name => "index_news_on_map_icon_id"
-  add_index "news", ["map_layer_id"], :name => "index_news_on_map_layer_id"
-
   create_table "organizations", :force => true do |t|
     t.integer  "interest_point_id",                                :null => false
     t.string   "name",                                             :null => false
@@ -227,37 +170,40 @@ ActiveRecord::Schema.define(:version => 20091112051900) do
 
   add_index "pages", ["show_in_navigation"], :name => "index_pages_on_show_in_navigation"
 
-  create_table "photos", :force => true do |t|
-    t.string   "title",                                             :null => false
-    t.string   "caption"
-    t.string   "photo_file_name",                                   :null => false
-    t.string   "photo_content_type",                                :null => false
-    t.integer  "photo_file_size",                                   :null => false
-    t.integer  "photoable_id"
-    t.string   "photoable_type"
-    t.decimal  "lat",                :precision => 10, :scale => 6
-    t.decimal  "lng",                :precision => 10, :scale => 6
-    t.integer  "author_id",                                         :null => false
+  create_table "post_types", :force => true do |t|
+    t.string   "name",            :null => false
+    t.integer  "map_icon_id",     :null => false
+    t.string   "shortname",       :null => false
+    t.string   "twitter_hashtag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "promos", :force => true do |t|
-    t.integer  "organization_id",                                  :null => false
+  create_table "posts", :force => true do |t|
+    t.integer  "post_type_id",                                     :null => false
     t.integer  "interest_point_id",                                :null => false
     t.integer  "map_layer_id",                                     :null => false
-    t.integer  "map_icon_id",                                      :null => false
     t.decimal  "lat",               :precision => 10, :scale => 6
     t.decimal  "lng",               :precision => 10, :scale => 6
-    t.string   "title",                                            :null => false
-    t.string   "description",                                      :null => false
+    t.string   "headline",                                         :null => false
+    t.string   "short_headline",                                   :null => false
+    t.text     "body",                                             :null => false
     t.integer  "author_id",                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "promos", ["map_icon_id"], :name => "index_promos_on_map_icon_id"
-  add_index "promos", ["map_layer_id"], :name => "index_promos_on_map_layer_id"
+  create_table "promos", :force => true do |t|
+    t.integer  "organization_id", :null => false
+    t.integer  "post_id",         :null => false
+    t.string   "title",           :null => false
+    t.string   "description",     :null => false
+    t.integer  "author_id",       :null => false
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -276,25 +222,24 @@ ActiveRecord::Schema.define(:version => 20091112051900) do
     t.datetime "updated_at"
   end
 
-  create_table "stuffs", :force => true do |t|
-    t.integer  "interest_point_id",                                                 :null => false
-    t.integer  "map_layer_id",                                                      :null => false
-    t.integer  "map_icon_id",                                                       :null => false
-    t.decimal  "lat",                                :precision => 10, :scale => 6
-    t.decimal  "lng",                                :precision => 10, :scale => 6
-    t.string   "headline",                                                          :null => false
-    t.string   "body",              :limit => 10000,                                :null => false
-    t.integer  "author_id",                                                         :null => false
+  create_table "suggestions", :force => true do |t|
+    t.string   "email",      :limit => 100,  :null => false
+    t.string   "body",       :limit => 5000, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "stuffs", ["map_icon_id"], :name => "index_stuffs_on_map_icon_id"
-  add_index "stuffs", ["map_layer_id"], :name => "index_stuffs_on_map_layer_id"
-
-  create_table "suggestions", :force => true do |t|
-    t.string   "email",      :limit => 100,  :null => false
-    t.string   "body",       :limit => 5000, :null => false
+  create_table "tweets", :force => true do |t|
+    t.integer  "post_id",           :null => false
+    t.integer  "tweet_id",          :null => false
+    t.string   "body",              :null => false
+    t.string   "from_user",         :null => false
+    t.string   "to_user"
+    t.string   "iso_language_code"
+    t.string   "source"
+    t.string   "profile_image_url"
+    t.string   "tweeted_at",        :null => false
+    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

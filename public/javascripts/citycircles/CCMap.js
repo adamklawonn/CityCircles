@@ -9,16 +9,19 @@
 		this.map = null;
 		this.options = options;
 		this.layers = [];
-		this.render();
-		
+		this.layersURL = "/maps/" + options.map_id + "/map_layers.json";
+    this.markerGroups = [];
+    
+			
 	};
 	
 	var map = citycircles.maps.Map;
 	
 	map.prototype.render = function() {
-		
-		this.renderMap();
-		this.renderLayers();
+		// Pre-render checks.
+    // Need to ensure everything is loaded.
+    this.renderMap();
+		this.getLayers();
 	};
 	
 	map.prototype.renderMap = function() {
@@ -31,25 +34,34 @@
 		}
 		
 	};
-		
-	map.prototype.renderLayers = function() {
-		
-		var url = "/maps/" + this.options.map_id + "/map_layers.json";
+	
+  map.prototype.renderLayers = function() {
+    
+    // Only update the map control if map-control element is present.
+		if( $( "map-control" ) ) {
+		  var mapLayerHTML = "";
+		  var layers = this.layers; 
+					
+		  for( var i = 0; i < layers.length; i++ ) {
+         
+        mapLayerHTML += '<input id="cc-map-layer-id-' + layers[ i ].map_layer.id + '" type="checkbox" checked />' + layers[ i ].map_layer.title + '<br />';
+		  }
+					
+		  $( "map-control" ).update( mapLayerHTML );
+		}
+  }
+
+	
+	map.prototype.getLayers = function() {
+	  
+    var scope = this;
+		var url = this.layersURL;
 		
 		var handlers = {
 			
 			onSuccess : function( response ) {
-				// Only update the map control if map-control element is present.
-				if( $( "map-control" ) ) {
-					var mapLayerHTML = "";
-					var layers = response.responseJSON;
-					
-					for( var i = 0; i < layers.length; i++ ) {
-						mapLayerHTML += layers[ i ].map_layer.title + '<br />';
-					}
-					
-						$( "map-control" ).update( mapLayerHTML );
-				}				
+			  scope.layers = response.responseJSON;
+        scope.renderLayers();
 			},
 			
 			onFailure : function( response ) {

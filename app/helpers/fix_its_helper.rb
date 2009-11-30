@@ -1,2 +1,0 @@
-module FixItsHelper
-end

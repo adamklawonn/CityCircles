@@ -4,11 +4,12 @@ class InterestPointsController < ApplicationController
     @poi = InterestPoint.find( params[ :id ] )
     @default_map = @poi.map
     
-    @news = News.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc', :limit => 6 )
-    @events = Event.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc', :limit => 6 )
-    @networks = Network.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc', :limit => 6 )
-    @stuffs = Stuff.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc', :limit => 6 )
-    @fix_its = FixIt.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc', :limit => 6 )
+    @news = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 1, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
+    @events = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 2, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
+    @networks = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 3, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
+    @stuffs = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 5, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
+    @fix_its = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 6, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
+    
   end
   
   def add_content
