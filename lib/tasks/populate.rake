@@ -87,9 +87,21 @@ namespace :db do
     stuff_icon.save!
     fix_it_icon = MapIcon.new :shortname => "fixit", :image_url => "/images/map_icons/fixit/fixitimage.png", :shadow_url => "/images/map_icons/fixit/fixitshadow.png", :icon_size => "43, 30", :shadow_size => "43, 30", :icon_anchor => "15, 30", :info_window_anchor => "15, 0", :author_id => user.id
     fix_it_icon.save!
+    
+    # Create post types.
+      news_post = PostType.new :name => "News", :map_icon_id => news_icon.id, :shortname => "news", :twitter_hashtag => "cc-n"
+      news_post.save!
+      event_post = PostType.new :name => "Event", :map_icon_id => events_icon.id, :shortname => "events", :twitter_hashtag => "cc-e" 
+      event_post.save!
+      network_post = PostType.new :name => "Network", :map_icon_id => network_icon.id, :shortname => "network", :twitter_hashtag => "cc-nw"
+      network_post.save!
+      promo_post = PostType.new( :name => "Promo", :map_icon_id => promos_icon.id, :shortname => "promos", :twitter_hashtag => "cc-p" ).save!
+      stuff_post = PostType.new( :name => "Stuff", :map_icon_id => stuff_icon.id, :shortname => "stuff", :twitter_hashtag => "cc-s" ).save!
+      fixit_post = PostType.new( :name => "Fix It", :map_icon_id => fix_it_icon.id, :shortname => "fixit", :twitter_hashtag => "cc-nw" ).save!
+    
     # Create interest points.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail.csv" ) do |row|
-      poi = InterestPoint.new( :label => row[ 2 ], :lat => row[ 1 ].to_f, :lng => row[ 0 ].to_f )
+      poi = InterestPoint.new( :label => row[ 2 ], :lat => row[ 1 ].to_f, :lng => row[ 0 ].to_f, :twitter_hashtag => row[ 4 ] )
       poi.map_icon = poi_stop_icon
       poi.author = user
       poi.map = map
@@ -102,6 +114,7 @@ namespace :db do
       news_headlines = [ "Homeless population skyrockets as economy sinks", "Budget cuts impact iconic Phoenix park", "Filmmaker's rise shows Phoenix's movie-industry potential", "Never too late to remember", "One bullish Matador", "For black artists, a new home is a work in progress", "That’s ‘Mrs. Green’ to you" ]
       events_headlines = [ "City Circles Private Alpha Launches", "P.F. Chang's Rock 'n' Roll Arizona Marathon and 1/2 Marathon Kickoff", "Music of The Doors with Ray Manzarek, Robby Krieger and The Phoenix Symphony", "The Subdudes", "Mae", "Independent Film Movement Series", "Read For The Record", "Mac Barnett and Adam Rex", "Basic Digital Photography Class" ]
       
+      # Create some random posts.
       if rand( 2 ) == 1
         # News
         news_headline = news_headlines[ rand( news_headlines.length ) ]
@@ -115,7 +128,7 @@ namespace :db do
         end
         north_east = [ north, east ]
         latlng = poi.endpoint( [ 0, 90 ][ rand( 2 ) ], north_east[ rand( 2 ) ] )
-        news_item = News.new( :headline => news_headline, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => news_layer.id, :map_icon_id => news_icon.id )
+        news_item = Post.new( :headline => news_headline, :short_headline => news_headline, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => news_layer.id, :post_type_id => news_post.id )
         news_item.save! if rand( 2 ) == 1
         
         # Events
@@ -130,7 +143,8 @@ namespace :db do
         end
         south_west = [ south, west ]
         latlng = poi.endpoint( [ 0, 180 ][ rand( 2 ) ], south_west[ rand( 2 ) ] )
-        event_item = Event.new( :headline => events_headline, :body => "<p>#{ Time.now.strftime( "%m/%d/%y @ %I:%M %p ")}</p>", :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => events_layer.id, :map_icon_id => events_icon.id, :starts_at => Time.now, :ends_at => Time.now )
+        event_item = Post.new( :headline => events_headline, :short_headline => events_headline, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => events_layer.id, :post_type_id => event_post.id )
+        event_item.event = Event.new( :starts_at => Time.now, :ends_at => Time.now )
         event_item.save! if rand( 2 ) == 1
       end
       

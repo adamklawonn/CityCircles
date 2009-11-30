@@ -22,25 +22,9 @@ module ApplicationHelper
           end
           marker_groups << marker_group
           
-        when "news"
-          marker_group = { :layer_name => layer.shortname, :markers => layer.news.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( poi.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.map_icon.shadow_url, :shadow_size => GSize.new( poi.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.info_window ) } }
+        else
+          marker_group = { :layer_name => layer.shortname, :markers => layer.posts.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.post_type.map_icon.image_url, :icon_size => GSize.new( poi.post_type.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.post_type.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.post_type.map_icon.shadow_url, :shadow_size => GSize.new( poi.post_type.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.post_type.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.post_type.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.post_type.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.post_type.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.post_type.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.info_window ) } }
           marker_groups << marker_group
-          
-        when "events"
-          marker_group = { :layer_name => layer.shortname, :markers => layer.events.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( poi.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.map_icon.shadow_url, :shadow_size => GSize.new( poi.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.info_window ) } }
-          marker_groups << marker_group
-          
-        when "network"
-          marker_group = { :layer_name => layer.shortname, :markers => layer.networks.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( poi.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.map_icon.shadow_url, :shadow_size => GSize.new( poi.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.info_window ) } }
-          marker_groups << marker_group
-          
-          when "stuff"
-            marker_group = { :layer_name => layer.shortname, :markers => layer.stuffs.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( poi.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.map_icon.shadow_url, :shadow_size => GSize.new( poi.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.info_window ) } }
-            marker_groups << marker_group
-            
-          when "fixit"
-            marker_group = { :layer_name => layer.shortname, :markers => layer.fix_its.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( poi.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.map_icon.shadow_url, :shadow_size => GSize.new( poi.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.info_window ) } }
-            marker_groups << marker_group
         
       end
     end

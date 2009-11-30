@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091112051900
+# Schema version: 20091128210317
 #
 # Table name: map_icons
 #
@@ -17,4 +17,5 @@
 #
 
 class MapIcon < ActiveRecord::Base
+  has_many :posts
 end

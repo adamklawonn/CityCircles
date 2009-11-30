@@ -7,6 +7,7 @@ class CreateInterestPoints < ActiveRecord::Migration
       t.string :label, :null => false
       t.string :body, :default => nil
       t.string :description, :default => nil
+      t.string :twitter_hashtag, :default => nil
       t.decimal :lat, :precision => 10, :scale => 6, :default => nil
       t.decimal :lng, :precision => 10, :scale => 6, :default => nil
       t.integer :author_id, :null => false

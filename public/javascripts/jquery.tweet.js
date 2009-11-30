@@ -138,13 +138,17 @@
           list.children('li:even').addClass('tweet_odd');
         });
         if (s.outro_text) list.after(outro);
-				$( "#mini-twtr-feed" ).jCarouselLite({  
-					vertical: true,  
-				  visible: 1,  
-				  auto:3000,  
-				  speed:1000  
-				});  
+        if (s.length > 0) {
 
+  				$( "#mini-twtr-feed" ).jCarouselLite({  
+	 		  		vertical: true,  
+				    visible: 1,  
+			  	  auto:3000,  
+		  		  speed:1000  
+	  			});  
+        } else {
+          $( ".tweet_list" ).html( "<li>No one is talking... :(</li>" );
+        }
       });
 
     });
