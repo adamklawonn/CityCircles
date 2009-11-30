@@ -7,6 +7,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 #twitter {margin-top: 0px;}
 #smallmap {height:300px;background-color:#fff;margin-top: 0px;}
 #midmap {height:380px; padding-top:10px; background-color:#fff;margin-top: 0px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
+#profmap { margin-left:0; margin-right:0; height:380px; padding-top:10px; background-color:#fff;margin-top: 0px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 #bigmap {height:409px;padding-top:10px; background-color:#fff;margin-top: 0px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
 .map { float:left; width: 790px; height: 370px; border: none; margin-left:10px;}
 .poi_map { float:left; width: 790px;margin-left:10px; height: 399px; border: none; }
@@ -61,6 +62,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
        960Add On
 =====================*/
 .grid_1,.grid_2,.grid_3,.grid_4,.grid_5,.grid_6,.grid_7,.grid_8,.grid_9,.grid_10,.grid_11,.grid_12 {margin-top:10px;margin-bottom:10px;}
+.almega{margin-left:0;margin-right:0;}
 
 /*======================
        INFO BOXES
@@ -83,14 +85,15 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 /*======================
        PROFILE
 =====================*/
-#content #userpicture{height:160px;}
-#content #userpicture #pic{height:140px; width:120px;background-color:#000;margin:10px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
-#content #userinfo{background-color:#fff;padding-bottom: 20px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
-#content #userstops h3 {padding-left:20px; color:#46543a;}
-#content #userstops{background-color:#fff; height:160px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
-#content #userinterest{; height:180px;padding-top:4px;overflow:y:auto;}
-#content #userinterest h2 {line-height:2em;padding-left:10px; font-weight:100;}
-#content #userpost{background-color:#fff; height:180px;padding-top:4px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
+#content #usersidbar{height:auto;}
+#content #userpicture{height:240px;margin-top:0px;}
+#content #userpicture #pic{height:240px; width:200px;background-color:#000;margin:0px 10px 0 10px;}
+#content #userabout h1{font-size:1.1em; font-weight:bold; color:#27311c; padding:10px; }
+#content #userabout{height:auto; min-height:188px; background-color:#fff;padding-bottom: 20px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
+#content .bigtab{width:185px; background-color:#fff;padding-bottom: 20px; padding-top: 10px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;}
+#content .liltab{width:10px;}
+#content #userpost{background-color:#fff; padding-top:4px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc; min-height: 100px; height:100%;
+}
 #content #userpost h2 {padding-left:10px; line-height:1.7em; }
 
 /*======================
@@ -109,11 +112,11 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
          TYPE
 =====================*/
 h1{font-size:1.8em; font-weight:bold; color:#27311c; padding-left:2px;}
-h2{font-size:1.1em; font-weight:bold; line-height:1.5em; }
+h2{font-size:1em; font-weight:bold; line-height:1.5em; padding-left:10px; }
 h3{font-size: 1em;}
 h4{}
 h5{font-size:.8em; font-weight:bold; color:#27311c; text-align: right;}
-p{font-size:.9em;}
+p{font-size:.9em; padding-left:15px;}
 a:link {text-decoration:none;color:#adbbb1;}
 a:active {text-decoration:none;}
 a:visited {text-decoration:none;color:#adbbb1;}
@@ -137,13 +140,9 @@ a:hover {text-decoration:none; color:#7e8781;}
 .push {padding-right:30px;}
 #addzone {float: right; margin-top:0px; margin-right:20px; height:40px; width:80px; }
 #searchbar { float: left;margin-top:30px; margin-left:330px; margin-bottom:5px; width:255px; }
-<<<<<<< HEAD
 #navbar {margin-left:205px; float: left; height:20px; padding-top:2.5px; width:380px; background-color:#543a44; -moz-border-radius-bottomright: 8px; -webkit-border-bottom-right-radius: 8px; -moz-border-radius-bottomleft: 8px; -webkit-border-bottom-left-radius: 8px;filter: alpha(opacity=80); opacity: .80;}
 #navbar ul {float: none;  padding-right:25px; text-align:center;  }
-=======
-#navbar {margin-left:60px; float: left; height:20px; padding-top:2.5px; width:380px; background-color:#543a44; -moz-border-radius-bottomright: 8px; -webkit-border-bottom-right-radius: 8px; -moz-border-radius-bottomleft: 8px; -webkit-border-bottom-left-radius: 8px;filter: alpha(opacity=80); opacity: .80;}
 #navbar ul {float: none;  padding-right:10px; text-align:center;  }
->>>>>>> c74534edac7b909bdd3393680cf192432d8d8ddb
 #navbar li{float: none;  padding-right:5px; padding-top:5px; display: inline; font-size: .72em; text-align:center;  }
 #navbar a:link {color:#fff;}
 #navbar a:active {color:#fff;}
@@ -161,8 +160,6 @@ a:hover {text-decoration:none; color:#7e8781;}
 /*======================
         SIDEBAR
 =====================*/
-
-
 
 .sidebar-entry {text-decoration:none; border:1px solid silver;}
 a.sidebar-entry {color:#000; text-decoration: none; margin-left:20px}
