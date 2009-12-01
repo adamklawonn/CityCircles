@@ -14,12 +14,12 @@
         - if !@user.user_detail.about_me.nil?
           = @user.user_detail.about_me
         - else
-          = link_to "Fill out your profile >>", settings_url
+          = link_to "Complete your profile >>", settings_url
       %h2
         Interest / Hobbies
       %p
         = @user_hobbies_interests
-        = link_to "Fill out your profile >>", settings_url if @user_hobbies_interests.empty?
+        = link_to "Complete your profile >>", settings_url if @user_hobbies_interests.empty?
       %h2
         My Places
       %p
@@ -27,7 +27,7 @@
           - @user.user_locations.each do |place|
             = link_to place.interest_point.label, interest_point_url( place.interest_point )
         - else
-          = link_to "Fill out your profile >>", settings_url 
+          = link_to "Complete your profile >>", settings_url 
   .grid_9.omega 
     #profmap.grid_9
     .clear
@@ -73,4 +73,20 @@
             - else
               You have no stuff.
   .clear
+  
+:javascript
+
+  function loadProfileMap() {
+    if ( GBrowserIsCompatible() ) {     
+      
+      var profileMap = new GMap2( $( "profmap" ) );
+      profileMap.disableDragging();
+      profileMap.disableDoubleClickZoom();
+      profileMap.disableScrollWheelZoom();
+      profileMap.setCenter( new GLatLng( #{ @default_map.lat }, #{ @default_map.lng } ), 11 ); 
+
+    }
+  }
+  
+  $j( document ).ready( loadProfileMap );
           
