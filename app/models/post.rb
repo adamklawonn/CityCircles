@@ -40,7 +40,7 @@ class Post < ActiveRecord::Base
   
   # Info window.
   def info_window
-    headline
+    short_headline
   end
   
 end
