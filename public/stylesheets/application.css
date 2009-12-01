@@ -113,6 +113,7 @@ body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; b
 =====================*/
 h1{font-size:1.8em; font-weight:bold; color:#27311c; padding-left:2px;}
 h2{font-size:1em; font-weight:bold; line-height:1.5em; padding-left:10px; }
+h2.headline{ font-size: 0.8em; }
 h3{font-size: 1em;}
 h4{}
 h5{font-size:.8em; font-weight:bold; color:#27311c; text-align: right;}

@@ -19,10 +19,10 @@
     .infoblock
       - unless @news.empty?
         - @news.each do |news|
-          %h2
-            = link_to truncate( news.headline, :length => 30 ), news_post_url( news )
+          %h2.headline
+            = link_to truncate( news.headline, :length => 40 ), news_post_url( news )
       - else
-        %h2 No news...be the first to post!
+        %h2.headline No news...be the first to post!
       
  
   #events.grid_4
@@ -38,10 +38,10 @@
     .infoblock
       - unless @events.empty?
         - @events.each do |event|
-          %h2
-            = link_to truncate( event.headline, :length => 30 ), events_post_url( event )
+          %h2.headline
+            = link_to truncate( event.headline, :length => 40 ), events_post_url( event )
       - else
-        %h2 No events...be the first to post!
+        %h2.headline No events...be the first to post!
   #promos.grid_4.omega
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
@@ -51,7 +51,8 @@
       biz promos
       = image_tag "map_icons/promos/promosimage.png", { :border => 0, :height => 20 }
     .infoblock
-      %h2 No promos...be the first to post!
+      %h2.headline 
+        No promos...be the first to post!
   #network.grid_4.alpha
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 2 }, :html => { :class => "tooltip", :title => "Post Network Item" } 
@@ -65,10 +66,10 @@
     .infoblock
       - unless @networks.empty?
         - @networks.each do |network|
-          %h2
-            = link_to truncate( network.headline, :length => 30 ), networks_post_url( network )
+          %h2.headline
+            = link_to truncate( network.headline, :length => 40 ), networks_post_url( network )
       - else
-        %h2 No networks...be the first to post!
+        %h2.headline No networks...be the first to post!
   #stuff.grid_4
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 3 }, :html => { :class => "tooltip", :title => "Post Your Stuff" }
@@ -82,16 +83,16 @@
     .infoblock
       - unless @stuffs.empty?
         - @stuffs.each do |stuff|
-          %h2
-            = link_to truncate( stuff.headline, :length => 30 ), stuff_post_url( stuff )
+          %h2.headline
+            = link_to truncate( stuff.headline, :length => 40 ), stuff_post_url( stuff )
       - else
-        %h2 No networks...be the first to post!
+        %h2.headline No stuff...be the first to post!
   .grid_4.omega
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 4 }, :html => { :class => "tooltip", :title => "Post Community Project" }
     - else
-      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Community Project"
-    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Community Projects Feed" }
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Fix It"
+    %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Fix It Feed" }
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       let's fix it
@@ -99,10 +100,10 @@
     #fixit.infoblock
       - unless @fix_its.empty?
         - @fix_its.each do |fix_it|
-          %h2
-            = link_to truncate( fix_it.headline, :length => 30 ), fixit_post_url( fix_it )
+          %h2.headline
+            = link_to truncate( fix_it.headline, :length => 40 ), fixit_post_url( fix_it )
       - else
-        %h2 No networks...be the first to post!
+        %h2.headline No fix it projects...be the first to post!
   .clear
 
 :javascript

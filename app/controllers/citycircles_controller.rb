@@ -3,11 +3,11 @@ class CitycirclesController < ApplicationController
   def index
     @default_map = Map.find_by_shortname( "lightrail", :include => [ :map_layers ] )
     @user_session = ( current_user_session.nil? ? UserSession.new : current_user_session )
-    @news = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 1, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 6 )
-    @events = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 2, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 6 )
-    @networks = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 3, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 6 )
-    @stuffs = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 5, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 6 )
-    @fix_its = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 6, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 6 )
+    @news = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 1, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 8 )
+    @events = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 2, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 8 )
+    @networks = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 3, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 8 )
+    @stuffs = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 5, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 8 )
+    @fix_its = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', 6, @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.created_at desc", :limit => 8 )
   end
   
   def universal_add_content
