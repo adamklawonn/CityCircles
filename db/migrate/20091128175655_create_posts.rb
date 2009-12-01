@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.decimal :lat, :precision => 10, :scale => 6, :default => nil
       t.decimal :lng, :precision => 10, :scale => 6, :default => nil
       t.string :headline, :null => false
-      t.string :short_headline, :length => 40, :null => false
+      t.string :short_headline, :limit => 40, :null => false
       t.text :body, :null => false
       t.integer :author_id, :null => false
       t.timestamps

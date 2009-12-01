@@ -4,3 +4,4 @@ log/*.log
 public/user_details
 public/system
 *.swp
+public/assets

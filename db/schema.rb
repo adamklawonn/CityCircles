@@ -180,15 +180,15 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "post_type_id",                                     :null => false
-    t.integer  "interest_point_id",                                :null => false
-    t.integer  "map_layer_id",                                     :null => false
-    t.decimal  "lat",               :precision => 10, :scale => 6
-    t.decimal  "lng",               :precision => 10, :scale => 6
-    t.string   "headline",                                         :null => false
-    t.string   "short_headline",                                   :null => false
-    t.text     "body",                                             :null => false
-    t.integer  "author_id",                                        :null => false
+    t.integer  "post_type_id",                                                   :null => false
+    t.integer  "interest_point_id",                                              :null => false
+    t.integer  "map_layer_id",                                                   :null => false
+    t.decimal  "lat",                             :precision => 10, :scale => 6
+    t.decimal  "lng",                             :precision => 10, :scale => 6
+    t.string   "headline",                                                       :null => false
+    t.string   "short_headline",    :limit => 40,                                :null => false
+    t.text     "body",                                                           :null => false
+    t.integer  "author_id",                                                      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

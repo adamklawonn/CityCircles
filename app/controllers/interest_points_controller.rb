@@ -4,11 +4,11 @@ class InterestPointsController < ApplicationController
     @poi = InterestPoint.find( params[ :id ] )
     @default_map = @poi.map
     
-    @news = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 1, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
-    @events = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 2, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
-    @networks = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 3, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
-    @stuffs = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 5, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
-    @fix_its = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 6, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 6 )
+    @news = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 1, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 8 )
+    @events = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 2, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 8 )
+    @networks = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 3, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 8 )
+    @stuffs = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 5, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 8 )
+    @fix_its = Post.find( :all, :conditions => [ 'post_type_id = ? and interest_point_id = ?', 6, @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => "created_at desc", :limit => 8 )
     
   end
   
@@ -35,12 +35,11 @@ class InterestPointsController < ApplicationController
           page << "postcontentmap.enableScrollWheelZoom();"
           page << "postcontentmap.getDragObject().setDraggableCursor( 'pointer' );"
           page << "postcontentmap.savePosition();"
-          page << "} else {"
-          page << "postcontentmap.removeOverlay( poiBounds );"
-          page << "poiBounds = GCircle( postcontentmap, new GLatLng( #{ @poi.lat }, #{ @poi.lng } ), new GLatLng( #{ @poi.lat }, #{ @poi.lng } + 0.004166666666667 ), '#000000', '#79AB75' );"
+          page << "$j( '#postcontent' ).bind( 'dialogbeforeclose', function (event, ui ) { tinyMCE.execCommand( 'mceRemoveControl', false, 'post_body' ); } );"
           page << "}"
           page << "postcontentmap.addOverlay( poiBounds );"
           page << "postcontentmap.returnToSavedPosition();"
+          page << 'tinyMCE.execCommand( "mceAddControl", false, "post_body" );'
         end
         
       end

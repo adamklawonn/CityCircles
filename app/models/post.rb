@@ -40,7 +40,7 @@ class Post < ActiveRecord::Base
   
   # Info window.
   def info_window
-    headline
+    "<div class='map_info_window'><img src='#{ post_type.map_icon.image_url }' class='map_info_window_icon' /><h2 class='map_info_window_title'>#{ short_headline }</h2><br />#{ body[0..100] }</div>"
   end
   
 end
