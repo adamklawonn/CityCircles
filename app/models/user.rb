@@ -29,10 +29,7 @@ class User < ActiveRecord::Base
   has_many :user_wireless_profiles
   has_many :user_locations
   has_many :comments, :foreign_key => "author_id"
-  has_many :news, :foreign_key => "author_id"
-  has_many :events, :foreign_key => "author_id"
-  has_many :networks, :foreign_key => "author_id"
-  has_many :stuffs, :foreign_key => "author_id"
+  has_many :posts, :foreign_key => "author_id"
   has_many :user_interests
   has_many :user_hobbies
   
