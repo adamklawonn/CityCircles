@@ -19,7 +19,7 @@
       - unless @news.empty?
         - @news.each do |news|
           %h2.headline
-            = link_to truncate( news.headline, 40 ), news_post_url( news )
+            = link_to truncate( news.short_headline, 39 ), news_post_url( news )
       - else
         %h2.headline  No news...be the first to post!
       %h5
@@ -40,7 +40,7 @@
       - unless @events.empty?
         - @events.each do |event|
           %h2.headline
-            = link_to truncate( event.headline, 40 ), events_post_url( event )
+            = link_to truncate( event.short_headline, 39 ), events_post_url( event )
       - else
         %h2.headline  No events...be the first to post!
       %h5
@@ -73,7 +73,7 @@
       - unless @networks.empty?
         - @networks.each do |network|
           %h2.headline
-            = link_to truncate( network.headline, 40 ), networks_post_url( network )
+            = link_to truncate( network.short_headline, 39 ), networks_post_url( network )
       - else
         %h2.headline No networks...be the first to post!
       %h5
@@ -94,7 +94,7 @@
       - unless @stuffs.empty?
         - @stuffs.each do |stuff|
           %h2.headline
-            = link_to truncate( stuff.headline, 40 ), stuff_post_url( stuff )
+            = link_to truncate( stuff.short_headline, 39 ), stuff_post_url( stuff )
       - else
         %h2.headline No stuff...be the first to post!
       %h5
@@ -115,7 +115,7 @@
       - unless @fix_its.empty?
         - @fix_its.each do |fix_it|
           %h2.headline
-            = link_to truncate( fix_it.headline, 40 ), fixit_post_url( fix_it )
+            = link_to truncate( fix_it.short_headline, 39 ), fixit_post_url( fix_it )
       - else
         %h2.headline No projects...be the first to post!
       %h5

@@ -40,7 +40,7 @@ class Post < ActiveRecord::Base
   
   # Info window.
   def info_window
-    short_headline
+    "<div class='map_info_window'>#{ body[0..100] }</div>"
   end
   
 end
