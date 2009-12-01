@@ -63,16 +63,13 @@
       .grid_9#navigation
         #navbar
           %ul
+            - @pages.each do |page|
+              %li
+                = link_to page[ "title" ].downcase, page_by_shortname_url( page[ "shortname" ] )
             %li
-              = link_to "about", admin_root_url
+              = link_to "facebook", "http://www.facebook.com/pages/Phoenix-AZ/CityCircles/148572991060?ref=ts"
             %li
-              = link_to "advertise", admin_root_url
-            %li
-              = link_to "contact", admin_root_url
-            %li
-              = link_to "facebook", admin_root_url
-            %li
-              = link_to "twitter", admin_root_url   
+              = link_to "twitter", "http://twitter.com/citycirc"   
             %li
               = link_to "faq", admin_root_url            
               
@@ -146,7 +143,7 @@
       - remote_form_for @suggestion do |f|
         = f.label "Your Email"
         %br
-        = f.text_field :email
+        = f.text_field :email, :value => ( current_user != nil ? current_user.email : "" )
         %br
         = f.label "Suggestion"
         %br

@@ -18,11 +18,13 @@ class InterestPointsController < ApplicationController
     
     if request.xhr?
       
-      content_types = { :news => News, :event => Event, :promo => Promo, :network => Network, :stuff => Stuff, :fix_it => FixIt }
+      content_types = { :news => PostType.find_by_shortname( "news" ), :event => PostType.find_by_shortname( "events" ), :promo => PostType.find_by_shortname(  "promos" ), :network => PostType.find_by_shortname( "network" ), :stuff => PostType.find_by_shortname( "stuff" ), :fix_it => PostType.find_by_shortname( "fixit" ) }
       content_type = params[ :content_type ]
+      
       if content_types.has_key? content_type.to_sym
+      
         render :update do | page |
-          page.replace_html "postcontentform", :partial => "#{ content_type.pluralize }/#{ content_type }", :locals => { content_type.to_sym => eval( "content_types[ content_type.to_sym ].new" ), :poi => @poi }
+          page.replace_html "postcontentform", :partial => "posts/form", :locals => { :post => Post.new, :post_type => content_types[ content_type.to_sym ], :poi => @poi }
           page << "$j( '#postcontent' ).dialog( 'open' );$j( '#postcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );"
           page << "$j( '#ui-dialog-title-postcontent' ).html( 'Post #{ content_type.camelize }' );"
           page << "if( poiBounds == null ) {"
@@ -40,6 +42,7 @@ class InterestPointsController < ApplicationController
           page << "postcontentmap.addOverlay( poiBounds );"
           page << "postcontentmap.returnToSavedPosition();"
         end
+        
       end
       
     end

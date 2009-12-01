@@ -1,0 +1,79 @@
+#content.grid_12
+  .grid_8#posts.alpha
+    #midmap
+      #content-spotlight-map
+    #post
+      #article
+      
+        %h1
+          = @post.headline
+        %p
+          = "By #{ @post.author.login }"
+        %br
+        %p
+          = @post.body
+      
+      - if current_user
+        #comments
+          %span
+            comment on this
+          %br
+          %br
+          - form_for @comment, :url => commentable_url do |f|
+            = render :partial => "citycircles/comment_form", :locals => { :f => f }
+          - if !@post.comments.empty?
+            - @post.comments.each do |comment|
+              .comment
+                %strong 
+                  = comment.title
+                %br
+                %br
+                  = comment.body
+                %br
+                %br
+                = friendly_datetime comment.created_at
+                = "by #{ comment.author.login }"
+              .userimage
+                = image_tag "caige.jpg", { :border => 0 }
+        .clear
+          
+  .grid_4#storyside.omega
+    = render :partial => "citycircles/twitter_feed"
+    .clear
+    #mostread
+      %h1
+        most read stories
+      .infoblock
+        - Post.find( :all, :conditions => [ 'post_type_id = ?', @post.post_type_id ], :limit => 9 ).each do |post_item|
+          %h2
+            = link_to truncate( post_item.headline, 30 ), :action => controller.action_name.to_s, :id => post_item.id
+        %h5
+          more>>
+      
+:javascript
+
+  function loadPostMap() {
+    if ( GBrowserIsCompatible() ) {
+      
+      // Create post icon.
+      postIcon = new GIcon();
+      postAnchor = new GPoint( #{ @post.post_type.map_icon.icon_anchor } );
+      postIcon.image = "#{ @post.post_type.map_icon.image_url }";
+      postIcon.iconAnchor = postAnchor;
+      postIcon.infoWindowMarker = postAnchor;
+      postIcon.iconSize = new GSize( 43, 30 );
+      postIcon.shadow = "#{ @post.post_type.map_icon.shadow_url }";
+      postIcon.shadowSize = new GSize( 43, 30 );
+      
+      var postMap = new GMap2( $( "content-spotlight-map" ) );
+      postMap.disableDragging();
+      postMap.disableDoubleClickZoom();
+      postMap.disableScrollWheelZoom();
+      var postMarker = new GMarker( new GLatLng( #{ @post.lat }, #{ @post.lng } ), { icon : postIcon } );
+      postMap.setCenter( new GLatLng( #{ @post.lat }, #{ @post.lng } ), 17 ); 
+      postMap.addOverlay( postMarker );
+    }
+  }
+  
+  $j( document ).ready( loadPostMap );
+  

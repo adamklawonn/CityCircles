@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find( current_user.id, :include => [ :user_detail, :news, :events, :user_locations, :user_wireless_profiles ] )
+    @user = User.find( current_user.id, :include => [ :user_detail, :user_locations, :user_wireless_profiles ] )
     @user_hobbies_interests = ( ( @user.user_interests.collect { | i | i.interest.name } + @user.user_hobbies.collect { | i | i.hobby.name } ).sort { rand } ).join( ", " )
   end
  

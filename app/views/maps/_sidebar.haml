@@ -1,4 +1,6 @@
 - default_map.map_layers.each do |layer|
   %input#railCheckbox{ :type => "checkbox", :onclick => "#{ layer.shortname }.activate( this.checked )", :CHECKED => true }	
   = layer.title
+  - @map_icon = MapIcon.find_by_shortname( layer.shortname )
+  = image_tag( @map_icon.image_url, :height => 20, :style => "vertical-align: middle;" ) if @map_icon != nil 
   %br

@@ -66,8 +66,8 @@
           %h2
             My Stuff 
           %p
-            - if !@user.stuffs.empty?
-              - @user.stuffs[ 0..3 ].each do |stuff_item|
+            - if !@user.stuff.empty?
+              - @user.stuff[ 0..3 ].each do |stuff_item|
                 = stuff_item.headline
             - else
               You have no stuff.

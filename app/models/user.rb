@@ -29,10 +29,7 @@ class User < ActiveRecord::Base
   has_many :user_wireless_profiles
   has_many :user_locations
   has_many :comments, :foreign_key => "author_id"
-  has_many :news, :foreign_key => "author_id"
-  has_many :events, :foreign_key => "author_id"
-  has_many :networks, :foreign_key => "author_id"
-  has_many :stuffs, :foreign_key => "author_id"
+  has_many :posts, :foreign_key => "author_id"
   has_many :user_interests
   has_many :user_hobbies
   
@@ -46,6 +43,26 @@ class User < ActiveRecord::Base
   validates_length_of :login, :in => 3..20
   validates_uniqueness_of :login
   validates_uniqueness_of :email
+  
+  def news
+    news_type = PostType.find_by_shortname( "news" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, news_type.id ], :limit => 10 )
+  end
+  
+  def events
+    events_type = PostType.find_by_shortname( "events" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, events_type.id ], :limit => 10 )
+  end
+  
+  def networks
+    network_type = PostType.find_by_shortname( "network" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, network_type.id ], :limit => 10 )
+  end
+  
+  def stuff
+    stuff_type = PostType.find_by_shortname( "stuff" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, stuff_type.id ], :limit => 10 )
+  end
   
   def self.find_admins
     self.find( :all, :conditions => "find_in_set( 'admin', users.roles )" )
