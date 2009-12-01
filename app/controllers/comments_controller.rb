@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       @comment.author_id = current_user.id
       @comment.save!
       respond_to do |format|
-        format.html { redirect_to :controller => @commentable.class.to_s.tableize.downcase, :action => :show, :id => @commentable.id }
+        format.html { redirect_to :back }
       end
     end
   
