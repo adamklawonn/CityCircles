@@ -34,7 +34,7 @@
                 = friendly_datetime comment.created_at
                 = "by #{ comment.author.login }"
               .userimage
-                = image_tag "caige.jpg", { :border => 0 }
+                = image_tag comment.author.user_detail.avatar.url( :small ), { :border => 0 }
         .clear
           
   .grid_4#storyside.omega
