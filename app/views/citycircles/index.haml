@@ -15,12 +15,12 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       news
-      = image_tag "newscon.png", { :border => 0 }
+      = image_tag "map_icons/news/newsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @news.empty?
         - @news.each do |news|
           %h2
-            = link_to truncate( news.headline, :length => 30 ), news_url( news )
+            = link_to truncate( news.headline, :length => 30 ), news_post_url( news )
       - else
         %h2 No news...be the first to post!
       
@@ -34,12 +34,12 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       events
-      = image_tag "eventscon.png", { :border => 0 }
+      = image_tag "map_icons/events/eventsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @events.empty?
         - @events.each do |event|
           %h2
-            = link_to truncate( event.headline, :length => 30 ), event_url( event )
+            = link_to truncate( event.headline, :length => 30 ), events_post_url( event )
       - else
         %h2 No events...be the first to post!
   #promos.grid_4.omega
@@ -49,7 +49,7 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       biz promos
-      = image_tag "promocon.png", { :border => 0 }
+      = image_tag "map_icons/promos/promosimage.png", { :border => 0, :height => 20 }
     .infoblock
       %h2 No promos...be the first to post!
   #network.grid_4.alpha
@@ -61,12 +61,12 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       network
-      = image_tag "networkcon.png", { :border => 0 }
+      = image_tag "map_icons/network/networkimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @networks.empty?
         - @networks.each do |network|
           %h2
-            = link_to truncate( network.headline, :length => 30 ), network_url( network )
+            = link_to truncate( network.headline, :length => 30 ), networks_post_url( network )
       - else
         %h2 No networks...be the first to post!
   #stuff.grid_4
@@ -78,12 +78,12 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       stuff
-      = image_tag "stuffcon.png", { :border => 0 }
+      = image_tag "map_icons/stuff/stuffimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @stuffs.empty?
         - @stuffs.each do |stuff|
           %h2
-            = link_to truncate( stuff.headline, :length => 30 ), stuff_url( stuff )
+            = link_to truncate( stuff.headline, :length => 30 ), stuff_post_url( stuff )
       - else
         %h2 No networks...be the first to post!
   .grid_4.omega
@@ -95,12 +95,12 @@
       = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
     %h1
       let's fix it
-      = image_tag "fixcon.png", { :border => 0 }
+      = image_tag "map_icons/fixit/fixitimage.png", { :border => 0, :height => 20 }
     #fixit.infoblock
       - unless @fix_its.empty?
         - @fix_its.each do |fix_it|
           %h2
-            = link_to truncate( fix_it.headline, :length => 30 ), fix_it_url( fix_it )
+            = link_to truncate( fix_it.headline, :length => 30 ), fixit_post_url( fix_it )
       - else
         %h2 No networks...be the first to post!
   .clear

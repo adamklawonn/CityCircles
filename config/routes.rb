@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :post_types
 
-  map.resources :posts
+  map.resources :posts, :member => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }
 
   map.resources :user_hobbies
   map.resources :user_interests
@@ -30,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :promos
   map.resources :map_layers, :has_many => [ :interest_points ]
   map.resources :maps, :collection => { :next => :get }, :has_many => [ :map_layers ]
-  map.resources :interest_points, :as => "places", :has_many => [ :news, :events, :networks, :stuffs, :fix_its ]
+  map.resources :interest_points, :as => "places", :member => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }
   map.resources :events
   map.resources :news, :collection => { :poi => :get }, :has_many => [ :comments ]
   map.resource :user_session
