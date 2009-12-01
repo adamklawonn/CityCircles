@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     @user.user_detail = UserDetail.new
     if verify_recaptcha( :model => @user, :message => "Captcha response was incorrect!" ) && @user.save
       flash[:notice] = "Account registered!"
-      redirect_to profile_url
+      UserMailer.deliver_registration(@user)
+      render :action => :sendverification
     else
       render :action => :new
     end
@@ -37,5 +38,32 @@ class UsersController < ApplicationController
       render :action => :edit
     end
   end
-
+  
+  def sendverification
+    @user = User.find_by_email params[ :email ]
+    UserMailer.deliver_registration(@user)
+  end
+  
+  def verify
+    @user = User.find_by_single_access_token params[ :satoken ]
+    if @user != nil
+      if !@user.email_verified 
+        if @user.update_attribute(:email_verified, true)
+          flash[:notice] = "Account verified!"
+          UserMailer.deliver_welcome(@user)
+          redirect_to profile_url
+        else
+          flash[:notice] = "Account could not be verified!"
+          render :action => :sendverification
+        end
+      else
+        flash[:notice] = "Account has already been verified!"
+        render :action => :sendverification
+      end
+    else  
+      flash[:notice] = "Account could not be verified!"
+      render :action => :sendverification
+    end
+  end
+  
 end

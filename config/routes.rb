@@ -12,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.signin "/signin", :controller => "user_sessions", :action => "new"
   map.signout "/signout", :controller => "user_sessions", :action => "destroy"
   map.signup "/signup", :controller => "users", :action => "new"
+  map.sendverification "/sendverification", :controller => "users", :action => "sendverification"
+  map.verify "/verify/:satoken", :controller => "users", :action => "verify"
   map.settings "/settings", :controller => "user_settings", :action => "index"
   map.profile "/profile", :controller => "users", :action => "show"
   map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"

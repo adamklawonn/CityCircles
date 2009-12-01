@@ -37,12 +37,13 @@ class User < ActiveRecord::Base
 
   before_validation_on_create :make_default_roles
 
-  attr_accessible :login, :password, :password_confirmation, :email, :first_name, :last_name
+  attr_accessible :login, :password, :password_confirmation, :email, :first_name, :last_name, :agreed_with_terms
   
   validates_presence_of :login
   validates_length_of :login, :in => 3..20
   validates_uniqueness_of :login
   validates_uniqueness_of :email
+  validates_acceptance_of :agreed_with_terms, :message => "you must be abided", :on => :create, :accept => true
   
   def news
     news_type = PostType.find_by_shortname( "news" )
