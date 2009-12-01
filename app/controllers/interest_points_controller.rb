@@ -35,9 +35,11 @@ class InterestPointsController < ApplicationController
           page << "postcontentmap.enableScrollWheelZoom();"
           page << "postcontentmap.getDragObject().setDraggableCursor( 'pointer' );"
           page << "postcontentmap.savePosition();"
+          page << "$j( '#postcontent' ).bind( 'dialogbeforeclose', function (event, ui ) { tinyMCE.execCommand( 'mceRemoveControl', false, 'post_body' ); } );"
           page << "}"
           page << "postcontentmap.addOverlay( poiBounds );"
           page << "postcontentmap.returnToSavedPosition();"
+          page << 'tinyMCE.execCommand( "mceAddControl", false, "post_body" );'
         end
         
       end
