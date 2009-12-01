@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post.post_type_id = params[ :post_type_id ]
     @post.author_id = current_user.id
     
-    if request.xhr?
+    responds_to_parent do
   
       if @post.save
         flash[ :notice ] = "Post created."

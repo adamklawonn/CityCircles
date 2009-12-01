@@ -1,4 +1,4 @@
-- remote_form_for post, :url => posts_url, :onsubmit => "" do |f|
+- form_for post, :url => posts_url, :html => { :multipart => true, :target => "frame" } do |f|
   = hidden_field_tag :lat
   = hidden_field_tag :lng
   = hidden_field_tag :interest_point_id, poi.id
@@ -8,9 +8,12 @@
   = f.text_field :headline
   %br
   = f.label "Short Headline (40 characters max.)"
-  
   %br
   = f.text_field :short_headline
+  %br
+  = f.label :attachment
+  %br
+  = f.file_field :data
   %br
   = f.label :body
   %br
@@ -18,3 +21,4 @@
   %br
   %br
   = f.submit "Post"
+  %iframe{ :id => "frame", :name => "frame", :style => "height: 1px; width: 1px;" }
