@@ -20,7 +20,7 @@ img.map_info_window_icon { height: 20px; float: left; vertical-align: middle; te
 .tweet_even { padding-top: 15px; padding-bottom: 15px; }
 .tweet_odd { padding-top: 15px; padding-bottom: 15px; }
 #query { width: 250px; }
-#terms-of-service { overflow:scroll; height:200px; }
+#terms-of-service { overflow-y:scroll; overflow-x: hidden; height:300px; }
 
 /*======================
        POST PAGE
