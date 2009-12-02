@@ -232,14 +232,14 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
 
   create_table "tweets", :force => true do |t|
     t.integer  "post_id",                        :null => false
-    t.integer  "tweet_id",          :limit => 8, :null => false
-    t.string   "body",                           :null => false
-    t.string   "from_user",                      :null => false
+    t.integer  "tweet_id",          :limit => 8
+    t.string   "body"
+    t.string   "from_user"
     t.string   "to_user"
     t.string   "iso_language_code"
     t.string   "source"
     t.string   "profile_image_url"
-    t.string   "tweeted_at",                     :null => false
+    t.string   "tweeted_at"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
