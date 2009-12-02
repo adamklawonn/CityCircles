@@ -6,6 +6,7 @@
 #  user_id             :integer(4)      not null
 #  first_name          :string(255)
 #  last_name           :string(255)
+#  twitter_username    :string(255)
 #  about_me            :string(255)
 #  hobbies             :string(255)
 #  created_at          :datetime

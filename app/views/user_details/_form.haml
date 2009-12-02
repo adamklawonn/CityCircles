@@ -8,6 +8,11 @@
 = f.text_field :last_name
 = error_message_on "user_detail", "last_name"
 %br
+= f.label :twitter_username
+%br
+= f.text_field :twitter_username
+= error_message_on "user_detail", "twitter_username"
+%br
 = f.label :avatar
 %br
 = f.file_field :avatar

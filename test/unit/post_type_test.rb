@@ -4,6 +4,7 @@
 #
 #  id              :integer(4)      not null, primary key
 #  name            :string(255)     not null
+#  map_layer_id    :integer(4)      not null
 #  map_icon_id     :integer(4)      not null
 #  shortname       :string(255)     not null
 #  twitter_hashtag :string(255)

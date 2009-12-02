@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091128210317
+# Schema version: 20091201065827
 #
 # Table name: interest_points
 #

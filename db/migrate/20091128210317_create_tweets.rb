@@ -2,7 +2,7 @@ class CreateTweets < ActiveRecord::Migration
   def self.up
     create_table :tweets, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.integer :post_id, :null => false
-      t.integer :tweet_id, :null => false
+      t.integer :tweet_id, :limit => 8, :null => false
       t.string :body, :null => false
       t.string :from_user, :null => false
       t.string :to_user, :default => nil

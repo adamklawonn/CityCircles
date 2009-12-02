@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091128210317
+# Schema version: 20091201065827
 #
 # Table name: posts
 #
@@ -10,7 +10,7 @@
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)
 #  headline          :string(255)     not null
-#  short_headline    :string(255)     not null
+#  short_headline    :string(40)      not null
 #  body              :text            default(""), not null
 #  author_id         :integer(4)      not null
 #  created_at        :datetime

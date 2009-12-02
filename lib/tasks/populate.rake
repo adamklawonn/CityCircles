@@ -89,15 +89,15 @@ namespace :db do
     fix_it_icon.save!
     
     # Create post types.
-      news_post = PostType.new :name => "News", :map_icon_id => news_icon.id, :shortname => "news", :twitter_hashtag => "cc-n"
+      news_post = PostType.new :name => "News", :map_layer_id => news_layer.id, :map_icon_id => news_icon.id, :shortname => "news", :twitter_hashtag => "n"
       news_post.save!
-      event_post = PostType.new :name => "Event", :map_icon_id => events_icon.id, :shortname => "events", :twitter_hashtag => "cc-e" 
+      event_post = PostType.new :name => "Event", :map_layer_id => events_layer.id, :map_icon_id => events_icon.id, :shortname => "events", :twitter_hashtag => "e" 
       event_post.save!
-      network_post = PostType.new :name => "Network", :map_icon_id => network_icon.id, :shortname => "network", :twitter_hashtag => "cc-nw"
+      network_post = PostType.new :name => "Network", :map_layer_id => network_layer.id, :map_icon_id => network_icon.id, :shortname => "network", :twitter_hashtag => "net"
       network_post.save!
-      promo_post = PostType.new( :name => "Promo", :map_icon_id => promos_icon.id, :shortname => "promos", :twitter_hashtag => "cc-p" ).save!
-      stuff_post = PostType.new( :name => "Stuff", :map_icon_id => stuff_icon.id, :shortname => "stuff", :twitter_hashtag => "cc-s" ).save!
-      fixit_post = PostType.new( :name => "Fix It", :map_icon_id => fix_it_icon.id, :shortname => "fixit", :twitter_hashtag => "cc-nw" ).save!
+      promo_post = PostType.new( :name => "Promo", :map_layer_id => promos_layer.id, :map_icon_id => promos_icon.id, :shortname => "promos", :twitter_hashtag => "p" ).save!
+      stuff_post = PostType.new( :name => "Stuff", :map_layer_id => stuff_layer.id, :map_icon_id => stuff_icon.id, :shortname => "stuff", :twitter_hashtag => "s" ).save!
+      fixit_post = PostType.new( :name => "Fix It", :map_layer_id => fix_it_layer.id, :map_icon_id => fix_it_icon.id, :shortname => "fixit", :twitter_hashtag => "f" ).save!
     
     # Create interest points.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail.csv" ) do |row|

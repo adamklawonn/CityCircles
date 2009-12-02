@@ -172,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
 
   create_table "post_types", :force => true do |t|
     t.string   "name",            :null => false
+    t.integer  "map_layer_id",    :null => false
     t.integer  "map_icon_id",     :null => false
     t.string   "shortname",       :null => false
     t.string   "twitter_hashtag"
@@ -230,15 +231,15 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
   end
 
   create_table "tweets", :force => true do |t|
-    t.integer  "post_id",           :null => false
-    t.integer  "tweet_id",          :null => false
-    t.string   "body",              :null => false
-    t.string   "from_user",         :null => false
+    t.integer  "post_id",                        :null => false
+    t.integer  "tweet_id",          :limit => 8, :null => false
+    t.string   "body",                           :null => false
+    t.string   "from_user",                      :null => false
     t.string   "to_user"
     t.string   "iso_language_code"
     t.string   "source"
     t.string   "profile_image_url"
-    t.string   "tweeted_at",        :null => false
+    t.string   "tweeted_at",                     :null => false
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -248,6 +249,7 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
     t.integer  "user_id",             :null => false
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "twitter_username"
     t.string   "about_me"
     t.string   "hobbies"
     t.datetime "created_at"
