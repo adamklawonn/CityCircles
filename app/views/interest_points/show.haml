@@ -22,11 +22,6 @@
             = link_to truncate( news.short_headline, 39 ), news_post_url( news )
       - else
         %h2.headline  No news...be the first to post!
-      %h5
-        - unless @news.empty?
-          = link_to "more>>", news_interest_point_url( @poi )
-        -else
-          more>>
   #events.grid_4
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "event", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Event"
@@ -43,11 +38,6 @@
             = link_to truncate( event.short_headline, 39 ), events_post_url( event )
       - else
         %h2.headline  No events...be the first to post!
-      %h5
-        - unless @events.empty?
-          = link_to "more>>", events_interest_point_url( @poi )
-        -else
-          more>>
   #promos.grid_4.omega
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "promo", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Promo"
@@ -76,11 +66,6 @@
             = link_to truncate( network.short_headline, 39 ), networks_post_url( network )
       - else
         %h2.headline No networks...be the first to post!
-      %h5
-        - unless @networks.empty?
-          = link_to "more>>", networks_interest_point_url( @poi )
-        -else
-          more>>
   #stuff.grid_4
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "stuff", :poi_id => @poi.id }, :class => "tooltip", :title => "Post your Stuff"
@@ -97,11 +82,6 @@
             = link_to truncate( stuff.short_headline, 39 ), stuff_post_url( stuff )
       - else
         %h2.headline No stuff...be the first to post!
-      %h5
-        - unless @stuffs.empty?
-          = link_to "more>>", stuff_interest_point_url( @poi )
-        -else
-          more>>
   .grid_4.omega
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "fix_it", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Community Project"
@@ -118,11 +98,6 @@
             = link_to truncate( fix_it.short_headline, 39 ), fixit_post_url( fix_it )
       - else
         %h2.headline No projects...be the first to post!
-      %h5
-        - unless @fix_its.empty?
-          = link_to "more>>", fixit_interest_point_url( @poi )
-        -else
-          more>>
 
 
 #postcontent{ :title => "Post New Content" }

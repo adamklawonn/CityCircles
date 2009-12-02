@@ -1,5 +1,25 @@
 class PostsController < ApplicationController
-
+  
+  def index
+    
+    @post_type = PostType.find_by_shortname params[ :shortname ]
+    
+    if params[ :interest_point_id ] != nil
+      # Posts near interest point.
+      @poi = InterestPoint.find params[ :interest_point_id ]
+      @posts = Post.find( :all, :conditions => [ 'interest_point_id = ?, post_type_id = ?', @poi.id, @post_type.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc' )
+    else
+      # All posts.
+      @posts = Post.find( :all, :conditions => [ 'post_type_id = ?', @post_type.id ], :order => 'created_at desc' )
+    end
+    
+    respond_to do | format |
+      format.html
+      format.xml { render :index, :layout => false }
+    end
+    
+  end  
+  
   def create
   
     @post = Post.new params[ :post ]

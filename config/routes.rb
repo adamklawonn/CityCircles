@@ -32,7 +32,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :promos
   map.resources :map_layers, :has_many => [ :interest_points ]
   map.resources :maps, :collection => { :next => :get }, :has_many => [ :map_layers ]
-  map.resources :interest_points, :as => "places", :member => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }
+  map.resources :interest_points, :as => "places", :member => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }, :collection => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }
   map.resources :events
   map.resources :news, :collection => { :poi => :get }, :has_many => [ :comments ]
   map.resource :user_session
