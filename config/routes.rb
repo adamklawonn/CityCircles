@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :post_types
 
-  map.resources :posts, :member => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }
+  map.resources :posts, :member => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }, :collection => { :all_news => :get, :all_events => :get, :all_promos => :get, :all_networks => :get, :all_stuff => :get, :all_fixit => :get }
 
   map.resources :user_hobbies
   map.resources :user_interests

@@ -1,0 +1,16 @@
+#content.grid_12
+  #feed
+    %h1
+      Posts for 
+      = @poi.label
+    %a{ :href => "#" }
+      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+    .clear
+    - @posts.each do |post| 
+      #listitem 
+        %h2= post.headline
+        %p 
+          by 
+          = post.author.login
+          @
+          = friendly_datetime( post.created_at )

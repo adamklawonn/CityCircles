@@ -12,7 +12,7 @@
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+      = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
     %h1
       news
       = image_tag "map_icons/news/newsimage.png", { :border => 0, :height => 20 }
@@ -31,7 +31,7 @@
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Event"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Event Feed" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+      = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_events_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
     %h1
       events
       = image_tag "map_icons/events/eventsimage.png", { :border => 0, :height => 20 }
@@ -46,7 +46,7 @@
     %a{ :href => "#" }
       = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Business Promotions Feed" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+      = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
     %h1
       biz promos
       = image_tag "map_icons/promos/promosimage.png", { :border => 0, :height => 20 }
@@ -59,7 +59,7 @@
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Network Item"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Network Feed" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+      = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_networks_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
     %h1
       network
       = image_tag "map_icons/network/networkimage.png", { :border => 0, :height => 20 }
@@ -76,7 +76,7 @@
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Your Stuff"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to the Stuff Feed" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+      = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_stuff_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
     %h1
       stuff
       = image_tag "map_icons/stuff/stuffimage.png", { :border => 0, :height => 20 }
@@ -93,7 +93,7 @@
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Fix It"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Fix It Feed" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+      = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_fixit_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
     %h1
       let's fix it
       = image_tag "map_icons/fixit/fixitimage.png", { :border => 0, :height => 20 }

@@ -65,12 +65,6 @@ class PostsController < ApplicationController
     render :show
   end
   
-  def news
-    @post = Post.find params[ :id ]
-    @comment = Comment.new
-    render :show
-  end
-  
   def networks
     @post = Post.find params[ :id ]
     @comment = Comment.new
@@ -87,6 +81,54 @@ class PostsController < ApplicationController
     @post = Post.find params[ :id ]
     @comment = Comment.new
     render :show
+  end
+
+  def all_news
+    @post_type = PostType.find_by_shortname( "news" )
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    respond_to do | format |
+      format.xml { render :index, :layout => false }
+    end
+  end
+  
+  def all_events
+    @post_type = PostType.find_by_shortname( "events" )
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    respond_to do | format |
+      format.xml { render :index, :layout => false }
+    end
+  end
+  
+  def all_promos
+    @post_type = PostType.find_by_shortname( "promos" )
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    respond_to do | format |
+      format.xml { render :index, :layout => false }
+    end
+  end
+  
+  def all_networks
+    @post_type = PostType.find_by_shortname( "network" )
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    respond_to do | format |
+      format.xml { render :index, :layout => false }
+    end
+  end
+  
+  def all_stuff
+    @post_type = PostType.find_by_shortname( "stuff" )
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    respond_to do | format |
+      format.xml { render :index, :layout => false }
+    end
+  end
+  
+  def all_fixit
+    @post_type = PostType.find_by_shortname( "fixit" )
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    respond_to do | format |
+      format.xml { render :index, :layout => false }
+    end
   end
 
 end

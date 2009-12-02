@@ -11,7 +11,7 @@
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "news", :poi_id => @poi.id }, :class => "tooltip", :title => "Post News"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), news_interest_point_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
     %h1
       news
       = image_tag "map_icons/news/newsimage.png", { :border => 0, :height => 20 }
@@ -27,7 +27,7 @@
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "event", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Event"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Event"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), events_interest_point_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_events_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
     %h1
       events
       = image_tag "map_icons/events/eventsimage.png", { :border => 0, :height => 20 }
@@ -43,7 +43,7 @@
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "promo", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Promo"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Promo"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), promos_interest_point_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
     %h1
       biz promos
       = image_tag "map_icons/promos/promosimage.png", { :border => 0, :height => 20 }
@@ -55,7 +55,7 @@
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "network", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Network Item"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Network Item"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), networks_interest_point_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_networks_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
     %h1
       network
       = image_tag "map_icons/network/networkimage.png", { :border => 0, :height => 20 }
@@ -71,7 +71,7 @@
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "stuff", :poi_id => @poi.id }, :class => "tooltip", :title => "Post your Stuff"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post your Stuff"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), stuff_interest_point_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to the Stuff Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_stuff_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
     %h1
       stuff
       = image_tag "map_icons/stuff/stuffimage.png", { :border => 0, :height => 20 }
@@ -87,7 +87,7 @@
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "fix_it", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Community Project"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Fix It"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), fixit_interest_point_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_fixit_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
     %h1
       let's fix it
       = image_tag "map_icons/fixit/fixitimage.png", { :border => 0, :height => 20 }
