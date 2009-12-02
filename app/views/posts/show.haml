@@ -52,10 +52,8 @@
         most read stories
       .infoblock
         - Post.find( :all, :conditions => [ 'post_type_id = ?', @post.post_type_id ], :limit => 9 ).each do |post_item|
-          %h2
-            = link_to truncate( post_item.headline, 30 ), :action => controller.action_name.to_s, :id => post_item.id
-        %h5
-          more>>
+          %h2.headline
+            = link_to truncate( post_item.headline, 39 ), :action => controller.action_name.to_s, :id => post_item.id
       
 :javascript
 
