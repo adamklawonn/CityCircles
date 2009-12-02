@@ -43,8 +43,6 @@
       - else
         %h2.headline No events...be the first to post!
   #promos.grid_4.omega
-    %a{ :href => "#" }
-      = image_tag "smalladd.png", { :class => "buttonfloat", :border => 0 }
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Business Promotions Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
     %h1

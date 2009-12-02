@@ -1,2 +1,5 @@
-class Admin::PromosController < ApplicationController
+class Admin::PromosController < Admin::AdminController
+
+  active_scaffold :promo
+
 end

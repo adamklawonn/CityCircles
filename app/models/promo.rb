@@ -17,8 +17,7 @@
 
 class Promo < ActiveRecord::Base
   belongs_to :organization
-  belongs_to :interest_point
-  belongs_to :author, :class_name => "User", :foreign_key => "user_id"
-  has_many :comments, :as => :commenter
-  has_many :photos, :as => :photoable
+  belongs_to :post
+  belongs_to :author, :class_name => "User", :foreign_key => "author_id"
+  has_many :comments, :as => :commentable
 end
