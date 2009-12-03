@@ -5,3 +5,6 @@ public/user_details
 public/system
 *.swp
 public/assets
+mkmf.log
+log/twitterbug.rb.pid
+log/twitterbug.rb_monitor.pid
