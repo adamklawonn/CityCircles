@@ -4,11 +4,11 @@
   %li{ :class => request.url.match( '/admin/maps' ) ? "admin_sidebar_selected" : "" }
     = link_to "Maps", :controller => "maps", :action => "index"
   %li{ :class => request.url.match( '/admin/news' ) ? "admin_sidebar_selected" : "" }
-    = link_to "News", :controller => "news", :action => "index"
+    = link_to "Posts", :controller => "posts", :action => "index"
   %li{ :class => request.url.match( '/admin/events' ) ? "admin_sidebar_selected" : "" }
     = link_to "Events", :controller => "events", :action => "index"
   %li{ :class => request.url.match( '/admin/promos' ) ? "admin_sidebar_selected" : "" }
-    = link_to "Promos", :controller => "maps", :action => "index"
+    = link_to "Promos", :controller => "promos", :action => "index"
   %li{ :class => request.url.match( '/admin/networks' ) ? "admin_sidebar_selected" : "" }
     = link_to "Networks", :controller => "networks", :action => "index"
   %li{ :class => request.url.match( '/admin/stuff' ) ? "admin_sidebar_selected" : "" }

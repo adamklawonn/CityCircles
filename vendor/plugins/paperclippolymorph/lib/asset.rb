@@ -1,7 +1,7 @@
 class Asset < ActiveRecord::Base
   has_many :attachings, :dependent => :destroy
   has_attached_file :data,
-                    :styles => { :tiny => "64x64#",
+                    :styles => { :tiny => "50x50#",
                                  :small => "176x112#",
                                  :medium => "630x630>",
                                  :large => "1024x1024>" }

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091112051900
+# Schema version: 20091201065827
 #
 # Table name: users
 #
@@ -21,6 +21,8 @@
 #  created_at          :datetime
 #  updated_at          :datetime
 #  roles               :string(255)     default("")
+#  email_verified      :boolean(1)
+#  agreed_with_terms   :boolean(1)
 #
 
 class User < ActiveRecord::Base
@@ -29,10 +31,7 @@ class User < ActiveRecord::Base
   has_many :user_wireless_profiles
   has_many :user_locations
   has_many :comments, :foreign_key => "author_id"
-  has_many :news, :foreign_key => "author_id"
-  has_many :events, :foreign_key => "author_id"
-  has_many :networks, :foreign_key => "author_id"
-  has_many :stuffs, :foreign_key => "author_id"
+  has_many :posts, :foreign_key => "author_id"
   has_many :user_interests
   has_many :user_hobbies
   
@@ -40,12 +39,33 @@ class User < ActiveRecord::Base
 
   before_validation_on_create :make_default_roles
 
-  attr_accessible :login, :password, :password_confirmation, :email, :first_name, :last_name
+  attr_accessible :login, :password, :password_confirmation, :email, :first_name, :last_name, :agreed_with_terms
   
   validates_presence_of :login
   validates_length_of :login, :in => 3..20
   validates_uniqueness_of :login
   validates_uniqueness_of :email
+  validates_acceptance_of :agreed_with_terms, :message => "you must be abided", :on => :create, :accept => true
+  
+  def news
+    news_type = PostType.find_by_shortname( "news" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, news_type.id ], :limit => 10 )
+  end
+  
+  def events
+    events_type = PostType.find_by_shortname( "events" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, events_type.id ], :limit => 10 )
+  end
+  
+  def networks
+    network_type = PostType.find_by_shortname( "network" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, network_type.id ], :limit => 10 )
+  end
+  
+  def stuff
+    stuff_type = PostType.find_by_shortname( "stuff" )
+    Post.find( :all, :conditions => [ "author_id = ? and post_type_id = ?", self.id, stuff_type.id ], :limit => 10 )
+  end
   
   def self.find_admins
     self.find( :all, :conditions => "find_in_set( 'admin', users.roles )" )

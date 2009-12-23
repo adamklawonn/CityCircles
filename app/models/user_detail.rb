@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091112051900
+# Schema version: 20091201065827
 #
 # Table name: user_details
 #
@@ -7,6 +7,7 @@
 #  user_id             :integer(4)      not null
 #  first_name          :string(255)
 #  last_name           :string(255)
+#  twitter_username    :string(255)
 #  about_me            :string(255)
 #  hobbies             :string(255)
 #  created_at          :datetime
@@ -20,9 +21,9 @@
 class UserDetail < ActiveRecord::Base
 
   belongs_to :user
-  has_attached_file :avatar, :styles => { :small => "50x50>", :medium => "100x100>", :large => "150x150>", :huge => "300x300>" }, :path => ":rails_root/public/user_details/avatars/:id/:style_:basename.:extension", :url => "/user_details/avatars/:id/:style_:basename.:extension"
 
 	# Paperclip
-	acts_as_polymorphic_paperclip
+  has_attached_file :avatar, :styles => { :small => "50x50#", :medium => "100x100>", :large => "220x240>", :huge => "300x300>" }, :path => ":rails_root/public/assets/user_details/avatars/:id/:style_:basename.:extension", :url => "/assets/user_details/avatars/:id/:style_:basename.:extension", :default_url => "/images/avatar.jpg"
+
 
 end

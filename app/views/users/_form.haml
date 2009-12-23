@@ -17,4 +17,31 @@
 %br
 = form.text_field :email
 = error_message_on "user", "email"
-%br
+- if controller.controller_name != "user_settings"
+  %br
+  = form.check_box :agreed_with_terms
+  = form.label "I agree with the terms of service"
+  = error_message_on "user", "agreed_with_terms"
+  %br
+  #terms-of-service 
+    %br
+    %p
+      Thank you for choosing CityCircles as the place to share your content along the light rail route. Let's talk about how this works.
+    %br
+    %p
+      CityCircles is an outlet for news, events, promotions, networking, classifieds and community improvement in light rail communities. This includes train passengers as well as residents who live near the stops. Our goal is to improve community cohesiveness in these areas and promote economic development among small businesses in the inner city. We do this with content from our collaborators (you) and from trained journalists who are hired to help cover major issues in these communities. We feel like it's a winning combination.
+    %br
+    %p
+      On CityCircles, "content" includes all words, links, pictures, videos and audio files. Considering our goal, there is no tolerance for unacceptable content that is:
+      %ul{ :style => "list-style-type: disc;" }
+        %li{ :style => "margin-left: 50px; font-size: 0.9em;" } Used to abuse, harass, stalk or threaten a person or persons,
+        %li{ :style => "margin-left: 50px; font-size: 0.9em;" } Libels or falsely represents another person or persons,
+        %li{ :style => "margin-left: 50px; font-size: 0.9em;" } Infringes upon any copyright, trademark, trade secret or patent of a third party,
+        %li{ :style => "margin-left: 50px; font-size: 0.9em;" } Commissioned by a third party (either by cash or "in-kind" support) and/or includes paid links and/or SPAM.
+        %li{ :style => "margin-left: 50px; font-size: 0.9em;" } Unfairly incorporating the content of someone else without attribution. (For rules on how to properly attribute information, visit http://www.eff.org/bloggers/lg/.)
+    %br
+    %p
+      CityCircles moderators reserve the right to determine what is "unacceptable" content on a case-by-case basis. They reserve the right to change these rules and remove content at any time with proper notice. We want to encourage your full participation in the community, and these rules are meant to keep the community's discussions genuine. Thank you for your understanding.
+    %br
+    %p
+      CityCircles

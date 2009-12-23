@@ -29,3 +29,12 @@ config.action_view.cache_template_loading            = true
 
 ENV['RECAPTCHA_PUBLIC_KEY']  = '6LcVfQgAAAAAAGmKqHu0_RGs_0qDaUGjzSbTPKBZ'
 ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcVfQgAAAAAANd8jkGfxxRRnGEOkdgYQKgAIa9G'
+
+config.action_mailer.raise_delivery_errors = true
+
+ActionMailer::Base.delivery_method = :sendmail
+
+ActionMailer::Base.sendmail_settings = {
+:location       => '/usr/sbin/sendmail',
+:arguments      => '-i -t'
+}
