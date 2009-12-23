@@ -99,7 +99,7 @@ namespace :db do
       poi.save!
       
       # Generate suedo random news items.
-      news_headlines = [ "Homeless population skyrockets as economy sinks", "Budget cuts impact iconic Phoenix park", "Filmmaker's rise shows Phoenix's movie-industry potential", "Never too late to remember", "One bullish Matador", "For black artists, a new home is a work in progress", "That’s ‘Mrs. Green’ to you" ]
+      news_headlines = [ "Homeless population skyrockets as economy sinks", "Budget cuts impact iconic Phoenix park", "Filmmaker's rise shows Phoenix's movie-industry potential", "Never too late to remember", "One bullish Matador", "For black artists, a new home is a work in progress", "That's 'Mrs. Green' to you" ]
       events_headlines = [ "City Circles Private Alpha Launches", "P.F. Chang's Rock 'n' Roll Arizona Marathon and 1/2 Marathon Kickoff", "Music of The Doors with Ray Manzarek, Robby Krieger and The Phoenix Symphony", "The Subdudes", "Mae", "Independent Film Movement Series", "Read For The Record", "Mac Barnett and Adam Rex", "Basic Digital Photography Class" ]
       
       if rand( 2 ) == 1
