@@ -19,6 +19,9 @@
   %br
   = f.text_area :body, :class => "wysiwyg"
   %br
+  = check_box_tag "certification", ""
+  I certify that my post is fair, accurate, timely and relevant to this community.
+  %br
   %br
   = f.submit "Post"
   %iframe{ :id => "frame", :name => "frame", :style => "height: 1px; width: 1px;" }

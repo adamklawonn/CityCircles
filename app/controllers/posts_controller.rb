@@ -33,14 +33,17 @@ class PostsController < ApplicationController
     
     responds_to_parent do
   
-      if @post.save
+      if @post.save and params[:certification]
         flash[ :notice ] = "Post created."
         render :update do | page |
           page << "$j( '#postcontent' ).dialog( 'close' );"
           page.redirect_to interest_point_url( @post.interest_point ) 
         end
       else
-        # Do nothing.
+        render :update do |page|
+          # Display errors.
+          page.alert "There is a problem with your post. Please double check the required fields."
+        end
       end
   
     end
