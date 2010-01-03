@@ -13,7 +13,7 @@
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
     %h1
-      news
+      = link_to "news", posts_url(:shortname => "news", :interest_point_id => @poi.id)
       = image_tag "map_icons/news/newsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @news.empty?
@@ -29,7 +29,7 @@
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Event"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_events_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
     %h1
-      events
+      = link_to "events", posts_url(:shortname => "events", :interest_point_id => @poi.id)
       = image_tag "map_icons/events/eventsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @events.empty?
@@ -45,7 +45,7 @@
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Promo"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
     %h1
-      biz promos
+      = link_to "biz promos", posts_url(:shortname => "promos", :interest_point_id => @poi.id)
       = image_tag "map_icons/promos/promosimage.png", { :border => 0, :height => 20 }
     .infoblock
       %h2.headline No promos...be the first to post!
@@ -57,7 +57,7 @@
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Network Item"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_networks_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
     %h1
-      network
+      = link_to "network", posts_url(:shortname => "network", :interest_point_id => @poi.id)
       = image_tag "map_icons/network/networkimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @networks.empty?
@@ -73,7 +73,7 @@
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post your Stuff"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_stuff_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
     %h1
-      stuff
+      = link_to "stuff", posts_url(:shortname => "stuff", :interest_point_id => @poi.id)
       = image_tag "map_icons/stuff/stuffimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @stuffs.empty?
@@ -89,7 +89,7 @@
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Fix It"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_fixit_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
     %h1
-      let's fix it
+      = link_to "let's fix it", posts_url(:shortname => "fixit", :interest_point_id => @poi.id)
       = image_tag "map_icons/fixit/fixitimage.png", { :border => 0, :height => 20 }
     #fixit.infoblock
       - unless @fix_its.empty?

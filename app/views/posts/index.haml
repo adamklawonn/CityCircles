@@ -1,10 +1,14 @@
 #content.grid_12
   #feed
     %h1
-      Posts for 
-      = @poi.label
+      = params[ :shortname ].singularize.capitalize
+      posts for 
+      - if @poi != nil
+        = @poi.label
+      - else
+        City Circles
     %a{ :href => "#" }
-      = image_tag "smallrss.png", { :class => "buttonfloat", :border => 0 }
+      = link_to image_tag("smallrss.png", { :class => "buttonfloat", :border => 0 }), :action => "index", :format => "xml", :shortname => params[ :shortname ]
     .clear
     - @posts.each do |post| 
       #listitem 

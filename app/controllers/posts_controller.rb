@@ -6,8 +6,12 @@ class PostsController < ApplicationController
     
     if params[ :interest_point_id ] != nil
       # Posts near interest point.
-      @poi = InterestPoint.find params[ :interest_point_id ]
-      @posts = Post.find( :all, :conditions => [ 'interest_point_id = ?, post_type_id = ?', @poi.id, @post_type.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc' )
+      if params[ :interest_point_id ] != nil
+        @poi = InterestPoint.find params[ :interest_point_id ]
+        @posts = Post.find( :all, :conditions => [ 'interest_point_id = ? and post_type_id = ?', @poi.id, @post_type.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc' )
+      else
+        @posts = Post.find( :all, :conditions => [ 'post_type_id = ?', @post_type.id ], :order => 'created_at desc' )
+      end
     else
       # All posts.
       @posts = Post.find( :all, :conditions => [ 'post_type_id = ?', @post_type.id ], :order => 'created_at desc' )

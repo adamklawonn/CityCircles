@@ -14,7 +14,7 @@
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
     %h1
-      news
+      = link_to "news", posts_url(:shortname => "news")
       = image_tag "map_icons/news/newsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @news.empty?
@@ -33,7 +33,7 @@
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Event Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_events_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
     %h1
-      events
+      = link_to "events", posts_url(:shortname => "events")
       = image_tag "map_icons/events/eventsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @events.empty?
@@ -46,7 +46,7 @@
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Business Promotions Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
     %h1
-      biz promos
+      = link_to "biz promos", posts_url(:shortname => "promos")
       = image_tag "map_icons/promos/promosimage.png", { :border => 0, :height => 20 }
     .infoblock
       %h2.headline 
@@ -59,7 +59,7 @@
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Network Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_networks_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
     %h1
-      network
+      = link_to "network", posts_url(:shortname => "network")
       = image_tag "map_icons/network/networkimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @networks.empty?
@@ -76,7 +76,7 @@
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to the Stuff Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_stuff_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
     %h1
-      stuff
+      = link_to "stuff", posts_url(:shortname => "stuff")
       = image_tag "map_icons/stuff/stuffimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @stuffs.empty?
@@ -93,7 +93,7 @@
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Fix It Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_fixit_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
     %h1
-      let's fix it
+      = link_to "let's fix it", posts_url(:shortname => "fixit")
       = image_tag "map_icons/fixit/fixitimage.png", { :border => 0, :height => 20 }
     #fixit.infoblock
       - unless @fix_its.empty?
