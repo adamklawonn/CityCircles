@@ -17,7 +17,6 @@
     = javascript_include_tag "jquery.tooltip.min.js"
     = javascript_include_tag "livevalidation_standalone.js"
     = javascript_include_tag "tiny_mce/tiny_mce_src.js"
-    = include_tiny_mce_if_needed
     = javascript_include_tag "citycircles/CC.js"
     = javascript_include_tag "citycircles/CCMap.js"
     = javascript_include_tag "citycircles/CCTinyMCEManager.js"
@@ -37,26 +36,24 @@
       		$j( this ).toggleClass( "active" );
       		return false;
       	} );
-
-        tinyMCE.init( {
-          mode : "specific_textareas",
-          editor_selector : "wysiwyg",
-          theme : "citycircles",
-          plugins : "fullscreen",
-          theme_citycircles_buttons3_add : "fullscreen", 
-          theme_advanced_toolbar_location : "top",
-          strict_loading_mode : true
-        } );
       	
+      } );
+      
+      tinyMCE.init( {
+        mode : "specific_textareas",
+        editor_selector : "wysiwyg",
+        theme : "citycircles",
+        plugins : "fullscreen",
+        theme_citycircles_buttons3_add : "fullscreen", 
+        theme_advanced_toolbar_location : "top"
       } );
       
       // Call GUnload when page unloads. Memory :)
       Event.observe( window, "onunload", GUnload );
     
   %body
-  
-    #wrapper.container_12
 
+    #wrapper.container_12
     
       .grid_3#logo
         = link_to image_tag( "logo.png", :alt => 'City Circles' ), root_url

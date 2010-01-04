@@ -1,6 +1,6 @@
 class InterestPointsController < ApplicationController
   
-  uses_tiny_mce
+  #uses_tiny_mce
   
   def show
     @poi = InterestPoint.find( params[ :id ] )
