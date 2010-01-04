@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091201065827
+# Schema version: 20100104062711
 #
 # Table name: map_layers
 #
@@ -34,6 +34,10 @@ class MapLayer < ActiveRecord::Base
     
     mapable_points
     
+  end
+  
+  def name
+    title
   end
   
 end

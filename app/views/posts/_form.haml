@@ -11,6 +11,15 @@
   %br
   = f.text_field :short_headline
   %br
+  - if params[ :content_type ] == "event"
+    = f.label :starts_at
+    %br
+    = datetime_select :event, :starts_at, :twelve_hour => true
+    %br
+    = f.label :ends_at
+    %br
+    = datetime_select :event, :ends_at, :twelve_hour => true
+  %br
   = f.label :attachment
   %br
   = f.file_field :data

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   
   layout proc{ |c| c.request.xhr? ? false : "application" }
   
+  before_filter :browser_detect
   before_filter :get_pages
   before_filter :new_suggestion
   
@@ -18,6 +19,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
   
   private
+    def browser_detect
+      case request.user_agent
+        when /(gecko|opera|konqueror|khtml|webkit)/i
+           # Do nothing.
+        when /msie\s+7\.\d+/i
+           redirect_to :controller => "citycircles", :action => "incompatible_browser"
+        else
+           redirect_to :controller => "citycircles", :action => "incompatible_browser"
+      end
+    end
+  
     def get_pages
       @pages = Page.connection.select_all( "select id, title, shortname from pages where show_in_navigation = 1 order by sort asc" )
     end

@@ -1,0 +1,418 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+Ad:
+    fields:
+        list: organization, placement, starts_at, ends_at, weight, graphic_file_name
+        form: organization, placement, starts_at, ends_at, weight, graphic_file_name
+        options:
+            selectors: placement
+            read_only: graphic_updated_at
+    actions:
+      index:
+      edit:
+    order_by:
+    relationships: 
+    filters:
+    search:
+    application: Promos
+    description:
+
+Asset:
+  fields:
+    list: data_file_name, data_content_type, data_file_size, attachings_count, data_updated_at
+    form: data_file_name, data_content_type, data_file_size, attachings_count, data_updated_at
+    show: id, data_file_name, data_content_type, data_file_size, attachings_count, created_at, data_updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: attachings
+  filters:
+  search:
+  application: Files
+  description:
+
+Comment:
+  fields:
+    list: title, body, author
+    form: title, body, author
+    show: id, title, body, created_at, updated_at, author
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author
+  filters:
+  search:
+  application: Posts
+  description:
+
+Event:
+  fields:
+    list: starts_at, ends_at, post
+    form: starts_at, ends_at, post
+    show: id, starts_at, ends_at, created_at, updated_at, post
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: post
+  filters:
+  search:
+  application: Posts
+  description:
+
+FileAttachment:
+  fields:
+    list: file_attachment_file_name, file_attachment_content_type, file_attachment_file_size, author
+    form: file_attachment_file_name, file_attachment_content_type, file_attachment_file_size, author
+    show: id, file_attachment_file_name, file_attachment_content_type, file_attachment_file_size, created_at, updated_at, author
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author, comments
+  filters:
+  search:
+  application: Files
+  description:
+
+Hobby:
+  fields:
+    list: name
+    form: name
+    show: id, name, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: User Related
+  description:
+
+Interest:
+  fields:
+    list: name
+    form: name
+    show: id, name, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: User Related
+  description:
+
+InterestLine:
+  fields:
+    list: label, shortname, description, lat, lng, author, map_layer, map
+    form: label, shortname, description, lat, lng, author, map_layer, map
+    show: id, label, shortname, description, lat, lng, created_at, updated_at, author, map_layer, map
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author, map, map_layer
+  filters:
+  search:
+  application: Mapping
+  description:
+
+InterestPoint:
+  fields:
+    list: label, body, description, twitter_hashtag, lat, lng, map_icon, author, map_layer, map
+    form: label, body, description, twitter_hashtag, lat, lng, map_icon, author, map_layer, map
+    show: id, label, body, description, twitter_hashtag, lat, lng, created_at, updated_at, map_icon, author, map_layer, map
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author, comments, map, map_icon, map_layer
+  filters:
+  search:
+  application: Mapping
+  description:
+
+Map:
+  fields:
+    list: title, description, shortname, lat, lng, zoom, author
+    form: title, description, shortname, lat, lng, zoom, author
+    show: id, title, description, shortname, lat, lng, zoom, created_at, updated_at, author
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author, comments, interest_lines, interest_points, map_layers
+  filters:
+  search:
+  application: Mapping
+  description:
+
+MapIcon:
+  fields:
+    list: shortname, image_url, icon_size, shadow_url, shadow_size, icon_anchor, info_window_anchor, author_id
+    form: shortname, image_url, icon_size, shadow_url, shadow_size, icon_anchor, info_window_anchor, author_id
+    show: id, shortname, image_url, icon_size, shadow_url, shadow_size, icon_anchor, info_window_anchor, author_id, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: posts
+  filters:
+  search:
+  application: Mapping
+  description:
+
+MapLayer:
+  fields:
+    list: title, shortname, description, author, map
+    form: title, shortname, description, author, map
+    show: id, title, shortname, description, created_at, updated_at, author, map
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author, interest_lines, interest_points, map, posts
+  filters:
+  search:
+  application: Mapping
+  description:
+
+Organization:
+  fields:
+    list: name, description, lat, lng, interest_point, author
+    form: name, description, lat, lng, interest_point, author
+    show: id, name, description, created_at, updated_at, lat, lng, interest_point, author
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: organization_members, author, interest_point, promos
+  filters:
+  search:
+  application: Promos
+  description:
+
+Page:
+  fields:
+    list: title, shortname, show_in_navigation, description, sort, author
+    form: title, shortname, show_in_navigation, description, body, sort, author
+    show: id, title, shortname, show_in_navigation, description, body, sort, created_at, updated_at, author
+    options:
+      tiny_mce:
+        fields: body
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author
+  filters:
+  search:
+  application: City Circles
+  description:
+
+Post:
+  fields:
+    list: short_headline, sticky, lat, lng, interest_point, author, post_type
+    form: headline, short_headline, body, sticky, lat, lng, interest_point, author, map_layer, post_type
+    show: id, headline, short_headline, body, sticky, lat, lng, created_at, updated_at, interest_point, author, map_layer, post_type
+    options:
+      tiny_mce:
+        fields: body
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author, comments, event, interest_point, map_layer, post_type, tweet, post_attachments
+  filters:
+  search:
+  application: Posts
+  description:
+
+PostType:
+  fields:
+    list: name, shortname, twitter_hashtag, map_icon, map_layer
+    form: name, shortname, twitter_hashtag, map_icon, map_layer
+    show: id, name, shortname, twitter_hashtag, created_at, updated_at, map_icon, map_layer
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: map_icon, map_layer, posts
+  filters:
+  search:
+  application: Posts
+  description:
+            
+Promo:
+  fields:
+    list: title, description, starts_at, ends_at, post, organization, author
+    form: title, description, starts_at, ends_at, post, organization, author
+    show: id, title, description, starts_at, ends_at, created_at, updated_at, post, organization, author
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: author, comments, organization, post
+  filters:
+  search:
+  application: Promos
+  description:
+
+SiteOption:
+  fields:
+    list: name, option_value
+    form: name, option_value
+    show: id, name, option_value, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: City Circles
+  description:
+
+Suggestion:
+  fields:
+    list: email, body
+    form: email, body
+    show: id, email, body, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: City Circles
+  description:
+
+Tweet:
+  fields:
+    list: tweet_id, body, from_user, to_user, iso_language_code, source, profile_image_url, tweeted_at, location, post
+    form: tweet_id, body, from_user, to_user, iso_language_code, source, profile_image_url, tweeted_at, location, post
+    show: id, tweet_id, body, from_user, to_user, iso_language_code, source, profile_image_url, tweeted_at, location, created_at, updated_at, post
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: post
+  filters:
+  search:
+  application: Posts
+  description:
+
+User:
+  fields:
+    list: login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, roles, email_verified, agreed_with_terms
+    form: login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, roles, email_verified, agreed_with_terms
+    show: id, login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, created_at, updated_at, roles, email_verified, agreed_with_terms
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: comments, posts, user_detail, user_hobbies, user_interests, user_locations, user_wireless_profiles
+  filters:
+  search:
+  application: User Related
+  description:
+
+UserDetail:
+  fields:
+    list: first_name, last_name, twitter_username, about_me, avatar_file_name, user
+    form: first_name, last_name, twitter_username, about_me, avatar_file_name, user
+    show: id, first_name, last_name, twitter_username, about_me, created_at, updated_at, avatar_file_name, user
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: user
+  filters:
+  search:
+  application: User Related
+  description:
+
+UserHobby:
+  fields:
+    list: hobby, user
+    form: hobby, user
+    show: id, created_at, updated_at, hobby, user
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: hobby, user
+  filters:
+  search:
+  application: User Related
+  description:
+
+UserInterest:
+  fields:
+    list: interest, user
+    form: interest, user
+    show: id, created_at, updated_at, interest, user
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: interest, user
+  filters:
+  search:
+  application: User Related
+  description:
+
+UserLocation:
+  fields:
+    list: interest_point, user
+    form: interest_point, user
+    show: id, created_at, updated_at, interest_point, user
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: interest_point, user
+  filters:
+  search:
+  application: User Related
+  description:
+
+UserWirelessProfile:
+  fields:
+    list: wireless_number, subscriptions, digest, user, wireless_carrier
+    form: wireless_number, subscriptions, digest, user, wireless_carrier
+    show: id, wireless_number, subscriptions, digest, created_at, updated_at, user, wireless_carrier
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: user, wireless_carrier
+  filters:
+  search:
+  application: User Related
+  description:
+
+WirelessCarrier:
+  fields:
+    list: name, email_gateway
+    form: name, email_gateway
+    show: id, name, email_gateway, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: user_wireless_profiles
+  filters:
+  search:
+  application: User Related
+  description:
+

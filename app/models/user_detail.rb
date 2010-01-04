@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091201065827
+# Schema version: 20100104062711
 #
 # Table name: user_details
 #
@@ -8,8 +8,7 @@
 #  first_name          :string(255)
 #  last_name           :string(255)
 #  twitter_username    :string(255)
-#  about_me            :string(255)
-#  hobbies             :string(255)
+#  about_me            :text
 #  created_at          :datetime
 #  updated_at          :datetime
 #  avatar_file_name    :string(255)

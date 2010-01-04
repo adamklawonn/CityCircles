@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091201065827
+# Schema version: 20100104062711
 #
 # Table name: posts
 #
@@ -7,6 +7,7 @@
 #  post_type_id      :integer(4)      not null
 #  interest_point_id :integer(4)      not null
 #  map_layer_id      :integer(4)      not null
+#  sticky            :boolean(1)
 #  lat               :decimal(10, 6)
 #  lng               :decimal(10, 6)
 #  headline          :string(255)     not null
@@ -33,10 +34,14 @@ class Post < ActiveRecord::Base
   validates_presence_of :headline, :short_headline, :body, :lat, :lng
   
   # Post attachments
-  acts_as_polymorphic_paperclip 
+  has_many :post_attachments 
   
   # Label for map.
   def label
+    short_headline
+  end
+  
+  def name
     short_headline
   end
   

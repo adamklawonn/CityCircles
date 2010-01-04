@@ -2,7 +2,9 @@
   #page  
     %h1
       = @page.title  
-    = "by #{ @page.author.login }"
     %br
     %br
     = @page.body
+    %br
+    %br
+    = "Posted by #{ @page.author.login }"

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091201065827
+# Schema version: 20100104062711
 #
 # Table name: users
 #
@@ -28,6 +28,7 @@
 class User < ActiveRecord::Base
   
   has_one :user_detail
+  has_one :organization_member
   has_many :user_wireless_profiles
   has_many :user_locations
   has_many :comments, :foreign_key => "author_id"
@@ -104,6 +105,10 @@ class User < ActiveRecord::Base
   end
   
   def to_s
+    login
+  end
+  
+  def name
     login
   end
   

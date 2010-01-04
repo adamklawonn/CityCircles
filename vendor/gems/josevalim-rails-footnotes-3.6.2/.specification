@@ -1,0 +1,85 @@
+--- !ruby/object:Gem::Specification 
+name: josevalim-rails-footnotes
+version: !ruby/object:Gem::Version 
+  version: 3.6.2
+platform: ruby
+authors: 
+- "Jos\xC3\xA9 Valim"
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-07-12 00:00:00 -07:00
+default_executable: 
+dependencies: []
+
+description: Every Rails page has footnotes that gives information about your application and links back to your editor.
+email: jose.valim@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README
+files: 
+- CHANGELOG
+- MIT-LICENSE
+- README
+- Rakefile
+- lib/rails-footnotes.rb
+- lib/rails-footnotes/backtracer.rb
+- lib/rails-footnotes/footnotes.rb
+- lib/rails-footnotes/notes/abstract_note.rb
+- lib/rails-footnotes/notes/assigns_note.rb
+- lib/rails-footnotes/notes/controller_note.rb
+- lib/rails-footnotes/notes/cookies_note.rb
+- lib/rails-footnotes/notes/env_note.rb
+- lib/rails-footnotes/notes/files_note.rb
+- lib/rails-footnotes/notes/filters_note.rb
+- lib/rails-footnotes/notes/general_note.rb
+- lib/rails-footnotes/notes/javascripts_note.rb
+- lib/rails-footnotes/notes/layout_note.rb
+- lib/rails-footnotes/notes/log_note.rb
+- lib/rails-footnotes/notes/params_note.rb
+- lib/rails-footnotes/notes/queries_note.rb
+- lib/rails-footnotes/notes/routes_note.rb
+- lib/rails-footnotes/notes/rpm_note.rb
+- lib/rails-footnotes/notes/session_note.rb
+- lib/rails-footnotes/notes/stylesheets_note.rb
+- lib/rails-footnotes/notes/view_note.rb
+- test/footnotes_test.rb
+- test/test_helper.rb
+- test/notes/abstract_note_test.rb
+has_rdoc: true
+homepage: http://github.com/josevalim/rails-footnotes
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --main
+- README
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 2
+summary: Every Rails page has footnotes that gives information about your application and links back to your editor.
+test_files: 
+- test/footnotes_test.rb
+- test/test_helper.rb
+- test/notes/abstract_note_test.rb

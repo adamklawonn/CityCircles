@@ -17,6 +17,7 @@
     = javascript_include_tag "jquery.tooltip.min.js"
     = javascript_include_tag "livevalidation_standalone.js"
     = javascript_include_tag "tiny_mce/tiny_mce_src.js"
+    = include_tiny_mce_if_needed
     = javascript_include_tag "citycircles/CC.js"
     = javascript_include_tag "citycircles/CCMap.js"
     = javascript_include_tag "citycircles/CCTinyMCEManager.js"
@@ -36,18 +37,18 @@
       		$j( this ).toggleClass( "active" );
       		return false;
       	} );
+
+        tinyMCE.init( {
+          mode : "specific_textareas",
+          editor_selector : "wysiwyg",
+          theme : "citycircles",
+          plugins : "fullscreen",
+          theme_citycircles_buttons3_add : "fullscreen", 
+          theme_advanced_toolbar_location : "top",
+          strict_loading_mode : true
+        } );
       	
       } );
-      
-      tinyMCE.init( {
-        mode : "specific_textareas",
-        editor_selector : "wysiwyg",
-        theme : "citycircles",
-        plugins : "fullscreen",
-        theme_citycircles_buttons3_add : "fullscreen", 
-        theme_advanced_toolbar_location : "top"
-      } );
-      
       
       // Call GUnload when page unloads. Memory :)
       Event.observe( window, "onunload", GUnload );
@@ -66,14 +67,10 @@
               %li
                 = link_to page[ "title" ].downcase, page_by_shortname_url( page[ "shortname" ] )
             %li
-              = link_to "facebook", "http://www.facebook.com/pages/Phoenix-AZ/CityCircles/148572991060?ref=ts"
+              = link_to "facebook", "http://www.facebook.com/pages/Phoenix-AZ/CityCircles/148572991060?ref=ts", :popup => true
             %li
-              = link_to "twitter", "http://twitter.com/citycirc"   
-            %li
-              = link_to "faq", admin_root_url            
-              
-              
-                
+              = link_to "twitter", "http://twitter.com/citycirc", :popup => true              
+
         #searchbar
           - form_tag "/search" do
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
@@ -106,7 +103,7 @@
               = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
         - if !current_user.nil? and current_user.admin?
           %li
-            = link_to "admin", admin_root_url
+            = link_to "admin", admin_dashboard_url
         
       .clear
      

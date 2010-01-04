@@ -1,9 +1,0 @@
-%dl
-  %dt
-    %label Body
-  %dd
-    = text_area :record, :body, :cols => 40, :rows => 20, :class => "ckeditor_init"
-
-:javascript
-  ckeditorManager.makeInstance( 'record_body' );
-  $j( "input.submit" ).click( function() { $( "record_body" ).innerHTML = CKEDITOR.instances.record_body.getData(); } );

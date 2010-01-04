@@ -1,10 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :organization_members
+  map.resources :post_attachments
+  map.resources :ads
   map.resources :tweets
-
   map.resources :post_types
-
   map.resources :posts, :member => { :news => :get, :events => :get, :promos => :get, :networks => :get, :stuff => :get, :fixit => :get }, :collection => { :all_news => :get, :all_events => :get, :all_promos => :get, :all_networks => :get, :all_stuff => :get, :all_fixit => :get }
-
   map.resources :user_hobbies
   map.resources :user_interests
   map.resources :hobbies
@@ -40,20 +40,20 @@ ActionController::Routing::Routes.draw do |map|
     accounts.resources :profile, :controller => "user_details"
   end
   map.resource :user
-  map.namespace :admin do | admin |
-    admin.root :controller => "admin", :action => "index"
-    admin.resource :inbox, :controller => "inbox", :collection => { :index => :get }
-    admin.resource :maps, :collection => { :index => :get }
-    admin.resource :pages, :collection => { :index => :get }
-    admin.resource :users, :collection => { :index => :get }
-    admin.resource :interests, :collection => { :index => :get }
-    admin.resource :hobbies, :collection => { :index => :get }
-    admin.resource :networks, :collection => { :index => :get }
-    admin.resources :stuffs, :collection => { :index => :get }
-    admin.resources :fix_its, :collection => { :index => :get }
-    admin.resources :suggestions, :collection => { :index => :get }
-    admin.resources :organizations, :collection => { :index => :get }
-  end
+  #map.namespace :admin do | admin |
+  #  admin.root :controller => "admin", :action => "index"
+  #  admin.resource :inbox, :controller => "inbox", :collection => { :index => :get }
+  #  admin.resource :maps, :collection => { :index => :get }
+  #  admin.resource :pages, :collection => { :index => :get }
+  #  admin.resource :users, :collection => { :index => :get }
+  #  admin.resource :interests, :collection => { :index => :get }
+  #  admin.resource :hobbies, :collection => { :index => :get }
+  #  admin.resource :networks, :collection => { :index => :get }
+  #  admin.resources :stuffs, :collection => { :index => :get }
+  #  admin.resources :fix_its, :collection => { :index => :get }
+  #  admin.resources :suggestions, :collection => { :index => :get }
+  #  admin.resources :organizations, :collection => { :index => :get }
+  #end
   map.root :controller => "citycircles", :action => "index" # optional, this just sets the root route
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

@@ -185,6 +185,8 @@ namespace :db do
     advertise_page.save!
     contact_page = Page.new( :title => "Contact", :shortname => "contact", :description => "The contact page.", :body => "This is the contact page", :author_id => user.id, :show_in_navigation => true, :sort => 3 )
     contact_page.save!
+    faq_page = Page.new( :title => "FAQ", :shortname => "faq", :description => "The faq page.", :body => "This is the faq page", :author_id => user.id, :show_in_navigation => true, :sort => 4 )
+    faq_page.save!
   end
   
 end

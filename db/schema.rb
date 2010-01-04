@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091201065827) do
+ActiveRecord::Schema.define(:version => 20100104062711) do
+
+  create_table "ads", :force => true do |t|
+    t.integer  "organization_id",                     :null => false
+    t.string   "placement",                           :null => false
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.integer  "weight",               :default => 1
+    t.string   "graphic_file_name"
+    t.string   "graphic_content_type"
+    t.integer  "graphic_file_size"
+    t.datetime "graphic_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assets", :force => true do |t|
     t.string   "data_file_name"
@@ -145,6 +159,14 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
     t.datetime "updated_at"
   end
 
+  create_table "organization_members", :force => true do |t|
+    t.integer  "user_id",                           :null => false
+    t.integer  "organization_id",                   :null => false
+    t.boolean  "is_active",       :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "organizations", :force => true do |t|
     t.integer  "interest_point_id",                                :null => false
     t.string   "name",                                             :null => false
@@ -170,6 +192,19 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
 
   add_index "pages", ["show_in_navigation"], :name => "index_pages_on_show_in_navigation"
 
+  create_table "post_attachments", :force => true do |t|
+    t.integer  "post_id",                 :null => false
+    t.string   "caption",                 :null => false
+    t.string   "oembed"
+    t.string   "code"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "post_types", :force => true do |t|
     t.string   "name",            :null => false
     t.integer  "map_layer_id",    :null => false
@@ -181,15 +216,16 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "post_type_id",                                                   :null => false
-    t.integer  "interest_point_id",                                              :null => false
-    t.integer  "map_layer_id",                                                   :null => false
+    t.integer  "post_type_id",                                                                      :null => false
+    t.integer  "interest_point_id",                                                                 :null => false
+    t.integer  "map_layer_id",                                                                      :null => false
+    t.boolean  "sticky",                                                         :default => false
     t.decimal  "lat",                             :precision => 10, :scale => 6
     t.decimal  "lng",                             :precision => 10, :scale => 6
-    t.string   "headline",                                                       :null => false
-    t.string   "short_headline",    :limit => 40,                                :null => false
-    t.text     "body",                                                           :null => false
-    t.integer  "author_id",                                                      :null => false
+    t.string   "headline",                                                                          :null => false
+    t.string   "short_headline",    :limit => 40,                                                   :null => false
+    t.text     "body",                                                                              :null => false
+    t.integer  "author_id",                                                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -245,13 +281,26 @@ ActiveRecord::Schema.define(:version => 20091201065827) do
     t.datetime "updated_at"
   end
 
+  create_table "typus_users", :force => true do |t|
+    t.string   "first_name",       :default => "",    :null => false
+    t.string   "last_name",        :default => "",    :null => false
+    t.string   "role",                                :null => false
+    t.string   "email",                               :null => false
+    t.boolean  "status",           :default => false
+    t.string   "token",                               :null => false
+    t.string   "salt",                                :null => false
+    t.string   "crypted_password",                    :null => false
+    t.string   "preferences"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_details", :force => true do |t|
     t.integer  "user_id",             :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "twitter_username"
-    t.string   "about_me"
-    t.string   "hobbies"
+    t.text     "about_me"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"

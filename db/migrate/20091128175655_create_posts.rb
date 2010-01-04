@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :post_type_id, :null => false
       t.integer :interest_point_id, :null => false
       t.integer :map_layer_id, :null => false
+      t.boolean :sticky, :default => false
       t.decimal :lat, :precision => 10, :scale => 6, :default => nil
       t.decimal :lng, :precision => 10, :scale => 6, :default => nil
       t.string :headline, :null => false

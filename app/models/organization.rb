@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091201065827
+# Schema version: 20100104062711
 #
 # Table name: organizations
 #
@@ -18,4 +18,6 @@ class Organization < ActiveRecord::Base
   belongs_to :interest_point
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   has_many :promos
+  has_many :ads
+  has_many :organization_members
 end
