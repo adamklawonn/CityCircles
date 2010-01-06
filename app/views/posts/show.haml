@@ -14,12 +14,6 @@
           = @post.body
         %br
         %br
-        - unless @post.assets.empty?
-          %p Attachments:
-          %ul.attachments
-            - @post.assets.each do |asset|
-              %li
-                = link_to asset.name, asset.url
       - if current_user
         #comments
           %span
