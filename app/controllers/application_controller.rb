@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :browser_detect
   before_filter :get_pages
   before_filter :new_suggestion
+  before_filter :get_ads
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
@@ -36,6 +37,10 @@ class ApplicationController < ActionController::Base
     
     def new_suggestion
       @suggestion = Suggestion.new
+    end
+    
+    def get_ads
+      @map_ads = Ad.find( :all, :conditions => [ 'placement = ? and ( ? between starts_at and ends_at )', 'Map', Time.now ], :order => "weight asc" )
     end
   
     def current_user_session

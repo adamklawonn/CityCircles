@@ -4,3 +4,9 @@
   - @map_icon = MapIcon.find_by_shortname( layer.shortname )
   = image_tag( @map_icon.image_url, :height => 20, :style => "vertical-align: middle;" ) if @map_icon != nil 
   %br
+  
+%table{ :width => "100%" }
+  - for ad in @map_ads do
+    %tr
+      %td{ :align => "center"}
+        = image_tag ad.graphic.url

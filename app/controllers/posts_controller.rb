@@ -35,6 +35,13 @@ class PostsController < ApplicationController
     @post.post_type_id = params[ :post_type_id ]
     @post.author_id = current_user.id
     
+    if params[ :post_attachment_captions ] != nil and params[ :post_attachment_files ] != nil
+      params[ :post_attachment_captions ].to_a.each_index do | i |
+        @post_attachment = PostAttachment.new :caption => params[ :post_attachment_captions ][i], :attachment => params[ :post_attachment_files ][i]
+        @post.post_attachments << @post_attachment
+      end
+    end
+    
     responds_to_parent do
   
       if @post.save and params[:certification]

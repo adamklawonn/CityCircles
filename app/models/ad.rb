@@ -28,7 +28,7 @@ class Ad < ActiveRecord::Base
   #validates_inclusion_of :placement, :in => self.placement
 
   def self.placement
-    %w( Profile Homepage-Map Homepage-Header ).sort
+    %w( Profile Map Homepage-Header ).sort
   end
   
 

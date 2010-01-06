@@ -6,3 +6,4 @@ var citycircles = new Object();
 citycircles.widgets = new Object();
 citycircles.utils = new Object();
 citycircles.maps = new Object();
+citycircles.posts = new Object();

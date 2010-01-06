@@ -27,7 +27,13 @@
           - @user.user_locations.each do |place|
             = link_to place.interest_point.label, interest_point_url( place.interest_point )
         - else
-          = link_to "Complete your profile >>", settings_url 
+          = link_to "Complete your profile >>", settings_url
+      %br
+      %br
+      %table{ :width => "100%" }
+        %tr
+          %td{ :align => "center"}
+            = image_tag @ad.graphic.url
   .grid_9.omega 
     #profmap.grid_9
     .clear
