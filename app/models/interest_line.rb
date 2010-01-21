@@ -21,4 +21,12 @@ class InterestLine < ActiveRecord::Base
   belongs_to :map_layer
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
+  
+  def self.gmap_json(map_id = nil)
+    # Query db for interest lines and return lat and lng only.
+    # We'll then return an array of only lat and lng pairs.
+    pois = self.connection.select_all("select lat, lng, shortname from interest_lines where map_id = " + self.sanitize_sql(map_id))
+    pois.collect { |poi| [poi['shortname'], poi['lat'], poi['lng']] }
+  end
+  
 end

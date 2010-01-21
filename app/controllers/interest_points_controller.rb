@@ -2,6 +2,15 @@ class InterestPointsController < ApplicationController
   
   uses_tiny_mce
   
+  def index
+    @pois = InterestPoint.find( :all, :conditions => [ "map_id = ?", params[ :map_id ] ] )
+    
+    respond_to do | format |
+      format.json { render :json => @pois }
+    end
+    
+  end
+  
   def show
     @poi = InterestPoint.find( params[ :id ] )
     @default_map = @poi.map
