@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(:version => 20100104062711) do
     t.integer  "post_id",                 :null => false
     t.string   "caption",                 :null => false
     t.string   "oembed"
-    t.string   "code"
+    t.text     "code"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"

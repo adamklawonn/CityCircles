@@ -38,7 +38,7 @@ img.map_info_window_icon { height: 20px; float: left; vertical-align: middle; te
 #storyside #mostread .infoblock {height:250px;}
 #posts #post .articleimage { margin:10px 0 10px 0; padding:10px; height:300px;width:480px; background-color:#fff;}
 ul.attachments li { list-style-type: none; margin-left: 5px; font-size: 0.8em; }
-
+#post_remove_attachment { vertical-align: middle; cursor: pointer; }
 
 /*======================
        POST CONTENT

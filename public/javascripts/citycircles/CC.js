@@ -14,9 +14,17 @@
 		}
 
 		var attachmentEl = document.createElement("LI");
+		attachmentEl.setAttribute("id", "post_attachment_li[" + nodeCount + "]");
 		attachmentEl.setAttribute("style", "font-size: 0.9em;");
- 		attachmentEl.innerHTML = 'Caption<br/><input type="text" name="post_attachment_captions[' + nodeCount + ']" /><br /><input type="file" name="post_attachment_files[' + nodeCount + ']" />';
+ 		attachmentEl.innerHTML = 'Caption<br/><input type="text" name="post_attachment_captions[' + nodeCount + ']" /><br /><input type="file" name="post_attachment_files[' + nodeCount + ']" />  (remove)<img id="post_remove_attachment" src="/images/minus.png" onclick="citycircles.posts.remove_attachment_field(this);"/>';
 		attachmentsUlEl.appendChild(attachmentEl);
+	};
+	
+	citycircles.posts.remove_attachment_field = function(el) {
+	  var attachmentsUlEl = $j("#post_attachment_files")[0];
+	  var liEl = el.parentNode;
+	  var ulEl = liEl.parentNode;
+	  ulEl.removeChild(liEl);
 	};
 
 }());
