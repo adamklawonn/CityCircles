@@ -25,7 +25,7 @@ Rails::Initializer.run do |config|
   config.gem "thoughtbot-paperclip", :lib => "paperclip", :source => "http://gems.github.com"
   config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
   config.gem 'typus', :source => 'http://gemmcutter.org'
-  config.gem 'kete-tiny_mce', :lib => 'tiny_mce', :source => 'gems.github.com'
+  config.gem 'kete-tiny_mce', :lib => 'tiny_mce', :source => 'http://gems.github.com'
   config.gem "grackle"
   config.gem "calendar_date_select"
   
