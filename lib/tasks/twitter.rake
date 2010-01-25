@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'grackle'
 
 namespace :twitter do
   

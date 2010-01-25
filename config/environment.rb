@@ -20,8 +20,11 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
+  config.gem "random_data"
+  config.gem "haml"
   config.gem "authlogic"
   config.gem "geokit"
+  config.gem "grackle"
   config.gem "thoughtbot-paperclip", :lib => "paperclip", :source => "http://gems.github.com"
   config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
   config.gem 'typus', :source => 'http://gemmcutter.org'

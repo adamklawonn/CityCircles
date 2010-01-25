@@ -1,6 +1,5 @@
 require 'csv'
 require 'rubygems'
-require 'random_data'
 
 namespace :db do
   
