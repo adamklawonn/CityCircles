@@ -127,7 +127,7 @@ namespace :db do
         end
         north_east = [ north, east ]
         latlng = poi.endpoint( [ 0, 90 ][ rand( 2 ) ], north_east[ rand( 2 ) ] )
-        news_item = Post.new( :headline => news_headline, :short_headline => news_headline, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => news_layer.id, :post_type_id => news_post.id )
+        news_item = Post.new( :headline => news_headline, :short_headline => news_headline[0..39], :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => news_layer.id, :post_type_id => news_post.id )
         news_item.save! if rand( 2 ) == 1
         
         # Events
@@ -142,7 +142,7 @@ namespace :db do
         end
         south_west = [ south, west ]
         latlng = poi.endpoint( [ 0, 180 ][ rand( 2 ) ], south_west[ rand( 2 ) ] )
-        event_item = Post.new( :headline => events_headline, :short_headline => events_headline, :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => events_layer.id, :post_type_id => event_post.id )
+        event_item = Post.new( :headline => events_headline, :short_headline => events_headline[0..39], :body => Random.paragraphs( 4 ), :author_id => user.id, :lat => latlng.lat, :lng => latlng.lng, :interest_point_id => poi.id, :map_layer_id => events_layer.id, :post_type_id => event_post.id )
         event_item.event = Event.new( :starts_at => Time.now, :ends_at => Time.now )
         event_item.save! if rand( 2 ) == 1
       end

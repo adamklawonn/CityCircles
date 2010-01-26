@@ -7,7 +7,7 @@
 #  post_id                 :integer(4)      not null
 #  caption                 :string(255)     not null
 #  oembed                  :string(255)
-#  code                    :string(255)
+#  code                    :text
 #  attachment_file_name    :string(255)
 #  attachment_content_type :string(255)
 #  attachment_file_size    :integer(4)
