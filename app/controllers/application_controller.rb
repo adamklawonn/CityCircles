@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
     # Fetch pages for nav. 
     # This could be called asynchronously from js... 
     def fetch_pages
-      @pages = Page.connection.select_all( "select id, title, shortname from pages where show_in_navigation = 1 order by sort asc" )
+      @pages = Page.find( :all, :conditions => [ 'show_in_navigation = ?', true ] )
+      #@pages = Page.connection.select_all( "select id, title, shortname from pages where show_in_navigation = 1 order by sort asc" )
     end
     
     # For the "everywhere" explore box

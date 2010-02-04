@@ -42,6 +42,7 @@ class PostsController < ApplicationController
       end
     end
     
+    # ajaxy popup
     responds_to_parent do
   
       if @post.save and params[:certification]
@@ -52,7 +53,7 @@ class PostsController < ApplicationController
         end
       else
         render :update do |page|
-          # Display errors.
+          # display worst error dialog ever
           page.alert "There is a problem with your post. Please double check the required fields."
         end
       end

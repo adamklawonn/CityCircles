@@ -36,16 +36,23 @@
 		if( options.mouseZoom ) {
 			this.map.enableScrollWheelZoom();
 		}*/
+		
+		// increase reload attempts 
+    OpenLayers.IMAGE_RELOAD_ATTEMPTS = 3;
+    
 		var mapOptions = {
-                    projection : new OpenLayers.Projection( "EPSG:900913" ),
+                    projection: new OpenLayers.Projection( "EPSG:900913" ),
+                    displayProjection : new OpenLayers.Projection( "EPSG:4326" ),
                     units : "m",
+                    numZoomLevels : 18,
                     maxResolution : 156543.0339,
                     maxExtent : new OpenLayers.Bounds( -20037508, -20037508, 20037508, 20037508.34 )
                 };
+                
     this.map = new OpenLayers.Map( 'map', mapOptions );
 
     // create Google Mercator layers
-    var gmap = new OpenLayers.Layer.Google( "Google Streets", { 'sphericalMercator': true } );
+    var gmap = new OpenLayers.Layer.Google( "Google", { 'sphericalMercator' : true } );
 
     this.map.addLayer( gmap );
     this.map.setCenter( new OpenLayers.LonLat( this.options.center[1], this.options.center[0] ), this.options.zoom );
@@ -108,7 +115,6 @@
 				  // add marker to layers array
 				  scope.layers[interestPoints[i].interest_point.map_layer_id].push( marker );
 				  scope.map.getLayersByName( interestPoints[i].interest_point.map_layer_id )[0].addFeatures( marker );
-				  //console.log(scope.map.getLayersByName( interestPoints[i].interest_point.map_layer_id )[0]);
 				}
         
 			},
