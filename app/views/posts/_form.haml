@@ -14,11 +14,13 @@
   - if params[ :content_type ] == "event"
     = f.label :starts_at
     %br
-    = datetime_select :event, :starts_at, :twelve_hour => true
+    = text_field_tag :event_starts_at_date
+    = text_field_tag :event_starts_at_time
     %br
     = f.label :ends_at
     %br
-    = datetime_select :event, :ends_at, :twelve_hour => true
+    = text_field_tag :event_ends_at_date
+    = text_field_tag :event_ends_at_time
   %br
   %br
   = f.label :attachments
@@ -38,3 +40,41 @@
   %br
   = f.submit "Post"
   %iframe{ :id => "frame", :name => "frame", :style => "height: 1px; width: 1px;" }
+  
+  - if params[ :content_type ] == "event"
+    :javascript
+      // datepicker
+      //$j("#event_starts_at_date").datepicker();
+      //$j("#event_ends_at_date").datepicker();
+      
+      
+      $j("#event_starts_at, #event_ends_at").timePicker({
+        show24Hours: false,
+        separator: ':',
+        step: 15}
+      );
+
+      // Store time used by duration.
+      var oldTime = $j.timePicker("#event_starts_at").getTime();
+
+      // Keep the duration between the two inputs.
+      $j("#event_starts_at").change(function() {
+        if ($j("#event_ends_at").val()) { // Only update when second input has a value.
+          // Calculate duration.
+          var duration = ($j.timePicker("#event_ends_at").getTime() - oldTime);
+          var time = $j.timePicker("#event_starts_at").getTime();
+          // Calculate and update the time in the second input.
+          $j.timePicker("#event_ends_at").setTime(new Date(new Date(time.getTime() + duration)));
+          oldTime = time;
+        }
+      });
+      // Validate.
+      $j("#event_ends_at").change(function() {
+        if($j.timePicker("#event_starts_at").getTime() > $j.timePicker(this).getTime()) {
+          $j(this).addClass("error");
+        }
+        else {
+          $j(this).removeClass("error");
+        }
+      });
+
