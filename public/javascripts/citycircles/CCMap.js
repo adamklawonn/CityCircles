@@ -111,7 +111,7 @@
 				var interestPoints = scope.interestPoints;
 				for( var i = 0; i < interestPoints.length; i++ ) {
           // create marker
-          var marker = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.Point( interestPoints[i].interest_point.lng, interestPoints[i].interest_point.lat ), { externalGraphic : "/images/map_icons/stopcon.png", graphicWidth : 20, graphicHeight : 20 } );
+          var marker = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.Point( interestPoints[i].interest_point.lng, interestPoints[i].interest_point.lat ).transform( new OpenLayers.Projection( "EPSG:4326" ), new OpenLayers.Projection( "EPSG:900913" ) ), { externalGraphic : "/images/map_icons/stopcon.png", graphicWidth : 20, graphicHeight : 20 } );
 				  // add marker to layers array
 				  scope.layers[interestPoints[i].interest_point.map_layer_id].push( marker );
 				  scope.map.getLayersByName( interestPoints[i].interest_point.map_layer_id )[0].addFeatures( marker );
