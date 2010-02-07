@@ -19,11 +19,10 @@
 #
 
 class Ad < ActiveRecord::Base
-  
+
   # Relationships
   belongs_to :organization
-  belongs_to :interest_point
-  
+
   # Paperclip
   has_attached_file :graphic, :styles => { :small => "50x50#", :medium => "100x100>", :large => "220x240>", :huge => "300x300>" }, :path => ":rails_root/public/assets/ads/graphics/:id/:style_:basename.:extension", :url => "/assets/ads/graphics/:id/:style_:basename.:extension", :default_url => "/images/ad.jpg"
 
@@ -32,6 +31,5 @@ class Ad < ActiveRecord::Base
   def self.placement
     %w( Profile Map Homepage-Header ).sort
   end
-  
 
 end

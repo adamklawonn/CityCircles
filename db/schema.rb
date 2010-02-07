@@ -101,17 +101,6 @@ ActiveRecord::Schema.define(:version => 20100207115214) do
     t.datetime "updated_at"
   end
 
-  create_table "file_attachments", :force => true do |t|
-    t.string   "file_attachment_file_name",    :null => false
-    t.string   "file_attachment_content_type", :null => false
-    t.integer  "file_attachment_file_size",    :null => false
-    t.integer  "file_attachable_id"
-    t.string   "file_attachable_type"
-    t.integer  "author_id",                    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "hobbies", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"

@@ -22,21 +22,40 @@
 
 	map.prototype.render = function() {
 		// Pre-render checks.
-    	// Need to ensure everything is loaded.
 		this.renderMap();
 		this.renderLayers();
-		this.renderInterestLines();
+		//this.renderInterestLines();
 		this.renderInterestPoints();
 	};
 	
 	map.prototype.renderMap = function() {
 
-		this.map = new google.maps.Map2( this.mapEl );
-		this.map.setCenter( new google.maps.LatLng( this.options.center[ 0 ], this.options.center[ 1 ] ), this.options.zoom );
+		
+		/*this.map.setCenter( new google.maps.LatLng( this.options.center[ 0 ], this.options.center[ 1 ] ), this.options.zoom );
 		// If options.mouseZoom is present and true, enable zooming in/out via mouse scroll.
 		if( options.mouseZoom ) {
 			this.map.enableScrollWheelZoom();
-		}
+		}*/
+		
+		// increase reload attempts 
+    OpenLayers.IMAGE_RELOAD_ATTEMPTS = 3;
+    
+		var mapOptions = {
+                    projection: new OpenLayers.Projection( "EPSG:900913" ),
+                    displayProjection : new OpenLayers.Projection( "EPSG:4326" ),
+                    units : "m",
+                    numZoomLevels : 18,
+                    maxResolution : 156543.0339,
+                    maxExtent : new OpenLayers.Bounds( -20037508, -20037508, 20037508, 20037508.34 )
+                };
+                
+    this.map = new OpenLayers.Map( 'map', mapOptions );
+
+    // create Google Mercator layers
+    var gmap = new OpenLayers.Layer.Google( "Google", { 'sphericalMercator' : true } );
+
+    this.map.addLayer( gmap );
+    this.map.setCenter( new OpenLayers.LonLat( this.options.center[1], this.options.center[0] ), this.options.zoom );
 
 	};
 	
@@ -55,8 +74,11 @@
 				var mapLayerHTML = "";
 
 				for( var i = 0; i < layers.length; i++ ) {
-			    	mapLayerHTML += '<input id="cc-map-layer-id-' + layers[ i ].map_layer.id + '" type="checkbox" checked />' + layers[ i ].map_layer.title + '<br />';
-					scope.layers[String(layers[i].map_layer.id)] = [];
+			    mapLayerHTML += '<input id="cc-map-layer-id-' + layers[ i ].map_layer.id + '" type="checkbox" checked />' + layers[ i ].map_layer.title + '<br />';
+					//scope.layers[String(layers[i].map_layer.id)] = [];
+				  var layer = new OpenLayers.Layer.Vector( layers[i].map_layer.id );
+				  scope.layers[ layer.name ] = [];
+				  scope.map.addLayer( layer );
 				}
 				$( "map-control" ).update( mapLayerHTML );
 			},
@@ -86,13 +108,15 @@
 			onSuccess : function( response ) {
 				scope.interestPoints = response.responseJSON;
 				var mapLayerHTML = "";
-				var interestPoints = scope.interestPoints; 
+				var interestPoints = scope.interestPoints;
 				for( var i = 0; i < interestPoints.length; i++ ) {
-					var marker = new google.maps.Marker(new google.maps.LatLng(interestPoints[i].interest_point.lat, interestPoints[i].interest_point.lng));
-			    	scope.map.addOverlay(marker);
-					scope.layers[interestPoints[i].interest_point.map_layer_id].push(marker);
+          // create marker
+          var marker = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.Point( interestPoints[i].interest_point.lng, interestPoints[i].interest_point.lat ).transform( new OpenLayers.Projection( "EPSG:4326" ), new OpenLayers.Projection( "EPSG:900913" ) ), { externalGraphic : "/images/map_icons/stopcon.png", graphicWidth : 20, graphicHeight : 20 } );
+				  // add marker to layers array
+				  scope.layers[interestPoints[i].interest_point.map_layer_id].push( marker );
+				  scope.map.getLayersByName( interestPoints[i].interest_point.map_layer_id )[0].addFeatures( marker );
 				}
-
+        
 			},
 			
 			onFailure : function( response ) {
