@@ -88,15 +88,15 @@ namespace :db do
     fix_it_icon.save!
     
     # Create post types.
-      news_post = PostType.new :name => "News", :map_layer_id => news_layer.id, :map_icon_id => news_icon.id, :shortname => "news", :twitter_hashtag => "n"
+      news_post = PostType.new :name => "News", :map_layer_id => news_layer.id, :map_icon_id => news_icon.id, :map_fill_color => "#F8AE5B", :map_stroke_color => "#B78144", :map_stroke_width => 2, :shortname => "news", :twitter_hashtag => "n"
       news_post.save!
-      event_post = PostType.new :name => "Event", :map_layer_id => events_layer.id, :map_icon_id => events_icon.id, :shortname => "events", :twitter_hashtag => "e" 
+      event_post = PostType.new :name => "Event", :map_layer_id => events_layer.id, :map_icon_id => events_icon.id, :map_fill_color => "#6677B6", :map_stroke_color => "#4C5A8B", :map_stroke_width => 2, :shortname => "events", :twitter_hashtag => "e" 
       event_post.save!
-      network_post = PostType.new :name => "Network", :map_layer_id => network_layer.id, :map_icon_id => network_icon.id, :shortname => "network", :twitter_hashtag => "net"
+      network_post = PostType.new :name => "Network", :map_layer_id => network_layer.id, :map_icon_id => network_icon.id, :map_fill_color => "#BFA581", :map_stroke_color => "#85735B", :map_stroke_width => 2, :shortname => "network", :twitter_hashtag => "net"
       network_post.save!
-      promo_post = PostType.new( :name => "Promo", :map_layer_id => promos_layer.id, :map_icon_id => promos_icon.id, :shortname => "promos", :twitter_hashtag => "p" ).save!
-      stuff_post = PostType.new( :name => "Stuff", :map_layer_id => stuff_layer.id, :map_icon_id => stuff_icon.id, :shortname => "stuff", :twitter_hashtag => "s" ).save!
-      fixit_post = PostType.new( :name => "Fix It", :map_layer_id => fix_it_layer.id, :map_icon_id => fix_it_icon.id, :shortname => "fixit", :twitter_hashtag => "f" ).save!
+      promo_post = PostType.new( :name => "Promo", :map_layer_id => promos_layer.id, :map_icon_id => promos_icon.id, :map_fill_color => "#B46463", :map_stroke_color => "#824848", :map_stroke_width => 2, :shortname => "promos", :twitter_hashtag => "p" ).save!
+      stuff_post = PostType.new( :name => "Stuff", :map_layer_id => stuff_layer.id, :map_icon_id => stuff_icon.id, :map_fill_color => "#8FBA8C", :map_stroke_color => "#617E5F", :map_stroke_width => 2, :shortname => "stuff", :twitter_hashtag => "s" ).save!
+      fixit_post = PostType.new( :name => "Fix It", :map_layer_id => fix_it_layer.id, :map_icon_id => fix_it_icon.id, :map_fill_color => "#81B6E4", :map_stroke_color => "#486680", :map_stroke_width => 2, :shortname => "fixit", :twitter_hashtag => "f" ).save!
     
     # Create interest points.
     CSV.foreach( File.join File.dirname( __FILE__ ), "assets/valley_metro_light_rail.csv" ) do |row|

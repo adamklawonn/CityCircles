@@ -3,10 +3,10 @@ class InterestPointsController < ApplicationController
   uses_tiny_mce
   
   def index
-    @pois = InterestPoint.find( :all, :conditions => [ "map_id = ?", params[ :map_id ] ] )
+    @pois = InterestPoint.find( :all, :conditions => [ "map_id = ?", params[ :map_id ] ], :include => :map_layer )
     
     respond_to do | format |
-      format.json { render :json => @pois }
+      format.json { render :json => @pois.to_json( :include => :map_layer ) }
     end
     
   end

@@ -25,8 +25,8 @@ class InterestLine < ActiveRecord::Base
   def self.gmap_json(map_id = nil)
     # Query db for interest lines and return lat and lng only.
     # We'll then return an array of only lat and lng pairs.
-    pois = self.connection.select_all("select lat, lng, shortname from interest_lines where map_id = " + self.sanitize_sql(map_id))
-    pois.collect { |poi| [poi['shortname'], poi['lat'], poi['lng']] }
+    pois = self.connection.select_all("select lat, lng, shortname, map_layer_id from interest_lines where map_id = " + self.sanitize_sql(map_id))
+    pois.collect { |poi| [poi['shortname'], poi['lat'], poi['lng'], poi['map_layer_id']] }
   end
   
 end

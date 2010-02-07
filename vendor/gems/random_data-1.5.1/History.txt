@@ -1,0 +1,67 @@
+== 1.5.1 2010-01-18
+* 1 minor enhancement:
+  * Moved project over to Github and Jeweler so it's easier to accept patches and release new versions
+  
+== 1.5.0 2008-11-06
+* 2 major enhancement:
+  * Totally cleaned up and reconfigured hoe using newgem 1.0's conventions
+  * Added Markov model text generator (courtesy of Hugh Sasse)
+
+* 1 minor enhancement:
+  * Added roulette method to Array (courtesy of Hugh Sasse)
+
+* 1 minor fix:
+  * Fixed newline bug in the name generator (courtesy of Harold Gimenez)
+
+== 1.3.1 2008-06-06
+
+* 2 minor enhancements:
+  * Added added more last and firstnames (courtesy of Hugh Sasse)
+  * Added firstname_male and firstname_female (courtesy of Hugh Sasse)
+
+== 1.3.0 2008-05-25
+
+All these enhancements are from Hugh Sasse.  Thanks Hugh!
+
+* 4 major enhancements:
+  * Added RandomData::Grammar, which lets you create simple random sentences (see rdocs)
+  * Added Random.bit and Random.bits
+  * Added Random.grammatical_construct
+  * Fixed up rdocs which had gotten out of date
+
+* 2 minor enhancements:
+  * Added Random.uk_post_code
+  * Zipcodes should strings, not integers
+
+== 1.2.1 2007-11-29
+
+* 1 minor fix:
+  * Updated gem manifest
+
+== 1.2.0 2007-11-29
+
+Thanks to Paul Barry and Hugh Sasse for some awesome patches!
+
+* 1 major enhancement:
+  * Added method_missing to Random class, which looks for a method_name.dat and fetches a random line for you (see docs for details) (Hugh Sasse)
+  * added Random.date_between method to get a date between 2 given dates (Paul Barry)
+  * added Random.boolean method to get a random true or false (Paul Barry)
+  * added Random.number to get a random number less than a number or within a given range (Paul Barry)
+
+* 1 minor enhancement:
+  * enhanced Random.date method to handle a Range as well as a Fixnum, which allows you to get a date guaranteed to be in the past (Paul Barry)
+
+* 1 minor fix:
+  * Location sources organized into more understandable categories, for easier future expansion (Hugh Sasse)
+  * Fixed path of require statements in random_data.rb (Paul Barry)
+  * make initial never return nil, because if it returns nil then ContactInfo#email can thrown and error because it tries to call nil. (Paul Barry)
+  
+== 1.0.1 2007-09-17
+
+* 1 minor fix:
+  * Not creating the Random class properly by extending it (vs. including modules)
+
+== 1.0.0 2007-09-17
+
+* 1 major enhancement:
+  * Initial release

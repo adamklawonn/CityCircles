@@ -14,12 +14,13 @@ class PostsController < ApplicationController
       end
     else
       # All posts.
-      @posts = Post.find( :all, :conditions => [ 'post_type_id = ?', @post_type.id ], :order => 'created_at desc' )
+      @posts = Post.find( :all, :include => [ :post_type, :map_layer ] )
     end
     
     respond_to do | format |
       format.html
       format.xml { render :index, :layout => false }
+      format.json { render :json => @posts.to_json( :include => [ :post_type, :map_layer ] ) }
     end
     
   end  

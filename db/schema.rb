@@ -195,10 +195,13 @@ ActiveRecord::Schema.define(:version => 20100104062711) do
   end
 
   create_table "post_types", :force => true do |t|
-    t.string   "name",            :null => false
-    t.integer  "map_layer_id",    :null => false
-    t.integer  "map_icon_id",     :null => false
-    t.string   "shortname",       :null => false
+    t.string   "name",                                    :null => false
+    t.integer  "map_layer_id",                            :null => false
+    t.integer  "map_icon_id",                             :null => false
+    t.string   "map_fill_color",   :default => "#000000"
+    t.string   "map_stroke_color", :default => "#d3d3d3"
+    t.integer  "map_stroke_width", :default => 2
+    t.string   "shortname",                               :null => false
     t.string   "twitter_hashtag"
     t.datetime "created_at"
     t.datetime "updated_at"
