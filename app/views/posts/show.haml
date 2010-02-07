@@ -9,19 +9,42 @@
           = @post.headline
         %p
           = "By #{ @post.author.login }"
+          %br
+          = @post.created_at.strftime( "%m/%d/%Y at %I:%M %p" )
+          %br
+          = link_to @post.interest_point.label, interest_point_url( @post.interest_point )
         %br
         %p
           = @post.body
+        - if @post.event != nil
+          %br
+          %br
+          %p
+            %table{ :width => "100%" }
+              %tr
+                %td{ :align => "right" }
+                  %p
+                    Starts:
+                %td{ :align => "center" }
+                  %p
+                    = @post.event.starts_at.strftime( "%m/%d/%Y at %I:%M %p" )
+              %tr
+                %td{ :align => "right" }
+                  %p
+                    Ends:
+                %td{ :align => "center" }
+                  %p
+                    = @post.event.ends_at.strftime( "%m/%d/%Y at %I:%M %p" )
         %br
         %br
-      - if current_user
         #comments
-          %span
-            comment on this
-          %br
-          %br
-          - form_for @comment, :url => commentable_url do |f|
-            = render :partial => "citycircles/comment_form", :locals => { :f => f }
+          - if current_user
+            %span
+              comment on this
+            %br
+            %br
+            - form_for @comment, :url => commentable_url do |f|
+              = render :partial => "citycircles/comment_form", :locals => { :f => f }
           - if !@post.comments.empty?
             - @post.comments.each do |comment|
               .comment
@@ -45,7 +68,7 @@
       %h1
         most read stories
       .infoblock
-        - Post.find( :all, :conditions => [ 'post_type_id = ?', @post.post_type_id ], :limit => 9 ).each do |post_item|
+        - Post.find( :all, :conditions => [ 'post_type_id = ?', @post.post_type_id ], :limit => 9, :order => "created_at desc" ).each do |post_item|
           %h2.headline
             = link_to truncate( post_item.headline, 39 ), :action => controller.action_name.to_s, :id => post_item.id
       

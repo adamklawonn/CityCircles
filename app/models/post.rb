@@ -19,7 +19,8 @@
 #
 
 class Post < ActiveRecord::Base
-  
+  # breaking the rules with this include
+  include ActionView::Helpers::TextHelper
   belongs_to :post_type
   belongs_to :interest_point
   belongs_to :map_layer
@@ -47,7 +48,12 @@ class Post < ActiveRecord::Base
   
   # Info window.
   def info_window
-    "<div class='map_info_window'><img src='#{ post_type.map_icon.image_url }' class='map_info_window_icon' /><h2 class='map_info_window_title'>#{ short_headline }</h2><br />#{ body[0..100] }</div>"
+    body_html = truncate( body, :length => 100 )
+    if self.event != nil
+      body_html = body_html + '<br /><br /><table width="100%"><tr><td align="right">Starts:</td><td align="center">' + self.event.starts_at.strftime( "%m/%d/%Y at %I:%M %p" ) + '</td></tr><tr><td align="right">Ends:</td><td align="center">' + self.event.ends_at.strftime( "%m/%d/%Y at %I:%M %p" ) + '</td></tr></table>'
+    end
+    body_html = body_html + '<br /><br /><a href="/posts/' + self.id.to_s + '">Read More...</a>'
+    "<div class='map_info_window'><img src='#{ post_type.map_icon.image_url }' class='map_info_window_icon' /><h2 class='map_info_window_title'>#{ short_headline }</h2><br />#{ body_html }</div>"
   end
   
 end
