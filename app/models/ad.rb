@@ -15,15 +15,17 @@
 #  graphic_updated_at   :datetime
 #  created_at           :datetime
 #  updated_at           :datetime
+#  interest_point_id    :integer(4)      not null
 #
 
 class Ad < ActiveRecord::Base
   
   # Relationships
   belongs_to :organization
+  belongs_to :interest_point
   
   # Paperclip
-  has_attached_file :graphic, :styles => { :small => "50x50#", :medium => "100x100>", :large => "220x240>", :huge => "300x300>" }, :path => ":rails_root/public/assets/ads/grahpics/:id/:style_:basename.:extension", :url => "/assets/ads/grahpics/:id/:style_:basename.:extension", :default_url => "/images/ad.jpg"
+  has_attached_file :graphic, :styles => { :small => "50x50#", :medium => "100x100>", :large => "220x240>", :huge => "300x300>" }, :path => ":rails_root/public/assets/ads/graphics/:id/:style_:basename.:extension", :url => "/assets/ads/graphics/:id/:style_:basename.:extension", :default_url => "/images/ad.jpg"
 
   #validates_inclusion_of :placement, :in => self.placement
 

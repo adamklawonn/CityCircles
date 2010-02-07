@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100104062711) do
+ActiveRecord::Schema.define(:version => 20100207115214) do
 
   create_table "ads", :force => true do |t|
     t.integer  "organization_id",                     :null => false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20100104062711) do
     t.datetime "graphic_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "interest_point_id"
   end
 
   create_table "assets", :force => true do |t|
@@ -45,6 +46,20 @@ ActiveRecord::Schema.define(:version => 20100104062711) do
   add_index "attachings", ["asset_id"], :name => "index_attachings_on_asset_id"
   add_index "attachings", ["attachable_id"], :name => "index_attachings_on_attachable_id"
 
+  create_table "blogroll_feeds", :force => true do |t|
+    t.string   "feed_name",  :null => false
+    t.string   "feed_uri",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cached_blogroll_feeds", :force => true do |t|
+    t.string   "uri",         :limit => 2048
+    t.text     "parsed_feed", :limit => 16777215
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", :force => true do |t|
     t.string   "title",            :null => false
     t.string   "body",             :null => false
@@ -53,6 +68,29 @@ ActiveRecord::Schema.define(:version => 20100104062711) do
     t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "email_blast_templates", :force => true do |t|
+    t.string   "name"
+    t.string   "template_filename"
+    t.boolean  "is_active",         :default => false
+    t.integer  "author_id",                            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "email_blasts", :force => true do |t|
+    t.datetime "send_at"
+    t.boolean  "is_active",      :default => false
+    t.boolean  "was_sent",       :default => false
+    t.string   "template",                          :null => false
+    t.string   "subject",                           :null => false
+    t.text     "body",                              :null => false
+    t.integer  "author_id",                         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "blastable_id"
+    t.string   "blastable_type"
   end
 
   create_table "events", :force => true do |t|

@@ -22,7 +22,10 @@
 admin:
   Ad: create, read, update, delete
   Asset: create, read, update, delete
+  CachedBlogrollFeed: create, read, update, delete
   Comment: create, read, update, delete
+  EmailBlast: create, read, update, delete
+  EmailBlastTemplate: create, read, update, delete
   Event: create, read, update, delete
   FileAttachment: create, read, update, delete
   Hobby: create, read, update, delete
@@ -37,6 +40,7 @@ admin:
   Post: create, read, update, delete
   PostType: create, read, update, delete
   Promo: create, read, update, delete
+  BlogrollFeed: create, read, update, delete
   SiteOption: create, read, update, delete
   Suggestion: create, read, update, delete
   Tweet: create, read, update, delete

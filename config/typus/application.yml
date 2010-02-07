@@ -5,8 +5,8 @@
 
 Ad:
     fields:
-        list: organization, placement, starts_at, ends_at, weight, graphic_file_name
-        form: organization, placement, starts_at, ends_at, weight, graphic_file_name
+        list: organization, placement, starts_at, ends_at, weight, graphic_file_name, interest_point
+        form: organization, placement, starts_at, ends_at, weight, graphic_file_name, interest_point
         options:
             selectors: placement
             read_only: graphic_updated_at
@@ -14,7 +14,7 @@ Ad:
       index:
       edit:
     order_by:
-    relationships: 
+    relationships: interest_point
     filters:
     search:
     application: Promos
@@ -63,6 +63,36 @@ Event:
   filters:
   search:
   application: Posts
+  description:
+
+EmailBlast:
+  fields:
+    list: subject, send_at, is_active
+    form: subject, body, send_at, is_active, author, email_blast_template, blastable_type, blastable_id
+    show: id, subject, send_at, is_active, was_sent, author
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: hobby, interest
+  filters:
+  search:
+  application: Email Blast
+  description:
+
+EmailBlastTemplate:
+  fields:
+    list: name, template_filename, is_active
+    form: name, template_filename, is_active, author
+    show: id, name, template_filename, is_active, author
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships:
+  filters:
+  search:
+  application: Email Blast
   description:
 
 FileAttachment:
@@ -416,3 +446,34 @@ WirelessCarrier:
   application: User Related
   description:
 
+
+CachedBlogrollFeed:
+  fields:
+    list: updated_at, uri
+    form: updated_at, uri
+    show: id, updated_at, uri
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: RSS Feed Aggregator
+  description:
+
+BlogrollFeed:
+  fields:
+    list: feed_name, feed_uri
+    form: feed_name, feed_uri
+    show: id, feed_name, feed_uri
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: RSS Feed Aggregator
+  description:
+     
