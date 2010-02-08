@@ -47,7 +47,8 @@
           %p
             - if !@user.news.empty?
               - @user.news[ 0..3 ].each do |news_item|
-                = news_item.headline
+                = news_item.short_headline
+                %br
             - else
               You have no news.
         %td.liltab
@@ -57,7 +58,8 @@
           %p
             - if !@user.events.empty?
               - @user.events[ 0..3 ].each do |events_item|
-                = events_item.headline
+                = events_item.short_headline
+                %br
             - else
               You have no events.
         %td.liltab
@@ -67,7 +69,8 @@
           %p
             - if !@user.networks.empty?
               - @user.networks[ 0..3 ].each do |networks_item|
-                = networks_item.headline
+                = networks_item.short_headline
+                %br
             - else
               You have no networks.
         %td.liltab
@@ -77,7 +80,8 @@
           %p
             - if !@user.stuff.empty?
               - @user.stuff[ 0..3 ].each do |stuff_item|
-                = stuff_item.headline
+                = stuff_item.short_headline
+                %br
             - else
               You have no stuff.
   .clear
