@@ -15,6 +15,7 @@
 #  graphic_updated_at   :datetime
 #  created_at           :datetime
 #  updated_at           :datetime
+#  interest_point_id    :integer(4)      not null
 #
 
 class Ad < ActiveRecord::Base

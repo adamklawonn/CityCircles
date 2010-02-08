@@ -10,4 +10,5 @@
 #
 
 class Interest < ActiveRecord::Base    
+  has_many :email_blast, :as => :blastable
 end
