@@ -104,10 +104,11 @@
   = render :partial => "citycircles/post_content", :locals => { :poi => @poi }
 
 :javascript
-  $j( '#postcontent' ).dialog( { width : 800, position : [ -10000, -10000 ], modal : true } );
+  $j( '#postcontent' ).dialog( { width : 800, position : [ -10000, -10000 ], open : function( event, ui ) { $j( ".ui-dialog-titlebar-close" ).hide(); } } );
   $j( '#postcontent' ).dialog( 'option', 'center', 'true' );
   $j( '#postcontent' ).dialog( 'option', 'resizable', false );
   $j( '#postcontent' ).dialog( 'option', 'draggable', false );
+  $j( '#postcontent' ).dialog( 'option', 'closeOnEscape', false );
   $j( "a.tooltip" ).tooltip( { track: true, delay: 0, showURL: false, showBody: " - ", fade: 250 } );
   
 - if params[ :content_type ]

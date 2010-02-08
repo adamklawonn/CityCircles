@@ -7,9 +7,12 @@ class CreateEvents < ActiveRecord::Migration
       t.timestamps
     end
     
+    add_index :events, :post_id
+    
   end
 
   def self.down
+    remove_index :events, :post_id
     drop_table :events
   end
 end

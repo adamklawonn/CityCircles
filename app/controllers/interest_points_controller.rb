@@ -51,6 +51,7 @@ class InterestPointsController < ApplicationController
           page << "postcontentmap.addOverlay( poiBounds );"
           page << "postcontentmap.returnToSavedPosition();"
           page << 'tinyMCE.execCommand( "mceAddControl", false, "post_body" );'
+
         end
         
       end

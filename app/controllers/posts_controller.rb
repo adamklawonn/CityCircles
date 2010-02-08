@@ -37,8 +37,8 @@ class PostsController < ApplicationController
     @post.author_id = current_user.id
     
     if params[ :post_attachment_captions ] != nil and params[ :post_attachment_files ] != nil
-      params[ :post_attachment_captions ].to_a.each_index do | i |
-        @post_attachment = PostAttachment.new :caption => params[ :post_attachment_captions ][i], :attachment => params[ :post_attachment_files ][i]
+      params[ :post_attachment_captions ].each_key do | key |
+        @post_attachment = PostAttachment.new :caption => params[ :post_attachment_captions ][ key ], :attachment => params[ :post_attachment_files ][ key ]
         @post.post_attachments << @post_attachment
       end
     end

@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(:version => 20100104062711) do
     t.datetime "updated_at"
   end
 
+  add_index "events", ["post_id"], :name => "index_events_on_post_id"
+
   create_table "hobbies", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"

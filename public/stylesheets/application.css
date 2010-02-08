@@ -323,3 +323,7 @@ display:block;
 font-style:normal;
 text-align:center;
 }
+
+
+/* JQUERY */
+#ui-datepicker-div { z-index: 1006; }
