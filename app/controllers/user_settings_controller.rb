@@ -1,5 +1,7 @@
 class UserSettingsController < ApplicationController
   
+  before_filter :require_user
+  
   def index
     @user = User.find( current_user.id )
     @user_detail = @user.user_detail

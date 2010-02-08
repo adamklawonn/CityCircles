@@ -1,4 +1,3 @@
-require 'feed_tools'
 class CachedBlogrollFeedsController < ApplicationController
     # Instructions: 1. Change @@secret. 2. Add a cron job to regularly call /?recache=yes&secret=XXXXXXX
     # This is a feed aggregator that uses FeedTools because it handles practically any feed.

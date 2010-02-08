@@ -1,4 +1,3 @@
-require 'feed_tools'
 class CachedBlogrollFeed < ActiveRecord::Base
   validates_presence_of :feed_uri, :parsed_feed
   validates_uniqueness_of :feed_uri

@@ -335,6 +335,7 @@ ActiveRecord::Schema.define(:version => 20100207115214) do
     t.string   "last_name"
     t.string   "twitter_username"
     t.text     "about_me"
+    t.string   "employer"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"

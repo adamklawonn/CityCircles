@@ -6,6 +6,7 @@ class CreateUserDetails < ActiveRecord::Migration
       t.string :last_name, :default => nil
       t.string :twitter_username, :default => nil
       t.text :about_me, :default => nil
+      t.string :employer, :default => nil
       t.timestamps
     end
   end

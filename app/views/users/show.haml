@@ -8,18 +8,20 @@
     #userabout.grid_3.almega
       %h1
         = "#{ @user.user_detail.first_name } #{ @user.user_detail.last_name }"
+      %p
+        = link_to "edit profile", settings_url
       %h2
         About Me
       %p
-        - if !@user.user_detail.about_me.nil?
+        - if !@user.user_detail.about_me.nil? && !@user.user_detail.about_me.empty?
           = @user.user_detail.about_me
         - else
-          = link_to "Complete your profile >>", settings_url
+          = link_to "edit profile", settings_url
       %h2
         Interest / Hobbies
       %p
         = @user_hobbies_interests
-        = link_to "Complete your profile >>", settings_url if @user_hobbies_interests.empty?
+        = link_to "edit profile", settings_url if @user_hobbies_interests.empty?
       %h2
         My Places
       %p
@@ -28,7 +30,7 @@
             = link_to place.interest_point.label, interest_point_url( place.interest_point )
             %br
         - else
-          = link_to "Complete your profile >>", settings_url
+          = link_to "edit profile", settings_url
       - unless @ad.nil?
         %br
         %br

@@ -20,21 +20,6 @@ Ad:
     application: Promos
     description:
 
-Asset:
-  fields:
-    list: data_file_name, data_content_type, data_file_size, attachings_count, data_updated_at
-    form: data_file_name, data_content_type, data_file_size, attachings_count, data_updated_at
-    show: id, data_file_name, data_content_type, data_file_size, attachings_count, created_at, data_updated_at
-  actions:
-    index:
-    edit:
-  order_by:
-  relationships: attachings
-  filters:
-  search:
-  application: Files
-  description:
-
 Comment:
   fields:
     list: title, body, author
@@ -93,21 +78,6 @@ EmailBlastTemplate:
   filters:
   search:
   application: Email Blast
-  description:
-
-FileAttachment:
-  fields:
-    list: file_attachment_file_name, file_attachment_content_type, file_attachment_file_size, author
-    form: file_attachment_file_name, file_attachment_content_type, file_attachment_file_size, author
-    show: id, file_attachment_file_name, file_attachment_content_type, file_attachment_file_size, created_at, updated_at, author
-  actions:
-    index:
-    edit:
-  order_by:
-  relationships: author, comments
-  filters:
-  search:
-  application: Files
   description:
 
 Hobby:
@@ -230,6 +200,21 @@ Organization:
   application: Promos
   description:
 
+OrganizationMember:
+  fields:
+    list: user, organization, is_active
+    form: user, organization, is_active
+    show: id, user, organization, is_active, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: organizations, users
+  filters:
+  search:
+  application: Promos
+  description:
+
 Page:
   fields:
     list: title, shortname, show_in_navigation, description, sort, author
@@ -261,6 +246,21 @@ Post:
     edit:
   order_by:
   relationships: author, comments, event, interest_point, map_layer, post_type, tweet, post_attachments
+  filters:
+  search:
+  application: Posts
+  description:
+
+PostAttachment:
+  fields:
+    list: caption, attachment_file_name, post
+    form: caption, oembed, code, attachment_file_name, post
+    show: id, caption, oembed, code, attachment_file_name, created_at, updated_at, post
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: post
   filters:
   search:
   application: Posts

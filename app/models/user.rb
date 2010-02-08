@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   has_many :posts, :foreign_key => "author_id"
   has_many :user_interests
   has_many :user_hobbies
+  has_many :organization_members
   
   acts_as_authentic
 
@@ -79,7 +80,11 @@ class User < ActiveRecord::Base
   def admin?
     has_role?( "admin" )
   end
-
+  
+  def org?
+    has_role?( "org" )
+  end
+  
   def has_role?( role )
     get_roles.include?( role )
   end

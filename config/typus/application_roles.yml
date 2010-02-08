@@ -21,13 +21,11 @@
 
 admin:
   Ad: create, read, update, delete
-  Asset: create, read, update, delete
   CachedBlogrollFeed: create, read, update, delete
   Comment: create, read, update, delete
   EmailBlast: create, read, update, delete
   EmailBlastTemplate: create, read, update, delete
   Event: create, read, update, delete
-  FileAttachment: create, read, update, delete
   Hobby: create, read, update, delete
   Interest: create, read, update, delete
   InterestLine: create, read, update, delete
@@ -36,8 +34,10 @@ admin:
   MapIcon: create, read, update, delete
   MapLayer: create, read, update, delete
   Organization: create, read, update, delete
+  OrganizationMember: create, read, update, delete
   Page: create, read, update, delete
   Post: create, read, update, delete
+  PostAttachment: create, read, update, delete
   PostType: create, read, update, delete
   Promo: create, read, update, delete
   BlogrollFeed: create, read, update, delete

@@ -31,6 +31,7 @@ Rails::Initializer.run do |config|
   config.gem 'kete-tiny_mce', :lib => 'tiny_mce', :source => 'http://gems.github.com'
   config.gem "grackle"
   config.gem "calendar_date_select"
+  config.gem "feedtools", :lib => "feed_tools"
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
