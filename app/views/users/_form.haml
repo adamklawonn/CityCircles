@@ -19,10 +19,6 @@
 = error_message_on "user", "email"
 - if controller.controller_name != "user_settings"
   %br
-  = form.check_box :agreed_with_terms
-  = form.label "I agree with the terms of service"
-  = error_message_on "user", "agreed_with_terms"
-  %br
   #terms-of-service 
     %br
     %p
@@ -45,3 +41,8 @@
     %br
     %p
       CityCircles
+  %br
+  = form.check_box :agreed_with_terms
+  = form.label "I agree with the terms of service"
+  = error_message_on "user", "agreed_with_terms"
+  %br
