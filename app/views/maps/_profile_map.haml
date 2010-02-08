@@ -1,0 +1,5 @@
+- map = generate_profile_gmap( @default_map )
+= map.to_html
+= map.div( :class => "profile_map" )
+#sidebar{ :style => "float: left; width: 140px; height: 380px; border: none; border-left: 3px solid #fff; color: #27311c;" }
+  = render :partial => "maps/sidebar", :locals => { :default_map => @default_map, :map_ads => @map_ads }
