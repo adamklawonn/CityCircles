@@ -1,0 +1,35 @@
+#orgs.grid_12
+  %h1
+    = @organization.name
+  %br
+  %p
+    = @organization.description
+  %br
+  %table{ :width => "100%" }
+    %tr
+      %td{ :align => "center" }
+        New campaign
+        %br
+        = link_to_remote "Ad", :url => { :action => :new_ad_campaign, :id => @organization.id }
+        %br
+        = link_to_remote "SMS", :url => { :action => :new_sms_campaign, :id => @organization.id }
+        %br
+        = link_to_remote "Email", :url => { :action => :new_email_campaign, :id => @organization.id }
+        %br
+      %td{ :align => "center" }
+        Current Campaigns
+        %br
+        - if !@current_campaigns.empty?
+        
+        - else
+          %p
+            No current campaigns
+      %td{ :align => "center" }
+        Past Campaigns
+        - if !@past_campaigns.empty?
+        
+        - else
+          %p
+            No past campaigns
+  %br
+  #new_campaign

@@ -6,6 +6,8 @@ class OrganizationsController < ApplicationController
   
   def show
     @organization = Organization.find( params[ :id ] )
+    @current_campaigns = []
+    @past_campaigns = []
   end
   
   def new_ad_campaign

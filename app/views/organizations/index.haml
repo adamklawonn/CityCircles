@@ -1,0 +1,12 @@
+#orgs
+  %h1
+    Your Organizations
+  %br
+  %table{ :width => "100%" }
+    - @organizations.each do |org|
+      %tr
+        %td
+          = link_to org.name, organization_url( org )
+        
+        
+      
