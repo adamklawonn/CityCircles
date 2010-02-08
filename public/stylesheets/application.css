@@ -106,6 +106,10 @@ ul.attachments li { list-style-type: none; margin-left: 5px; font-size: 0.8em; }
 =====================*/
 #content #page{background-color:#fff;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc; padding: 20px; }
 
+/*======================
+       ORGANIZATIONS
+=====================*/
+#orgs{ background-color:#fff;padding-bottom: 20px; padding-top: 10px;box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc; padding: 20px; }
 
 /*======================
          INFO
@@ -327,4 +331,4 @@ text-align:center;
 
 
 /* JQUERY */
-#ui-datepicker-div { z-index: 1006; }
+#ui-datepicker-div { z-index: 100000; }

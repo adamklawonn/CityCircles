@@ -1,11 +1,11 @@
 #content.container_12
   #usersidbar.grid_3.alpha
-    #userpicture.grid_3.almega
+    #userpicture.grid_3
       #pic
         = image_tag @user.user_detail.avatar.url( :large )
         
     .clear
-    #userabout.grid_3.almega
+    #userabout.grid_3
       %h1
         = "#{ @user.user_detail.first_name } #{ @user.user_detail.last_name }"
       %p

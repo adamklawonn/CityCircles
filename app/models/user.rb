@@ -28,7 +28,6 @@
 class User < ActiveRecord::Base
   
   has_one :user_detail
-  has_one :organization_member
   has_many :user_wireless_profiles
   has_many :user_locations
   has_many :comments, :foreign_key => "author_id"
@@ -81,8 +80,8 @@ class User < ActiveRecord::Base
     has_role?( "admin" )
   end
   
-  def org?
-    has_role?( "org" )
+  def org_member?
+    ( self.organization_members != nil && !self.organization_members.empty? ? true : false )
   end
   
   def has_role?( role )

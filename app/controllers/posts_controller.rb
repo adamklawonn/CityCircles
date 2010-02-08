@@ -36,6 +36,14 @@ class PostsController < ApplicationController
     @post.post_type_id = params[ :post_type_id ]
     @post.author_id = current_user.id
     
+    # if event capture start and end dates/times
+    event_post_type = PostType.find_by_shortname( "events" )
+    if @post.post_type_id = event_post_type.id
+      event = Event.new( :starts_at => Date.parse( params[ :event_starts_at_date ] + " " + params[ :event_starts_at_time ] ), :ends_at => Date.parse( params[ :event_ends_at_date ] + " " + params[ :event_ends_at_time ] ) )
+      @post.event = event
+    end
+    
+    # post attachments
     if params[ :post_attachment_captions ] != nil and params[ :post_attachment_files ] != nil
       params[ :post_attachment_captions ].each_key do | key |
         @post_attachment = PostAttachment.new :caption => params[ :post_attachment_captions ][ key ], :attachment => params[ :post_attachment_files ][ key ]

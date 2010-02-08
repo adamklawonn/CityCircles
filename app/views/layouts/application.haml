@@ -103,9 +103,9 @@
         - if !current_user.nil? and current_user.admin?
           %li
             = link_to "admin", admin_dashboard_url
-        - if !current_user.nil? and current_user.admin?
+        - if !current_user.nil? and current_user.org_member?
           %li
-            = link_to "admin", admin_dashboard_url
+            = link_to "organizations", organizations_url
         
       .clear
      

@@ -46,10 +46,10 @@ class Post < ActiveRecord::Base
     short_headline
   end
   
-  # Info window.
+  # Info window. This is so bad.
   def info_window
     body_html = truncate( body, :length => 100 )
-    if self.event != nil
+    if event != nil
       body_html = body_html + '<br /><br /><table width="100%"><tr><td align="right">Starts:</td><td align="center">' + self.event.starts_at.strftime( "%m/%d/%Y at %I:%M %p" ) + '</td></tr><tr><td align="right">Ends:</td><td align="center">' + self.event.ends_at.strftime( "%m/%d/%Y at %I:%M %p" ) + '</td></tr></table>'
     end
     body_html = body_html + '<br /><br /><a href="/posts/' + self.id.to_s + '">Read More...</a>'
