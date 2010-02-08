@@ -38,6 +38,7 @@
               = image_tag @ad.graphic.url
   .grid_9.omega 
     #profmap.grid_9
+      = render :partial => "maps/profile_map", :locals => { :map => @map }
     .clear
     %table
       %tr
@@ -47,7 +48,7 @@
           %p
             - if !@user.news.empty?
               - @user.news[ 0..3 ].each do |news_item|
-                = news_item.short_headline
+                = link_to news_item.short_headline, post_url( news_item )
                 %br
             - else
               You have no news.
@@ -86,19 +87,5 @@
               You have no stuff.
   .clear
   
-:javascript
 
-  function loadProfileMap() {
-    if ( GBrowserIsCompatible() ) {     
-      
-      var profileMap = new GMap2( $( "profmap" ) );
-      profileMap.disableDragging();
-      profileMap.disableDoubleClickZoom();
-      profileMap.disableScrollWheelZoom();
-      profileMap.setCenter( new GLatLng( #{ @default_map.lat }, #{ @default_map.lng } ), 11 ); 
-
-    }
-  }
-  
-  $j( document ).ready( loadProfileMap );
           

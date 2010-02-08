@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   
   def show
     @ad = Ad.find( :first, :conditions => [ 'placement = ? and ( ? between starts_at and ends_at )', 'Profile', Time.now ] )
-    @default_map = Map.find_by_shortname( "lightrail" )
+    @default_map = Map.find_by_shortname( "lightrail", :include => [ :map_layers ] )
     @user = User.find( current_user.id, :include => [ :user_detail, :user_locations, :user_wireless_profiles ] )
     @user_hobbies_interests = ( ( @user.user_interests.collect { | i | i.interest.name } + @user.user_hobbies.collect { | i | i.hobby.name } ).sort { rand } ).join( ", " )
   end

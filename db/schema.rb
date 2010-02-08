@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(:version => 20100104062711) do
     t.datetime "updated_at"
   end
 
+  add_index "map_icons", ["shortname"], :name => "index_map_icons_on_shortname"
+
   create_table "map_layers", :force => true do |t|
     t.integer  "map_id",      :null => false
     t.string   "title",       :null => false

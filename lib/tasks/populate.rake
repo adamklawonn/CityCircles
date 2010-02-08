@@ -186,6 +186,15 @@ namespace :db do
     contact_page.save!
     faq_page = Page.new( :title => "FAQ", :shortname => "faq", :description => "The faq page.", :body => "This is the faq page", :author_id => user.id, :show_in_navigation => true, :sort => 4 )
     faq_page.save!
+    
+    # hobbies
+    hobbies = [ 'Music', 'Reading', 'Hiking / Camping', 'Travel', 'Swimming', 'Photography / Painting', 'Shopping', 'Winter sports', 'Writing', 'Biking', 'Pets', 'Yoga', 'Baseball', 'Basketball', 'Football', 'Soccer' ]
+    hobbies.each { | hobby | Hobby.new( :name => hobby ).save! }
+
+    # interests
+    interests = [ 'Technology', 'Politics', 'Science', 'Energy', 'Cars', 'Business', 'Health care', 'Environment', 'Education', 'Real estate', 'International' ]
+    interests.each { | interest | Interest.new( :name => interest ).save! }
+    
   end
   
 end

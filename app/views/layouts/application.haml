@@ -99,9 +99,9 @@
             %li
               = link_to "sign out (#{ current_user.login })", signout_url, :method => :delete
             %li
-              = link_to "profile", ( current_user_session.nil? ? "#" : user_url )
+              = link_to "my profile", ( current_user_session.nil? ? "#" : user_url )
             %li
-              = link_to "settings", ( current_user_session.nil? ? "#" : settings_url )
+              = link_to "my settings", ( current_user_session.nil? ? "#" : settings_url )
         - if !current_user.nil? and current_user.admin?
           %li
             = link_to "admin", admin_dashboard_url

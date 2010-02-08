@@ -12,9 +12,12 @@ class CreateMapIcons < ActiveRecord::Migration
       t.timestamps
     end
     
+    add_index :map_icons, :shortname
+    
   end
 
   def self.down
+    remove_index :map_icons, :shortname
     drop_table :map_icons
   end
 end
