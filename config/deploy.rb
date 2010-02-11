@@ -5,13 +5,14 @@ set :repository,  "git://github.com/adamklawonn/CityCircles.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
-role :web, "67.23.22.72"                          # Your HTTP server, Apache/etc
-role :app, "67.23.22.72"                          # This may be the same as your `Web` server
-role :db,  "67.23.22.72", :primary => true # This is where Rails migrations will run
+role :web, "69.164.199.238"                          # Your HTTP server, Apache/etc
+role :app, "69.164.199.238"                          # This may be the same as your `Web` server
+role :db,  "69.164.199.238", :primary => true # This is where Rails migrations will run
 
 set :deploy_to, "/var/www-apps/#{application}"
 
 set :user, "capy"
+default_run_options[:pty] = true
 set :ssh_options, { :forward_agent => true }
 
 require 'config/deploy/capistrano_database'
