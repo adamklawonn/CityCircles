@@ -5,7 +5,7 @@
   = hidden_field :ad, :organization_id
   = f.label :placement
   %br
-  = f.select( :placement, Ad.placement )
+  = f.select( :placement, Ad.placement.collect { |p| "#{ p[ :placement ] } - Size: #{ p[ :size ] }" } )
   %br
   = f.label :graphic
   %br
@@ -21,7 +21,7 @@
   = text_field_tag :ad_ends_at_date
   = text_field_tag :ad_ends_at_time
   %br
-  = f.submit :Order
+  = f.submit "Submit for approval."
 
 :javascript      
   
@@ -30,7 +30,6 @@
   
   var currentTime = new Date();
   $j("#ad_starts_at_time, #ad_ends_at_time").timePicker({
-    startTime : new Date(0, 0, 0, currentTime.getHours(), 0, 0),
     show24Hours: false,
     separator: ':',
     step: 15}
