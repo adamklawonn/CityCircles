@@ -6,7 +6,7 @@ div.time-picker {
   background: #fff;
   border: 1px solid #000;
   z-index: 99999;
-  margin-top: 20px;
+  margin-top: 20px; /* Adjusted for CC styles override. */
 }
 div.time-picker-12hours {
   width:6em; /* needed for IE */
