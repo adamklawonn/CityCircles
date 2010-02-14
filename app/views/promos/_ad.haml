@@ -1,25 +1,29 @@
 %h1
-  New Ad
+  New Ad Campaign
 %br
 - remote_form_for( @ad, :url => { :controller => :organizations, :action => :create_ad_campaign }, :html => { :multipart => true } ) do |f|
   = hidden_field :ad, :organization_id
   = f.label :placement
   %br
   = f.select( :placement, Ad.placement.collect { |p| "#{ p[ :placement ] } - Size: #{ p[ :size ] }" } )
+  = error_message_on @ad, :placement
   %br
   = f.label :graphic
   %br
   = f.file_field :graphic
+  = error_message_on @ad, :graphic
   %br
   = f.label :starts_at
   %br
   = text_field_tag :ad_starts_at_date
   = text_field_tag :ad_starts_at_time
+  = error_message_on @ad, :starts_at
   %br
   = f.label :ends_at
   %br
   = text_field_tag :ad_ends_at_date
   = text_field_tag :ad_ends_at_time
+  = error_message_on @ad, :ends_at
   %br
   = f.submit "Submit for Approval"
 

@@ -37,7 +37,7 @@ class OrganizationsController < ApplicationController
     if @ad.save
       render :update do | page |
         page.replace_html "new_campaign", ""
-        page.replace_html "notice", "Place added."
+        page.replace_html "notice", "Ad is now pending approval."
         page.visual_effect :toggle_blind, 'notice'
         page.delay 3 do
           page.visual_effect :toggle_blind, 'notice'

@@ -3,13 +3,14 @@ class CreateAds < ActiveRecord::Migration
     create_table :ads, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.integer :organization_id, :null => false
       t.string :placement, :null => false
-      t.datetime :starts_at, :default => nil
-      t.datetime :ends_at, :default => nil
+      t.datetime :starts_at, :null => false
+      t.datetime :ends_at, :null => false
       t.integer :weight, :default => 1
-      t.string :graphic_file_name
+      t.string :graphic_file_name, :null => false
       t.string :graphic_content_type
       t.integer :graphic_file_size
       t.datetime :graphic_updated_at
+      t.boolean :is_approved, :default => false
       t.timestamps
     end
   end

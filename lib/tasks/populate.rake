@@ -195,6 +195,15 @@ namespace :db do
     interests = [ 'Technology', 'Politics', 'Science', 'Energy', 'Cars', 'Business', 'Health care', 'Environment', 'Education', 'Real estate', 'International' ]
     interests.each { | interest | Interest.new( :name => interest ).save! }
     
+    # organizations
+    cc_org = Organization.new( :name => "City Circles" )
+    cc_org.interest_point = InterestPoint.first
+    cc_org.lat = cc_org.interest_point.lat
+    cc_org.lng = cc_org.interest_point.lng
+    cc_org.author = user
+    cc_org.organization_members << OrganizationMember.new( :user_id => user_caige.id )
+    cc_org.save!
+    
   end
   
 end

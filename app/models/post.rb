@@ -32,10 +32,13 @@ class Post < ActiveRecord::Base
   acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
   
   # Validation
-  validates_presence_of :headline, :short_headline, :body, :lat, :lng
+  validates_presence_of :headline, :short_headline, :body
+  validates_presence_of :lat, :message => "you must choose a location."
+  validates_acceptance_of :certification
+  validates_associated :event, :if => Proc.new { | post | post.post_type == PostType.find_by_shortname( "events" ) }
   
   # Post attachments
-  has_many :post_attachments 
+  has_many :post_attachments
   
   # Label for map.
   def label

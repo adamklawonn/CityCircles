@@ -25,6 +25,14 @@ class PostsController < ApplicationController
     
   end  
   
+  def new
+  
+    @post = Post.new
+    @post.post_type = PostType.find_by_shortname( params[ :pt ] )
+    @post.interest_point = InterestPoint.find( params[ :poi_id ] )
+  
+  end
+  
   def create
   
     @post = Post.new params[ :post ]
@@ -33,14 +41,28 @@ class PostsController < ApplicationController
     @post.lng = params[ :lng ]
     @post.interest_point_id = params[ :interest_point_id ]
     @post.map_layer_id = MapLayer.find_by_shortname( "events" ).id
-    @post.post_type_id = params[ :post_type_id ]
+    @post.post_type = PostType.find( params[ :post_type_id ] )
     @post.author_id = current_user.id
     
     # if event capture start and end dates/times
     event_post_type = PostType.find_by_shortname( "events" )
     if @post.post_type_id == event_post_type.id
-      event = Event.new( :starts_at => Date.parse( params[ :event_starts_at_date ] + " " + params[ :event_starts_at_time ] ), :ends_at => Date.parse( params[ :event_ends_at_date ] + " " + params[ :event_ends_at_time ] ) )
+      @event_starts_at_date = params[ :event_starts_at_date ]
+      @event_starts_at_time = params[ :event_starts_at_time ]
+      @event_ends_at_date = params[ :event_ends_at_date ]
+      @event_ends_at_time = params[ :event_ends_at_time ]
+           
+      begin
+        starts_at_date = Date.parse( @event_starts_at_date + " " + @event_starts_at_time )
+        ends_at_date = Date.parse( @event_ends_at_date + " " + @event_ends_at_time )
+      rescue
+        starts_at_date = nil
+        ends_at_date = nil
+      end
+      
+      event = Event.new( :starts_at => starts_at_date, :ends_at => ends_at_date )
       @post.event = event
+      @event = @post.event
     end
     
     # post attachments
@@ -51,24 +73,15 @@ class PostsController < ApplicationController
       end
     end
     
-    # ajaxy popup
-    responds_to_parent do
-  
-      if @post.save and params[:certification]
-        flash[ :notice ] = "Post created."
-        render :update do | page |
-          page << "$j( '#postcontent' ).dialog( 'close' );"
-          page.redirect_to interest_point_url( @post.interest_point ) 
-        end
-      else
-        render :update do |page|
-          # display worst error dialog ever
-          page.alert "There is a problem with your post. Please double check the required fields."
-        end
-      end
-  
+    if @post.save
+      flash[ :notice ] = "Post created."
+      redirect_to interest_point_url( @post.interest_point ) 
+    else
+      # display worst error dialog ever
+      flash[ :error ] = "There is a problem with your post. Please double check the required fields."
+      render :new
     end
-  
+    
   end
   
   def show

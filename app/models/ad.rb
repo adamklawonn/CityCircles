@@ -27,7 +27,12 @@ class Ad < ActiveRecord::Base
   has_attached_file :graphic, :styles => { :small => "50x50#", :medium => "100x100>", :large => "220x240>", :huge => "300x300>" }, :path => ":rails_root/public/assets/ads/graphics/:id/:style_:basename.:extension", :url => "/assets/ads/graphics/:id/:style_:basename.:extension", :default_url => "/images/ad.jpg"
 
   #validates_inclusion_of :placement, :in => self.placement
-
+  validates_attachment_presence :graphic, :message => "must be an image."  
+  validates_presence_of :placement
+  validates_presence_of :organization_id
+  validates_presence_of :starts_at, :message => "must have a start date and time."
+  validates_presence_of :ends_at, :message => "must have an end date and time."
+  
   def self.placement
     [ { :placement => 'Homepage Map', :size => 'height : 100px, width : 100px' }, { :placement => 'Homepage Under Map', :size => 'height : 100px, width : 940px' }, { :placement => 'Profile Map', :size => 'height : 100px, width : 100px' } ]
   end

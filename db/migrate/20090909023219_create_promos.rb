@@ -4,10 +4,10 @@ class CreatePromos < ActiveRecord::Migration
       t.integer :organization_id, :null => false
       t.integer :post_id, :null => false
       t.string :title, :null => false
-      t.string :description, :length => 5000, :null => false
       t.integer :author_id, :null => false
       t.datetime :starts_at, :default => nil
       t.datetime :ends_at, :default => nil
+      t.boolean :is_approved, :default => false
       t.timestamps
     end
     

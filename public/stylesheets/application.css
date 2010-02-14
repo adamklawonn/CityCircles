@@ -40,12 +40,16 @@ img.map_info_window_icon { height: 20px; float: left; vertical-align: middle; te
 #posts #post .articleimage { margin:10px 0 10px 0; padding:10px; height:300px;width:480px; background-color:#fff;}
 ul.attachments li { list-style-type: none; margin-left: 5px; font-size: 0.8em; }
 #post_remove_attachment { vertical-align: middle; cursor: pointer; }
+#comment_title{ width: 400px; }
+#comment_body{ width: 400px; height: 100px; }
 
 /*======================
        POST CONTENT
 =====================*/
-#postcontent {}
-#postcontentmap { width: 260px; height: 260px; border: 3px solid #d3d3d3; }
+#new-post { background-color: #fff; margin-top: 0px; box-shadow: 1px -2px 10px #ccc; -webkit-box-shadow: 1px -2px 10px #ccc; -moz-box-shadow: 1px -2px 10px #ccc; }
+  #new-post-form { padding: 20px; }
+#new-post-map { background-color: #fff; margin-top: 0px; box-shadow: 1px -2px 10px #ccc; -webkit-box-shadow: 1px -2px 10px #ccc; -moz-box-shadow: 1px -2px 10px #ccc; }
+#postcontentmap { width: 260px; margin: auto; height: 260px; border: 3px solid #d3d3d3; }
 #smc { top: 28px !important; }
 .news_body { width: 340px; height: 200px; }
 .events_body { width: 340px; height: 200px; }

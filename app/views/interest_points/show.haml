@@ -8,7 +8,7 @@
   .clear
   #news.grid_4.alpha
     - if current_user
-      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "news", :poi_id => @poi.id }, :class => "tooltip", :title => "Post News"
+      = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "news", :poi_id => @poi.id }, :class => "tooltip", :title => "Post News"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
@@ -24,7 +24,7 @@
         %h2.headline  No news...be the first to post!
   #events.grid_4
     - if current_user
-      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "event", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Event"
+      = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "events", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Event"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Event"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_events_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
@@ -39,10 +39,6 @@
       - else
         %h2.headline  No events...be the first to post!
   #promos.grid_4.omega
-    - if current_user
-      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "promo", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Business Promotion"
-    - else
-      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Promo"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
     %h1
       = link_to "biz promos", posts_url(:shortname => "promos", :interest_point_id => @poi.id)
@@ -52,7 +48,7 @@
   .clear
   #network.grid_4.alpha
     - if current_user
-      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "network", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Network Item"
+      = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "network", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Network Item"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Network Item"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_networks_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
@@ -68,7 +64,7 @@
         %h2.headline No networks...be the first to post!
   #stuff.grid_4
     - if current_user
-      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "stuff", :poi_id => @poi.id }, :class => "tooltip", :title => "Post your Stuff"
+      = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "stuff", :poi_id => @poi.id }, :class => "tooltip", :title => "Post your Stuff"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post your Stuff"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_stuff_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
@@ -84,7 +80,7 @@
         %h2.headline No stuff...be the first to post!
   .grid_4.omega
     - if current_user
-      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :action => "add_content", :content_type => "fix_it", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Community Project"
+      = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "fixit", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Community Project"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Fix It"
     = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_fixit_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"

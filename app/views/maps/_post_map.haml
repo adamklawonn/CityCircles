@@ -1,13 +1,5 @@
 :javascript
   var poiBounds = null;
-- map = generate_poi_post_map( @poi )
+- map = generate_poi_post_map( poi )
 = map.to_html
 = map.div
-%br
-= label_tag :latitude
-%br
-= text_field_tag "poi_bounds_latitude", "", :disabled => true
-%br
-= label_tag :longitude
-%br
-= text_field_tag "poi_bounds_longitude", "", :disabled => true

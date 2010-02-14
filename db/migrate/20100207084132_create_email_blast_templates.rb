@@ -1,6 +1,6 @@
 class CreateEmailBlastTemplates < ActiveRecord::Migration
   def self.up
-    create_table :email_blast_templates do |t|
+    create_table :email_blast_templates, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.string :name, :null => true
       t.string :template_filename, :null => true
       t.boolean :is_active, :default => false

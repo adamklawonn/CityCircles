@@ -1,0 +1,16 @@
+#new-post.grid_12.alpha
+  %table
+    %tr
+      %td
+        #new-post-form
+          %h3 
+            = "Post #{ @post.post_type.name.downcase }"
+          %br
+          - form_for @post, :url => posts_url, :html => { :multipart => true } do |f|
+            = render :partial => 'form', :locals => { :poi => @post.interest_point, :post_type => @post.post_type, :post => @post, :f => f }
+      %td
+        %h3 Set location
+        %br
+        = render :partial => "maps/post_map", :locals => { :poi => @post.interest_point }
+        = error_message_on :post, :lat
+.clear
