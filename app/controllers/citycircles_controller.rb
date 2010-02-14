@@ -10,6 +10,10 @@ class CitycirclesController < ApplicationController
     @networks = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', PostType.find_by_shortname('network'), @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.sticky desc, posts.created_at desc", :limit => 8 )
     @stuffs = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', PostType.find_by_shortname('stuff'), @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.sticky desc, posts.created_at desc", :limit => 8 )
     @fix_its = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ?', PostType.find_by_shortname('fixit'), @default_map.id ], :include => [ :map_layer => :map ], :order => "posts.sticky desc, posts.created_at desc", :limit => 8 )
+    
+    # ads
+    @under_map_ad = Ad.find( :first, :conditions => [ 'placement = ? and is_approved = ? and ( ? between starts_at and ends_at )', 'Homepage Under Map', true, Time.now ] )
+    @map_ads = Ad.find( :all, :conditions => [ 'placement = ? and is_approved = ? and ( ? between starts_at and ends_at )', 'Homepage Map', true, Time.now ], :order => "weight asc", :limit => 2 )
   end
   
   def universal_add_content

@@ -25,6 +25,8 @@ class UsersController < ApplicationController
     @user = User.find( current_user.id, :include => [ :user_detail, :user_locations, :user_wireless_profiles ] )
     @user_hobbies_interests = ( ( @user.user_interests.collect { | i | i.interest.name } + @user.user_hobbies.collect { | i | i.hobby.name } ).sort { rand } ).join( ", " )
     @ad = Ad.find( :first, :conditions => [ 'placement = ? and ( ? between starts_at and ends_at ) and interest_point_id in ( ? )', 'Profile', Time.now, ( @user.user_locations.collect { | i | i.interest_point_id } ).join( ", " ) ] )
+    @map_ads = Ad.find( :all, :conditions => [ 'placement = ? and is_approved = ? and ( ? between starts_at and ends_at )', 'Profile Map', true, Time.now ], :order => "weight asc", :limit => 2 )
+
   end
  
   def edit

@@ -2,6 +2,10 @@
   #midmap.grid_12.alpha
     = render :partial => "maps/map", :locals => { :map => @map }
   .clear
+  - if @under_map_ad != nil
+    #under_map_ad.grid_12.alpha
+      = image_tag @under_map_ad.graphic.url( :homepage_under_map )
+    .clear
   .grid_12.alpha
     = render :partial => "citycircles/mini_twitter_feed"
   .clear

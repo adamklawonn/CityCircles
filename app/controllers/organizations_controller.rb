@@ -6,6 +6,7 @@ class OrganizationsController < ApplicationController
   
   def show
     @organization = Organization.find( params[ :id ] )
+    @pending_campaigns = Ad.find( :all, :conditions => [ '( ? between starts_at and ends_at ) and is_approved = ? and organization_id = ?', Time.now, false, @organization.id ] )
     @current_campaigns = []
     @past_campaigns = []
   end
@@ -34,18 +35,40 @@ class OrganizationsController < ApplicationController
   
   def create_ad_campaign
     @ad = Ad.new( params[ :ad ] )
+    
+    @ad_starts_at_date = params[ :ad_starts_at_date ]
+    @ad_starts_at_time = params[ :ad_starts_at_time ]
+    @ad_ends_at_date = params[ :ad_ends_at_date ]
+    @ad_ends_at_time = params[ :ad_ends_at_time ]
+         
+    begin
+      starts_at_date = DateTime.parse( @ad_starts_at_date + " " + @ad_starts_at_time )
+      ends_at_date = DateTime.parse( @ad_ends_at_date + " " + @ad_ends_at_time )
+    rescue
+      starts_at_date = nil
+      ends_at_date = nil
+    end
+    
+    @ad.starts_at = starts_at_date
+    @ad.ends_at = ends_at_date
+    puts @ad.valid?
+    puts @ad.errors.to_json
     if @ad.save
-      render :update do | page |
-        page.replace_html "new_campaign", ""
-        page.replace_html "notice", "Ad is now pending approval."
-        page.visual_effect :toggle_blind, 'notice'
-        page.delay 3 do
+      responds_to_parent do
+        render :update do | page |
+          page.replace_html "new_campaign", ""
+          page.replace_html "notice", "Ad is now pending approval."
           page.visual_effect :toggle_blind, 'notice'
+          page.delay 3 do
+            page.visual_effect :toggle_blind, 'notice'
+          end
         end
       end
     else
-      render :update do | page |
-        page.replace_html "new_campaign", :partial => 'promos/ad', :locals => { :ad => @ad }
+      responds_to_parent do
+        render :update do | page |
+          page.replace_html "new_campaign", :partial => 'promos/ad', :locals => { :ad => @ad }
+        end
       end
     end
   end

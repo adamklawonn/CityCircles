@@ -1,11 +1,11 @@
-%h1
+%h2
   New Ad Campaign
 %br
-- remote_form_for( @ad, :url => { :controller => :organizations, :action => :create_ad_campaign }, :html => { :multipart => true } ) do |f|
+- form_for( @ad, :url => { :controller => :organizations, :action => :create_ad_campaign }, :html => { :multipart => true, :target => 'upload_frame' } ) do |f|
   = hidden_field :ad, :organization_id
   = f.label :placement
   %br
-  = f.select( :placement, Ad.placement.collect { |p| "#{ p[ :placement ] } - Size: #{ p[ :size ] }" } )
+  = f.select( :placement, Ad.placement.collect { |p| [ "#{ p[ :placement ] } - Size: #{ p[ :size ] }", p[ :placement ] ] } )
   = error_message_on @ad, :placement
   %br
   = f.label :graphic
@@ -15,17 +15,18 @@
   %br
   = f.label :starts_at
   %br
-  = text_field_tag :ad_starts_at_date
-  = text_field_tag :ad_starts_at_time
+  = text_field_tag :ad_starts_at_date, @ad_starts_at_date ||= ''
+  = text_field_tag :ad_starts_at_time, @ad_starts_at_time ||= ''
   = error_message_on @ad, :starts_at
   %br
   = f.label :ends_at
   %br
-  = text_field_tag :ad_ends_at_date
-  = text_field_tag :ad_ends_at_time
+  = text_field_tag :ad_ends_at_date, @ad_ends_at_date ||= ''
+  = text_field_tag :ad_ends_at_time, @ad_ends_at_time ||= ''
   = error_message_on @ad, :ends_at
   %br
   = f.submit "Submit for Approval"
+  %iframe{ :id => 'upload_frame', :name => 'upload_frame', :style => 'width:1px;height:1px;border:0px', :src => 'about:blank' }
 
 :javascript      
   

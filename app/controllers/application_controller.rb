@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   before_filter :browser_detect
   before_filter :fetch_pages
   before_filter :new_suggestion
-  before_filter :fetch_ads
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
@@ -41,11 +40,6 @@ class ApplicationController < ActionController::Base
     # For the "everywhere" explore box
     def new_suggestion
       @suggestion = Suggestion.new
-    end
-    
-    # Fetch ads for the map and soon other locations. This could be called asynchronously
-    def fetch_ads
-      @map_ads = Ad.find( :all, :conditions => [ 'placement = ? and ( ? between starts_at and ends_at )', 'Map', Time.now ], :order => "weight asc" )
     end
     
     # Fetch currently logged in user's session

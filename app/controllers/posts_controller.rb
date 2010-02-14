@@ -53,8 +53,8 @@ class PostsController < ApplicationController
       @event_ends_at_time = params[ :event_ends_at_time ]
            
       begin
-        starts_at_date = Date.parse( @event_starts_at_date + " " + @event_starts_at_time )
-        ends_at_date = Date.parse( @event_ends_at_date + " " + @event_ends_at_time )
+        starts_at_date = DateTime.parse( @event_starts_at_date + " " + @event_starts_at_time )
+        ends_at_date = DateTime.parse( @event_ends_at_date + " " + @event_ends_at_time )
       rescue
         starts_at_date = nil
         ends_at_date = nil

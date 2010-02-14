@@ -24,6 +24,11 @@ img.map_info_window_icon { height: 20px; float: left; vertical-align: middle; te
 #terms-of-service { overflow-y:scroll; overflow-x: hidden; height:300px; }
 
 /*======================
+       ADS
+======================*/
+#under_map_ad { box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc; }
+
+/*======================
        POST PAGE
 =====================*/
 #posts #post h1 {padding-left:0px; line-height:1.5em;}

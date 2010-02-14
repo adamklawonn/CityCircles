@@ -5,8 +5,8 @@
 
 Ad:
     fields:
-        list: organization, placement, starts_at, ends_at, weight, graphic_file_name, interest_point
-        form: organization, placement, starts_at, ends_at, weight, graphic_file_name, interest_point
+        list: organization, placement, starts_at, ends_at, weight, is_approved
+        form: organization, placement, starts_at, ends_at, weight, is_approved
         options:
             selectors: placement
             read_only: graphic_updated_at
