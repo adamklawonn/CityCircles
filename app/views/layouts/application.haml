@@ -75,20 +75,8 @@
         #searchbar
           - form_tag "/search" do
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
-        #addzone  
-          - if current_user
-            = link_to_remote image_tag( "addblank.png", { :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 0 }, :html => { :class => "tooltip", :title => "Add Content" }
-          - else
-            = link_to_function image_tag( "addblank.png", { :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
       
-        %ul
-          %li 
-            .push
-              - if current_user
-                = link_to_remote "add content", :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 0 }, :html => { :class => "tooltip", :title => "Add Content" }
-              - else
-                = link_to_function "add content", "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Add Content"
-        
+        %ul        
           -if current_user_session.nil?
             %li
               %a#signinlink{ :href => signin_url } sign in
