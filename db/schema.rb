@@ -12,15 +12,16 @@
 ActiveRecord::Schema.define(:version => 20100207115214) do
 
   create_table "ads", :force => true do |t|
-    t.integer  "organization_id",                     :null => false
-    t.string   "placement",                           :null => false
-    t.datetime "starts_at",                           :null => false
-    t.datetime "ends_at",                             :null => false
+    t.integer  "organization_id",                         :null => false
+    t.string   "placement",                               :null => false
+    t.datetime "starts_at",                               :null => false
+    t.datetime "ends_at",                                 :null => false
     t.integer  "weight",               :default => 1
-    t.string   "graphic_file_name",                   :null => false
+    t.string   "graphic_file_name",                       :null => false
     t.string   "graphic_content_type"
     t.integer  "graphic_file_size"
     t.datetime "graphic_updated_at"
+    t.boolean  "is_approved",          :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "interest_point_id"
@@ -265,13 +266,13 @@ ActiveRecord::Schema.define(:version => 20100207115214) do
   end
 
   create_table "promos", :force => true do |t|
-    t.integer  "organization_id", :null => false
-    t.integer  "post_id",         :null => false
-    t.string   "title",           :null => false
-    t.string   "description",     :null => false
-    t.integer  "author_id",       :null => false
+    t.integer  "organization_id",                    :null => false
+    t.integer  "post_id",                            :null => false
+    t.string   "title",                              :null => false
+    t.integer  "author_id",                          :null => false
     t.datetime "starts_at"
     t.datetime "ends_at"
+    t.boolean  "is_approved",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,21 +1,22 @@
 # == Schema Information
-# Schema version: 20100104062711
+# Schema version: 20100207115214
 #
 # Table name: ads
 #
 #  id                   :integer(4)      not null, primary key
 #  organization_id      :integer(4)      not null
 #  placement            :string(255)     not null
-#  starts_at            :datetime
-#  ends_at              :datetime
+#  starts_at            :datetime        not null
+#  ends_at              :datetime        not null
 #  weight               :integer(4)      default(1)
-#  graphic_file_name    :string(255)
+#  graphic_file_name    :string(255)     not null
 #  graphic_content_type :string(255)
 #  graphic_file_size    :integer(4)
 #  graphic_updated_at   :datetime
+#  is_approved          :boolean(1)
 #  created_at           :datetime
 #  updated_at           :datetime
-#  interest_point_id    :integer(4)      not null
+#  interest_point_id    :integer(4)
 #
 
 class Ad < ActiveRecord::Base

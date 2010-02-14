@@ -75,26 +75,26 @@
         #searchbar
           - form_tag "/search" do
             = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
-      
-        %ul        
-          -if current_user_session.nil?
+        #subnavbar
+          %ul        
+            -if current_user_session.nil?
+              %li
+                %a#signinlink{ :href => signin_url } sign in
+                %span
+                  or
+                %a#registerlink{ :href => signup_url } register
+            -else
+              %li
+                = link_to "sign out (#{ current_user.login })", signout_url, :method => :delete
+              %li
+                = link_to "my profile", ( current_user_session.nil? ? "#" : user_url )
+          - if !current_user.nil? and current_user.admin?
             %li
-              %a#signinlink{ :href => signin_url } sign in
-              %span
-                or
-              %a#registerlink{ :href => signup_url } register
-          -else
+              = link_to "admin", admin_dashboard_url
+          - if !current_user.nil? and current_user.org_member?
             %li
-              = link_to "sign out (#{ current_user.login })", signout_url, :method => :delete
-            %li
-              = link_to "my profile", ( current_user_session.nil? ? "#" : user_url )
-        - if !current_user.nil? and current_user.admin?
-          %li
-            = link_to "admin", admin_dashboard_url
-        - if !current_user.nil? and current_user.org_member?
-          %li
-            = link_to "organizations", organizations_url
-        
+              = link_to "organizations", organizations_url
+          
       .clear
      
 

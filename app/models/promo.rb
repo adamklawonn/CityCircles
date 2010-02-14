@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100104062711
+# Schema version: 20100207115214
 #
 # Table name: promos
 #
@@ -7,10 +7,10 @@
 #  organization_id :integer(4)      not null
 #  post_id         :integer(4)      not null
 #  title           :string(255)     not null
-#  description     :string(255)     not null
 #  author_id       :integer(4)      not null
 #  starts_at       :datetime
 #  ends_at         :datetime
+#  is_approved     :boolean(1)
 #  created_at      :datetime
 #  updated_at      :datetime
 #
