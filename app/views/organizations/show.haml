@@ -32,7 +32,8 @@
         Current Campaigns
         %br
         - if !@current_campaigns.empty?
-        
+          - @current_campaigns.each do |campaign|
+            = campaign.label
         - else
           %p
             No current campaigns

@@ -7,7 +7,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find( params[ :id ] )
     @pending_campaigns = Ad.find( :all, :conditions => [ '( ? between starts_at and ends_at ) and is_approved = ? and organization_id = ?', Time.now, false, @organization.id ] )
-    @current_campaigns = []
+    @current_campaigns = Ad.find( :all, :conditions => [ '( ? between starts_at and ends_at ) and is_approved = ? and organization_id = ?', Time.now, true, @organization.id ] )
     @past_campaigns = []
   end
   
