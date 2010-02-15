@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   
+  before_filter :require_user, :only => [ :new, :create ]
+  
   def index
     
     @post_type = PostType.find_by_shortname params[ :shortname ]

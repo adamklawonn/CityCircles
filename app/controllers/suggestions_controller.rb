@@ -1,5 +1,7 @@
 class SuggestionsController < ApplicationController
   
+  before_filter :require_user
+  
   def new
     @suggestion = Suggestion.new
   end

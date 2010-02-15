@@ -1,5 +1,7 @@
 class EmailBlastController < ApplicationController
   
+  before_filter :require_user
+  
   def index
     @email_blasts = EmailBlast.find( :all, :conditions => [ 'was_sent = ?', 0 ], :order => 'send_at desc' )
     

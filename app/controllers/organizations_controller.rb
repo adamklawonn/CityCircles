@@ -1,5 +1,7 @@
 class OrganizationsController < ApplicationController
   
+  before_filter :require_user, :only => [ :new_ad_campaign, :new_promo_campaign, :create_ad_campaign, :create_promo_campaign ]
+  
   def index
     @organizations = Organization.find( :all, :include => :organization_members, :conditions => [ 'organization_members.user_id = ?', current_user.id ] )
   end

@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   
+  before_filter :require_user, :only => [ :new, :create ]
+  
   def index
     @poi = InterestPoint.find params[ :interest_point_id ]
     @events = Event.find( :all, :conditions => [ 'interest_point_id = ?', @poi.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc' )

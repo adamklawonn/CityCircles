@@ -187,9 +187,9 @@ MapLayer:
 
 Organization:
   fields:
-    list: name, description, lat, lng, interest_point, author
-    form: name, description, lat, lng, interest_point, author
-    show: id, name, description, created_at, updated_at, lat, lng, interest_point, author
+    list: name, lat, lng, interest_point, author
+    form: name, lat, lng, interest_point, author
+    show: id, name, lat, lng, interest_point, author
   actions:
     index:
     edit:
@@ -202,14 +202,14 @@ Organization:
 
 OrganizationMember:
   fields:
-    list: user, organization, is_active
-    form: user, organization, is_active
-    show: id, user, organization, is_active, created_at, updated_at
+    list: user, is_active
+    form: user, is_active
+    show: id, user, is_active, created_at, updated_at
   actions:
     index:
     edit:
   order_by:
-  relationships: organizations, users
+  relationships: users
   filters:
   search:
   application: Promos

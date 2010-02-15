@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   
   before_filter :find_commentable
+  before_filter :require_user
   
   def create
       @comment = @commentable.comments.new( params[ :comment ] )

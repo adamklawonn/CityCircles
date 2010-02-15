@@ -1,5 +1,7 @@
 class UserDetailsController < ApplicationController
   
+  before_filter :require_user, :only => [ :update ]
+  
   def edit
     @user = User.find( params[ :id ], :include => [ :user_detail ] )
   end
