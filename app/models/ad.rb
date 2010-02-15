@@ -35,7 +35,7 @@ class Ad < ActiveRecord::Base
   validates_presence_of :ends_at, :message => "must have an end date and time."
   
   def label
-    "<img src='#{ graphic.url( :map ) }' style='vertical-align: middle;' /> #{ placement } Ad<br/><br />"
+    "<a href='#'>#{ placement } Ad</a>"
   end
   
   def self.placement

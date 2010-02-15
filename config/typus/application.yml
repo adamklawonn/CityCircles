@@ -283,9 +283,9 @@ PostType:
             
 Promo:
   fields:
-    list: title, description, starts_at, ends_at, post, organization, author
-    form: title, description, starts_at, ends_at, post, organization, author
-    show: id, title, description, starts_at, ends_at, created_at, updated_at, post, organization, author
+    list: title, starts_at, ends_at, organization, author, is_approved
+    form: title, starts_at, ends_at, organization, author, is_approved
+    show: id, title, starts_at, ends_at, created_at, updated_at, organization, author, is_approved
   actions:
     index:
     edit:

@@ -2,6 +2,7 @@
        STRUCTURE
 =====================*/
 body{ background-image:url('../images/BGgrad.jpg');background-repeat:repeat-x; background-color:#eef4ec;font-family:Arial, Helvetica, sans-serif; font-size: 1em; }
+th { text-align: left; background-color: #000; color: #fff; padding: 5px; }
 #content {margin-top: 0px;}
 #wrapper {width:960px; margin-left:auto; margin-right:auto;}
 #twitter {margin-top: 0px;}

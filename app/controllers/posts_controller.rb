@@ -40,8 +40,8 @@ class PostsController < ApplicationController
     @post.lat = params[ :lat ]
     @post.lng = params[ :lng ]
     @post.interest_point_id = params[ :interest_point_id ]
-    @post.map_layer_id = MapLayer.find_by_shortname( "events" ).id
     @post.post_type = PostType.find( params[ :post_type_id ] )
+    @post.map_layer = MapLayer.find_by_shortname( @post.post_type.shortname )
     @post.author_id = current_user.id
     
     # if event capture start and end dates/times

@@ -43,9 +43,6 @@ I certify that my post is fair, accurate, timely and relevant to this community.
 = error_message_on :post, :certification
 %br
 %br
-= link_to "Cancel", interest_point_url( @post.interest_point )
-| 
-= f.submit "Post"
 
 - if @post.post_type.shortname == "events"
   :javascript      

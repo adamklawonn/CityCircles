@@ -1,4 +1,4 @@
-%h2
+%h3
   New Ad Campaign
 %br
 - form_for( @ad, :url => { :controller => :organizations, :action => :create_ad_campaign }, :html => { :multipart => true, :target => 'upload_frame' } ) do |f|
@@ -26,6 +26,7 @@
   = error_message_on @ad, :ends_at
   %br
   = f.submit "Submit for Approval"
+  %br
   %iframe{ :id => 'upload_frame', :name => 'upload_frame', :style => 'width:1px;height:1px;border:0px', :src => 'about:blank' }
 
 :javascript      

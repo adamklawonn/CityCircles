@@ -19,5 +19,10 @@ class Promo < ActiveRecord::Base
   belongs_to :organization
   belongs_to :post
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
-  has_many :comments, :as => :commentable
+  
+  # Validation
+  validates_presence_of :title
+  validates_presence_of :starts_at
+  validates_presence_of :ends_at
+  validates_associated :post
 end

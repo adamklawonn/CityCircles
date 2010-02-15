@@ -10,6 +10,9 @@
           %br
           - form_for @post, :url => posts_url, :html => { :multipart => true } do |f|
             = render :partial => 'form', :locals => { :poi => @post.interest_point, :post_type => @post.post_type, :post => @post, :f => f }
+            = link_to "Cancel", interest_point_url( @post.interest_point )
+            | 
+            = f.submit "Post"
       %td
         %h3 Set location
         %br

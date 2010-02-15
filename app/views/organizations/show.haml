@@ -1,46 +1,58 @@
 #orgs.grid_12
-  %h1
-    = @organization.name
-  %br
-  %p
-    = @organization.description
-  %br
-  %h2
-    New campaign
-  %br
-  = link_to_remote "Ad", :url => { :action => :new_ad_campaign, :id => @organization.id }
-  |
-  = link_to_remote "SMS", :url => { :action => :new_sms_campaign, :id => @organization.id }
-  |
-  = link_to_remote "Email", :url => { :action => :new_email_campaign, :id => @organization.id }
-  %br
-  %br
+  %table{ :width => '100%' }
+    %tr
+      %td
+        %h1
+          = @organization.name
+        %br
+        %p
+          = @organization.description
+        %br
+      %td{ :align => 'right' }
+        New
+        = link_to_remote "Ad", :url => { :action => :new_ad_campaign, :id => @organization.id }
+        |
+        = link_to_remote "Promo", :url => { :action => :new_promo_campaign, :id => @organization.id }
   #new_campaign
   %br
   %table{ :width => "100%" }
     %tr
-      %td{ :align => "center" }
+      %th
         Pending Campigns
-        %br
         - if !@pending_campaigns.empty?
           - @pending_campaigns.each do |campaign|
-            = campaign.label
+            %tr
+              %td
+                = campaign.label
         - else
-          %p
-            No pending campaigns
-      %td{ :align => "center" }
+          %tr
+            %td
+              No pending campaigns
+  %br
+  %table{ :width => "100%" }
+    %tr
+      %th
         Current Campaigns
-        %br
         - if !@current_campaigns.empty?
           - @current_campaigns.each do |campaign|
-            = campaign.label
+            %tr
+              %td
+                = campaign.label
         - else
-          %p
-            No current campaigns
-      %td{ :align => "center" }
+          %tr
+            %td
+              No current campaigns
+  %br
+  %table{ :width => "100%" }
+    %tr
+      %th
         Past Campaigns
         - if !@past_campaigns.empty?
-        
+          - @past_campaigns.each do |campaign|
+            %tr
+              %td
+                = campaign.label
         - else
-          %p
-            No past campaigns
+          %tr
+            %td
+              No past campaigns
