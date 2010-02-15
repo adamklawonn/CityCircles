@@ -47,6 +47,7 @@ class PostsController < ApplicationController
     # if event capture start and end dates/times
     event_post_type = PostType.find_by_shortname( "events" )
     if @post.post_type_id == event_post_type.id
+
       @event_starts_at_date = params[ :event_starts_at_date ]
       @event_starts_at_time = params[ :event_starts_at_time ]
       @event_ends_at_date = params[ :event_ends_at_date ]
