@@ -1,5 +1,4 @@
-- form_remote_tag :url => "/interest_points/add_universal_content" do |f|
-  = hidden_field_tag "universal_post", "universal_post"
+- form_tag "/posts/new", :method => :get do |f|
   %br
   = label_tag :station
   %br
@@ -7,7 +6,7 @@
   %br
   = label_tag :what_type_of_content
   %br
-  = select_tag "content_type", options_for_select( [ [ "News", "news" ], [ "Event", "event" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Fix It", "fix_it" ] ] )
+  = select_tag "pt", options_for_select( [ [ "News", "news" ], [ "Event", "events" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Fix It", "fixit" ] ] )
   %br
   %br
   = submit_tag "OK"

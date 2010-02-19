@@ -11,6 +11,10 @@
   .clear
   #news.grid_4.alpha
     #infohead
+    - if current_user
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 0 }, :html => { :class => "tooltip", :title => "Post News" }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
     %h1
@@ -26,6 +30,10 @@
       
  
   #events.grid_4
+    - if current_user
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 1 }, :html => { :class => "tooltip", :title => "Post Events" }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Events"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Event Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_events_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
     %h1
@@ -48,6 +56,10 @@
       %h2.headline 
         No promos...be the first to post!
   #network.grid_4.alpha
+    - if current_user
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 2 }, :html => { :class => "tooltip", :title => "Post Networks" }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Networks"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Network Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_networks_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
     %h1
@@ -61,6 +73,10 @@
       - else
         %h2.headline No networks...be the first to post!
   #stuff.grid_4
+    - if current_user
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 3 }, :html => { :class => "tooltip", :title => "Post Stuff" }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Stuff"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to the Stuff Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_stuff_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
     %h1
@@ -74,6 +90,10 @@
       - else
         %h2.headline No stuff...be the first to post!
   .grid_4.omega
+    - if current_user
+      = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 4 }, :html => { :class => "tooltip", :title => "Post Fix It" }
+    - else
+      = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Fix It"
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Fix It Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_fixit_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
     %h1
@@ -87,6 +107,13 @@
       - else
         %h2.headline No fix it projects...be the first to post!
   .clear
+
+  #postuniversalcontent{ :title => "Which Station?" }
+  :javascript
+    $j( '#postuniversalcontent' ).dialog( { width : 300, position : [ -10000, -10000 ] } );
+    $j( '#postuniversalcontent' ).dialog( 'option', 'center', 'true' );
+    $j( '#postuniversalcontent' ).dialog( 'option', 'resizable', false );
+    $j( '#postuniversalcontent' ).dialog( 'option', 'draggable', false );
 
 :javascript
   $j( "a.tooltip" ).tooltip( { track: true, delay: 0, showURL: false, showBody: " - ", fade: 250 } );
