@@ -138,7 +138,8 @@
           list.children('li:even').addClass('tweet_odd');
         });
         if (s.outro_text) list.after(outro);
-        if (s.length > 0) {
+        console.log( s.count );
+        if (s.count > 0) {
 
   				$( "#mini-twtr-feed" ).jCarouselLite({  
 	 		  		vertical: true,  
