@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     
     respond_to do | format |
       format.html
-      format.xml { render :index, :layout => false }
+      format.atom { render :index, :layout => false }
       format.json { render :json => @posts.to_json( :include => [ :post_type, :map_layer ] ) }
     end
     
@@ -133,6 +133,7 @@ class PostsController < ApplicationController
     @post_type = PostType.find_by_shortname( "news" )
     @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
     respond_to do | format |
+      format.html{ render :index }
       format.atom { render :index, :layout => false }
     end
   end

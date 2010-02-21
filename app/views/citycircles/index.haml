@@ -18,7 +18,7 @@
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to News Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "atom" ), :class => "tooltip", :title => "Subscribe to News Feed"
     %h1
-      = link_to "news", posts_url(:shortname => "news")
+      = link_to "news", all_news_posts_url( @poi, :shortname => "news" )
       = image_tag "map_icons/news/newsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @news.empty?

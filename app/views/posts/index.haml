@@ -8,13 +8,16 @@
       - else
         City Circles
     %a{ :href => "#" }
-      = link_to image_tag("smallrss.png", { :class => "buttonfloat", :border => 0 }), :action => "index", :format => "xml", :shortname => params[ :shortname ]
+      = link_to image_tag("smallrss.png", { :class => "buttonfloat", :border => 0 }), ( @poi != nil ? interest_point_posts_url( @poi, :format => "atom", :shortname => params[ :shortname ] ) : all_news_posts_url( @poi, :format => "atom" ) )
     .clear
     - @posts.each do |post| 
       #listitem 
-        %h2= post.headline
+        %h2
+          = link_to post.headline, interest_point_post_url( post.interest_point, post )
         %p 
           by 
           = post.author.login
           @
           = friendly_datetime( post.created_at )
+        %p
+          = link_to post.interest_point.label, interest_point_url( post.interest_point )

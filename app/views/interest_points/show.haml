@@ -11,9 +11,9 @@
       = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "news", :poi_id => @poi.id }, :class => "tooltip", :title => "Post News"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post News"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_news_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to News Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_posts_url( @poi, :format => "atom", :shortname => "news" ), :class => "tooltip", :title => "Subscribe to News Feed"
     %h1
-      = link_to "news", posts_url(:shortname => "news", :interest_point_id => @poi.id)
+      = link_to "news", interest_point_posts_url(:shortname => "news", :interest_point_id => @poi.id)
       = image_tag "map_icons/news/newsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @news.empty?
@@ -27,9 +27,9 @@
       = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "events", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Event"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Event"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_events_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Event Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_posts_url( @poi, :format => "atom", :shortname => "events" ), :class => "tooltip", :title => "Subscribe to Event Feed"
     %h1
-      = link_to "events", posts_url(:shortname => "events", :interest_point_id => @poi.id)
+      = link_to "events", interest_point_posts_url(:shortname => "events", :interest_point_id => @poi.id)
       = image_tag "map_icons/events/eventsimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @events.empty?
@@ -39,9 +39,9 @@
       - else
         %h2.headline  No events...be the first to post!
   #promos.grid_4.omega
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_posts_url( @poi, :format => "atom", :shortname => "promos" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
     %h1
-      = link_to "biz promos", posts_url(:shortname => "promos", :interest_point_id => @poi.id)
+      = link_to "biz promos", interest_point_posts_url(:shortname => "promos", :interest_point_id => @poi.id)
       = image_tag "map_icons/promos/promosimage.png", { :border => 0, :height => 20 }
     .infoblock
       %h2.headline No promos...be the first to post!
@@ -51,9 +51,9 @@
       = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "network", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Network Item"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Network Item"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_networks_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Network Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_posts_url( @poi, :format => "atom", :shortname => "network" ), :class => "tooltip", :title => "Subscribe to Network Feed"
     %h1
-      = link_to "network", posts_url(:shortname => "network", :interest_point_id => @poi.id)
+      = link_to "network", interest_point_posts_url(:shortname => "network", :interest_point_id => @poi.id)
       = image_tag "map_icons/network/networkimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @networks.empty?
@@ -67,9 +67,9 @@
       = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "stuff", :poi_id => @poi.id }, :class => "tooltip", :title => "Post your Stuff"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post your Stuff"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_stuff_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_posts_url( @poi, :format => "atom", :shortname => "stuff" ), :class => "tooltip", :title => "Subscribe to Stuff Feed"
     %h1
-      = link_to "stuff", posts_url(:shortname => "stuff", :interest_point_id => @poi.id)
+      = link_to "stuff", interest_point_posts_url(:shortname => "stuff", :interest_point_id => @poi.id)
       = image_tag "map_icons/stuff/stuffimage.png", { :border => 0, :height => 20 }
     .infoblock
       - unless @stuffs.empty?
@@ -83,9 +83,9 @@
       = link_to image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), { :controller => "posts", :action => "new", :pt => "fixit", :poi_id => @poi.id }, :class => "tooltip", :title => "Post Community Project"
     - else
       = link_to_function image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), "$j( '#whoops' ).html( 'You must sign in to post content.' ).dialog( 'open' );", :class => "tooltip", :title => "Post Fix It"
-    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_fixit_posts_url( @poi, :format => "xml" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
+    = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), interest_point_posts_url( @poi, :format => "atom", :shortname => "fixit" ), :class => "tooltip", :title => "Subscribe to Fix It Feed"
     %h1
-      = link_to "let's fix it", posts_url(:shortname => "fixit", :interest_point_id => @poi.id)
+      = link_to "let's fix it", interest_point_posts_url(:shortname => "fixit", :interest_point_id => @poi.id)
       = image_tag "map_icons/fixit/fixitimage.png", { :border => 0, :height => 20 }
     #fixit.infoblock
       - unless @fix_its.empty?
