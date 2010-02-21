@@ -202,14 +202,14 @@ Organization:
 
 OrganizationMember:
   fields:
-    list: user, is_active
-    form: user, is_active
+    list: organization, user, is_active
+    form: organization, user, is_active
     show: id, user, is_active, created_at, updated_at
   actions:
     index:
     edit:
   order_by:
-  relationships: users
+  relationships: users, organizations
   filters:
   search:
   application: Promos
@@ -290,7 +290,7 @@ Promo:
     index:
     edit:
   order_by:
-  relationships: author, comments, organization, post
+  relationships: author, organization, post
   filters:
   search:
   application: Promos

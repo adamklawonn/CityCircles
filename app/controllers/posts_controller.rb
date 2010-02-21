@@ -131,49 +131,49 @@ class PostsController < ApplicationController
 
   def all_news
     @post_type = PostType.find_by_shortname( "news" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
     respond_to do | format |
-      format.xml { render :index, :layout => false }
+      format.atom { render :index, :layout => false }
     end
   end
   
   def all_events
     @post_type = PostType.find_by_shortname( "events" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
     respond_to do | format |
-      format.xml { render :index, :layout => false }
+      format.atom { render :index, :layout => false }
     end
   end
   
   def all_promos
     @post_type = PostType.find_by_shortname( "promos" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
     respond_to do | format |
-      format.xml { render :index, :layout => false }
+      format.atom { render :index, :layout => false }
     end
   end
   
   def all_networks
     @post_type = PostType.find_by_shortname( "network" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
     respond_to do | format |
-      format.xml { render :index, :layout => false }
+      format.atom { render :index, :layout => false }
     end
   end
   
   def all_stuff
     @post_type = PostType.find_by_shortname( "stuff" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
     respond_to do | format |
-      format.xml { render :index, :layout => false }
+      format.atom { render :index, :layout => false }
     end
   end
   
   def all_fixit
     @post_type = PostType.find_by_shortname( "fixit" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ]
+    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
     respond_to do | format |
-      format.xml { render :index, :layout => false }
+      format.atom { render :index, :layout => false }
     end
   end
 

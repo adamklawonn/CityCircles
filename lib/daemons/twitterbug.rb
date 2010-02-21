@@ -44,7 +44,7 @@ while($running) do
           author = user_profile.user
         end
 
-        post = Post.new( :headline => body[ 0..40 ], :short_headline => body[ 0..40 ], :body => body )
+        post = Post.new( :headline => "@#{ from_user } posted via Twitter", :short_headline => body[ 0..40 ], :body => body )
         post.author = ( author == nil ? User.find_by_login( "citycircles" ) : author )
         post.interest_point = poi
         post.map_layer = map_layer
