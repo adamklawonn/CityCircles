@@ -122,6 +122,12 @@ Capistrano::Configuration.instance.load do
           database: #{ application }-production
           username: #{ Capistrano::CLI.ui.ask( "Enter MySQL database username: " ) }
           password: #{ Capistrano::CLI.ui.ask( "Enter MySQL database password: " ) }
+          estraier:
+            host: localhost
+            user: admin
+            password: admin
+            port: 1978
+            node: citycircles-production
       
       EOF
       
