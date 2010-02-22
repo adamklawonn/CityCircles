@@ -1,0 +1,67 @@
+= search_do
+* Library for fulltext search integration with active record.
+* Build to support multiple search Backends
+* acts_as_searchable Successor
+
+
+== Pre-requisites
+A working Hyper Estraier instance, setup instructions:
+
+* Setup Instructions: http://pragmatig.wordpress.com/2008/05/06/getting-started-with-acts_as_searchable-on-ubuntu/
+* In-depth Documentation: http://hyperestraier.sourceforge.net/nguide-en.html
+* rake search:node:create MODEL=User RAILS_ENV=production - for every model/environment you use
+
+
+== Install
+As Rails plugin(recommended <-> rake tasks/cap recipes):
+  script/plugin install git://github.com/grosser/search_do.git
+Or as Gem:
+  sudo gem install searh_do
+
+install will_paginate to use "paginate_by_fulltext_search" (Instruction: http://github.com/mislav/will_paginate/wikis/installation)
+
+
+== Usage
+
+  #MODEL
+  class User < ActiveRecord::Base
+    acts_as_searchable(
+      #fields the will be found in fulltext search
+      :searchable_fields => [:name,:website,:city,:about],
+      #fields used for attribute search/ordering
+      :attributes => {:name=>nil,:city=>nil,:country=>nil,:age=>nil}
+    )
+    attr_accessor :html_snippet #add this to get html snippets on your results (see below)
+  end
+
+  #SEARCH
+  Users who:
+   - contain 'hello' in any of their searchable fields
+   - whose website attribute contains 'www' (contains search for strings)
+   - whose age is 1 (exact match for numbers/dates)
+   - sorted by age ASC
+  @results = User.paginate_by_fulltext_search('hello',:attributes=>{:website=>'www',:age=>1},:order=>'age ASC',:page=>1,:per_page=>20)
+
+  (Same can be done without pagination: User.fulltext_search)
+
+  #SNIPPETS
+  Each record found with a fulltext-search (not a attribute-only search) contains a snippet
+  of the surrounding where the phrase was found.
+
+  User.fulltext_search('hello') => user.html_snippet == "id like to say <b>hello</b> to my fellow students"
+
+  NOTE: html_snippet will not contain HTML except for the <b>, so there is no need to escape it.
+
+
+== Hyperestraier Features
+ - Phrase search, regular expressions, attribute search, and similarity search
+ - Snippet retrival
+ - UTF8 support
+ - Web interface
+ - Built in P2P clustering of index servers
+
+
+== Origin
+Original is written by scoop see
+* http://github.com/scoop/acts_as_searchable/tree/master
+* http://poocs.net/2006/4/6/introducing-acts-as-searchable

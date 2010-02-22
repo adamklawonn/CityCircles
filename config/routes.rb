@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.search "/search/:q", :controller => :posts, :action => :search, :q => nil
   map.resources :cached_blogroll_feeds
   map.resources :email_blast_templates
   map.resources :organization_members

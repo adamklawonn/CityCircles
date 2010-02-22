@@ -1,0 +1,20 @@
+#content.grid_12
+  #search
+    %h1
+      Search Results 
+    %br
+    .clear
+    - @posts.each do |post| 
+      #listitem 
+        %h2
+          = link_to post.headline, interest_point_post_url( post.interest_point, post )
+        %p 
+          by 
+          = post.author.login
+          @
+          = friendly_datetime( post.created_at )
+        %p
+          = link_to post.interest_point.label, interest_point_url( post.interest_point )
+        %br
+        %p.search_html_snippet
+          = post.html_snippet

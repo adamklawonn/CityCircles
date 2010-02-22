@@ -79,8 +79,8 @@
               = link_to "twitter", "http://twitter.com/citycirc", :popup => true              
 
         #searchbar
-          - form_tag "/search" do
-            = text_field_tag "query", "Search City Circles...", :onfocus => "this.value='';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
+          - form_tag search_url, :method => :get do
+            = text_field_tag "q", "#{ ( params[ :q ] ||= 'Search City Circles...' ) }", :onfocus => "this.value='#{ ( params[ :q ] == 'Search City Circles...' ? '' : params[ :q ] ||= "" ) }';", :onblur => "this.value = ( this.value.length == 0 ? 'Search City Circles...' : this.value )"
         #subnavbar
           %ul        
             -if current_user_session.nil?

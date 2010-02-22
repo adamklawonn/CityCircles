@@ -177,5 +177,9 @@ class PostsController < ApplicationController
       format.atom { render :index, :layout => false }
     end
   end
+  
+  def search
+    @posts = Post.paginate_by_fulltext_search( params[ :q ], :order => 'age ASC', :page => 1 , :per_page => 20 )
+  end
 
 end
