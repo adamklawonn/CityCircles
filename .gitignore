@@ -11,3 +11,5 @@ log/twitterbug.rb_monitor.pid
 nbproject
 .loadpath
 .project
+log/searchd.development.pid
+config/development.sphinx.conf

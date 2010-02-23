@@ -179,7 +179,7 @@ class PostsController < ApplicationController
   end
   
   def search
-    @posts = Post.paginate_by_fulltext_search( params[ :q ], :order => 'age ASC', :page => 1 , :per_page => 20 )
+    @posts = Post.search params[ :q ], :order => :created_at, :page => params[ :page ], :per_page => 1
   end
 
 end

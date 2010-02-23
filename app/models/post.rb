@@ -33,14 +33,15 @@ class Post < ActiveRecord::Base
   acts_as_mappable :default_units => :miles, :default_formula => :sphere, :distance_field_name => :distance, :lat_column_name => :lat, :lng_column_name => :lng
   
   # Search
-  acts_as_searchable(
-    #fields the will be found in fulltext search
-    :searchable_fields => [ :headline, :body ],
-    #fields used for attribute search/ordering
-    :attributes => { :headline => nil, :body => nil }
-  )
-  attr_accessor :html_snippet
+  define_index do
+    # fields
+    indexes headline, :sortable => true
+    indexes body
+    indexes author.login, :as => :author, :sortable => true
 
+    # attributes
+    has author_id, created_at, updated_at
+  end
   
   # Validation
   validates_presence_of :headline, :short_headline, :body
