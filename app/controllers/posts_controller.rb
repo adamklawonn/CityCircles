@@ -179,7 +179,7 @@ class PostsController < ApplicationController
   end
   
   def search
-    @posts = Post.search params[ :q ], :order => :created_at, :page => params[ :page ], :per_page => 1
+    @posts = Post.search params[ :q ], :order => :created_at, :page => params[ :page ], :per_page => 10
   end
 
 end
