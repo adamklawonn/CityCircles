@@ -70,15 +70,15 @@
       var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
       var delta = parseInt((relative_to.getTime() - parsed_date) / 1000);
       if(delta < 60) {
-      return 'less than a minute ago';
+      return 'a minute ago';
       } else if(delta < 120) {
-      return 'about a minute ago';
+      return 'a minute ago';
       } else if(delta < (45*60)) {
       return (parseInt(delta / 60)).toString() + ' minutes ago';
       } else if(delta < (90*60)) {
-      return 'about an hour ago';
+      return 'an hour ago';
       } else if(delta < (24*60*60)) {
-      return 'about ' + (parseInt(delta / 3600)).toString() + ' hours ago';
+      return ' ' + (parseInt(delta / 3600)).toString() + ' hours ago';
       } else if(delta < (48*60*60)) {
       return '1 day ago';
       } else {
@@ -131,7 +131,7 @@
           var text = '<span class="tweet_text">' +$([item.text]).linkUrl().linkUser().linkHash().makeHeart().capAwesome().capEpic()[0]+ '</span>';
           
           // until we create a template option, arrange the items below to alter a tweet's display.
-          list.append('<li>' + avatar + date + join + text + '</li>');
+          list.append('<li>' + avatar + date + ' ' + item.from_user + ':' + join + text + '</li>');
 
           list.children('li:first').addClass('tweet_first');
           list.children('li:odd').addClass('tweet_even');
