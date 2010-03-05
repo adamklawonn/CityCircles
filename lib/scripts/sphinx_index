@@ -1,3 +1,0 @@
-#!/bin/bash
-cd /var/www-apps/citycircles/current
-RAILS_ENV=production /opt/ruby-enterprise/bin/rake thinking_sphinx:reindex
