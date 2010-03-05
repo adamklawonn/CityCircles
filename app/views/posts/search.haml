@@ -4,7 +4,7 @@
       Search Results 
     %br
     .clear
-    - @posts.each do |post| 
+    - @post_results.each do |post| 
       #listitem 
         %h2
           = link_to post.headline, interest_point_post_url( post.interest_point, post )
@@ -17,4 +17,4 @@
           = link_to post.interest_point.label, interest_point_url( post.interest_point )
         %br
     %p
-      = will_paginate @posts
+      = will_paginate @post_results

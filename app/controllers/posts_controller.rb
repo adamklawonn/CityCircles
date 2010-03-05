@@ -179,7 +179,13 @@ class PostsController < ApplicationController
   end
   
   def search
-    @posts = []
+    # xapian search
+    @search = ActsAsXapian::Search.new [ Post ], params[ :q ], { :limit => 10 }
+    @posts = @search.results.collect { | r | r[ :model ] }
+    # will paginate
+    current_page = params[ :page ] ||= 1
+    per_page = params[ :per_page ] ||= 10
+    @post_results = @posts.paginate( { :page => current_page.to_i, :per_page => per_page.to_i } )
   end
 
 end

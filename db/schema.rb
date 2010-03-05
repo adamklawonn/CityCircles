@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100207115214) do
+ActiveRecord::Schema.define(:version => 20100305041528) do
+
+  create_table "acts_as_xapian_jobs", :force => true do |t|
+    t.string  "model",    :null => false
+    t.integer "model_id", :null => false
+    t.string  "action",   :null => false
+  end
+
+  add_index "acts_as_xapian_jobs", ["model", "model_id"], :name => "index_acts_as_xapian_jobs_on_model_and_model_id", :unique => true
 
   create_table "ads", :force => true do |t|
     t.integer  "organization_id",                         :null => false
@@ -264,6 +272,10 @@ ActiveRecord::Schema.define(:version => 20100207115214) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "posts", ["interest_point_id"], :name => "interest_point_id"
+  add_index "posts", ["map_layer_id"], :name => "map_layer_id"
+  add_index "posts", ["post_type_id"], :name => "post_type_id"
 
   create_table "promos", :force => true do |t|
     t.integer  "organization_id",                    :null => false
