@@ -1,6 +1,7 @@
 set :application, "citycircles"
 
 set :scm, :git
+set :git_enable_submodules, 1
 set :repository,  "git://github.com/adamklawonn/CityCircles.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
