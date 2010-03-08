@@ -273,10 +273,6 @@ ActiveRecord::Schema.define(:version => 20100305041528) do
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["interest_point_id"], :name => "interest_point_id"
-  add_index "posts", ["map_layer_id"], :name => "map_layer_id"
-  add_index "posts", ["post_type_id"], :name => "post_type_id"
-
   create_table "promos", :force => true do |t|
     t.integer  "organization_id",                    :null => false
     t.integer  "post_id",                            :null => false
