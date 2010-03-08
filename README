@@ -31,6 +31,13 @@ You should then be able to run rake:gems:install which should install all of the
 
   rake gems:install
 
+Search is performed using the Xapian project.
+
+You can setup a cron job to rebuild the index for posts every minute under the web applications owner's crontab:
+
+  */1 * * * * RAILS_ENV=production /opt/ruby-enterprise/bin/rake -f /[path-to-project-root]/Rakefile xapian:rebuild_index models="Post"
+
+
 == Support
 
 Please send all support requests to support@citycircles.com
