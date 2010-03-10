@@ -24,5 +24,6 @@ class Promo < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :starts_at
   validates_presence_of :ends_at
+  validates_presence_of :post_id, :message => "must be present"
   validates_associated :post
 end

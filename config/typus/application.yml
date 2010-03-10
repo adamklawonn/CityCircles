@@ -6,7 +6,7 @@
 Ad:
     fields:
         list: organization, placement, starts_at, ends_at, weight, is_approved
-        form: organization, placement, starts_at, ends_at, weight, is_approved
+        form: organization, placement, graphic_file_name, starts_at, ends_at, weight, is_approved
         options:
             selectors: placement
             read_only: graphic_updated_at
@@ -284,8 +284,8 @@ PostType:
 Promo:
   fields:
     list: title, starts_at, ends_at, organization, author, is_approved
-    form: title, starts_at, ends_at, organization, author, is_approved
-    show: id, title, starts_at, ends_at, created_at, updated_at, organization, author, is_approved
+    form: title, starts_at, ends_at, organization, author, is_approved, post
+    show: id, title, starts_at, ends_at, created_at, updated_at, organization, author, is_approved, post
   actions:
     index:
     edit:
