@@ -1,7 +1,5 @@
 class SuggestionsController < ApplicationController
   
-  before_filter :require_user
-  
   def new
     @suggestion = Suggestion.new
   end
@@ -10,16 +8,12 @@ class SuggestionsController < ApplicationController
     
     @suggestion = Suggestion.new params[ :suggestion ]
     
-    if request.xhr?
-      
+        
       if @suggestion.save
         flash[ :notice ] = "Suggestion Submitted."
-        render :update do | page |
-          page.replace_html "notice", flash[ :notice ]
-          page.reload
-        end
+        redirect_to :back
       else
-    
+        redirect_to :back  
       end
     end
     
