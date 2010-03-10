@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.verify "/verify/:satoken", :controller => "users", :action => "verify"
   map.settings "/settings", :controller => "user_settings", :action => "index"
   map.profile "/profile", :controller => "users", :action => "show"
+  map.contact_page "/pages/contact", :controller => "pages", :action => "contact"
   map.page_by_shortname "/pages/:shortname", :controller => "pages", :action => "show"
   map.resources :suggestions  #map.resources :stuffs  map.resources :file_attachments
   map.resources :user_locations

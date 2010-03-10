@@ -1,0 +1,26 @@
+#content
+  #page
+    %h1
+      Contact  
+    %br
+    %br
+    %p
+      Got a question, suggestion or concern? We want to hear it.
+    %br
+    %p
+      Adam Klawonn is our Content Coordinator. For anything related to posts, story ideas, map questions, or other issues associated with how the community appears on the Web and on cell phones, this is your contact. He can be reached at %strong adam@citycircles.com.
+    %br
+    %p
+      Aleksandra Chojnacka is our Director of Audience. For anything related to merchants, promotions, partnerships, sponsorships or other issues associated with business and events, this is your contact. She can be reached at %strong aleks@citycircles.com.
+    %br
+    %h3{ :style => "margin: 20px" } Make us Better!
+    - form_for @suggestion do |f|
+      = f.label "Your Email"
+      %br
+      = f.text_field :email, :value => ( current_user != nil ? current_user.email : "" )
+      %br
+      = f.label "Suggestion"
+      %br
+      = f.text_area :body, { :rows => 5, :cols => 30 }
+      %br
+      = f.submit "Submit Suggestion", { :id => "suggestion_submit" }

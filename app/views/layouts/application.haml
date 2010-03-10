@@ -73,6 +73,8 @@
             - @pages.each do |page|
               %li
                 = link_to page[ "title" ].downcase, page_by_shortname_url( page[ "shortname" ] )
+            %li 
+              = link_to "contact", contact_page_url
             %li
               = link_to "facebook", "http://www.facebook.com/pages/Phoenix-AZ/CityCircles/148572991060?ref=ts", :popup => true
             %li
@@ -128,33 +130,19 @@
       #whoops_message
     
     .panel
-      %h3 Make us Better!
+      = link_to "Frequently Asked Questions", "/pages/faq"
       %br
-      - remote_form_for @suggestion do |f|
-        = f.label "Your Email"
-        %br
-        = f.text_field :email, :value => ( current_user != nil ? current_user.email : "" )
-        %br
-        = f.label "Suggestion"
-        %br
-        = f.text_area :body, { :rows => 5, :cols => 30 }
-        %br
-        = f.submit "Submit Suggestion", { :id => "suggestion_submit" }
-        %br
-        %br
-        = link_to "Frequently Asked Questions", "/pages/faq"
-        %br
-        %br
-        %h3 CityCircles Videos
-        %br
-        %table{ :width => '80%' }
-          %tr
-            %td
-              %a{ :href => "/start-videos/on-the-go.html", :rel => "facebox" }
-                = image_tag "/start-videos/41008444_100.jpg"
-            %td
-              %a{ :href => "/start-videos/on-the-computer.html", :rel => "facebox" }
-                = image_tag "/start-videos/41008859_100.jpg"
+      %br
+      %h3 CityCircles Videos
+      %br
+      %table{ :width => '80%' }
+        %tr
+          %td
+            %a{ :href => "/start-videos/on-the-go.html", :rel => "facebox" }
+              = image_tag "/start-videos/41008444_100.jpg"
+          %td
+            %a{ :href => "/start-videos/on-the-computer.html", :rel => "facebox" }
+              = image_tag "/start-videos/41008859_100.jpg"
         
     %a{ :class => "trigger", :href => "#" }   
       %center
