@@ -23,4 +23,11 @@ class PostAttachment < ActiveRecord::Base
   # Paperclip
   has_attached_file :attachment, :styles => { :small => "50x50#", :medium => "100x100>", :large => "220x240>", :huge => "300x300>" }, :path => ":rails_root/public/assets/posts/attachments/:id/:style_:basename.:extension", :url => "/assets/posts/attachments/:id/:style_:basename.:extension", :default_url => "/images/attachment.jpg"
   
+  # Check content type and don't run Paperclip::Thumbnail processor on non-image files
+  before_post_process :image?
+  
+  def image?
+    !(attachment_content_type =~ /^image.*/).nil?
+  end
+  
 end
