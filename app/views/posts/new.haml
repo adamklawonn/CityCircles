@@ -18,4 +18,8 @@
         %br
         = render :partial => "maps/post_map", :locals => { :poi => @post.interest_point }
         = error_message_on :post, :lat
+        %br
+        #location-msg{ :style => "display: none; visible: hidden;text-align: center;" }
+          Location Set!&nbsp;&nbsp;
+          = image_tag "map.png", :style => "vertical-align: middle"
 .clear
