@@ -31,7 +31,7 @@ Comment:
   order_by:
   relationships: author
   filters:
-  search:
+  search: title, body
   application: Posts
   description:
 
@@ -91,7 +91,7 @@ Hobby:
   order_by:
   relationships: 
   filters:
-  search:
+  search: name
   application: User Related
   description:
 
@@ -106,7 +106,7 @@ Interest:
   order_by:
   relationships: 
   filters:
-  search:
+  search: name
   application: User Related
   description:
 
@@ -196,7 +196,7 @@ Organization:
   order_by:
   relationships: organization_members, author, interest_point, promos
   filters:
-  search:
+  search: name
   application: Promos
   description:
 
@@ -247,7 +247,7 @@ Post:
   order_by:
   relationships: author, comments, event, interest_point, map_layer, post_type, tweet, post_attachments
   filters:
-  search:
+  search: headline, short_headline, body
   application: Posts
   description:
 
@@ -292,7 +292,7 @@ Promo:
   order_by:
   relationships: author, organization, post
   filters:
-  search:
+  search: title
   application: Promos
   description:
 
@@ -307,7 +307,7 @@ SiteOption:
   order_by:
   relationships: 
   filters:
-  search:
+  search: name, option_value
   application: City Circles
   description:
 
@@ -322,7 +322,7 @@ Suggestion:
   order_by:
   relationships: 
   filters:
-  search:
+  search: email, body
   application: City Circles
   description:
 
@@ -337,13 +337,13 @@ Tweet:
   order_by:
   relationships: post
   filters:
-  search:
+  search: body, from_user, to_user, body
   application: Posts
   description:
 
 User:
   fields:
-    list: login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, roles, email_verified, agreed_with_terms
+    list: login, email, login_count, failed_login_count, last_login_at, roles, email_verified, agreed_with_terms
     form: login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, roles, email_verified, agreed_with_terms
     show: id, login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, created_at, updated_at, roles, email_verified, agreed_with_terms
   actions:
@@ -352,7 +352,7 @@ User:
   order_by:
   relationships: comments, posts, user_detail, user_hobbies, user_interests, user_locations, user_wireless_profiles
   filters:
-  search:
+  search: login, email, roles
   application: User Related
   description:
 
@@ -367,7 +367,7 @@ UserDetail:
   order_by:
   relationships: user
   filters:
-  search:
+  search: first_name, last_name, twitter_username, about_me
   application: User Related
   description:
 
@@ -427,7 +427,7 @@ UserWirelessProfile:
   order_by:
   relationships: user, wireless_carrier
   filters:
-  search:
+  search: wireless_number
   application: User Related
   description:
 
@@ -442,7 +442,7 @@ WirelessCarrier:
   order_by:
   relationships: user_wireless_profiles
   filters:
-  search:
+  search: name, email_gateway
   application: User Related
   description:
 
