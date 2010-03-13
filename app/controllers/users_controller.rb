@@ -13,8 +13,9 @@ class UsersController < ApplicationController
     if verify_recaptcha( :model => @user, :message => "Captcha response was incorrect!" ) && @user.save
       flash[:notice] = "Account registered! Please sign in."
       flash.keep
+      UserMailer.deliver_registration(@user)
       redirect_to root_url
-      #UserMailer.deliver_registration(@user)
+      UserMailer.deliver_registration(@user)
     else
       render :action => :new
     end

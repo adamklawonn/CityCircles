@@ -1,1 +1,1 @@
-Hi <%= @user.email %>, thanks for registering. A link to site with /verify/<%= @user.single_access_token %>
+Hi <%= @user.email %>, thanks for registering. Please verify your account with this link <%= link_to "this link", "/verify/#{ @user.single_access_token }" %>
