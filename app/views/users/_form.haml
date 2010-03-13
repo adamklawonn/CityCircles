@@ -17,6 +17,16 @@
 %br
 = form.text_field :email
 = error_message_on "user", "email"
+%br
+- fields_for :user_details do |ud|
+  = ud.label :first_name
+  %br
+  = ud.text_field :first_name
+  %br
+  = ud.label :last_name
+  %br
+  = ud.text_field :last_name
+  %br
 - if controller.controller_name != "user_settings"
   %br
   #terms-of-service 

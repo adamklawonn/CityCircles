@@ -9,11 +9,12 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.user_detail = UserDetail.new
+    @user.user_detail = UserDetail.new( params[ :user_details ] )
     if verify_recaptcha( :model => @user, :message => "Captcha response was incorrect!" ) && @user.save
-      flash[:notice] = "Account registered!"
-      UserMailer.deliver_registration(@user)
-      render :action => :sendverification
+      flash[:notice] = "Account registered! Please sign in."
+      flash.keep
+      redirect_to root_url
+      #UserMailer.deliver_registration(@user)
     else
       render :action => :new
     end
