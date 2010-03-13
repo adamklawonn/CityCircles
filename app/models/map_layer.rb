@@ -36,6 +36,10 @@ class MapLayer < ActiveRecord::Base
     
   end
   
+  def recent_posts( layer_id, layer_shortname )
+    Post.find( :all, :conditions => [ 'post_type_id = ? and map_layer_id = ? and ( posts.created_at >= ? and posts.created_at <= ? )', PostType.find_by_shortname( layer_shortname ), layer_id, 14.days.ago, 14.days.from_now ] )
+  end
+  
   def name
     title
   end
