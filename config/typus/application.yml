@@ -347,7 +347,7 @@ User:
     form: login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, roles, email_verified, agreed_with_terms
     show: id, login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, created_at, updated_at, roles, email_verified, agreed_with_terms
   actions:
-    index:
+    index: export
     edit:
   order_by:
   relationships: comments, posts, user_detail, user_hobbies, user_interests, user_locations, user_wireless_profiles
@@ -362,7 +362,7 @@ UserDetail:
     form: first_name, last_name, twitter_username, about_me, avatar_file_name, user
     show: id, first_name, last_name, twitter_username, about_me, created_at, updated_at, avatar_file_name, user
   actions:
-    index:
+    index: export
     edit:
   order_by:
   relationships: user

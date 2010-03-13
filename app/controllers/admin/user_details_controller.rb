@@ -34,4 +34,12 @@ class Admin::UserDetailsController < Admin::MasterController
 
 =end
 
+  def export
+    @user_details = UserDetail.all
+    
+    respond_to do | format |
+      format.csv { send_data @user_details.to_csv, :filename => "user_details_#{ Time.now.strftime( "%m-%d-%Y_%I:%M_%p" ) }.csv"  }
+    end
+  end
+
 end

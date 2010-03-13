@@ -34,4 +34,12 @@ class Admin::UsersController < Admin::MasterController
 
 =end
 
+  def export
+    @users = User.all
+    
+    respond_to do | format |
+      format.csv { send_data @users.to_csv( :except => [ :crypted_password, :password_salt, :persistence_token, :single_access_token, :perishable_token ] ), :filename => "users_#{ Time.now.strftime( "%m-%d-%Y_%I:%M_%p" ) }.csv" }
+    end
+  end
+
 end

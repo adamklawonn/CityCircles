@@ -44,8 +44,8 @@ admin:
   SiteOption: create, read, update, delete
   Suggestion: create, read, update, delete
   Tweet: create, read, update, delete
-  User: create, read, update, delete
-  UserDetail: create, read, update, delete
+  User: create, read, update, delete, export
+  UserDetail: create, read, update, delete, export
   UserHobby: create, read, update, delete
   UserInterest: create, read, update, delete
   UserLocation: create, read, update, delete
