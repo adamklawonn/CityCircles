@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :headline, :short_headline, :body
   validates_presence_of :lat, :message => "you must choose a location."
   validates_acceptance_of :certification
-  validates_associated :event, :if => Proc.new { | post | post.post_type == PostType.find_by_shortname( "events" ) }
+  validates_associated :event, :if => Proc.new { | post | post.post_type_id == PostType.find_by_shortname( "events" ).id }
   
   # Post attachments
   has_many :post_attachments

@@ -13,7 +13,6 @@
 
 class Event < ActiveRecord::Base
   belongs_to :post
-  validates_associated :post
   validates_presence_of :starts_at, :message => "must have a start date and time."
   validates_presence_of :ends_at, :message => "must have an end date and time."
 end
