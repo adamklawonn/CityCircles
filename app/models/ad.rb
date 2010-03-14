@@ -26,7 +26,7 @@ class Ad < ActiveRecord::Base
   belongs_to :interest_point
 
   # Paperclip
-  has_attached_file :graphic, :styles => { :map => "100x100>", :large => "220x240>", :huge => "300x300>", :homepage_under_map => "940x100>" }, :path => ":rails_root/public/assets/ads/graphics/:id/:style_:basename.:extension", :url => "/assets/ads/graphics/:id/:style_:basename.:extension", :default_url => "/images/ad.jpg"
+  has_attached_file :graphic, :styles => { :map => "100x100>", :large => "220x240>", :huge => "300x300>", :homepage_under_map => "940x100>" }, :path => ":rails_root/public/system/assets/ads/graphics/:id/:style_:basename.:extension", :url => "/system/assets/ads/graphics/:id/:style_:basename.:extension", :default_url => "/images/ad.jpg"
 
   validates_attachment_presence :graphic, :message => "must be an image."  
   validates_presence_of :placement
