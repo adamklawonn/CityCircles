@@ -4,11 +4,13 @@
   .clear
   - if @under_map_ad != nil
     #under_map_ad.grid_12.alpha
-      = image_tag @under_map_ad.graphic.url( :homepage_under_map )
+      = link_to( image_tag( @under_map_ad.graphic.url( :homepage_under_map ) ), @under_map_ad.link_uri, :target => "_blank" )
     .clear
   .grid_12.alpha
     = render :partial => "citycircles/mini_twitter_feed"
   .clear
+  
+  
   #news.grid_4.alpha
     #infohead
     - if current_user
@@ -46,6 +48,8 @@
             = link_to truncate( event.short_headline, :length => 39 ), events_post_url( event )
       - else
         %h2.headline No events...be the first to post!
+        
+        
   #promos.grid_4.omega
     %a{ :href => "#", :class => "tooltip", :title => "Subscribe to Business Promotions Feed" }
       = link_to image_tag( "smallrss.png", { :class => "buttonfloat", :border => 0 } ), all_promos_posts_url( @poi, :format => "atom" ), :class => "tooltip", :title => "Subscribe to Business Promotions Feed"
@@ -55,6 +59,8 @@
     .infoblock
       %h2.headline 
         No promos...be the first to post!
+        
+        
   #network.grid_4.alpha
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 2 }, :html => { :class => "tooltip", :title => "Post Networks" }
@@ -72,6 +78,8 @@
             = link_to truncate( network.short_headline, :length => 39 ), networks_post_url( network )
       - else
         %h2.headline No networks...be the first to post!
+        
+        
   #stuff.grid_4
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 3 }, :html => { :class => "tooltip", :title => "Post Stuff" }
@@ -89,6 +97,8 @@
             = link_to truncate( stuff.short_headline, :length => 39 ), stuff_post_url( stuff )
       - else
         %h2.headline No stuff...be the first to post!
+        
+        
   .grid_4.omega
     - if current_user
       = link_to_remote image_tag( "smalladd.png", { :class => "buttonfloat", :border => 0 } ), :url => { :controller => "citycircles", :action => "universal_add_content", :content_type_index => 4 }, :html => { :class => "tooltip", :title => "Post Fix It" }
@@ -99,6 +109,8 @@
     %h1
       = link_to "let's fix it", posts_url(:shortname => "fixit"), :class => "tooltip", :title => "Community improvement projects"
       = image_tag "map_icons/fixit/fixitimage.png", { :border => 0, :height => 20 }
+      
+      
     #fixit.infoblock
       - unless @fix_its.empty?
         - @fix_its.each do |fix_it|

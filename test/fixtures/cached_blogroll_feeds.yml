@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100207115214
+# Schema version: 20100319044343
 #
 # Table name: cached_blogroll_feeds
 #

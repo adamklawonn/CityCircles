@@ -9,4 +9,4 @@
     - for ad in @map_ads do
       %tr
         %td{ :align => "center"}
-          = image_tag ad.graphic.url( :map )
+          = link_to( image_tag( ad.graphic.url( :map ) ), ad.link_uri, :target => "_blank" )

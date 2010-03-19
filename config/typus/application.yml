@@ -6,7 +6,7 @@
 Ad:
     fields:
         list: organization, placement, starts_at, ends_at, weight, is_approved
-        form: organization, placement, graphic_file_name, starts_at, ends_at, weight, is_approved
+        form: organization, placement, graphic_file_name, link_uri, popup_html, starts_at, ends_at, weight, is_approved
         options:
             selectors: placement
             read_only: graphic_updated_at

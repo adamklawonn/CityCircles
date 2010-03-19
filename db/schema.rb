@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100305041528) do
+ActiveRecord::Schema.define(:version => 20100319044343) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20100305041528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "interest_point_id"
+    t.string   "link_uri"
+    t.text     "popup_html"
   end
 
   create_table "assets", :force => true do |t|
