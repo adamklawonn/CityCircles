@@ -9,7 +9,7 @@
     - for ad in @map_ads do
       %tr
         %td{ :align => "center"}
-          - if @ad.link_uri != nil
+          - if ad.link_uri != nil
             = link_to( image_tag( ad.graphic.url( :map ) ), ad.link_uri, :target => "_blank" )
           - else
             = image_tag ad.graphic_url( :map )
