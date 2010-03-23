@@ -1,1 +1,1 @@
-
+/Users/integrumuser/Projects/CityCircles/features/browse_content.feature:3

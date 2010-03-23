@@ -20,4 +20,5 @@ class PostType < ActiveRecord::Base
   belongs_to :map_layer
   belongs_to :map_icon
   has_many :posts
+  validates_presence_of :shortname
 end

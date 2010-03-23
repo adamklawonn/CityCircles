@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
   
     # No support for IE < 7
     def browser_detect
+      return true if ENV['RAILS_ENV'].eql?('cucumber')
+      
       case request.user_agent
         when /(gecko|opera|konqueror|khtml|webkit)/i
            # Do nothing.
