@@ -34,6 +34,7 @@ config.gem "thoughtbot-factory_girl", :lib    => "factory_girl", :source => "htt
 config.gem "webrat", :lib => false, :version => ">= 0.4.3"
 config.gem "nokogiri", :lib => false, :version => ">= 1.2.3"
 config.gem "database_cleaner"
+config.gem "capybara"
 
 
 ENV['AUTOFEATURE'] = "true"
