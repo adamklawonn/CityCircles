@@ -53,7 +53,7 @@ module ApplicationHelper
   end
 
   def generate_gmap( map, poi_override = nil, poi_override_options = {} )
-    
+    puts map
     poi_override_options[ :open_info_window_onload ] = false unless poi_override_options.has_key?( :open_info_window_onload )
     
     if poi_override != nil
@@ -66,9 +66,12 @@ module ApplicationHelper
       case layer.shortname
         when "lightrailline"
           line_categories = InterestLine.find( :all, :group => "shortname", :conditions => [ "map_layer_id = ?", layer.id ] )
-          marker_group = { :layer_name => layer.shortname, :markers => layer.interest_points.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( 20, 20 ), :icon_anchor => GPoint.new( 10, 10 ), :info_window_anchor => GPoint.new( 10, 10 ) ), :title => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.label : poi.label ), :info_window => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.body : poi.body ) ) } }
+          marker_group = { :layer_name => layer.shortname, 
+                           :markers => layer.interest_points.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( 20, 20 ), :icon_anchor => GPoint.new( 10, 10 ), :info_window_anchor => GPoint.new( 10, 10 ) ), :title => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.label : poi.label ), :info_window => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.body : poi.body ) ) } }
           line_categories.each do | lc | 
-            marker_group[ :markers ] << GPolyline.new( InterestLine.find( :all, :select => "lat, lng", :conditions => [ "shortname = ?", lc.shortname ] ).collect { | poi | [ poi.lat, poi.lng ] }, "#FFFFFF", 9, 1 )
+            marker_group[ :markers ] << GPolyline.new( InterestLine.find( :all, 
+                :select => "lat, lng", 
+                :conditions => [ "shortname = ?", lc.shortname ] ).collect { | poi | [ poi.lat, poi.lng ] }, "#FFFFFF", 9, 1 )
             marker_group[ :markers ] << GPolyline.new( InterestLine.find( :all, :select => "lat, lng", :conditions => [ "shortname = ?", lc.shortname ] ).collect { | poi | [ poi.lat, poi.lng ] }, "#8F2323", 5, 1 )
           end
           marker_groups << marker_group
