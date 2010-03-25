@@ -9,8 +9,9 @@
     %legend Register
     - form_for @user, :url => accounts_url do |f|
       = render :partial => "form", :object => f
-      %br
-      = recaptcha_tags :ajax => true
+      - if RAILS_ENV != 'cucumber'
+        %br
+        = recaptcha_tags :ajax => true
       %br
       = f.submit "Register"
 .grid_3.omega
