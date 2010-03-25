@@ -10,7 +10,7 @@ Feature: Authentication
     And   there is a user with the email "test@test.com"
     And   I fill in "email" with "test@test.com"
     And   I press "Reset Password"
-    Then  I should receive an email
+    Then  "test@test.com" should receive an email
     When  I open the email
     And   I follow "Click here to reset your password"
     Then  I should see "Change My Password"
@@ -27,7 +27,7 @@ Feature: Authentication
     And   there is a user with the email "test@test.com"
     And   I fill in "email" with "test@test.com"
     And   I press "Reset Password"
-    Then  I should receive an
+    Then  "test@test.com" should receive an email
     When  I open the email
     And   I follow "Click here to reset your password"
     Then  I should see "Change My Password"
