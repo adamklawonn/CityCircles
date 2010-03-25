@@ -11,7 +11,7 @@ require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumb
 require 'cucumber/rails/world'
 require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
-
+require 'email_spec/cucumber'
 require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'

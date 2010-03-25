@@ -10,6 +10,6 @@ Feature: Submit a suggestion
     Given I am on the contact us page
     And I fill in "suggestion_email" with "test@test.com"
     And I fill in "suggestion_body" with "this is a suggestion"
-    Then I press "suggestion_submit"
+    Then I press "Submit Suggestion"
     Then I should see "Sign In"
     And I should see "Thank you!"
