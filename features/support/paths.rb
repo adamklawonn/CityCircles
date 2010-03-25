@@ -16,8 +16,10 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
-    when /^the suggestion box page/
-      new_suggestion_path
+    when /^the contact us page/
+      contact_page_path
+    when /^the login page/
+      signin_path
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
