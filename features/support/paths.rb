@@ -22,6 +22,8 @@ module NavigationHelpers
       signin_path
     when /^the signup page/
       signup_path
+    when /^the new organization page/
+      "/admin/organizations/new"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

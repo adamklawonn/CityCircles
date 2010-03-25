@@ -56,3 +56,13 @@ Given /^there is a post called "([^\"]*)" of type "([^\"]*)" for point of intere
   #e = Factory.create(:event, {:starts_at => Time.now, :ends_at => Time.now})
   #Factory.create(:post, {:headline => post_headline, :author_id => u.id, :lat => poi.lat, :lng => poi.lng, :interest_point_id => poi.id, :map_layer_id => poi.map_layer_id ,:post_type_id => pt.id, :event_id => e.id})
 end
+
+Given /^I have an interest point$/ do
+  interest_point = Factory.create(:interest_point)
+end
+
+Given /^I have an organization with name "([^\"]*)" with author "([^\"]*)"$/ do |org, author|
+  u = User.find_by_email(author)
+  poi = InterestPoint.first
+  Factory.create(:organization,{:name => org, :author_id => u.id, :interest_point_id => poi})
+end

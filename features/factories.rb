@@ -16,6 +16,10 @@ Factory.define :post do |p|
 end
 
 Factory.define :interest_point do |ip|
+  ip.map_id "1"
+  ip.map_icon_id "2"
+  ip.map_layer_id "3"
+  ip.author_id "4"
   ip.label "Label"
   ip.lat "33.519894"
   ip.lng "-112.099709"
@@ -58,3 +62,15 @@ Factory.define :event do |e|
   e.starts_at Time.now
   e.ends_at Time.now
 end
+
+Factory.define :organization do |org|
+  org.name "Test Organization"
+  org.lat "33.519894"
+  org.lng "-112.099709"
+end
+
+Factory.define :organization_member do |member|
+  member.is_active "1"
+end
+  
+  
