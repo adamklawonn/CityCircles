@@ -1,7 +1,8 @@
 Feature: Authentication
   As a user
   I want to be able to be able to log in
-  
+
+  @test_first  
   Scenario: Successfully Recover Password
     Given I am on the login page
     When  I follow "I Forgot My Password"
@@ -19,6 +20,7 @@ Feature: Authentication
     And   I press "Save New Password"
     Then  I should see "New password saved"
 
+  @test_first
   Scenario: Unsuccessfully Recover Password because passwords don't match
     Given I am on the login page
     When  I follow "I Forgot My Password"
@@ -36,6 +38,7 @@ Feature: Authentication
     And   I press "Save New Password"
     Then  I should see "Passwords provided do not match"
     
+  @test_first
   Scenario: Unuccessfully Recover Password because email address provided does not exist
     Given I am on the login page
     When  I follow "I Forgot My Password"

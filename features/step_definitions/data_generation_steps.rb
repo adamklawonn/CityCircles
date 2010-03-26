@@ -66,3 +66,33 @@ Given /^I have an organization with name "([^\"]*)" with author "([^\"]*)"$/ do 
   poi = InterestPoint.first
   Factory.create(:organization,{:name => org, :author_id => u.id, :interest_point_id => poi})
 end
+
+Given /^there is an event called "([^\"]*)" which starts on "([^\"]*)" and ends on "([^\"]*)"$/ do |name, start_date, end_date|
+  Factory.create(:event,{:starts_at => start_date.to_date,
+                         :ends_at => end_date.to_date,
+                         :post => Factory.create(:event_post, {:headline => name, 
+                                               :short_headline => name, 
+                                               :body => "Body"})})
+end
+
+Given /^there is an event called "([^\"]*)" at location "([^\"]*)"$/ do |name, location|
+  res = MultiGeocoder.geocode(location)
+  Factory.create(:event,{:post => Factory.create(:event_post, {:headline => name, 
+                                               :short_headline => name, 
+                                               :body => "Body",
+                                               :lat => res.lat,
+                                               :lng => res.lng})})
+end
+
+Given /^there is an event called "([^\"]*)"$/ do |name|
+  Factory.create(:event,{:post => Factory.create(:event_post, {:headline => name, 
+                                               :short_headline => name, 
+                                               :body => "Body"})})
+end
+
+Given /^there is an news post called "([^\"]*)"$/ do |name|
+  Factory.create(:event,{:post => Factory.create(:news_post, {:headline => name, 
+                                               :short_headline => name, 
+                                               :body => "Body",
+                                               :post_type => Factory.create(:post_type, {:name => "News"})})})
+end

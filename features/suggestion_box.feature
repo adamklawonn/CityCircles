@@ -3,6 +3,7 @@ Feature: Submit a suggestion
   As a guest
   I want to be able to submit a suggestion
   
+  @test_first
   Scenario: Submit a suggestion and get some validation
     Given I am on the login page
     And I follow "contact"

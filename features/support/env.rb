@@ -64,3 +64,5 @@ end
 at_exit do
   DatabaseCleaner.clean
 end
+
+include Geokit::Geocoders

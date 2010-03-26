@@ -4,12 +4,69 @@ Feature: Search
   I want to be able to tell you what I want and see it
   
   Scenario: Basic text search
-    Given there is a user with the email "steve.swedler@integrumtech.com"
-    Given there is a map called "Map 1" with "3" layers created by "steve.swedler@integrumtech.com"
-    Given there is a collection of map icons created by "steve.swedler@integrumtech.com"
-    Given there is a "Events" post type on "Layer Title 0" with a "news" icon
-    Given there is a point of interest called "Interesting Point" on "Map 1" map at "Layer Title 0" layer with "news" icon created by "steve.swedler@integrumtech.com"
-    Given there is a post called "My Post" of type "Events" for point of interest "Interesting Point" created by "steve.swedler@integrumtech.com"
-    Given I am on the homepage
+    Given there is a user with the email "test@testuser.com"
+    And   there is a map called "Map 1" with "3" layers created by "test@testuser.com"
+    And   there is a collection of map icons created by "test@testuser.com"
+    And   there is a "Events" post type on "Layer Title 0" with a "news" icon
+    And   there is a point of interest called "Interesting Point" on "Map 1" map at "Layer Title 0" layer with "news" icon created by "test@testuser.com"
+    And   there is a post called "My Post" of type "Events" for point of interest "Interesting Point" created by "test@testuser.com"
+    And   I am on the homepage
     When  I search for "post"
     Then  I should see "My Post"
+  
+  @test_first
+  Scenario: Navigate to the advanced search page
+    Given there is a user with the email "test@testuser.com"
+    And   there is a map called "Map 1" with "3" layers created by "test@testuser.com"
+    And   there is a collection of map icons created by "test@testuser.com"
+    And   there is a "Events" post type on "Layer Title 0" with a "news" icon
+    And   there is a point of interest called "Interesting Point" on "Map 1" map at "Layer Title 0" layer with "news" icon created by "test@testuser.com"
+    And   there is a post called "My Post" of type "Events" for point of interest "Interesting Point" created by "test@testuser.com"
+    And   I am on the homepage
+    And   I follow "Advanced Search"
+    Then  I should see "Advanced Search"
+  
+  @test_first
+  Scenario: Search by time
+    Given there is an event called "Not My Event" which starts on "1/24/2010" and ends on "1/26/2010"
+    And   there is an event called "My Event" which starts on "3/24/2010" and ends on "3/26/2010"
+    And   I am on the advanced search page
+    When  I select "3/20/2010" from "Start Date"
+    And   I select "3/27/2010" from "End Date"
+    And   I press "Search"
+    Then  I should see "My Event"
+    And   I should not see "Not My Event"
+    
+  @test_first
+  Scenario: Search by location
+    Given there is an event called "My Event" at location "325 E Elliot Rd, Chandler AZ"
+    And   I am on the advanced search page
+    When  I fill in "location" with "Chandler AZ"
+    And   I press "Search"
+    Then  I should see "My Event"
+
+  @test_first
+  Scenario: Search by post type
+    Given there is an event called "My Event"
+    Given there is an news post called "My News"
+    And   I am on the advanced search page
+    When  I fill in "post_type" with "Events"
+    And   I press "Search"
+    Then  I should see "My Event"
+    Then  I should not see "My News"
+    When  I fill in "post_type" with "News"
+    And   I press "Search"
+    Then  I should see "My News"
+    Then  I should not see "My Event"
+    
+  @test_first
+  Scenario: Search text should b
+    Given there is a user with the email "test@testuser.com"
+    And   there is a map called "Map 1" with "3" layers created by "test@testuser.com"
+    And   there is a collection of map icons created by "test@testuser.com"
+    And   there is a "Events" post type on "Layer Title 0" with a "news" icon
+    And   there is a point of interest called "Interesting Point" on "Map 1" map at "Layer Title 0" layer with "news" icon created by "test@testuser.com"
+    And   there is a post called "My Post" of type "Events" for point of interest "Interesting Point" created by "test@testuser.com"
+    And   I am on the homepage
+    When  I search for "Amazing Stuff"
+    Then  there should be "Amazing Stuff" in the search history

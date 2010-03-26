@@ -13,3 +13,4 @@ log/twitterbug.rb_monitor.pid
 nbproject
 .loadpath
 .project
+vendor/plugins/acts_as_xapian/xapiandbs/*

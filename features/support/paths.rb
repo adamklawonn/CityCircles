@@ -24,6 +24,8 @@ module NavigationHelpers
       signup_path
     when /^the new organization page/
       "/admin/organizations/new"
+    when /^the advanced search page/
+      search_path
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
