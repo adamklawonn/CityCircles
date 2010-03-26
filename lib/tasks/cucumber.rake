@@ -19,6 +19,14 @@ begin
       t.fork = true # You may get faster startup if you set this to false
       t.profile = 'default'
     end
+    
+    Cucumber::Rake::Task.new({:rcov => 'db:test:prepare'}, 'Run features that should pass') do |t|
+      t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
+      t.fork = true # You may get faster startup if you set this to false
+      t.profile = 'default'
+      t.cucumber_opts = "--format pretty"
+      t.rcov = true
+    end
 
     Cucumber::Rake::Task.new({:wip => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
       t.binary = vendored_cucumber_bin
@@ -37,6 +45,9 @@ begin
   task :features => :cucumber do
     STDERR.puts "*** The 'features' task is deprecated. See rake -T cucumber ***"
   end
+
+  task :features => 'db:test:prepare'
+  
 rescue LoadError
   desc 'cucumber rake task not available (cucumber not installed)'
   task :cucumber do
@@ -45,3 +56,4 @@ rescue LoadError
 end
 
 end
+
