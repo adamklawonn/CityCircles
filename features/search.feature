@@ -3,7 +3,6 @@ Feature: Search
   As a guest or user
   I want to be able to tell you what I want and see it
   
-  @index_me
   Scenario: Basic text search
     Given there is a user with the email "steve.swedler@integrumtech.com"
     Given there is a map called "Map 1" with "3" layers created by "steve.swedler@integrumtech.com"
