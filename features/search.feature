@@ -3,16 +3,24 @@ Feature: Search
   As a guest or user
   I want to be able to tell you what I want and see it
   
-  Scenario: Basic text search
+  Scenario Outline: Basic text search
     Given there is a user with the email "test@testuser.com"
     And   there is a map called "Map 1" with "3" layers created by "test@testuser.com"
     And   there is a collection of map icons created by "test@testuser.com"
     And   there is a "Events" post type on "Layer Title 0" with a "news" icon
     And   there is a point of interest called "Interesting Point" on "Map 1" map at "Layer Title 0" layer with "news" icon created by "test@testuser.com"
-    And   there is a post called "My Post" of type "Events" for point of interest "Interesting Point" created by "test@testuser.com"
+    Given there is an event called "My Event"
+    Given there is an news post called "My News"
     And   I am on the homepage
-    When  I search for "post"
-    Then  I should see "My Post"
+    When  I search for "<name>"
+    Then  I should <action>
+    Examples:
+      | name     | action              |
+      | My Event | see "My Event"      |
+      | My Event | not see "My News"   |
+      | My News  | see "My News"       |
+      | My News  | not see "My Events" |
+    
   
   @test_first
   Scenario: Navigate to the advanced search page
@@ -46,18 +54,20 @@ Feature: Search
     Then  I should see "My Event"
 
   @test_first
-  Scenario: Search by post type
+  Scenario Outline: Search by post type
     Given there is an event called "My Event"
     Given there is an news post called "My News"
     And   I am on the advanced search page
-    When  I fill in "post_type" with "Events"
+    When  I fill in "post_type" with "<post_type>"
     And   I press "Search"
-    Then  I should see "My Event"
-    Then  I should not see "My News"
-    When  I fill in "post_type" with "News"
-    And   I press "Search"
-    Then  I should see "My News"
-    Then  I should not see "My Event"
+    Then  I should <action>
+
+    Examples:
+      | post_type | action              |
+      | Events    | see "My Event"      |
+      | Events    | not see "My News"   |
+      | News      | see "My News"       |
+      | News      | not see "My Events" |
     
   @test_first
   Scenario: Search text should b
@@ -70,3 +80,4 @@ Feature: Search
     And   I am on the homepage
     When  I search for "Amazing Stuff"
     Then  there should be "Amazing Stuff" in the search history
+    
