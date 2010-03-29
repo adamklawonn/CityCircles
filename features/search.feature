@@ -21,7 +21,6 @@ Feature: Search
       | My News  | see "My News"       |
       | My News  | not see "My Events" |
     
-  
   @test_first
   Scenario: Navigate to the advanced search page
     Given there is a user with the email "test@testuser.com"
