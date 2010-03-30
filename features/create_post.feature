@@ -3,18 +3,20 @@ Feature: Create post
   As a user
   I want to add posts to the site
 
-  @wip
+  @javascript
   Scenario: Create a post
     Given I have setup my homepage
     Given I have a point of interest "My POI"
-    Given there is a user with the username "test" and password "secret"
-    And   I am logged in as "test" with password "secret"
+    Given there is a user with the username "test" and password "password"
+    Given I am on the home page
+    Then  I follow "sign in"
+    Then  I fill in "user_session_login" with "test"
+    Then  I fill in "user_session_password" with "password"
+    Then  I press "Login"
     Given I am on the new post page with a point of interest and post type "Events"
     When  I fill in "post_headline" with "New Post"
     And   I fill in "post_short_headline" with "New Post Short Headline"
-    And   I fill in "post_body" with "Text"
-    And   I fill in "lat" with "33.52143305339792"
-    And   I fill in "lng" with "-112.09749269590247"
+    And   I click "postcontentmap"
     And   I check "post_certification"
     When  I press "Post"
     

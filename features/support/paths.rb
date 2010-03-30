@@ -28,6 +28,8 @@ module NavigationHelpers
       search_path
     when /the new post page with a point of interest and post type \"Events\"/
       new_post_path(:poi_id => InterestPoint.first, :pt => "Events")
+    when /^the new event page$/
+      new_event_path
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
