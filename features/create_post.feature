@@ -19,7 +19,7 @@ Feature: Create post
     And   I click "postcontentmap"
     And   I check "post_certification"
     When  I press "Post"
-    
+    Then  show me the page
     # location
     # If I do not complete this and click "Post," I should see messages near the empty fields: "Can't be blank" for headlines, and "You must choose location" for map.
 

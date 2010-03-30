@@ -3,5 +3,6 @@ Given /^I have a point of interest "([^\"]*)"$/ do |label|
 end
 
 When /^I click "([^\"]*)"$/ do |thingiclicked|
-  find(thingiclicked).click
+  find_by_id(thingiclicked).click
 end
+
