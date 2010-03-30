@@ -2,7 +2,8 @@ Feature: Manage organization events
   In order manage events
   As an organizer
   I want to manage events
-  
+
+  @wip
   Scenario: creating an event
     Given I have setup my homepage
     Given there is a user with the username "test" and password "password"

@@ -2,7 +2,7 @@ Feature: Signup
   In order use this amazing site
   As a guest
   I want to signup
-
+  @test_first
   Scenario: Recieve a welcome email on signup
     # setup homepage for redirect after submit
     Given there is a user with the email "steve.swedler@integrumtech.com"
