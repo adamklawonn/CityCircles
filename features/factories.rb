@@ -43,10 +43,10 @@ Factory.define :news_post, :class => Post do |p|
 end
 
 Factory.define :interest_point do |ip|
-  ip.map_id "1"
-  ip.map_icon_id "2"
-  ip.map_layer_id "3"
-  ip.author_id "4"
+  ip.map {|m| m.association(:map)}
+  ip.map_icon {|mi| mi.association(:map_icon)}
+  ip.map_layer {|ml| ml.association(:map_layer)}
+  ip.author {|a| a.association(:user)}
   ip.label "Label"
   ip.lat "33.519894"
   ip.lng "-112.099709"

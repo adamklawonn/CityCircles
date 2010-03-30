@@ -26,6 +26,8 @@ module NavigationHelpers
       "/admin/organizations/new"
     when /^the advanced search page/
       search_path
+    when /the new post page with a point of interest and post type \"Events\"/
+      new_post_path(:poi_id => InterestPoint.first, :pt => "Events")
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
