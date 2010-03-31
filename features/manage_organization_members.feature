@@ -1,7 +1,7 @@
 Feature: Managing Organization Features
 
   @test_first
-  Scenario: Add a new organization member (with all details)
+  Scenario: (Test First) Add a new organization member (with all details)
     Given I have setup my homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
@@ -26,7 +26,7 @@ Feature: Managing Organization Features
     And I should be on the "test" profile page
     
   @test_first
-  Scenario: Add a new organization member (missing details)
+  Scenario: (Test First) Add a new organization member (missing details)
     Given I have setup my homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
@@ -50,7 +50,7 @@ Feature: Managing Organization Features
     Then I should see "Oops! Your forgot some information. Please complete the form to continue."
     
   @test_first
-  Scenario: Removing an organization member
+  Scenario: (Test First) Removing an organization member
     Given There is an organization member
     Then I should see "Organization Members"
     When I follow "Organization Members"

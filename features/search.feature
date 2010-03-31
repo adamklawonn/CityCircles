@@ -22,7 +22,7 @@ Feature: Search
       | My News  | not see "My Events" |
     
   @test_first
-  Scenario: Navigate to the advanced search page
+  Scenario: (Test First) Navigate to the advanced search page
     Given there is a user with the email "test@testuser.com"
     And   there is a map called "Map 1" with "3" layers created by "test@testuser.com"
     And   there is a collection of map icons created by "test@testuser.com"
@@ -34,7 +34,7 @@ Feature: Search
     Then  I should see "Advanced Search"
   
   @test_first
-  Scenario: Search by time
+  Scenario: (Test First) Search by time
     Given there is an event called "Not My Event" which starts on "1/24/2010" and ends on "1/26/2010"
     And   there is an event called "My Event" which starts on "3/24/2010" and ends on "3/26/2010"
     And   I am on the advanced search page
@@ -45,7 +45,7 @@ Feature: Search
     And   I should not see "Not My Event"
     
   @test_first
-  Scenario: Search by location
+  Scenario: (Test First) Search by location
     Given there is an event called "My Event" at location "325 E Elliot Rd, Chandler AZ"
     And   I am on the advanced search page
     When  I fill in "location" with "Chandler AZ"
@@ -53,7 +53,7 @@ Feature: Search
     Then  I should see "My Event"
 
   @test_first
-  Scenario Outline: Search by post type
+  Scenario (Test First) Outline: Search by post type
     Given there is an event called "My Event"
     Given there is an news post called "My News"
     And   I am on the advanced search page

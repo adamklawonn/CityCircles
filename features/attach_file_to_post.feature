@@ -20,7 +20,7 @@ Feature: Attaching files to post
     Then I should see "Post created."
     
   @test_first
-  Scenario: Attempting to add 5 images to a post
+  Scenario: (Test First) Attempting to add 5 images to a post
     Given everything is setup to create posts
     Given I am on the new post page with a point of interest and post type "Events"
     When I fill in "post_headline" with "Oh Emm Gee - It's an EVENT!"
@@ -43,7 +43,7 @@ Feature: Attaching files to post
     Then I should not see "Add Attachment"
   
   @test_first
-  Scenario: There should be a paperclip icon next to each post link
+  Scenario: (Test First) There should be a paperclip icon next to each post link
     Given everything is setup to create posts
     And I am on the new post page with a point of interest and post type "Events"
     When I fill in "post_headline" with "Oh Emm Gee - It's an EVENT!"

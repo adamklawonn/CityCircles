@@ -3,7 +3,7 @@ Feature: Wireless profile
   I want to be able to manage my wireless devices
 
   @test_first
-  Scenario: Adding a new wireless device to my profile
+  Scenario: (Test First) Adding a new wireless device to my profile
     Given I have setup my homepage
     Given there is a user with the username "test" and password "password"
     And I am logged in as "test" with password "password"
@@ -18,7 +18,7 @@ Feature: Wireless profile
     And I should be on the "test" profile page
 
   @test_first
-  Scenario: Editing an existing wireless device on my profile (with all data)
+  Scenario: (Test First) Editing an existing wireless device on my profile (with all data)
     Given I have setup my homepage
     Given there is a user with the username "test" and password "password"
     And I am logged in as "test" with password "password"
@@ -36,7 +36,7 @@ Feature: Wireless profile
     And I should be on the "test" profile page
 
   @test_first
-  Scenario: Editing an existing wireless device on my profile (with missing data)
+  Scenario: (Test First) Editing an existing wireless device on my profile (with missing data)
     Given I have setup my homepage
     Given there is a user with the username "test" and password "password"
     And I am logged in as "test" with password "password"
@@ -53,7 +53,7 @@ Feature: Wireless profile
     Then I should see "Oops! You're missing some information. Please complete the required fields."
     
   @test_first
-  Scenario: Delete an existing wireless device on my profile
+  Scenario: (Test First) Delete an existing wireless device on my profile
     Given I have setup my homepage
     Given there is a user with the username "test" and password "password"
     And I am logged in as "test" with password "password"

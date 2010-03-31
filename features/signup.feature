@@ -3,7 +3,7 @@ Feature: Signup
   As a guest
   I want to signup
   @test_first
-  Scenario: Recieve a welcome email on signup
+  Scenario: (Test First) Recieve a welcome email on signup
     # setup homepage for redirect after submit
     Given there is a user with the email "steve.swedler@integrumtech.com"
     Given there is a map called "Map 1" with "3" layers created by "steve.swedler@integrumtech.com"

@@ -3,7 +3,7 @@ Feature: Authentication
   I want to be able to be able to log in
 
   @test_first  
-  Scenario: Successfully Recover Password
+  Scenario: (Test First) Successfully Recover Password
     Given I am on the login page
     When  I follow "I Forgot My Password"
     Then  I should see "Reset Password"
@@ -21,7 +21,7 @@ Feature: Authentication
     Then  I should see "New password saved"
 
   @test_first
-  Scenario: Unsuccessfully Recover Password because passwords don't match
+  Scenario: (Test First) Unsuccessfully Recover Password because passwords don't match
     Given I am on the login page
     When  I follow "I Forgot My Password"
     Then  I should see "Reset Password"
@@ -39,7 +39,7 @@ Feature: Authentication
     Then  I should see "Passwords provided do not match"
     
   @test_first
-  Scenario: Unuccessfully Recover Password because email address provided does not exist
+  Scenario: (Test First) Unuccessfully Recover Password because email address provided does not exist
     Given I am on the login page
     When  I follow "I Forgot My Password"
     Then  I should see "Reset Password"

@@ -4,7 +4,7 @@ Feature: Submit a suggestion
   I want to be able to submit a suggestion
   
   @test_first
-  Scenario: Submit a suggestion and get some validation
+  Scenario: (Test First) Submit a suggestion and get some validation
     Given I am on the login page
     And I follow "contact"
     Then I should see "Got a question, suggestion or concern? We want to hear it."
