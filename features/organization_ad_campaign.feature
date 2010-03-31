@@ -20,7 +20,6 @@ Feature: Manage Organization Ads
     Then I should see "New Ad Campaign" 
     When I select "Homepage Map - Size: height : 100px, width : 100px" from "ad_placement"
     And I select the file "features/support/image.jpg" to upload for "ad_graphic"
-    # And I attach the file "/Users/integrum/Projects/CityCircles/features/support/image.jpg" to "ad_graphic"
     And I fill in "ad_starts_at_date" with "3/1/2010"
     And I fill in "ad_starts_at_time" with "1:00 AM"
     And I fill in "ad_ends_at_date" with "3/1/2011"
@@ -57,6 +56,179 @@ Feature: Manage Organization Ads
     When I follow "Homepage Map Ad"
     And I should see "Edit Ad Campaign"
     Then "ad_placement" should have "Homepage Map - Size: height : 100px, width : 100px" selected
+    When I follow "Delete Campaign"
+    Then I should see "Are you sure you want to delete this campaign?"
+    When I follow "Yes"
+    Then I should see "Pending Campaign successfully deleted"
+    And I should see "No pending campaigns"
+    
+  @test_first
+  Scenario: (Test First) Creating a pending Profile Map Ad
+    Given I have setup my homepage
+    And there is a user with the username "test" and password "password"
+    And there is an organization called "Ben's Trikes"
+    And the user with username "test" is part of the "Ben's Trikes" organization
+    And I am on the home page
+    And  I follow "sign in"
+    And  I fill in "user_session_login" with "test"
+    And  I fill in "user_session_password" with "password"
+    And  I press "Login"
+    Then I should see "organizations"
+    When I follow "organizations"
+    Then I should see "Your Organizations"
+    And I should see "Ben's Trikes"
+    When I follow "Ben's Trikes"
+    Then I should see "No pending campaigns"
+    When I follow "Ad"
+    Then I should see "New Ad Campaign" 
+    When I select "Profile Map - Size: height : 100px, width : 100px" from "ad_placement"
+    And I select the file "features/support/image.jpg" to upload for "ad_graphic"
+    And I fill in "ad_starts_at_date" with "3/1/2010"
+    And I fill in "ad_starts_at_time" with "1:00 AM"
+    And I fill in "ad_ends_at_date" with "3/1/2011"
+    And I fill in "ad_ends_at_time" with "1:00 AM"
+    And I press "Submit for Approval"
+    Then I should see "Profile Map Ad"
+    And I should not see "No pending campaigns"
+
+  @test_first
+  Scenario: (Test First) Editing a pending Profile Map Ad
+    Given I have a Home Map Ad
+    And I am on the home page
+    And I follow "organizations"
+    And I follow "Bens Trikes"
+    And I follow "Profile Map Ad"
+    Then I should see "Edit Ad Campaign"
+    And "ad_placement" should have "Profile Map - Size: height : 100px, width : 100px" selected
+    When I select "Homepage Under Map - Size: height : 100px, width : 940px" from "ad_placement"
+    And the "ad_starts_at_date" field should contain "3/1/2010"
+    And the "ad_starts_at_time" field should contain "1:00 AM"
+    And the "ad_ends_at_date" field should contain "3/1/2011"
+    And the "ad_ends_at_time" field should contain "1:00 AM"
+    Then there should be an image named "image.jpg"
+    Then I press "Update Campaign"
+    Then I should see "Homepage Under Map Ad"
+    And I should not see "No pending campaigns"
+
+  @test_first
+  Scenario: (Test First) Delete a pending Profile Map Ad
+    Given I have a Home Map Ad
+    And I am on the home page
+    And I follow "organizations"
+    And I follow "Bens Trikes"
+    When I follow "Profile Map Ad"
+    And I should see "Edit Ad Campaign"
+    Then "ad_placement" should have "Profile Map - Size: height : 100px, width : 100px" selected
+    When I follow "Delete Campaign"
+    Then I should see "Are you sure you want to delete this campaign?"
+    When I follow "Yes"
+    Then I should see "Pending Campaign successfully deleted"
+    And I should see "No pending campaigns"
+
+    
+  @test_first
+  Scenario: (Test First) Creating a pending Homepage Under Map Ad
+    Given I have setup my homepage
+    And there is a user with the username "test" and password "password"
+    And there is an organization called "Ben's Trikes"
+    And the user with username "test" is part of the "Ben's Trikes" organization
+    And I am on the home page
+    And  I follow "sign in"
+    And  I fill in "user_session_login" with "test"
+    And  I fill in "user_session_password" with "password"
+    And  I press "Login"
+    Then I should see "organizations"
+    When I follow "organizations"
+    Then I should see "Your Organizations"
+    And I should see "Ben's Trikes"
+    When I follow "Ben's Trikes"
+    Then I should see "No pending campaigns"
+    When I follow "Ad"
+    Then I should see "New Ad Campaign" 
+    When I select "Homepage Under Map - Size: height : 100px, width : 940px" from "ad_placement"
+    And I select the file "features/support/image.jpg" to upload for "ad_graphic"
+    And I fill in "ad_starts_at_date" with "3/1/2010"
+    And I fill in "ad_starts_at_time" with "1:00 AM"
+    And I fill in "ad_ends_at_date" with "3/1/2011"
+    And I fill in "ad_ends_at_time" with "1:00 AM"
+    And I press "Submit for Approval"
+    Then I should see "Homepage Map Ad"
+    And I should not see "No pending campaigns"
+  
+  @test_first
+  Scenario: (Test First) Editing a pending Homepage Under Map Ad
+    Given I have setup my homepage
+    And there is a user with the username "test" and password "password"
+    And there is an organization called "Ben's Trikes"
+    And the user with username "test" is part of the "Ben's Trikes" organization
+    And I am on the home page
+    And  I follow "sign in"
+    And  I fill in "user_session_login" with "test"
+    And  I fill in "user_session_password" with "password"
+    And  I press "Login"
+    Then I should see "organizations"
+    When I follow "organizations"
+    Then I should see "Your Organizations"
+    And I should see "Ben's Trikes"
+    When I follow "Ben's Trikes"
+    Then I should see "No pending campaigns"
+    When I follow "Ad"
+    Then I should see "New Ad Campaign" 
+    When I select "Homepage Under Map - Size: height : 100px, width : 940px" from "ad_placement"
+    And I select the file "features/support/image.jpg" to upload for "ad_graphic"
+    And I fill in "ad_starts_at_date" with "3/1/2010"
+    And I fill in "ad_starts_at_time" with "1:00 AM"
+    And I fill in "ad_ends_at_date" with "3/1/2011"
+    And I fill in "ad_ends_at_time" with "1:00 AM"
+    And I press "Submit for Approval"
+    And I am on the home page
+    And I follow "organizations"
+    And I follow "Bens Trikes"
+    And I follow "Homepage Map Ad"
+    Then I should see "Edit Ad Campaign"
+    And "ad_placement" should have "Homepage Under Map - Size: height : 100px, width : 940px" selected
+    When I select "Homepage Map - Size: height : 100px, width : 100px" from "ad_placement"
+    And the "ad_starts_at_date" field should contain "3/1/2010"
+    And the "ad_starts_at_time" field should contain "1:00 AM"
+    And the "ad_ends_at_date" field should contain "3/1/2011"
+    And the "ad_ends_at_time" field should contain "1:00 AM"
+    Then there should be an image named "image.jpg"
+    Then I press "Update Campaign"
+    Then I should see "Homepage Map Ad"
+    And I should not see "No pending campaigns"
+    
+  @test_first
+  Scenario: (Test First) Delete a pending Homepage Under Map Ad
+    Given I have setup my homepage
+    And there is a user with the username "test" and password "password"
+    And there is an organization called "Ben's Trikes"
+    And the user with username "test" is part of the "Ben's Trikes" organization
+    And I am on the home page
+    And  I follow "sign in"
+    And  I fill in "user_session_login" with "test"
+    And  I fill in "user_session_password" with "password"
+    And  I press "Login"
+    Then I should see "organizations"
+    When I follow "organizations"
+    Then I should see "Your Organizations"
+    And I should see "Ben's Trikes"
+    When I follow "Ben's Trikes"
+    Then I should see "No pending campaigns"
+    When I follow "Ad"
+    Then I should see "New Ad Campaign" 
+    When I select "Homepage Under Map - Size: height : 100px, width : 940px" from "ad_placement"
+    And I select the file "features/support/image.jpg" to upload for "ad_graphic"
+    And I fill in "ad_starts_at_date" with "3/1/2010"
+    And I fill in "ad_starts_at_time" with "1:00 AM"
+    And I fill in "ad_ends_at_date" with "3/1/2011"
+    And I fill in "ad_ends_at_time" with "1:00 AM"
+    And I press "Submit for Approval"
+    And I am on the home page
+    And I follow "organizations"
+    And I follow "Bens Trikes"
+    When I follow "Homepage Map Ad"
+    And I should see "Edit Ad Campaign"
+    Then "ad_placement" should have "Homepage Under Map - Size: height : 100px, width : 940px" selected
     When I follow "Delete Campaign"
     Then I should see "Are you sure you want to delete this campaign?"
     When I follow "Yes"
