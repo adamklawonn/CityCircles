@@ -325,3 +325,27 @@ Feature: Manage Organization Ads
     Then I should see "Are you sure you want to delete this Promo Campaign"
     When I follow "Yes"
     Then I should see "Promo Campaign successfully deleted"
+    
+  @test_first
+  Scenario: (Test First) Paying for an Ad
+    Given I have a Home Map Ad
+    And I am on the home page
+    And I follow "organizations"
+    And I follow "Bens Trikes"
+    And I should see "Homepage Map Ad"
+    When I follow "Pay for this campaign"
+    Then I should see "Pay for Homepage Map Ad"
+    When I fill in "billing_first_name" with "bob"
+    And I fill in "billing_last_name" with "bobberson"
+    And I fill in "billing_address" with "123 W 1st"
+    And I fill in "billing_city" with "Phoenix"
+    And I fill in "billing_state" with "AZ"
+    And I fill in "billing_zip" with "85225"
+    And I select "VISA" from "billing_card_type"
+    And I fill in "billing_credit_card_number" with "1234123412341234"
+    And I select "March" from "billing_credit_card_month"
+    And I select "2020" from "billing_credit_card_year"
+    And I fill in "billing_ccv" with "123"
+    And I press "Pay"
+    Then I should see "Thank you for your purchase!"
+    
