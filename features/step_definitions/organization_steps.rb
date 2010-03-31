@@ -37,18 +37,6 @@ Given /^I have a Home Map Ad/ do
   And 'I should not see "No pending campaigns"'
 end
 
-Then /^"([^\"]*)" should have "([^\"]*)" selected$/ do |field, value|
-  page.find(:xpath, "//select[@id='"+field+"']/option[@selected='selected']").node.text.should == value
-end
-
-Then /^there should be an image named "([^\"]*)"$/ do |value|
-  page.source.match(value)
-end
-
-Then /^I fill in the hidden field "([^\"]*)" with "([^\"]*)"$/ do |field, value|
-  page.find(:xpath, "//input[@id='"+field+"']").set(value)
-end
-
 Given /^There is an organization member$/ do
   Given 'I have setup my homepage'
   And 'there is a user with the username "test" and password "password"'
@@ -72,4 +60,22 @@ Given /^There is an organization member$/ do
   And 'I press "Done!"'
   Then 'I should see "Thank you! Your new members will receive a welcome email shortly."'
   And 'I should be on the "test" profile page'
+end
+
+When /^(?:|I )select the file "([^\"]*)" to upload for "([^\"]*)"(?: within "([^\"]*)")?$/ do |path, field, selector|
+  with_scope(selector) do
+    attach_file(field, "#{RAILS_ROOT}/#{path}")
+  end
+end
+
+Then /^"([^\"]*)" should have "([^\"]*)" selected$/ do |field, value|
+  page.find(:xpath, "//select[@id='"+field+"']/option[@selected='selected']").node.text.should == value
+end
+
+Then /^there should be an image named "([^\"]*)"$/ do |value|
+  page.source.match(value)
+end
+
+Then /^I fill in the hidden field "([^\"]*)" with "([^\"]*)"$/ do |field, value|
+  page.find(:xpath, "//input[@id='"+field+"']").set(value)
 end
