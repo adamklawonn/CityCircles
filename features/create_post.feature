@@ -3,7 +3,6 @@ Feature: Create post
   As a user
   I want to add posts to the site
 
-  @javascript
   Scenario: Create a post
     Given I have setup my homepage
     Given there is a user with the username "test" and password "password"

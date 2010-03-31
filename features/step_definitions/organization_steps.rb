@@ -73,7 +73,7 @@ Then /^"([^\"]*)" should have "([^\"]*)" selected$/ do |field, value|
 end
 
 Then /^there should be an image named "([^\"]*)"$/ do |value|
-  page.source.match(value)
+  page.source.match(value).should_not == nil
 end
 
 Then /^I fill in the hidden field "([^\"]*)" with "([^\"]*)"$/ do |field, value|

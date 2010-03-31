@@ -28,6 +28,8 @@ module NavigationHelpers
       search_path
     when /the new post page with a point of interest and post type \"Events\"/
       new_post_path(:poi_id => InterestPoint.first.id, :pt => "Events")
+    when /the new post page with a point of interest and post type \"News\"/
+      new_post_path(:poi_id => InterestPoint.first.id, :pt => "News")
     when /^the new event page$/
       new_event_path
     when /^the organizations page/
