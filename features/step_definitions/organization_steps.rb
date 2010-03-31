@@ -33,8 +33,6 @@ Given /^I have a Home Map Ad/ do
   And 'I fill in "ad_ends_at_date" with "3/1/2011"'
   And 'I fill in "ad_ends_at_time" with "1:00 AM"'
   And 'I press "Submit for Approval"'
-  Then 'I should see "Homepage Map Ad"'
-  And 'I should not see "No pending campaigns"'
 end
 
 Given /^There is an organization member$/ do

@@ -1,6 +1,6 @@
 Feature: Manage Organization Ads
   @test_first
-  Scenario: Creating a pending Homepage Map Ad
+  Scenario: (Test First) Creating a pending Homepage Map Ad
     Given I have setup my homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
@@ -30,11 +30,14 @@ Feature: Manage Organization Ads
     And I should not see "No pending campaigns"
   
   @test_first
-  Scenario: Editing a pending Homepage Map Ad
+  Scenario: (Test First) Editing a pending Homepage Map Ad
     Given I have a Home Map Ad
-    When I click "Homepage Map Ad"
-    And I should see "Edit Ad Campaign"
-    Then "ad_placement" should have "Homepage Map - Size: height : 100px, width : 100px" selected
+    And I am on the home page
+    And I follow "organizations"
+    And I follow "Bens Trikes"
+    And I follow "Homepage Map Ad"
+    Then I should see "Edit Ad Campaign"
+    And "ad_placement" should have "Homepage Map - Size: height : 100px, width : 100px" selected
     When I select "Homepage Under Map - Size: height : 100px, width : 940px" from "ad_placement"
     And the "ad_starts_at_date" field should contain "3/1/2010"
     And the "ad_starts_at_time" field should contain "1:00 AM"
@@ -46,9 +49,12 @@ Feature: Manage Organization Ads
     And I should not see "No pending campaigns"
     
   @test_first
-  Scenario: Delete a pending Homepage Map Ad
+  Scenario: (Test First) Delete a pending Homepage Map Ad
     Given I have a Home Map Ad
-    When I click "Homepage Map Ad"
+    And I am on the home page
+    And I follow "organizations"
+    And I follow "Bens Trikes"
+    When I follow "Homepage Map Ad"
     And I should see "Edit Ad Campaign"
     Then "ad_placement" should have "Homepage Map - Size: height : 100px, width : 100px" selected
     When I follow "Delete Campaign"
@@ -58,7 +64,7 @@ Feature: Manage Organization Ads
     And I should see "No pending campaigns"
 
   @test_first
-  Scenario: Creating a pending Text Ad
+  Scenario: (Test First) Creating a pending Text Ad
     Given I have setup my homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
@@ -86,7 +92,7 @@ Feature: Manage Organization Ads
     And I should not see "No pending campaigns"
     
   @test_first
-  Scenario: Editing a pending Text Ad
+  Scenario: (Test First) Editing a pending Text Ad
     Given I have setup my homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
@@ -132,7 +138,7 @@ Feature: Manage Organization Ads
     And the "text_ad_ends_at_time" field should contain "1:00 AM"
     
   @test_first
-  Scenario:Deleting a pending Text Ad
+  Scenario: (Test First) Deleting a pending Text Ad
     Given I have setup my homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
@@ -166,3 +172,156 @@ Feature: Manage Organization Ads
     Then I should see "Are you sure you want to delete this Text Ad Campaign"
     When I follow "Yes"
     Then I should see "Text Ad Campaign successfully deleted"
+    
+  @test_first
+  Scenario: (Test First) Creating a Promo
+    Given I have setup my homepage
+    And there is a user with the username "test" and password "password"
+    And there is an organization called "Ben's Trikes"
+    And the user with username "test" is part of the "Ben's Trikes" organization
+    And I have a point of interest "19th Ave / Camelback"
+    And there is a map called "map" with a layer called "promos" created by "test@test.com"
+    And there is a collection of map icons created by "test@test.com"
+    And there is a "promos" post type on "promos" with a "promos" icon
+    And I am on the home page
+    And  I follow "sign in"
+    And  I fill in "user_session_login" with "test"
+    And  I fill in "user_session_password" with "password"
+    And  I press "Login"
+    Then I should see "organizations"
+    When I follow "organizations"
+    Then I should see "Your Organizations"
+    And I should see "Ben's Trikes"
+    When I follow "Ben's Trikes"
+    Then I should see "No pending campaigns"
+    When I follow "Promo"
+    Then I should see "New Promo Campaign" 
+    And I fill in "promo_title" with "This is our promo"
+    And I fill in "promo_starts_at_date" with "3/1/2010"
+    And I fill in "promo_starts_at_time" with "1:00 AM"
+    And I fill in "promo_ends_at_date" with "3/1/2011"
+    And I fill in "promo_ends_at_time" with "1:00 AM"
+    And I select "19th Ave / Camelback" from "place"
+    And I fill in "post_headline" with "This is a headline"
+    And I fill in "post_short_headline" with "Short Headline"
+    And I fill in "post_body" with "This is my promo body"
+    And I check "post_certification"
+    And I press "Submit for Approval"
+    Then I should see "Promo"
+    And I should not see "No pending campaigns"
+
+  @test_first
+  Scenario: (Test First) Editing a pending Promo
+    Given I have setup my homepage
+    And there is a user with the username "test" and password "password"
+    And there is an organization called "Ben's Trikes"
+    And the user with username "test" is part of the "Ben's Trikes" organization
+    And I have a point of interest "19th Ave / Camelback"
+    And there is a map called "map" with a layer called "promos" created by "test@test.com"
+    And there is a collection of map icons created by "test@test.com"
+    And there is a "promos" post type on "promos" with a "promos" icon
+    And I am on the home page
+    And  I follow "sign in"
+    And  I fill in "user_session_login" with "test"
+    And  I fill in "user_session_password" with "password"
+    And  I press "Login"
+    Then I should see "organizations"
+    When I follow "organizations"
+    Then I should see "Your Organizations"
+    And I should see "Ben's Trikes"
+    When I follow "Ben's Trikes"
+    Then I should see "No pending campaigns"
+    When I follow "Promo"
+    Then I should see "New Promo Campaign" 
+    And I fill in "promo_title" with "This is our promo"
+    And I fill in "promo_starts_at_date" with "3/1/2010"
+    And I fill in "promo_starts_at_time" with "1:00 AM"
+    And I fill in "promo_ends_at_date" with "3/1/2011"
+    And I fill in "promo_ends_at_time" with "1:00 AM"
+    And I select "19th Ave / Camelback" from "place"
+    And I fill in "post_headline" with "This is a headline"
+    And I fill in "post_short_headline" with "Short Headline"
+    And I fill in "post_body" with "This is my promo body"
+    And I check "post_certification"
+    And I press "Submit for Approval"
+    Then I should see "Promo"
+    And I should not see "No pending campaigns"
+    When I follow "Promo"
+    Then I should see "Edit Promo Campaign"
+    And the "promo_title" field should contain "This is our promo"
+    And the "promo_starts_at_date" field should contain "3/1/2010"
+    And the "promo_starts_at_time" field should contain "1:00 AM"
+    And the "promo_ends_at_date" field should contain "3/1/2011"
+    And the "promo_ends_at_time" field should contain "1:00 AM"
+    Then "place" should have "19th Ave / Camelback" selected
+    And the "post_headline" field should contain "This is a headline"
+    And the "post_short_headline" field should contain "Short Headline"
+    And the "post_body" field should contain "This is my promo body"
+    And I fill in "promo_title" with "We have a new title for this promo"
+    And I press "Update Promo"
+    Then I should see "Promo"
+    And I should not see "No pending campaigns"
+    When I follow "Promo"
+    Then I should see "Edit Promo Campaign"
+    And the "promo_title" field should contain "We have a new title for this promo"
+    And the "promo_starts_at_date" field should contain "3/1/2010"
+    And the "promo_starts_at_time" field should contain "1:00 AM"
+    And the "promo_ends_at_date" field should contain "3/1/2011"
+    And the "promo_ends_at_time" field should contain "1:00 AM"
+    Then "place" should have "19th Ave / Camelback" selected
+    And the "post_headline" field should contain "This is a headline"
+    And the "post_short_headline" field should contain "Short Headline"
+    And the "post_body" field should contain "This is my promo body"
+
+  @test_first
+  Scenario: (Test First) Deleting a pending Promo
+    Given I have setup my homepage
+    And there is a user with the username "test" and password "password"
+    And there is an organization called "Ben's Trikes"
+    And the user with username "test" is part of the "Ben's Trikes" organization
+    And I have a point of interest "19th Ave / Camelback"
+    And there is a map called "map" with a layer called "promos" created by "test@test.com"
+    And there is a collection of map icons created by "test@test.com"
+    And there is a "promos" post type on "promos" with a "promos" icon
+    And I am on the home page
+    And  I follow "sign in"
+    And  I fill in "user_session_login" with "test"
+    And  I fill in "user_session_password" with "password"
+    And  I press "Login"
+    Then I should see "organizations"
+    When I follow "organizations"
+    Then I should see "Your Organizations"
+    And I should see "Ben's Trikes"
+    When I follow "Ben's Trikes"
+    Then I should see "No pending campaigns"
+    When I follow "Promo"
+    Then I should see "New Promo Campaign" 
+    And I fill in "promo_title" with "This is our promo"
+    And I fill in "promo_starts_at_date" with "3/1/2010"
+    And I fill in "promo_starts_at_time" with "1:00 AM"
+    And I fill in "promo_ends_at_date" with "3/1/2011"
+    And I fill in "promo_ends_at_time" with "1:00 AM"
+    And I select "19th Ave / Camelback" from "place"
+    And I fill in "post_headline" with "This is a headline"
+    And I fill in "post_short_headline" with "Short Headline"
+    And I fill in "post_body" with "This is my promo body"
+    And I check "post_certification"
+    And I press "Submit for Approval"
+    Then I should see "Promo"
+    And I should not see "No pending campaigns"
+    When I follow "Promo"
+    Then I should see "Edit Promo Campaign"
+    And the "promo_title" field should contain "This is our promo"
+    And the "promo_starts_at_date" field should contain "3/1/2010"
+    And the "promo_starts_at_time" field should contain "1:00 AM"
+    And the "promo_ends_at_date" field should contain "3/1/2011"
+    And the "promo_ends_at_time" field should contain "1:00 AM"
+    Then "place" should have "19th Ave / Camelback" selected
+    And the "post_headline" field should contain "This is a headline"
+    And the "post_short_headline" field should contain "Short Headline"
+    And the "post_body" field should contain "This is my promo body"
+    And I should see "Delete this promo"
+    When I follow "Delete this promo"
+    Then I should see "Are you sure you want to delete this Promo Campaign"
+    When I follow "Yes"
+    Then I should see "Promo Campaign successfully deleted"
