@@ -99,6 +99,8 @@ Factory.define :organization do |org|
   org.name "Test Organization"
   org.lat "33.519894"
   org.lng "-112.099709"
+  org.interest_point {|ip| ip.association(:interest_point)}
+  org.author {|a| a.association(:user)}
 end
 
 Factory.define :organization_member do |member|

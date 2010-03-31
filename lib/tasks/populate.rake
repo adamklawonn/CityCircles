@@ -202,6 +202,7 @@ namespace :db do
     cc_org.lng = cc_org.interest_point.lng
     cc_org.author = user
     cc_org.organization_members << OrganizationMember.new( :user_id => user_caige.id )
+    cc_org.organization_members << OrganizationMember.new( :user_id => user.id )
     cc_org.save!
     
   end
