@@ -45,6 +45,10 @@ Then /^there should be an image named "([^\"]*)"$/ do |value|
   page.source.match(value)
 end
 
+Then /^I fill in the hidden field "([^\"]*)" with "([^\"]*)"$/ do |field, value|
+  page.find(:xpath, "//input[@id='"+field+"']").set(value)
+end
+
 Given /^There is an organization member$/ do
   Given 'I have setup my homepage'
   And 'there is a user with the username "test" and password "password"'

@@ -12,6 +12,12 @@ Given /^there is a map called "([^\"]*)" with "([^\"]*)" layers created by "([^\
   end
 end
 
+Given /^there is a map called "([^\"]*)" with a layer called "([^\"]*)" created by "([^\"]*)"$/ do |map_title, layer, author|
+  u = User.find_by_email(author)
+  m = Factory.create(:map,  {:title => map_title, :author_id => u.id})
+  Factory.create(:map_layer, {:title => layer, :shortname => layer, :map_id => m.id, :author_id => u.id})
+end
+
 Given /^there is a collection of map icons created by "([^\"]*)"$/ do |author|
   u = User.find_by_email(author)
   Factory.create(:map_icon, {:author_id => u.id})

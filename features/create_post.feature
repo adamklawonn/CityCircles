@@ -6,8 +6,9 @@ Feature: Create post
   @javascript
   Scenario: Create a post
     Given I have setup my homepage
-    Given I have a point of interest "My POI"
     Given there is a user with the username "test" and password "password"
+    Given there is a map called "Zen Garden" with a layer called "events" created by "test@test.com"
+    Given I have a point of interest "My POI"
     Given I am on the home page
     Then  I follow "sign in"
     Then  I fill in "user_session_login" with "test"
@@ -16,21 +17,13 @@ Feature: Create post
     Given I am on the new post page with a point of interest and post type "Events"
     When  I fill in "post_headline" with "New Post"
     And   I fill in "post_short_headline" with "New Post Short Headline"
-    And   I click "postcontentmap"
+    And   I fill in "lat" with "31.5124"
+    And   I fill in "lng" with "-112.854"
+    And I fill in "event_starts_at_date" with "3/1/2010"
+    And I fill in "event_starts_at_time" with "1:00 AM"
+    And I fill in "event_ends_at_date" with "3/1/2011"
+    And I fill in "event_ends_at_time" with "1:00 AM"
+    And I fill in "post_body" with "This is a body"
     And   I check "post_certification"
     When  I press "Post"
-    Then  show me the page
-    # location
-    # If I do not complete this and click "Post," I should see messages near the empty fields: "Can't be blank" for headlines, and "You must choose location" for map.
-
-
-  # Given I am a registered CC user and logged in
-  # 
-  #   ISBAT to click on a stop on the map and go to that stop page
-  # 
-  #   And ISBAT to click on the "+" icon near any content category* edit  New  * denotes special case where "Biz Promos" is restricted to merchant access only,
-  #    not general members. This story will be identical for merchants, except they can post to this field exclusively. edit    new comment [x]
-  # 
-  #   When I click the + sign, I should see the post page
-  # 
-  # 
+    Then I should see "Post created."

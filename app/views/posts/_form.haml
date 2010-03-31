@@ -1,5 +1,10 @@
-= hidden_field_tag :lat
-= hidden_field_tag :lng
+- if ENV["RAILS_ENV"] == "cucumber"
+  = text_field_tag :lat
+  = text_field_tag :lng
+- else
+  = hidden_field_tag :lat
+  = hidden_field_tag :lng
+
 = hidden_field_tag :interest_point_id, @post.interest_point.id
 = hidden_field_tag :post_type_id, @post.post_type.id
 = f.label :headline
@@ -35,7 +40,10 @@
 %br
 = f.label :body
 %br
-= f.text_area :body, :class => "wysiwyg"
+- if ENV["RAILS_ENV"] == "cucumber"
+  = f.text_area :body
+- else
+  = f.text_area :body, :class => "wysiwyg"
 = error_message_on :post, :body
 %br
 = f.check_box :certification
