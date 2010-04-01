@@ -53,7 +53,7 @@ Feature: Search
     Then  I should see "My Event"
 
   @test_first
-  Scenario (Test First) Outline: Search by post type
+  Scenario Outline: (Test First) Search by post type
     Given there is an event called "My Event"
     Given there is an news post called "My News"
     And   I am on the advanced search page
