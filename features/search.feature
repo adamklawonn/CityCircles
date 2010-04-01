@@ -69,7 +69,7 @@ Feature: Search
       | News      | not see "My Events" |
     
   @test_first
-  Scenario: Search text should b
+  Scenario: (Test First) Search text should be saved in search history
     Given there is a user with the email "test@testuser.com"
     And   there is a map called "Map 1" with "3" layers created by "test@testuser.com"
     And   there is a collection of map icons created by "test@testuser.com"

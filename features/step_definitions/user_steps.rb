@@ -4,7 +4,7 @@ Given /^there is a user with the username "([^\"]*)" and password "([^\"]*)"$/ d
 end
 
 Given /^I am logged in as "([^\"]*)" with password "([^\"]*)"$/ do |username, password|
-  visit signin_url
+  visit "/signin"
   fill_in "user_session_login", :with => username
   fill_in "user_session_password", :with => password
   click_button "Login"

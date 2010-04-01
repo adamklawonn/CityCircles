@@ -27,7 +27,7 @@ Feature: Wireless profile
     Then I should see "Edit My Device"
     When I follow "Edit My Device"
     Then I should see "Edit My Device"
-    And the "device_phone_number" should contain "555-1212"
+    And  "device_phone_number" should contain "555-1212"
     Then "device_carrier" should have "AT&T" selected
     And I fill in "device_phone_number" with "555-2424"
     And I select "Verizon" from "device_carrier"
@@ -45,7 +45,7 @@ Feature: Wireless profile
     Then I should see "Edit My Device"
     When I follow "Edit My Device"
     Then I should see "Edit My Device"
-    And the "device_phone_number" should contain "555-1212"
+    And  "device_phone_number" should contain "555-1212"
     Then "device_carrier" should have "AT&T" selected
     And I fill in "device_phone_number" with ""
     And I select "Verizon" from "device_carrier"
