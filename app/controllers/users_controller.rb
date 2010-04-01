@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.user_detail = UserDetail.new( params[ :user_details ] )
     if verify_recaptcha( :model => @user, :message => "Captcha response was incorrect!" ) && @user.save
-      flash[:notice] = "Account registered! Please sign in."
+      flash[:notice] = "Account registered! Welcome to the CityCircles community."
       flash.keep
       UserMailer.deliver_registration(@user)
       redirect_to root_url
