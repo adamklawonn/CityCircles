@@ -3,7 +3,7 @@ Feature: Signup
   As a guest
   I want to signup
   @test_first
-  Scenario: (Test First) Recieve a welcome email on signup
+  Scenario: (Test First) Receive a welcome email on signup
     # setup homepage for redirect after submit
     Given there is a user with the email "steve.swedler@integrumtech.com"
     Given there is a map called "Map 1" with "3" layers created by "steve.swedler@integrumtech.com"
@@ -25,3 +25,13 @@ Feature: Signup
     Then  "testuser@test.com" should receive an email
     When  I open the email
     Then  I should see "thanks for registering"
+    When  I follow "this link"
+    Then  I should be on the profile page
+    And   I should see "Account verified!"
+    And   I should see "Test"
+    And   I should see "User"
+    Then  "testuser@test.com" should receive an email
+    When  I open the email
+    And   I should see "Thank you for joining other light rail passengers and nearby residents to make the city around the rail a success with CityCircles." in the email body
+    
+    
