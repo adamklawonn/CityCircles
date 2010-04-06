@@ -130,6 +130,16 @@ Given /^the following interests:$/ do |table|
   end
 end
 
+Given /^the following hobbies:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory.create(:hobby, attributes)
+  end
+end
+
 Given /^I have the interest "([^\"]*)"$/ do |interest_name|
   Factory.create(:user_interest, :interest_id => Interest.find_by_name(interest_name).id, :user_id => User.first.id)
+end
+
+Given /^I have the hobby "([^\"]*)"$/ do |hobby_name|
+  Factory.create(:user_hobby, :hobby_id => Hobby.find_by_name(hobby_name).id, :user_id => User.first.id)
 end

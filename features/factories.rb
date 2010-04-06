@@ -1,3 +1,12 @@
+Factory.define :user_hobby do |ui|
+  ui.user_id 0
+  ui.hobby_id 0
+end
+
+Factory.define :hobby do |h|
+  h.name 'Baseball'
+end
+
 Factory.define :user_interest do |ui|
   ui.user_id 0
   ui.interest_id 0
