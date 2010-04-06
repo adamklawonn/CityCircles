@@ -30,6 +30,8 @@ config.gem "webrat", :lib => false, :version => ">= 0.4.3"
 config.gem "nokogiri", :lib => false, :version => ">= 1.2.3"
 config.gem "database_cleaner"
 config.gem "capybara"
+config.gem 'fakeweb'
+config.gem 'netrecorder'
 
 
 ENV['AUTOFEATURE'] = "true"

@@ -42,6 +42,8 @@ module NavigationHelpers
       settings_path
     when /^the edit page for interest "([^\"]*)"/
       "/admin/interests/edit/#{Interest.find_by_name($1).id}"
+    when /^my profile page/
+      '/user'
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

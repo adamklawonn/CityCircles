@@ -131,3 +131,33 @@ end
 When /^I click "([^\"]*)" in dialog$/ do |button|
   page.driver.browser.assertConfirmation("Remove entry?")
 end
+
+Given /^the following interests:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory.create(:interest, attributes)
+  end
+end
+
+Given /^the following hobbies:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory.create(:hobby, attributes)
+  end
+end
+
+Given /^the following interest points:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory.create(:interest_point, attributes)
+  end
+end
+
+Given /^I have the interest "([^\"]*)"$/ do |interest_name|
+  Factory.create(:user_interest, :interest_id => Interest.find_by_name(interest_name).id, :user_id => User.first.id)
+end
+
+Given /^I have the hobby "([^\"]*)"$/ do |hobby_name|
+  Factory.create(:user_hobby, :hobby_id => Hobby.find_by_name(hobby_name).id, :user_id => User.first.id)
+end
+
+Given /^I have the location "([^\"]*)"$/ do |interest_point_label|
+  Factory.create(:user_location, :interest_point_id => InterestPoint.find_by_label(interest_point_label).id, :user_id => User.first.id)
+end
