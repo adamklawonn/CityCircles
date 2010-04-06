@@ -115,4 +115,6 @@ Factory.define :organization_member do |member|
   member.is_active "1"
 end
   
-  
+Factory.define :interest do |interest|
+  interest.name "Stuff"
+end

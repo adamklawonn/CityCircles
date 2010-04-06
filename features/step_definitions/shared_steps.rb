@@ -127,3 +127,7 @@ end
 When /^I visit "([^\"]*)"$/ do |url|
   visit url
 end
+
+When /^I click "([^\"]*)" in dialog$/ do |button|
+  page.driver.browser.assertConfirmation("Remove entry?")
+end
