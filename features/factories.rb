@@ -1,3 +1,10 @@
+Factory.define :post_attachment do |pa|
+  pa.post_id 0
+  pa.caption 'attachment caption'
+  pa.oembed 'o embed'
+  pa.code 'attachment code'
+end
+
 Factory.define :promo do |p|
   p.title 'Promo Title'
   p.organization {|o| o.association(:organization)}

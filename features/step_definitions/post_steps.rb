@@ -14,8 +14,11 @@ Given /^I have a point of interest "([^\"]*)"$/ do |label|
   interest_point = Factory.create(:interest_point, {:label => label})
 end
 
-When /^I click "([^\"]*)"$/ do |thingiclicked|
-  find_by_id(thingiclicked).click
+Given /^there is a post called "([^\"]*)" with "([^\"]*)" attachments$/ do |post_headline, number_of_attachments|
+  p = Factory.create(:post, :headline => post_headline, :short_headline => post_headline)
+  number_of_attachments.to_i.times do
+    Factory.create(:post_attachment, :post_id => p.id)
+  end
 end
 
 Given /^there is a post "([^\"]*)"$/ do |post_headline|
@@ -24,4 +27,8 @@ end
 
 When /^I visit the "([^\"]*)" post$/ do |post_headline|
   visit events_post_path(Post.find_by_headline(post_headline))
+end
+
+When /^I click "([^\"]*)"$/ do |thingiclicked|
+  find_by_id(thingiclicked).click
 end
