@@ -1,3 +1,8 @@
+Factory.define :suggestion do |s|
+  s.email 'test@user.com'
+  s.body 'this is the suggestion body'
+end
+
 Factory.define :post_attachment do |pa|
   pa.post_id 0
   pa.caption 'attachment caption'
