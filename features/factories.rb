@@ -1,3 +1,19 @@
+Factory.define :promo do |p|
+  p.title 'Promo Title'
+  p.organization {|o| o.association(:organization)}
+  p.post {|post| post.association(:post)}
+  p.author {|a| a.association(:user)}
+  p.starts_at Time.now
+  p.ends_at Time.now + 1.day
+  p.is_approved true
+end
+
+Factory.define :organization_member do |om|
+  om.user_id 0
+  om.organization_id 0
+  om.active true
+end
+
 Factory.define :user_location do |ul|
   ul.user_id 0
   ul.interest_point_id 0
@@ -39,6 +55,9 @@ Factory.define :post do |p|
   p.lat "33.519894"
   p.lng "-112.099709"
   p.map_layer {|ml| ml.association(:map_layer)}
+  p.post_type {|pt| pt.association(:post_type)}
+  p.interest_point {|ip| ip.association(:interest_point)}
+  p.author {|a| a.association(:user)}
 end
 
 Factory.define :event_post, :class => Post do |p|

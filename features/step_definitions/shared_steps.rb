@@ -157,3 +157,7 @@ end
 Given /^I have the location "([^\"]*)"$/ do |interest_point_label|
   Factory.create(:user_location, :interest_point_id => InterestPoint.find_by_label(interest_point_label).id, :user_id => User.first.id)
 end
+
+Then /^"([^\"]*)" should be checked$/ do |label|
+  assert ['checked', true].include?(find_field(label)['checked'])
+end

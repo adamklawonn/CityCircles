@@ -166,6 +166,7 @@ end
 
 Then /^the "([^\"]*)" checkbox(?: within "([^\"]*)")? should be checked$/ do |label, selector|
   with_scope(selector) do
+    debugger
     if defined?(Spec::Rails::Matchers)
       find_field(label)['checked'].should == 'checked'
     else

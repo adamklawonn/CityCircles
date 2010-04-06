@@ -18,3 +18,10 @@ When /^I click "([^\"]*)"$/ do |thingiclicked|
   find_by_id(thingiclicked).click
 end
 
+Given /^there is a post "([^\"]*)"$/ do |post_headline|
+  Factory.create(:post, :headline => post_headline, :short_headline => post_headline)
+end
+
+When /^I visit the "([^\"]*)" post$/ do |post_headline|
+  visit events_post_path(Post.find_by_headline(post_headline))
+end

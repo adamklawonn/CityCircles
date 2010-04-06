@@ -44,6 +44,14 @@ module NavigationHelpers
       "/admin/interests/edit/#{Interest.find_by_name($1).id}"
     when /^my profile page/
       '/user'
+    when /^the admin dashboard/
+      admin_dashboard_path
+    when /^the admin new promo page/
+      '/admin'+new_promo_path
+    when /^the admin edit promo page for "([^\"]*)"/
+      #TODO: this path doesn't work, seems to be something to do with typus?
+      #'/admin'+edit_promo_path(Promo.find_by_title($1))
+      "/admin/promos/edit/#{Promo.find_by_title($1).id}"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

@@ -63,3 +63,13 @@ end
 Then /^I fill in the hidden field "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   page.find(:xpath, "//input[@id='"+field+"']").set(value)
 end
+
+Given /^"([^\"]*)" is the leader of "([^\"]*)"$/ do |username, organization_name|
+  o = Organization.find_by_name(organization_name)
+  u = User.find_by_login(username)
+  
+  #TODO: Not sure if this is the correct way to make the User u the author of Organization o
+  Factory.create(:organization_member, :user_id => u.id, :organization_id => o.id)
+  o.author_id = u.id
+  o.save!
+end
