@@ -1,3 +1,8 @@
+Factory.define :map_icon do |mi|
+  mi.shortname 'Map Icon Name'
+  mi.author {|a| a.association(:user)}
+end
+
 Factory.define :hobby do |h|
   h.name 'Knitting'
 end

@@ -161,3 +161,15 @@ end
 Then /^"([^\"]*)" should be checked$/ do |label|
   assert ['checked', true].include?(find_field(label)['checked'])
 end
+
+Given /^there is a map icon name "([^\"]*)"$/ do |map_icon_shortname|
+  Factory.create(:map_icon, :shortname => map_icon_shortname)
+end
+
+Given /^there is a map layer named "([^\"]*)"$/ do |map_layer_title|
+  Factory.create(:map_layer, :title => map_layer_title, :shortname => map_layer_title)
+end
+
+Given /^there is a map called "([^\"]*)"$/ do |name|
+  Factory.create(:map, :title => name, :shortname => name )
+end

@@ -14,6 +14,7 @@ Feature: As an admin ISBAT manage hobbies
     When I fill in "item_name" with "Professional Skeeball"
     And press "Create entry"
     Then I should be on the admin hobby edit page for "Professional Skeeball"
+    And the "item_name" field should contain "Professional Skeeball"
     And I should see "Hobby successfully created."
     When I follow "Back to list"
     Then I should see "Professional Skeeball"
@@ -29,6 +30,7 @@ Feature: As an admin ISBAT manage hobbies
     And press "Update entry"
     Then I should be on the admin hobby edit page for "Hog Tying"
     And I should see "Hobby successfully updated."
+    And the "item_name" field should contain "Hog Tying"
     When I follow "Back to list"
     Then I should see "Hog Tying"
   
