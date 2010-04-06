@@ -28,9 +28,8 @@ Feature: Member managing their hobbies
     And I have the hobby "Basketball"
     And I am on my settings page
     And I follow "Hobbies"
-    Then I should see "Baseball"
-    And I should see "Basketball"
+    Then I should see "Baseball" within "ul#hobby_list"
+    And I should see "Basketball" within "ul#hobby_list"
     When I follow "Remove"
-    And I follow "Hobbies"
     And I should not see "Baseball" within "ul#hobby_list"
     And I should see "Basketball" within "ul#hobby_list"

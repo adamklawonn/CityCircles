@@ -1,3 +1,8 @@
+Factory.define :user_location do |ul|
+  ul.user_id 0
+  ul.interest_point_id 0
+end
+
 Factory.define :user_hobby do |ui|
   ui.user_id 0
   ui.hobby_id 0
