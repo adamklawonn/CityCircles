@@ -128,10 +128,6 @@ When /^I visit "([^\"]*)"$/ do |url|
   visit url
 end
 
-When /^I click "([^\"]*)" in dialog$/ do |button|
-  page.driver.browser.assertConfirmation("Remove entry?")
-end
-
 Given /^the following interests:$/ do |table|
   table.hashes.each do |attributes|
     Factory.create(:interest, attributes)

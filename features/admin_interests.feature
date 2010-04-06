@@ -24,10 +24,9 @@ Feature: Admin interests
     And I press "Update entry"
     Then I should see "Interest successfully updated."
   
-  @javascript
+  @rack_test
   Scenario: As an admin I should be able to delete an interest
     Given there is an interest "Ladies"
     And I visit "/admin/interests"
-    When I click "ok" in dialog
     When I follow "Remove"
     Then I should see "Interest successfully removed."
