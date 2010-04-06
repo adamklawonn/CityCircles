@@ -1,3 +1,8 @@
+Factory.define :wireless_carrier do |wc|
+  wc.name 'Wireless Carrier Name'
+  wc.email_gateway 'Wireless Email Gateway'
+end
+
 Factory.define :suggestion do |s|
   s.email 'test@user.com'
   s.body 'this is the suggestion body'
