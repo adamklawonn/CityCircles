@@ -68,6 +68,7 @@ Factory.define :user do |u|
   u.sequence(:login) {|n| "citycircles#{n}" }
   u.password 'dailyphx'
   u.password_confirmation 'dailyphx'
+  u.roles ''
 end
 
 Factory.define :user_detail do |d|

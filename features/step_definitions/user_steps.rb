@@ -6,3 +6,8 @@ end
 Given /^that I am on the profile page for "([^\"]*)"$/ do |login|
   polymorphic_path(User.find_by_login(login))
 end
+
+Given /^no previously logged in user/ do
+  visit "/admin/sign_out"
+  visit "/signout"
+end
