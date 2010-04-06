@@ -119,3 +119,7 @@ Given /^I am logged in as "([^\"]*)" with password "([^\"]*)"$/ do |username, pa
   fill_in "user_session_password", :with => password
   click_button "Login"
 end
+
+Then /^I should wait for the page to load/ do 
+  sleep(10.0)
+end
