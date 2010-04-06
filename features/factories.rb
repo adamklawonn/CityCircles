@@ -1,3 +1,7 @@
+Factory.define :hobby do |h|
+  h.name 'Knitting'
+end
+
 Factory.define :wireless_carrier do |wc|
   wc.name 'Wireless Carrier Name'
   wc.email_gateway 'Wireless Email Gateway'

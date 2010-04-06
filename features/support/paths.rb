@@ -56,6 +56,12 @@ module NavigationHelpers
       '/admin'+wireless_carriers_path
     when /^the wireless carrier edit page for "([^\"]*)"/
       "/admin/wireless_carriers/edit/#{WirelessCarrier.find_by_name($1).id}"
+    when /^the admin hobbies list page/
+      '/admin'+hobbies_path
+    when /^the admin hobbies new page/
+      '/admin'+new_hobby_path
+    when /^the admin hobby edit page for "([^\"]*)"/
+      "/admin/hobbies/edit/#{Hobby.find_by_name($1).id}"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
