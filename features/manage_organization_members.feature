@@ -2,15 +2,11 @@ Feature: Managing Organization Features
 
   @test_first
   Scenario: (Test First) Add a new organization member (with all details)
-    Given I have setup my homepage
+    Given I have setup the homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
     And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
+    And I am logged in as "test" with password "password"
     Then I should see "my profile"
     When I follow "my profile"
     Then I should see "edit profile"
@@ -27,15 +23,11 @@ Feature: Managing Organization Features
     
   @test_first
   Scenario: (Test First) Add a new organization member (missing details)
-    Given I have setup my homepage
+    Given I have setup the homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
     And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
+    And I am logged in as "test" with password "password"
     Then I should see "my profile"
     When I follow "my profile"
     Then I should see "edit profile"

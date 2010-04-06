@@ -1,21 +1,20 @@
 Feature: As an org isbat manage text ads
 
-  @test_first
-  Scenario: (Test First) Creating a pending Text Ad
-    Given I have setup my homepage
+  Background: Setup Ben's Trikes Organization
+    Given I have setup the homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
     And the user with username "test" is part of the "Ben's Trikes" organization
     And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
+    And I am logged in as "test" with password "password"
     Then I should see "organizations"
     When I follow "organizations"
     Then I should see "Your Organizations"
     And I should see "Ben's Trikes"
     When I follow "Ben's Trikes"
+
+  @test_first
+  Scenario: (Test First) Creating a pending Text Ad
     Then I should see "No pending campaigns"
     When I follow "Text Ad"
     Then I should see "New Text Ad Campaign" 
@@ -31,22 +30,10 @@ Feature: As an org isbat manage text ads
     Then I should see "Text Ad"
     And I should not see "No pending campaigns"
   
+
   @test_first
   Scenario: Trying to create a text ad with more than 20 characters
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
+    Then show me the page
     Then I should see "No pending campaigns"
     When I follow "Text Ad"
     Then I should see "New Text Ad Campaign" 
@@ -63,20 +50,6 @@ Feature: As an org isbat manage text ads
   
   @test_first
   Scenario: (Test First) Editing a pending Text Ad
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Text Ad"
     Then I should see "New Text Ad Campaign" 
@@ -118,20 +91,6 @@ Feature: As an org isbat manage text ads
   
   @test_first
   Scenario: (Test First) Deleting a pending Text Ad
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Text Ad"
     Then I should see "New Text Ad Campaign" 

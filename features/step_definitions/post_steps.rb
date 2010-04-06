@@ -1,5 +1,5 @@
 Given /^everything is setup to create posts$/ do
-  Given 'I have setup my homepage'
+  Given 'I have setup the homepage'
   Given 'there is a user with the username "test" and password "password"'
   Given 'there is a map called "Zen Garden" with a layer called "events" created by "test@test.com"'
   Given 'I have a point of interest "My POI"'

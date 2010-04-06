@@ -1,20 +1,20 @@
 Feature: Manage Organization Ads
-  @test_first
-  Scenario: (Test First) Creating a pending Homepage Map Ad
-    Given I have setup my homepage
+
+  Background: Setup Ben's Trikes Organization
+    Given I have setup the homepage
     And there is a user with the username "test" and password "password"
     And there is an organization called "Ben's Trikes"
     And the user with username "test" is part of the "Ben's Trikes" organization
     And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
+    And I am logged in as "test" with password "password"
     Then I should see "organizations"
     When I follow "organizations"
     Then I should see "Your Organizations"
     And I should see "Ben's Trikes"
     When I follow "Ben's Trikes"
+
+  @test_first
+  Scenario: (Test First) Creating a pending Homepage Map Ad
     Then I should see "No pending campaigns"
     When I follow "Ad"
     Then I should see "New Ad Campaign" 
@@ -33,7 +33,7 @@ Feature: Manage Organization Ads
     Given I have a Home Map Ad
     And I am on the home page
     And I follow "organizations"
-    And I follow "Bens Trikes"
+    And I follow "Ben's Trikes"
     And I follow "Homepage Map Ad"
     Then I should see "Edit Ad Campaign"
     And "ad_placement" should have "Homepage Map - Size: height : 100px, width : 100px" selected
@@ -52,7 +52,7 @@ Feature: Manage Organization Ads
     Given I have a Home Map Ad
     And I am on the home page
     And I follow "organizations"
-    And I follow "Bens Trikes"
+    And I follow "Ben's Trikes"
     When I follow "Homepage Map Ad"
     And I should see "Edit Ad Campaign"
     Then "ad_placement" should have "Homepage Map - Size: height : 100px, width : 100px" selected
@@ -64,20 +64,6 @@ Feature: Manage Organization Ads
     
   @test_first
   Scenario: (Test First) Creating a pending Profile Map Ad
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Ad"
     Then I should see "New Ad Campaign" 
@@ -96,7 +82,7 @@ Feature: Manage Organization Ads
     Given I have a Home Map Ad
     And I am on the home page
     And I follow "organizations"
-    And I follow "Bens Trikes"
+    And I follow "Ben's Trikes"
     And I follow "Profile Map Ad"
     Then I should see "Edit Ad Campaign"
     And "ad_placement" should have "Profile Map - Size: height : 100px, width : 100px" selected
@@ -115,7 +101,7 @@ Feature: Manage Organization Ads
     Given I have a Home Map Ad
     And I am on the home page
     And I follow "organizations"
-    And I follow "Bens Trikes"
+    And I follow "Ben's Trikes"
     When I follow "Profile Map Ad"
     And I should see "Edit Ad Campaign"
     Then "ad_placement" should have "Profile Map - Size: height : 100px, width : 100px" selected
@@ -128,20 +114,6 @@ Feature: Manage Organization Ads
     
   @test_first
   Scenario: (Test First) Creating a pending Homepage Under Map Ad
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Ad"
     Then I should see "New Ad Campaign" 
@@ -157,20 +129,6 @@ Feature: Manage Organization Ads
   
   @test_first
   Scenario: (Test First) Editing a pending Homepage Under Map Ad
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Ad"
     Then I should see "New Ad Campaign" 
@@ -181,9 +139,6 @@ Feature: Manage Organization Ads
     And I fill in "ad_ends_at_date" with "3/1/2011"
     And I fill in "ad_ends_at_time" with "1:00 AM"
     And I press "Submit for Approval"
-    And I am on the home page
-    And I follow "organizations"
-    And I follow "Bens Trikes"
     And I follow "Homepage Map Ad"
     Then I should see "Edit Ad Campaign"
     And "ad_placement" should have "Homepage Under Map - Size: height : 100px, width : 940px" selected
@@ -199,20 +154,6 @@ Feature: Manage Organization Ads
     
   @test_first
   Scenario: (Test First) Delete a pending Homepage Under Map Ad
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Ad"
     Then I should see "New Ad Campaign" 
@@ -223,9 +164,6 @@ Feature: Manage Organization Ads
     And I fill in "ad_ends_at_date" with "3/1/2011"
     And I fill in "ad_ends_at_time" with "1:00 AM"
     And I press "Submit for Approval"
-    And I am on the home page
-    And I follow "organizations"
-    And I follow "Bens Trikes"
     When I follow "Homepage Map Ad"
     And I should see "Edit Ad Campaign"
     Then "ad_placement" should have "Homepage Under Map - Size: height : 100px, width : 940px" selected
@@ -237,24 +175,10 @@ Feature: Manage Organization Ads
     
   @test_first
   Scenario: (Test First) Creating a Promo
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
     And I have a point of interest "19th Ave / Camelback"
     And there is a map called "map" with a layer called "promos" created by "test@test.com"
     And there is a collection of map icons created by "test@test.com"
     And there is a "promos" post type on "promos" with a "promos" icon
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Promo"
     Then I should see "New Promo Campaign" 
@@ -274,24 +198,10 @@ Feature: Manage Organization Ads
 
   @test_first
   Scenario: (Test First) Editing a pending Promo
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
     And I have a point of interest "19th Ave / Camelback"
     And there is a map called "map" with a layer called "promos" created by "test@test.com"
     And there is a collection of map icons created by "test@test.com"
     And there is a "promos" post type on "promos" with a "promos" icon
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Promo"
     Then I should see "New Promo Campaign" 
@@ -337,24 +247,10 @@ Feature: Manage Organization Ads
 
   @test_first
   Scenario: (Test First) Deleting a pending Promo
-    Given I have setup my homepage
-    And there is a user with the username "test" and password "password"
-    And there is an organization called "Ben's Trikes"
-    And the user with username "test" is part of the "Ben's Trikes" organization
     And I have a point of interest "19th Ave / Camelback"
     And there is a map called "map" with a layer called "promos" created by "test@test.com"
     And there is a collection of map icons created by "test@test.com"
     And there is a "promos" post type on "promos" with a "promos" icon
-    And I am on the home page
-    And  I follow "sign in"
-    And  I fill in "user_session_login" with "test"
-    And  I fill in "user_session_password" with "password"
-    And  I press "Login"
-    Then I should see "organizations"
-    When I follow "organizations"
-    Then I should see "Your Organizations"
-    And I should see "Ben's Trikes"
-    When I follow "Ben's Trikes"
     Then I should see "No pending campaigns"
     When I follow "Promo"
     Then I should see "New Promo Campaign" 
@@ -393,7 +289,7 @@ Feature: Manage Organization Ads
     Given I have a Home Map Ad
     And I am on the home page
     And I follow "organizations"
-    And I follow "Bens Trikes"
+    And I follow "Ben's Trikes"
     And I should see "Homepage Map Ad"
     When I follow "Pay for this campaign"
     Then I should see "Pay for Homepage Map Ad"

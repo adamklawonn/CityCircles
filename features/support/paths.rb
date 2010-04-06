@@ -36,6 +36,10 @@ module NavigationHelpers
       organizations_path
     when /^the "([^\"]*)" profile page/
       user_path(User.find_by_login($1))
+    when /^my settings page/
+      settings_path
+    when /^the settings page/
+      settings_path
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

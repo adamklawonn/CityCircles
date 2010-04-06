@@ -9,20 +9,6 @@ Given /^the user with username "([^\"]*)" is part of the "([^\"]*)" organization
 end
 
 Given /^I have a Home Map Ad/ do
-  Given 'I have setup my homepage'
-  And 'there is a user with the username "test" and password "password"'
-  And 'there is an organization called "Bens Trikes"'
-  And 'the user with username "test" is part of the "Bens Trikes" organization'
-  And 'I am on the home page'
-  And  'I follow "sign in"'
-  And  'I fill in "user_session_login" with "test"'
-  And  'I fill in "user_session_password" with "password"'
-  And  'I press "Login"'
-  Then 'I should see "organizations"'
-  When 'I follow "organizations"'
-  Then 'I should see "Your Organizations"'
-  And 'I should see "Bens Trikes"'
-  When 'I follow "Bens Trikes"'
   Then 'I should see "No pending campaigns"'
   When 'I follow "Ad"'
   Then 'I should see "New Ad Campaign"'
@@ -36,7 +22,7 @@ Given /^I have a Home Map Ad/ do
 end
 
 Given /^There is an organization member$/ do
-  Given 'I have setup my homepage'
+  Given 'I have setup the homepage'
   And 'there is a user with the username "test" and password "password"'
   And 'there is an organization called "Bens Trikes"'
   And 'the user with username "test" is part of the "Bens Trikes" organization'
