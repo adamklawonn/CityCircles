@@ -1,3 +1,12 @@
+Factory.define :user_interest do |ui|
+  ui.user_id 0
+  ui.interest_id 0
+end
+
+Factory.define :interest do |i|
+  i.name 'Business'
+end
+
 Factory.define :post_type do |pt|
   pt.name 'Events'
   pt.shortname 'events'

@@ -123,3 +123,13 @@ end
 Then /^I should wait for the page to load/ do 
   sleep(10.0)
 end
+
+Given /^the following interests:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory.create(:interest, attributes)
+  end
+end
+
+Given /^I have the interest "([^\"]*)"$/ do |interest_name|
+  Factory.create(:user_interest, :interest_id => Interest.find_by_name(interest_name).id, :user_id => User.first.id)
+end
