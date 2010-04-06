@@ -71,6 +71,13 @@ Factory.define :user do |u|
   u.roles ''
 end
 
+Factory.define :typus_user do |tu|
+  tu.email 'admin@test.com'
+  tu.role 'admin'
+  tu.status '1'
+  tu.password "columbia"
+end
+
 Factory.define :user_detail do |d|
   d.first_name  'City'
   d.last_name 'Circles'

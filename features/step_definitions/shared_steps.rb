@@ -123,3 +123,7 @@ end
 Then /^I should wait for the page to load/ do 
   sleep(10.0)
 end
+
+When /^I visit "([^\"]*)"$/ do |url|
+  visit url
+end

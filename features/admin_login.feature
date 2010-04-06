@@ -1,8 +1,9 @@
 Feature: Admin login
   As an admin I should be able to login to admin area
+  As a regular user I should not be able to see the admin link
   As a regular user I should not be able to login to admin area
   
-  Background: Set up an admin user on typus
+  Background: create typus user
     Given there is an admin user with the username "admin" and password "secret"
     And I am logged in as "admin" with password "secret"
     Given I have setup the homepage
@@ -12,7 +13,7 @@ Feature: Admin login
     When I fill in "user_email" with "admin@test.com"
     And I press "Sign up"
     Then I should see "Welcome to the City Circles admin area."
-
+  
   Scenario: As an admin I should be able to login to admin area
     Given no previously logged in user
     And I am logged in as "admin" with password "secret"
@@ -23,9 +24,16 @@ Feature: Admin login
     And I press "Sign in"
     Then I should see "Welcome to the City Circles admin area."
     
-  Scenario: As a regular user I should not be able to login to admin area
+  Scenario: As a regular user I should not be able to see the admin link
     Given no previously logged in user
     Given there is a user with the username "user" and password "secret"
     And I am logged in as "user" with password "secret"
     And I am on the homepage
     Then I should not see "admin"
+  
+  @test_first
+  Scenario: As a regular user I should not be able to login to admin area
+    Given no previously logged in user
+    When I visit "/admin/sign_in"
+    When I log in incorrectly 6 times
+    Then I should see "Retrieve my password"
