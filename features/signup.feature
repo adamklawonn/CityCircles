@@ -2,6 +2,7 @@ Feature: Signup
   In order use this amazing site
   As a guest
   I want to signup
+  
   @test_first
   Scenario: (Test First) Receive a welcome email on signup
     Given I have setup the homepage
@@ -17,9 +18,9 @@ Feature: Signup
     And   I press "user_submit"
     Then  "testuser@test.com" should receive an email
     When  I open the email
-    Then  I should see "thanks for registering"
-    When  I follow "this link"
-    Then  I should be on the profile page
+    Then  I should see "thanks for registering" in the email body
+    When  I follow "this link" in the email
+    Then  I should be on the "testuser" profile page
     And   I should see "Account verified!"
     And   I should see "Test"
     And   I should see "User"
