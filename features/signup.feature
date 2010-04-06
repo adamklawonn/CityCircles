@@ -20,12 +20,6 @@ Feature: Signup
     When  I open the email
     Then  I should see "thanks for registering" in the email body
     When  I follow "this link" in the email
-    Then  I should be on the "testuser" profile page
-    And   I should see "Account verified!"
-    And   I should see "Test"
-    And   I should see "User"
-    Then  "testuser@test.com" should receive an email
-    When  I open the email
-    And   I should see "Thank you for joining other light rail passengers and nearby residents to make the city around the rail a success with CityCircles." in the email body
+    Then  I should see "Account registered! Please sign in."
     
     
