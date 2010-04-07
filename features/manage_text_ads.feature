@@ -32,7 +32,7 @@ Feature: As an org isbat manage text ads
   
 
   @test_first
-  Scenario: Trying to create a text ad with more than 20 characters
+  Scenario: (Test First) Trying to create a text ad with more than 20 characters
     Then show me the page
     Then I should see "No pending campaigns"
     When I follow "Text Ad"

@@ -32,7 +32,7 @@ Feature: Admin login
     Then I should not see "admin"
   
   @test_first
-  Scenario: As a regular user I should not be able to login to admin area
+  Scenario: (Test First) As a regular user I should not be able to login to admin area
     Given no previously logged in user
     When I visit "/admin/sign_in"
     When I log in incorrectly 6 times
