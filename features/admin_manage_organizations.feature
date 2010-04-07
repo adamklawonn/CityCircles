@@ -8,7 +8,6 @@ Feature: As an admin ISBAT manage organizations
     Given there is an interest point called "Gangplank HQ"
     And there is a user with the username "pirate" and password "secret"
     Given I am on the admin dashboard
-    Then show me the page
     And I follow "Organizations"
     Then I should be on the admin organizations list page
     When I follow "Add entry"
