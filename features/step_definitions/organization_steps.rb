@@ -53,7 +53,9 @@ When /^(?:|I )select the file "([^\"]*)" to upload for "([^\"]*)"(?: within "([^
 end
 
 Then /^"([^\"]*)" should have "([^\"]*)" selected$/ do |field, value|
-  page.find(:xpath, "//select[@id='"+field+"']/option[@selected='selected']").node.text.should == value
+  selected_option = page.find(:xpath, "//select[@id='"+field+"']/option[@selected='selected']")
+  selected_option = page.find(:xpath, "//select[@id='"+field+"']/option[@selected='']") if selected_option.nil?
+  selected_option.node.text.should == value
 end
 
 Then /^there should be an image named "([^\"]*)"$/ do |value|

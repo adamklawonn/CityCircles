@@ -181,3 +181,8 @@ end
 Given /^there is a post type named "([^\"]*)"$/ do |name|
   Factory.create(:post_type, {:name => name})
 end
+
+Given /^there is a placement called "([^\"]*)"$/ do |arg1|
+  
+end
+
