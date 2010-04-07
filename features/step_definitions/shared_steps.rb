@@ -177,3 +177,7 @@ end
 Given /^there is a map called "([^\"]*)"$/ do |name|
   Factory.create(:map, :title => name, :shortname => name )
 end
+
+Given /^there is a placement called "([^\"]*)"$/ do |arg1|
+  
+end

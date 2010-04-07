@@ -70,6 +70,12 @@ module NavigationHelpers
       '/admin/interest_points/new'
     when /^the admin interest point edit page for "([^\"]*)"/
       "/admin/interest_points/edit/#{InterestPoint.find_by_label($1).id}"
+    when /^the admin ads page/
+      '/admin'+ads_path
+    when /^the admin new ad page/
+      '/admin'+new_ad_path
+    when /^the admin ad edit page for the ad with link uri "([^\"]*)"/
+      "/admin/ads/edit/#{Ad.find_by_link_uri($1).id}"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

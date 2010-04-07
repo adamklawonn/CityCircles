@@ -1,3 +1,12 @@
+Factory.define :ad do |a|
+  a.organization {|o| o.association(:organization)}
+  a.placement 'Homepage Map'
+  a.link_uri 'http://www.citycircles.com'
+  a.graphic { ActionController::TestUploadedFile.new(File.join(Rails.root, 'features', 'support', 'image.jpg'), 'image/jpg') }
+  a.starts_at Time.now
+  a.ends_at Time.now + 1.day
+end
+
 Factory.define :map_icon do |mi|
   mi.shortname 'Map Icon Name'
   mi.author {|a| a.association(:user)}
