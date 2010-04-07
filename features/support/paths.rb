@@ -65,6 +65,9 @@ module NavigationHelpers
     when /^the admin interest point list page/
       #can't find a route for this
       '/admin/interest_points'
+    when /^the admin organizations list page/
+      #can't find a route for this
+      '/admin/organizations'
     when /^the admin interest point new page/
       #can't find a route for this
       '/admin/interest_points/new'
@@ -76,6 +79,10 @@ module NavigationHelpers
       '/admin'+new_ad_path
     when /^the admin ad edit page for the ad with link uri "([^\"]*)"/
       "/admin/ads/edit/#{Ad.find_by_link_uri($1).id}"
+    when /^the admin organization edit page for "([^\"]*)"/
+      "/admin/organizations/edit/#{Organization.find_by_name($1).id}"
+    when /^the admin "([^\"]*)" "([^\"]*)" page/
+      "/admin/#{$1}/#{$2}"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
