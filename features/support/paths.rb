@@ -91,6 +91,12 @@ module NavigationHelpers
       "/admin/post_types/edit/#{PostType.find_by_name($1).id}"
     when /^the admin "([^\"]*)" "([^\"]*)" page/
       "/admin/#{$1}/#{$2}"
+    when /^the admin events list page/
+      '/admin'+events_path
+    when /^the admin new event page/
+      '/admin'+new_event_path
+    when /^the admin edit event page for the event/
+      "/admin/events/edit/#{Event.first.id}"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
