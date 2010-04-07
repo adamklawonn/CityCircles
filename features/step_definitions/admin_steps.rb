@@ -25,3 +25,7 @@ end
 Given /^there is an interest "([^\"]*)"$/ do |name|
   Factory.create(:interest, {:name => name})
 end
+
+Given /^there is an organization named "([^\"]*)"$/ do |name|
+  Factory.create(:organization, {:name => name})
+end

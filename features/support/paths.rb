@@ -65,11 +65,18 @@ module NavigationHelpers
     when /^the admin interest point list page/
       #can't find a route for this
       '/admin/interest_points'
+    when /^the admin organizations list page/
+      #can't find a route for this
+      '/admin/organizations'
     when /^the admin interest point new page/
       #can't find a route for this
       '/admin/interest_points/new'
     when /^the admin interest point edit page for "([^\"]*)"/
       "/admin/interest_points/edit/#{InterestPoint.find_by_label($1).id}"
+    when /^the admin organization edit page for "([^\"]*)"/
+      "/admin/organizations/edit/#{Organization.find_by_name($1).id}"
+    when /^the admin "([^\"]*)" "([^\"]*)" page/
+      "/admin/#{$1}/#{$2}"
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
