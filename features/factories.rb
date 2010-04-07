@@ -190,3 +190,9 @@ end
 Factory.define :interest do |interest|
   interest.name "Stuff"
 end
+
+Factory.define :comment do |c|
+  c.title "I'm making a comment"
+  c.body "I'm making a body for my comment"
+  c.author {|a| a.association(:user)}
+end
