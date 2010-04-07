@@ -196,3 +196,9 @@ Factory.define :comment do |c|
   c.body "I'm making a body for my comment"
   c.author {|a| a.association(:user)}
 end
+
+Factory.define :tweet do |t|
+  t.body "Tweet"
+  t.post {|p| p.association(:post)}
+end
+
