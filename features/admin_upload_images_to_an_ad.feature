@@ -1,0 +1,1 @@
+#This feature is tested in admin_manage_ads.feature as part of the Create an Ad scenario
