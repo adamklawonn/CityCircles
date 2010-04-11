@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100319044343) do
+ActiveRecord::Schema.define(:version => 20100410232227) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -58,10 +58,11 @@ ActiveRecord::Schema.define(:version => 20100319044343) do
   add_index "attachings", ["attachable_id"], :name => "index_attachings_on_attachable_id"
 
   create_table "blogroll_feeds", :force => true do |t|
-    t.string   "feed_name",  :null => false
-    t.string   "feed_uri",   :null => false
+    t.string   "feed_name",   :null => false
+    t.string   "feed_uri",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "parsed_feed"
   end
 
   create_table "cached_blogroll_feeds", :force => true do |t|

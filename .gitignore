@@ -7,6 +7,7 @@ log/*.log
 public/user_details
 public/system
 *.swp
+*.swo
 public/assets
 mkmf.log
 log/twitterbug.rb.pid
