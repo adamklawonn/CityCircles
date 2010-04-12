@@ -344,13 +344,13 @@ Tweet:
 User:
   fields:
     list: login, email, login_count, failed_login_count, last_login_at, roles, email_verified, agreed_with_terms
-    form: login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, roles, email_verified, agreed_with_terms
+    form: login, email, roles, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, email_verified, agreed_with_terms
     show: id, login, email, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, created_at, updated_at, roles, email_verified, agreed_with_terms
   actions:
     index: export
     edit:
   order_by:
-  relationships: comments, posts, user_detail, user_hobbies, user_interests, user_locations, user_wireless_profiles
+  relationships: user_detail, comments, posts, user_hobbies, user_interests, user_locations, user_wireless_profiles
   filters:
   search: login, email, roles
   application: User Related

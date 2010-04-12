@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   before_validation_on_create :make_default_roles
 
-  attr_accessible :login, :password, :password_confirmation, :email, :first_name, :last_name, :agreed_with_terms
+  attr_accessible :login, :password, :password_confirmation, :email, :roles, :first_name, :last_name, :agreed_with_terms
   
   validates_presence_of :login
   validates_length_of :login, :in => 3..20
@@ -73,13 +73,17 @@ class User < ActiveRecord::Base
   end
   
   def get_roles
-    self.roles.split ","
+    self.roles.split( "," ).collect { | r | r.strip }
   end
   
   def admin?
     has_role?( "admin" )
   end
-  
+
+  def org_manager?
+    has_role?( "org-manager" ) && org_member?
+  end
+
   def org_member?
     ( self.organization_members != nil && !self.organization_members.empty? ? true : false )
   end

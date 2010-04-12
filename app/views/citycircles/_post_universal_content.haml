@@ -6,7 +6,7 @@
   %br
   = label_tag :what_type_of_content
   %br
-  = select_tag "pt", options_for_select( [ [ "News", "news" ], [ "Event", "events" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Fix It", "fixit" ] ] )
+  = select_tag "pt", options_for_select( @post_universal_content_options )
   %br
   %br
   = submit_tag "OK"

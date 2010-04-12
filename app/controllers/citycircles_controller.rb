@@ -21,7 +21,7 @@ class CitycirclesController < ApplicationController
   def universal_add_content
     
     @default_map = Map.find_by_shortname( "lightrail", :include => [ :interest_points ] )
-    
+    @post_universal_content_options = [ [ "News", "news" ], [ "Event", "events" ], [ "Network", "network" ], [ "Stuff", "stuff" ], [ "Fix It", "fixit" ] ] 
     render :update do | page |
       page.replace_html "postuniversalcontent", :partial => "citycircles/post_universal_content", :locals => { :default_map => @default_map }
       page << "$j( '#postuniversalcontent' ).dialog( 'open' );$j( '#postuniversalcontent' ).dialog( 'option', 'position', [ 'center', 'center' ] );$( 'pt' ).options[ #{ params[ :content_type_index ] } ].selected = true;"
