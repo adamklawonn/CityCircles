@@ -235,8 +235,8 @@ Page:
 
 Post:
   fields:
-    list: short_headline, sticky, lat, lng, interest_point, author, post_type
-    form: headline, short_headline, body, sticky, lat, lng, interest_point, author, map_layer, post_type
+    list: short_headline, is_draft, sticky, lat, lng, interest_point, author, post_type
+    form: headline, short_headline, body, is_draft, sticky, lat, lng, interest_point, author, map_layer, post_type
     show: id, headline, short_headline, body, sticky, lat, lng, created_at, updated_at, interest_point, author, map_layer, post_type
     options:
       tiny_mce:
@@ -246,7 +246,7 @@ Post:
     edit:
   order_by:
   relationships: author, comments, event, interest_point, map_layer, post_type, tweet, post_attachments
-  filters:
+  filters: is_draft, sticky, author
   search: headline, short_headline, body
   application: Posts
   description:

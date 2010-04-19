@@ -10,13 +10,13 @@ class PostsController < ApplicationController
       # Posts near interest point.
       if params[ :interest_point_id ] != nil
         @poi = InterestPoint.find params[ :interest_point_id ]
-        @posts = Post.find( :all, :conditions => [ 'interest_point_id = ? and post_type_id = ?', @poi.id, @post_type.id ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc' )
+        @posts = Post.find( :all, :conditions => [ 'interest_point_id = ? and post_type_id = ? and is_draft = ?', @poi.id, @post_type.id, false ], :origin => [ @poi.lat, @poi.lng ], :within => 0.3, :order => 'created_at desc' )
       else
-        @posts = Post.find( :all, :conditions => [ 'post_type_id = ?', @post_type.id ], :order => 'created_at desc' )
+        @posts = Post.find( :all, :conditions => [ 'post_type_id = ? and is_draft = ?', @post_type.id, false ], :order => 'created_at desc' )
       end
     else
       # All posts.
-      @posts = Post.find( :all, :include => [ :post_type, :map_layer ] )
+      @posts = Post.find( :all, :include => [ :post_type, :map_layer ], :conditions => [ 'is_draft = ?', false ] )
     end
     
     respond_to do | format |
@@ -88,50 +88,50 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find params[ :id ]
+    @post = Post.find params[ :id ], :conditions => [ 'is_draft = ?', false ]
     @comment = Comment.new
     render :show
   end
   
   def news
-    @post = Post.find params[ :id ]
+    @post = Post.find params[ :id ], :conditions => [ 'is_draft = ?', false ]
     @comment = Comment.new
     render :show
   end
   
   def events
-    @post = Post.find params[ :id ]
+    @post = Post.find params[ :id ], :conditions => [ 'is_draft = ?', false ]
     @comment = Comment.new
     render :show
   end
   
   def promos
-    @post = Post.find params[ :id ]
+    @post = Post.find params[ :id ], :conditions => [ 'is_draft = ?', false ]
     @comment = Comment.new
     render :show
   end
   
   def networks
-    @post = Post.find params[ :id ]
+    @post = Post.find params[ :id ], :conditions => [ 'is_draft = ?', false ]
     @comment = Comment.new
     render :show
   end
   
   def stuff
-    @post = Post.find params[ :id ]
+    @post = Post.find params[ :id ], :conditions => [ 'is_draft = ?', false ]
     @comment = Comment.new
     render :show
   end
   
   def fixit
-    @post = Post.find params[ :id ]
+    @post = Post.find params[ :id ], :conditions => [ 'is_draft = ?', false ]
     @comment = Comment.new
     render :show
   end
 
   def all_news
     @post_type = PostType.find_by_shortname( "news" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
+    @posts = Post.find :all, :conditions => [ "post_type_id = ? and is_draft = ?", @post_type.id, false ], :order => "created_at desc"
     respond_to do | format |
       format.html{ render :index }
       format.atom { render :index, :layout => false }
@@ -140,7 +140,7 @@ class PostsController < ApplicationController
   
   def all_events
     @post_type = PostType.find_by_shortname( "events" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
+    @posts = Post.find :all, :conditions => [ "post_type_id = ? and is_draft = ?", @post_type.id, false ], :order => "created_at desc"
     respond_to do | format |
       format.atom { render :index, :layout => false }
     end
@@ -148,7 +148,7 @@ class PostsController < ApplicationController
   
   def all_promos
     @post_type = PostType.find_by_shortname( "promos" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
+    @posts = Post.find :all, :conditions => [ "post_type_id = ? and is_draft = ?", @post_type.id, false ], :order => "created_at desc"
     respond_to do | format |
       format.atom { render :index, :layout => false }
     end
@@ -156,7 +156,7 @@ class PostsController < ApplicationController
   
   def all_networks
     @post_type = PostType.find_by_shortname( "network" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
+    @posts = Post.find :all, :conditions => [ "post_type_id = ? and is_draft = ?", @post_type.id, false ], :order => "created_at desc"
     respond_to do | format |
       format.atom { render :index, :layout => false }
     end
@@ -164,7 +164,7 @@ class PostsController < ApplicationController
   
   def all_stuff
     @post_type = PostType.find_by_shortname( "stuff" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
+    @posts = Post.find :all, :conditions => [ "post_type_id = ? and is_draft = ?", @post_type.id, false ], :order => "created_at desc"
     respond_to do | format |
       format.atom { render :index, :layout => false }
     end
@@ -172,7 +172,7 @@ class PostsController < ApplicationController
   
   def all_fixit
     @post_type = PostType.find_by_shortname( "fixit" )
-    @posts = Post.find :all, :conditions => [ "post_type_id = ?", @post_type.id ], :order => "created_at desc"
+    @posts = Post.find :all, :conditions => [ "post_type_id = ? and is_draft = ?", @post_type.id, false ], :order => "created_at desc"
     respond_to do | format |
       format.atom { render :index, :layout => false }
     end
@@ -182,6 +182,7 @@ class PostsController < ApplicationController
     # xapian search
     @search = ActsAsXapian::Search.new [ Post ], params[ :q ], { :limit => 10 }
     @posts = @search.results.collect { | r | r[ :model ] }
+    @posts.delete_if { | p | p.is_draft == true }
     # will paginate
     current_page = params[ :page ] ||= 1
     per_page = params[ :per_page ] ||= 10
