@@ -10,9 +10,9 @@ Ad:
         options:
             selectors: placement
             read_only: graphic_updated_at
-    actions:
+    actions: 
       index:
-      edit:
+      edit: deliver_ad_approval
     order_by:
     relationships: interest_point
     filters:

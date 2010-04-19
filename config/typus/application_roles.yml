@@ -20,7 +20,7 @@
 #
 
 admin:
-  Ad: create, read, update, delete
+  Ad: create, read, update, delete, deliver_ad_approval
   CachedBlogrollFeed: create, read, update, delete
   Comment: create, read, update, delete
   EmailBlast: create, read, update, delete

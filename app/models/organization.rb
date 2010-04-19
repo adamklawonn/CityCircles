@@ -20,4 +20,9 @@ class Organization < ActiveRecord::Base
   has_many :promos
   has_many :ads
   has_many :organization_members
+
+  def org_managers
+    OrganizationMember.find( :all, :conditions => [ 'organization_id = ? and locate( "org-manager", users.roles ) > 0', id ], :include => :user )
+  end
+
 end
