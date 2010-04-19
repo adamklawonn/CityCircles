@@ -15,7 +15,6 @@ class UsersController < ApplicationController
       flash.keep
       UserMailer.deliver_registration(@user)
       redirect_to root_url
-      UserMailer.deliver_registration(@user)
     else
       render :action => :new
     end
