@@ -27,8 +27,6 @@ class ApplicationController < ActionController::Base
            # Do nothing.
         when /msie\s+6\.\d+/i
            redirect_to :controller => "citycircles", :action => "incompatible_browser"
-        else
-           redirect_to :controller => "citycircles", :action => "incompatible_browser"
       end
     end
     
