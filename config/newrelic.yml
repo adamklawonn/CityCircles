@@ -1,18 +1,20 @@
 #
-# This file configures the NewRelic RPM Agent, NewRelic RPM monitors
-# Rails applications with deep visibility and low overhead.  For more
+# This file configures the New Relic RPM Agent.  New Relic RPM monitors
+# Rails and Java applications with deep visibility and low overhead.  For more
 # information, visit www.newrelic.com.
 #
-# 
+# Generated May 07, 2010
 #
-# here are the settings that are common to all environments
+# This configuration file is custom generated for CityCircles
+
+# Here are the settings that are common to all environments:
 common: &default_settings
   # ============================== LICENSE KEY ===============================
 
-  # You must specify the licence key associated with your New Relic
+  # You must specify the license key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic RPM service.
-  license_key: 'PASTE_YOUR_LICENSE_KEY_HERE'
+  license_key: '650d57f83670c197f815d24e4133d5fb8a40c93c'
   
   # Agent Enabled (Rails Only)
   # Use this setting to force the agent to run or not run.
@@ -31,7 +33,7 @@ common: &default_settings
   # "All UI" then specify a semicolon separated list of up to three
   # distinct names.  If you comment this out, it defaults to the 
   # capitalized RAILS_ENV (i.e., Production, Staging, etc)
-  app_name: CityCircles
+  app_name: My Application
 
   # When "true", the agent collects performance data about your 
   # application and reports this data to the NewRelic RPM service at 
@@ -47,7 +49,7 @@ common: &default_settings
   # information separate from that of your application.  Specify its
   # log level here.
   log_level: info
-
+  
   # The newrelic agent communicates with the RPM service via http by
   # default.  If you want to communicate via https to increase
   # security, then turn on SSL by setting this value to true.  Note,
@@ -173,7 +175,7 @@ common: &default_settings
   # disable_activerecord_instrumentation: true
   # disable_memcache_instrumentation: true
   # disable_dj: true
-
+  
   # Certain types of instrumentation such as GC stats will not work if 
   # you are running multi-threaded.  Please let us know.
   # multi_threaded = false
@@ -186,7 +188,7 @@ common: &default_settings
 # the environment
 
 # NOTE if your application has other named environments, you should
-# provide newrelic conifguration settings for these enviromnents here.
+# provide newrelic configuration settings for these environments here.
 
 development:
   <<: *default_settings
@@ -215,7 +217,7 @@ test:
 # Turn on the agent in production for 24x7 monitoring.  NewRelic
 # testing shows an average performance impact of < 5 ms per
 # transaction, you you can leave this on all the time without
-# incurring any user-visible performance degredation.
+# incurring any user-visible performance degradation.
 production:
   <<: *default_settings
   monitor_mode: true
