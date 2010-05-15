@@ -148,11 +148,7 @@
         
     %a{ :class => "trigger", :href => "#" }   
       %center
-        <em>S</em>
-        <em>T</em>
-        <em>A</em>
-        <em>R</em>
-        <em>T</em>
+        = image_tag "start.gif"
     :javascript
       $j( '#whoops' ).dialog( { autoOpen : false, resizable : false } );
       $j( '#whoops' ).dialog( 'option', 'buttons', { "OK" : function() { $j( this ).dialog( "close" ); } } );
