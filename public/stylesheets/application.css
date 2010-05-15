@@ -308,6 +308,7 @@ border:1px solid #444444;
 -webkit-border-bottom-left-radius: 0px;
 display: block;
 z-index: 50001;
+height: 80px;
 }
 
 a.trigger:hover{ box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;
