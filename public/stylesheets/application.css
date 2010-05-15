@@ -287,8 +287,6 @@ z-index: 50000;
 
 a.trigger{ box-shadow:1px -2px 10px #ccc; -webkit-box-shadow:1px -2px 10px #ccc; -moz-box-shadow:1px -2px 10px #ccc;
 filter: alpha(opacity=85);
-writing-mode: tb-rl;
-filter: flipv fliph;
 position: fixed;
 text-decoration: none;
 top: 80px; left: 0;
