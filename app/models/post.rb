@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100410232227
+# Schema version: 20100524015823
 #
 # Table name: posts
 #
@@ -16,6 +16,7 @@
 #  author_id         :integer(4)      not null
 #  created_at        :datetime
 #  updated_at        :datetime
+#  is_draft          :boolean(1)
 #
 
 class Post < ActiveRecord::Base

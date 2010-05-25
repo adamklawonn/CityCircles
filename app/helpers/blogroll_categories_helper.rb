@@ -1,0 +1,2 @@
+module BlogrollCategoriesHelper
+end

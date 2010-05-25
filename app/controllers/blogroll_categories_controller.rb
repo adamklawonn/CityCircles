@@ -1,0 +1,2 @@
+class BlogrollCategoriesController < ApplicationController
+end

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100410232227
+# Schema version: 20100524015823
 #
 # Table name: post_attachments
 #

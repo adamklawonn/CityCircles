@@ -41,6 +41,7 @@ admin:
   PostType: create, read, update, delete
   Promo: create, read, update, delete
   BlogrollFeed: create, read, update, delete
+  BlogrollCategory: create, read, update, delete
   SiteOption: create, read, update, delete
   Suggestion: create, read, update, delete
   Tweet: create, read, update, delete

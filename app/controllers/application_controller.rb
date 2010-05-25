@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   before_filter :browser_detect
   before_filter :fetch_pages
   before_filter :new_suggestion
+  before_filter :aggregate_feeds
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
@@ -40,6 +41,30 @@ class ApplicationController < ActionController::Base
     # For the "everywhere" explore box
     def new_suggestion
       @suggestion = Suggestion.new
+    end
+    
+    # aggregate feeds from blogroll
+    def aggregate_feeds
+      
+      @news_feed = []
+      @news_feeds = BlogrollFeed.find( :all, :conditions  => [ 'blogroll_categories.name = ?', 'News' ], :include => :blogroll_category, :limit => 5 )
+      @news_feeds.each { | feed | @news_feed << feed.parsed_feed.items } if @news_feeds != nil
+      @news_feed.flatten!
+      @news_feed = @news_feed.sort_by { | item | item.date_published }.reverse![0..5]
+      
+      @blog_feed = []
+      @blogs_feed = BlogrollFeed.find( :all, :conditions  => [ 'blogroll_categories.name = ?', 'Blogs' ], :include => :blogroll_category, :limit => 5 )
+      @blogs_feed.each { | feed | @blog_feed << feed.parsed_feed.items } if @blogs_feed != nil
+      @blog_feed.flatten!
+      @blog_feed = @blog_feed.sort_by { | item | item.date_published }.reverse![0..5]
+
+      @ccblog_feed = []
+      @ccblogs_feed = BlogrollFeed.find( :all, :conditions  => [ 'blogroll_categories.name = ?', 'CityCirclesBlog' ], :include => :blogroll_category, :limit => 5 )
+      @ccblogs_feed.each { | feed | @ccblog_feed << feed.parsed_feed.items } if @ccblogs_feeds != nil
+      @ccblog_feed.flatten!
+      @ccblog_feed = @ccblog_feed.sort_by { | item | item.date_published }.reverse![0..5]
+
+
     end
     
     # Fetch currently logged in user's session

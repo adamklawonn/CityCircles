@@ -120,6 +120,31 @@
 
       .grid_12
         #footer
+          #rail-aggregator
+            %table{ :width => "100%" }
+              %tr
+                %th
+                  Light Rail News
+                %th
+                  Light Rail Blogs
+                %th
+                  CityCircles Blog
+              %tr
+                %td
+                  %ul.rails-aggregator-links
+                    - @news_feed.each do |entry|
+                      %li 
+                        = link_to truncate( entry.title, :length => 40 ), entry.id
+                %td
+                  %ul.rails-aggregator-links
+                    - @blog_feed.each do |entry|
+                      %li 
+                        = link_to truncate( entry.title, :length => 40 ), entry.id
+                %td
+                  %ul.rails-aggregator-links
+                    - @ccblog_feed.each do |entry|
+                      %li 
+                        = link_to truncate( entry.title, :length => 40 ), entry.id
           %ul
             - @pages.each do |page|
               %li
@@ -161,3 +186,5 @@
         var pageTracker = _gat._getTracker("UA-10451956-1");
         pageTracker._trackPageview();
       } catch(err) {}
+      
+= debug( @news_feed )

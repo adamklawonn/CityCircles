@@ -189,6 +189,12 @@ a:hover {text-decoration:none; color:#7e8781;}
 #footer ul {text-align: right; font-family:Arial, Helvetica, sans-serif;list-style: none; padding: 0; margin: 0;}
 #footer li { display: inline; font-size: .9em;padding-top:10px; font-weight:bold;padding-left:1.5em;}
 
+#rail-aggregator { margin-bottom: 20px; }
+#rail-aggregator table { margin-left: 10px; background-color: #fff; }
+#rail-aggregator table th { padding-left: 20px; background-color: #543A44; }
+
+.rails-aggregator-links { list-style-type: none; text-align: left !important; margin-bottom: 10px !important; }
+.rails-aggregator-links li { margin-left: none; display: block !important; padding: 5px; }
 
 /*======================
         SIDEBAR

@@ -465,8 +465,8 @@ CachedBlogrollFeed:
 BlogrollFeed:
   fields:
     list: feed_name, feed_uri
-    form: feed_name, feed_uri
-    show: id, feed_name, feed_uri
+    form: feed_name, feed_uri, blogroll_category
+    show: id, feed_name, feed_uri, blogroll_category
   actions:
     index:
     edit:
@@ -476,4 +476,18 @@ BlogrollFeed:
   search:
   application: RSS Feed Aggregator
   description:
-     
+
+BlogrollCategory:
+  fields:
+    list: name, is_active
+    form: name, is_active
+    show: name, is_active
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: RSS Feed Aggregator
+  description:
