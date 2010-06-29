@@ -63,5 +63,9 @@ class Post < ActiveRecord::Base
     body_html = body_html + '<br /><br /><a href="/posts/' + self.id.to_s + '">Read More...</a>'
     "<div class='map_info_window'><img src='#{ post_type.map_icon.image_url }' class='map_info_window_icon' /><h2 class='map_info_window_title'>#{ short_headline }</h2><br />#{ body_html }</div>"
   end
-  
+
+  def to_param
+  "#{id}:#{created_at.strftime('%m-%d-%Y')}-#{headline}".downcase.gsub(/\W+/, "-").gsub(/^[-]+|[-]$/,"").strip
+ end 
+
 end
