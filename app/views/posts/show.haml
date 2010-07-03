@@ -58,7 +58,16 @@
                   = comment.title
                 %br
                 %br
-                  = comment.body
+                  -body1=comment.body.split(' ')
+                -len=body1.length
+                  -for k in 0..len
+                    -if body1[k] =~ /^((?:https?[:]\/\/(?:www\.)?\S+)|(?:(?:https?[:]\/\/)?www\.\S+))/
+                    %br
+                    = link_to "#{body1[k]}", "#{body1[k]}", :popup => true
+                    %br
+                    -else
+                    = body1[k]
+                    
                 %br
                 %br
                 = friendly_datetime comment.created_at
