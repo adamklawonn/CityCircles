@@ -22,6 +22,8 @@
         %br
         %p
           = @post.body
+          - @post.post_attachments.each do |attach|
+            = image_tag attach.attachment.url( :original ), { :border => 0, :width => 50, :height => 50 }
         - if @post.event != nil
           %br
           %br
