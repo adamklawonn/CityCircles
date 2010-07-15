@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   before_filter :browser_detect
   before_filter :fetch_pages
   before_filter :new_suggestion
-  before_filter :aggregate_feeds
+  #before_filter :aggregate_feeds
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
