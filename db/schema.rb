@@ -11,6 +11,78 @@
 
 ActiveRecord::Schema.define(:version => 20100524015823) do
 
+  create_table "Directions", :force => true do |t|
+    t.string "title", :limit => 35, :null => false
+  end
+
+  create_table "InterestPointDirections", :id => false, :force => true do |t|
+    t.integer "InterestPointId", :null => false
+    t.integer "DirectionId",     :null => false
+  end
+
+  create_table "InterestPointSchedule", :primary_key => "ScheduleId", :force => true do |t|
+    t.integer "Weekday",         :null => false
+    t.integer "Time",            :null => false
+    t.integer "InterestPointId", :null => false
+    t.integer "Direction"
+  end
+
+  create_table "MobileUserGroups", :primary_key => "UserGroupId", :force => true do |t|
+    t.string  "Title",          :limit => 45
+    t.integer "PrivelegeLevel"
+  end
+
+  create_table "MobileUserSessions", :primary_key => "SessionId", :force => true do |t|
+    t.integer "StartDate",                  :default => 0,  :null => false
+    t.string  "Ip",           :limit => 15, :default => "", :null => false
+    t.integer "UserId"
+    t.integer "LastActivity",               :default => 0,  :null => false
+    t.integer "AnyUserId"
+    t.string  "CurrentPage"
+  end
+
+  add_index "MobileUserSessions", ["AnyUserId"], :name => "idxSessionAnyUser"
+  add_index "MobileUserSessions", ["UserId"], :name => "idxSessionUIser"
+
+  create_table "MobileUsers", :primary_key => "UserId", :force => true do |t|
+    t.string  "Email"
+    t.string  "FirstName",      :limit => 45
+    t.string  "LastName",       :limit => 45
+    t.integer "UserGroup"
+    t.string  "PasswordHash",   :limit => 64
+    t.integer "EmailConfirmed", :limit => 1,  :default => 0, :null => false
+  end
+
+  add_index "MobileUsers", ["Email"], :name => "idxEmail"
+  add_index "MobileUsers", ["UserGroup"], :name => "idxUswersUserGroup"
+
+  create_table "SiteAreas", :primary_key => "SiteAreaId", :force => true do |t|
+    t.string  "Title",          :limit => 40,                 :null => false
+    t.integer "DisplayOrder",   :limit => 2,                  :null => false
+    t.string  "Icon",           :limit => 200,                :null => false
+    t.string  "Image",          :limit => 200,                :null => false
+    t.integer "DefaultPage"
+    t.integer "ParentArea"
+    t.integer "PrivelegeLevel",                :default => 0, :null => false
+  end
+
+  add_index "SiteAreas", ["DefaultPage"], :name => "DefaultPage"
+  add_index "SiteAreas", ["DisplayOrder"], :name => "DisplayOrder"
+  add_index "SiteAreas", ["ParentArea"], :name => "idxArea"
+
+  create_table "SitePages", :primary_key => "PageId", :force => true do |t|
+    t.string  "Title",          :limit => 75,                  :null => false
+    t.text    "Keywords"
+    t.text    "Description"
+    t.integer "PrivelegeLevel",               :default => 100, :null => false
+    t.string  "Template",                                      :null => false
+    t.string  "Filename"
+    t.integer "SiteArea"
+  end
+
+  add_index "SitePages", ["SiteArea"], :name => "SiteArea"
+  add_index "SitePages", ["Title"], :name => "idxTitle"
+
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
     t.integer "model_id", :null => false
@@ -22,17 +94,17 @@ ActiveRecord::Schema.define(:version => 20100524015823) do
   create_table "ads", :force => true do |t|
     t.integer  "organization_id",                         :null => false
     t.string   "placement",                               :null => false
-    t.datetime "starts_at",                               :null => false
-    t.datetime "ends_at",                                 :null => false
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.integer  "weight",               :default => 1
-    t.string   "graphic_file_name",                       :null => false
+    t.string   "graphic_file_name"
     t.string   "graphic_content_type"
     t.integer  "graphic_file_size"
     t.datetime "graphic_updated_at"
-    t.boolean  "is_approved",          :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "interest_point_id"
+    t.boolean  "is_approved",          :default => false
     t.string   "link_uri"
     t.text     "popup_html"
   end
@@ -289,12 +361,13 @@ ActiveRecord::Schema.define(:version => 20100524015823) do
     t.integer  "organization_id",                    :null => false
     t.integer  "post_id",                            :null => false
     t.string   "title",                              :null => false
+    t.string   "description",                        :null => false
     t.integer  "author_id",                          :null => false
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.boolean  "is_approved",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_approved",     :default => false
   end
 
   create_table "sessions", :force => true do |t|

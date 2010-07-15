@@ -1,0 +1,24 @@
+            %table{ :width => "100%" }
+              %tr
+                %th
+                  Light Rail News
+                %th
+                  Light Rail Blogs
+                %th
+                  CityCircles Blog
+              %tr
+                %td
+                  %ul.rails-aggregator-links
+                    - @news_feed.each do |entry|
+                      %li 
+                        = link_to truncate( entry.title, :length => 40 ), entry.id
+                %td
+                  %ul.rails-aggregator-links
+                    - @blog_feed.each do |entry|
+                      %li 
+                        = link_to truncate( entry.title, :length => 40 ), entry.id
+                %td
+                  %ul.rails-aggregator-links
+                    - @ccblog_feed.each do |entry|
+                      %li 
+                        = link_to truncate( entry.title, :length => 40 ), entry.id
