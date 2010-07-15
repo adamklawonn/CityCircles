@@ -53,7 +53,6 @@ module ApplicationHelper
   end
 
   def generate_gmap( map, poi_override = nil, poi_override_options = {} )
-    puts map
     poi_override_options[ :open_info_window_onload ] = false unless poi_override_options.has_key?( :open_info_window_onload )
     
     if poi_override != nil
