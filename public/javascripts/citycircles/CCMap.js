@@ -208,11 +208,20 @@
 				for( var i = 0; i < posts.length; i++ ) {
           // create marker
           var marker = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.Point( posts[i].post.lng, posts[i].post.lat ).transform( new OpenLayers.Projection( scope.transformProjection ), new OpenLayers.Projection( scope.googleProjection ) ), {}, { fill : true, fillColor : posts[i].post.post_type.map_fill_color, fillOpacity : 1, pointRadius : 4, strokeColor : posts[i].post.post_type.map_stroke_color, strokeWidth : posts[i].post.post_type.map_stroke_width } );
+					
+				  //add data to marker
+				  marker.data = posts[i];
+					
 				  // add marker to layers array
 				  scope.layers[ posts[i].post.map_layer.title ].push( marker );
 				  scope.map.getLayersByName( posts[i].post.map_layer.title )[0].addFeatures( marker );
 				}
-        
+              
+              //Pathfinder edit
+			  // Declaring an instance of the class that handles the problem of overlapping markers
+			  var radiating_points = new RadiatingPOI(scope.map);
+              
+ 
 			},
 			
 			onFailure : function( response ) {

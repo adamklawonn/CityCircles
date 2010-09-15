@@ -26,6 +26,8 @@
     = javascript_include_tag "citycircles/CCMap.js"
     = javascript_include_tag "citycircles/CCTinyMCEManager.js"
     = javascript_include_tag "citycircles/CCTinyMCEFileUpload.js"
+    = javascript_include_tag "animator.js"
+    = javascript_include_tag "citycircles/CCMapRadiatingPOI.js"
     = GMap.header
     = javascript_include_tag "markerGroup"
     = javascript_include_tag "citycircles/CCGMapExtras"
@@ -36,7 +38,7 @@
 
     :javascript
       var $j = jQuery.noConflict();
-      
+
       $j( document ).ready( function(){
       	
       	$j( ".trigger" ).click( function(){
@@ -44,11 +46,13 @@
       		$j( this ).toggleClass( "active" );
       		return false;
       	} );
-      	
+
       	// facebox
       	$j('a[rel*=facebox]').facebox()
       	
       } );
+      
+
       
       tinyMCE.init( {
         mode : "specific_textareas",

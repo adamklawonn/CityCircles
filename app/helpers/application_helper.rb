@@ -61,6 +61,10 @@ module ApplicationHelper
     
     marker_groups = []
     line_groups = []
+    #Pathfinder
+    #Create a storage for a complete list of POIs
+    #deprecated
+    #poi_collection = CompleteMarkerCollection.new
     map.map_layers.each do | layer |
       case layer.shortname
         when "lightrailline"
@@ -75,16 +79,33 @@ module ApplicationHelper
           end
           marker_groups << marker_group
           
+          #Pathfinder
+          #Add markers to cc_poi_list
+          #deprecated
+          #poi_collection.addMarkersToCollection(marker_group => :markers)
+          
         else
           marker_group = { :layer_name => layer.shortname, :markers => layer.recent_posts( layer.id, layer.shortname ).collect { | poi | GMarker.new( [ poi.lat, poi.lng ], { :icon => GIcon.new( :image => poi.post_type.map_icon.image_url, :icon_size => GSize.new( poi.post_type.map_icon.icon_size.split( "," )[ 0 ].to_i, poi.post_type.map_icon.icon_size.split( "," )[ 1 ].to_i ), :shadow => poi.post_type.map_icon.shadow_url, :shadow_size => GSize.new( poi.post_type.map_icon.shadow_size.split( "," )[ 0 ].to_i, poi.post_type.map_icon.shadow_size.split( "," )[ 1 ].to_i ), :icon_anchor => GPoint.new( poi.post_type.map_icon.icon_anchor.split( "," )[ 0 ].to_i, poi.post_type.map_icon.icon_anchor.split( "," )[ 1 ].to_i ), :info_window_anchor => GPoint.new( poi.post_type.map_icon.info_window_anchor.split( "," )[ 0 ].to_i, poi.post_type.map_icon.info_window_anchor.split( "," )[ 1 ].to_i ) ), :title => poi.label, :info_window => poi.info_window } ) } }
           marker_groups << marker_group
+          
+          #Pathfinder
+          #Add markers to cc_poi_list
+          #deprecated
+          #poi_collection.addMarkersToCollection(marker_group => :markers)
         
       end
+      
     end
     
     # Initialize the map.
     gmap = GMap.new( "map", "map" )
+
+    #Pathfinder
+    #Make all POIs availabe to JavaScript
+    #deprecated
+    #gmap.record_global_init "\nvar complete_poi_list = #{ poi_collection.poi_list.to_json };\n"
     gmap.control_init( :large_map => true, :map_type => true )
+
     
     # Set location based on map default or poi override.
     if poi_override.nil?
@@ -141,5 +162,23 @@ module ApplicationHelper
     commentable = controller.controller_name.singularize
     comments_path( :commentable_type => commentable, :commentable_id => controller.instance_variable_get( "@#{ commentable }" ).id )
   end
+  
+  #Pathfinder
+  #deprecated
+  #class CompleteMarkerCollection
+  #  
+  #  def initialize
+  #    @poi_list = []
+  #  end 
+  #  def poi_list
+  #    @poi_list
+  #  end
+  #  
+  #  def addMarkersToCollection( markers )
+  #    markers.each do | marker |
+  #      poi_list.push(marker)
+  #    end
+  #  end
+  #end  
   
 end
