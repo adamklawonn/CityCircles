@@ -24,6 +24,9 @@
           = @post.body
           - @post.post_attachments.each do |attach|
             = link_to image_tag( attach.attachment.url( :original ), { :border => 0,:width =>50,:height => 50}), "/system/assets/posts/attachments/"+attach.id.to_s+"/original_"+attach.attachment_file_name+"", :popup => ['new_window_name', 'height=300,width=600']
+            %br
+            %br
+            = link_to "#{attach.attachment_file_name}".gsub!(/\..*/,""), "/system/assets/posts/attachments/"+attach.id.to_s+"/original_"+attach.attachment_file_name+"" 
         - if @post.event != nil
           %br
           %br
