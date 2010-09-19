@@ -1,0 +1,89 @@
+GEM
+  remote: http://rubygems.org/
+  remote: http://gems.github.com/
+  specs:
+    actionmailer (2.3.9)
+      actionpack (= 2.3.9)
+    actionpack (2.3.9)
+      activesupport (= 2.3.9)
+      rack (~> 1.1.0)
+    activerecord (2.3.9)
+      activesupport (= 2.3.9)
+    activeresource (2.3.9)
+      activesupport (= 2.3.9)
+    activesupport (2.3.9)
+    ambethia-recaptcha (0.2.2)
+    authlogic (2.1.6)
+      activesupport
+    builder (2.1.2)
+    calendar_date_select (1.16.1)
+    cgi_multipart_eof_fix (2.5.0)
+    daemons (1.1.0)
+    fastercsv (1.5.3)
+    fastthread (1.0.7)
+    feed-normalizer (1.5.2)
+      hpricot (>= 0.6)
+      simple-rss (>= 1.1)
+    feedtools (0.2.29)
+      activerecord (>= 1.10.1)
+      builder (>= 1.2.4)
+      uuidtools (>= 1.0.0)
+    gem_plugin (0.2.3)
+    geokit (1.5.0)
+    grackle (0.1.10)
+      json
+      mime-types
+      oauth
+    haml (3.0.18)
+    hpricot (0.8.2)
+    josevalim-rails-footnotes (3.6.2)
+    json (1.4.6)
+    kete-tiny_mce (0.1.0)
+    mime-types (1.16)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
+    mysql (2.8.1)
+    oauth (0.4.3)
+    paperclip (2.3.3)
+      activerecord
+      activesupport
+    rack (1.1.0)
+    rails (2.3.9)
+      actionmailer (= 2.3.9)
+      actionpack (= 2.3.9)
+      activerecord (= 2.3.9)
+      activeresource (= 2.3.9)
+      activesupport (= 2.3.9)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    random_data (1.5.1)
+    simple-rss (1.2.3)
+    typus (0.9.39)
+    uuidtools (2.1.1)
+    will_paginate (2.3.15)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ambethia-recaptcha
+  authlogic
+  calendar_date_select
+  fastercsv
+  feed-normalizer
+  feedtools
+  geokit
+  grackle
+  haml
+  josevalim-rails-footnotes
+  kete-tiny_mce
+  mongrel
+  mysql
+  paperclip
+  rails (~> 2.3.9)
+  random_data
+  typus
+  will_paginate

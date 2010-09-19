@@ -16,3 +16,4 @@ nbproject
 .loadpath
 .project
 vendor/plugins/acts_as_xapian/xapiandbs/*
+vendor/bundle/
