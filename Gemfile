@@ -16,6 +16,7 @@ gem "feedtools", :require => "feed_tools"
 gem "will_paginate"
 gem "feed-normalizer"
 gem "fastercsv"
+gem "facebooker"
 
 group :development do
 #   gem "mongrel"

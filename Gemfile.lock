@@ -24,6 +24,8 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     diff-lcs (1.1.2)
+    facebooker (1.0.75)
+      json_pure (>= 1.0.0)
     fastercsv (1.5.3)
     feed-normalizer (1.5.2)
       hpricot (>= 0.6)
@@ -44,6 +46,7 @@ GEM
     hpricot (0.8.2)
     josevalim-rails-footnotes (3.6.2)
     json (1.4.6)
+    json_pure (1.4.6)
     kete-tiny_mce (0.1.0)
     mime-types (1.16)
     mysql (2.8.1)
@@ -76,6 +79,7 @@ DEPENDENCIES
   authlogic
   calendar_date_select
   cucumber
+  facebooker
   fastercsv
   feed-normalizer
   feedtools
