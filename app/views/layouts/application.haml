@@ -35,6 +35,7 @@
     = javascript_include_tag "jcarousellite_1.0.1.pack"
     = javascript_include_tag "jquery.timePicker"
     = javascript_include_tag "/facebox/facebox"
+    %script{ :src => "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php", :type => "text/javascript" }
 
     :javascript
       var $j = jQuery.noConflict();
@@ -67,6 +68,8 @@
       Event.observe( window, "onunload", GUnload );
     
   %body
+    = fb_connect_javascript_tag
+    = init_fb_connect "XFBML"
 
     #wrapper.container_12
     

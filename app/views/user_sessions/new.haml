@@ -3,4 +3,5 @@
   = error_messages_for 'user_session', :header_message => nil, :message => nil, :class => "errorExplanation"
   - form_for :user_session, :url => user_session_path, :html => { :id => 'signindialog' }, :live_validations => true do |f|
     = render :partial => 'user_sessions/form', :locals => { :f => f }
+  = authlogic_facebook_login_button
 .grid_3.omega

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100524015823) do
+ActiveRecord::Schema.define(:version => 20101011180415) do
 
   create_table "Directions", :force => true do |t|
     t.string "title", :limit => 35, :null => false
@@ -424,7 +424,7 @@ ActiveRecord::Schema.define(:version => 20100524015823) do
   end
 
   create_table "user_details", :force => true do |t|
-    t.integer  "user_id",             :null => false
+    t.integer  "user_id",                          :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "twitter_username"
@@ -436,6 +436,7 @@ ActiveRecord::Schema.define(:version => 20100524015823) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "facebook_uid",        :limit => 8
   end
 
   create_table "user_hobbies", :force => true do |t|
