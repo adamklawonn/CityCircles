@@ -21,6 +21,8 @@ group :development do
     gem "mongrel"
     gem "random_data"
     gem "josevalim-rails-footnotes", :require => "rails-footnotes"
+    gem "cucumber"
+    #gem "rspec-rails"
 end
 
 group :test do
