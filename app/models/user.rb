@@ -47,6 +47,23 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :login
   validates_uniqueness_of :email
   validates_acceptance_of :agreed_with_terms, :message => "you must be abided", :on => :create, :accept => true
+
+  def before_connect(facebook_session)
+    puts "*" * 40
+    puts "User.before_connect() ...."
+#    puts caller
+    fbuser = facebook_session.user
+    puts "fbuser.inspect = #{fbuser.inspect}"
+    self.single_access_token ||= Authlogic::Random.friendly_token
+    unless self.crypted_password
+      self.password = Authlogic::Random.friendly_token
+      self.password_confirmation = self.password
+    end
+    self.login = fbuser.uid
+    self.email = "#{fbuser.uid}@facebook.com"
+#    self.name = fbuser.name
+    puts "END"
+  end
   
   def news
     news_type = PostType.find_by_shortname( "news" )
