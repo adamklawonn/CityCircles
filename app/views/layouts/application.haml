@@ -28,7 +28,7 @@
     = javascript_include_tag "citycircles/CCTinyMCEFileUpload.js"
     = javascript_include_tag "animator.js"
     = javascript_include_tag "citycircles/CCMapRadiatingPOI.js"
-    = GMap.header
+    = GMap.header(:host => request.host)
     = javascript_include_tag "markerGroup"
     = javascript_include_tag "citycircles/CCGMapExtras"
     = javascript_include_tag "jquery.tweet"
