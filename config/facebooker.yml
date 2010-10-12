@@ -14,11 +14,11 @@ development:
   canvas_page_name: city_circles
   callback_url: http://softworks.blogsite.org:3000/
   pretty_errors: true
-  set_asset_host_to_callback_url: true
+  set_asset_host_to_callback_url: false
   tunnel:
     public_host_username: 
-    public_host: 
-    public_port: 4007
+    public_host: softworks.blogsite.org
+    public_port: 3000
     local_port: 3000
     server_alive_interval: 0
 
@@ -28,7 +28,7 @@ test:
   canvas_page_name: city_circles
   callback_url: http://softworks.blogsite.org:3000/
   pretty_errors: true
-  set_asset_host_to_callback_url: true
+  set_asset_host_to_callback_url: false
 
 production:
   api_key: a5da1eb187578689c024f7a7e9876bc9
@@ -36,4 +36,4 @@ production:
   canvas_page_name: city_circles
   callback_url: http://softworks.blogsite.org:3000/
   pretty_errors: true
-  set_asset_host_to_callback_url: true
+  set_asset_host_to_callback_url: false
