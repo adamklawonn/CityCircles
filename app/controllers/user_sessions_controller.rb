@@ -9,6 +9,9 @@ class UserSessionsController < ApplicationController
   end
   
   def create
+#    require 'pp'
+#    pp cookies
+#    pp session
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful!"

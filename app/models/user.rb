@@ -49,20 +49,15 @@ class User < ActiveRecord::Base
   validates_acceptance_of :agreed_with_terms, :message => "you must be abided", :on => :create, :accept => true
 
   def before_connect(facebook_session)
-    puts "*" * 40
-    puts "User.before_connect() ...."
-#    puts caller
     fbuser = facebook_session.user
-    puts "fbuser.inspect = #{fbuser.inspect}"
     self.single_access_token ||= Authlogic::Random.friendly_token
     unless self.crypted_password
       self.password = Authlogic::Random.friendly_token
       self.password_confirmation = self.password
     end
     self.login = fbuser.uid
-    self.email = "#{fbuser.uid}@facebook.com"
-#    self.name = fbuser.name
-    puts "END"
+    self.email = "#{fbuser.uid}@facebook.com" # required field (facebook does't provide email information)
+    self.user_detail = UserDetail.new(:first_name => fbuser.first_name, :last_name => fbuser.last_name)
   end
   
   def news
