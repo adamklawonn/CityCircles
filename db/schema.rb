@@ -424,7 +424,7 @@ ActiveRecord::Schema.define(:version => 20101011180415) do
   end
 
   create_table "user_details", :force => true do |t|
-    t.integer  "user_id",                          :null => false
+    t.integer  "user_id",             :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "twitter_username"
@@ -436,7 +436,6 @@ ActiveRecord::Schema.define(:version => 20101011180415) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "facebook_uid",        :limit => 8
   end
 
   create_table "user_hobbies", :force => true do |t|
@@ -471,15 +470,15 @@ ActiveRecord::Schema.define(:version => 20101011180415) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                                  :null => false
-    t.string   "email",                                  :null => false
-    t.string   "crypted_password",                       :null => false
-    t.string   "password_salt",                          :null => false
-    t.string   "persistence_token",                      :null => false
-    t.string   "single_access_token",                    :null => false
-    t.string   "perishable_token",                       :null => false
-    t.integer  "login_count",         :default => 0,     :null => false
-    t.integer  "failed_login_count",  :default => 0,     :null => false
+    t.string   "login",                                                :null => false
+    t.string   "email",                                                :null => false
+    t.string   "crypted_password",                                     :null => false
+    t.string   "password_salt",                                        :null => false
+    t.string   "persistence_token",                                    :null => false
+    t.string   "single_access_token",                                  :null => false
+    t.string   "perishable_token",                                     :null => false
+    t.integer  "login_count",                       :default => 0,     :null => false
+    t.integer  "failed_login_count",                :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
@@ -487,9 +486,11 @@ ActiveRecord::Schema.define(:version => 20101011180415) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "roles",               :default => ""
-    t.boolean  "email_verified",      :default => false
+    t.string   "roles",                             :default => ""
+    t.boolean  "email_verified",                    :default => false
     t.boolean  "agreed_with_terms"
+    t.integer  "facebook_uid",         :limit => 8
+    t.string   "facebook_session_key"
   end
 
   create_table "wireless_carriers", :force => true do |t|
