@@ -55,8 +55,8 @@ class User < ActiveRecord::Base
       self.password = Authlogic::Random.friendly_token
       self.password_confirmation = self.password
     end
-    self.login = fbuser.uid
-    self.email = "#{fbuser.uid}@facebook.com" # required field (facebook does't provide email information)
+    self.login = fbuser.email
+    self.email = fbuser.email
     self.user_detail = UserDetail.new(:first_name => fbuser.first_name, :last_name => fbuser.last_name)
   end
   
