@@ -27,6 +27,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.find
     @user_session.destroy
     #flash[:notice] = "Logout successful!"
+    clear_facebook_session_information
     redirect_to root_url
   end
 end

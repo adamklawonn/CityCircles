@@ -86,15 +86,16 @@ module AuthlogicFacebookConnect
       def validate_by_facebook_connect
         facebook_session = controller.facebook_session
         self.attempted_record = facebook_user_class.find(:first, :conditions => { facebook_uid_field => facebook_session.user.uid })
-#        fbuser = facebook_session.user
-#        Facebooker::User::FIELDS.each do |f|
-#          puts "#{f} = #{fbuser.send(f.to_sym)}"
-#        end
 
         if self.attempted_record
           self.attempted_record.send(:"#{facebook_session_key_field}=", facebook_session.session_key)
           self.attempted_record.save
         end
+
+#        fbuser = facebook_session.user
+#        Facebooker::User::FIELDS.collect(&:to_s).sort.each do |f|
+#          puts "#{f} = #{fbuser.send(f.to_sym)}"
+#        end
 
         unless self.attempted_record || facebook_skip_new_user_creation
           begin
