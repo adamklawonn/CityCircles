@@ -55,9 +55,11 @@ class User < ActiveRecord::Base
       self.password = Authlogic::Random.friendly_token
       self.password_confirmation = self.password
     end
-    self.login = fbuser.email
-    self.email = fbuser.email
-    self.user_detail = UserDetail.new(:first_name => fbuser.first_name, :last_name => fbuser.last_name)
+    # only write fields that are empty. This is to prevent overwriting existing fields incase the facebook
+    # user already has an account in our system (identified by common email)
+    self.login ||= fbuser.email
+    self.email ||= fbuser.email
+    self.user_detail ||= UserDetail.new(:first_name => fbuser.first_name, :last_name => fbuser.last_name)
   end
   
   def news

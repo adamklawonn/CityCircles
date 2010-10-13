@@ -103,7 +103,7 @@ module AuthlogicFacebookConnect
             #
             # We assign it after the call to new in case the attribute is protected.
 
-            new_user = klass.new
+            new_user = klass.find_by_email(facebook_session.user.email) || klass.new
 
             if klass == facebook_user_class
               new_user.send(:"#{facebook_uid_field}=", facebook_session.user.uid)
