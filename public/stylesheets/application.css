@@ -238,7 +238,7 @@ ul#adminnavigation li { display: inline; font-size: 1em; padding-top: 0px; font-
 /*======================
          FORMS
 =====================*/
-fieldset#fancyform { background-color: #fff; border: 4px solid #d3d3d3; padding: 10px; }
+fieldset#fancyform { background-color: #fff; border: 4px solid #d3d3d3; padding: 10px; min-height: 150px }
 fieldset#fancyform legend { color: rgb(39, 49, 28); font-size: 1.4em; font-weight: bold; }
 #fancyform label { font-size: 0.9em; }
 label { font-size: 0.9em; }
@@ -359,3 +359,7 @@ text-align:center;
 
 /* JQUERY */
 #ui-datepicker-div { z-index: 100000; }
+
+.normal_login { width: 250px; float: left; margin-right: 20px }
+.login_separator { width: 50px; float: left; position: relative }
+.fbconnect_login { width: 260px; float: left }
