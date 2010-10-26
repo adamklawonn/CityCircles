@@ -18,8 +18,50 @@
         %br
         = render :partial => "maps/post_map", :locals => { :poi => @post.interest_point }
         = error_message_on :post, :lat
-        %br
-        #location-msg{ :style => "display: none; visible: hidden;text-align: center;" }
+        
+        
+        #location-msg{ :style => "display: none; visible: hidden;text-align:left; padding-top:20px;" }
           Location Set!&nbsp;&nbsp;
           = image_tag "map.png", :style => "vertical-align: middle"
+        :javascript
+
+          function find_address(){
+            geocoder = new GClientGeocoder();
+            var address = document.getElementById("address_field").value;
+            geocoder.getLatLng(
+                address,
+                function(point) {
+                  if (!point) {
+                    alert(address + " not found");
+                  } else {
+                    // check if new location falls within radius
+                    if(poiBounds.getBounds().containsLatLng(point)){
+                        // clean any existing marker
+                        if(latlngMarker){
+                          postcontentmap.removeOverlay(latlngMarker);
+                        }
+                        // add marker of result location
+                        postcontentmap.setCenter(point, 15);
+                        latlngMarker = new GMarker(point);
+                        postcontentmap.addOverlay(latlngMarker);
+                        //marker.openInfoWindowHtml(address);
+                        // Update coordinates
+                        $( 'lat' ).value = point.lat();
+                        $( 'lng' ).value = point.lng();
+                        $( 'location-msg' ).appear();
+                    }else{
+                      alert('Please choose an address within the green radius.');
+                    }
+                  }
+                }
+              );
+          }
+
+        %br
+        %label Or enter address within range 
+        %br
+        %input{ :id=>"address_field",:style=>"margin-top:5px;"}
+        %p{:style=>"color:#333333;font-size:10px;padding-left:0px;padding-top:3px;"} For example 500 S Mill Ave,Phoenix,AZ 
+        %br
+        %input{:id=>"check_address_button", :type=>"submit",:value=>"Submit address",:onclick=>"find_address();"}
 .clear

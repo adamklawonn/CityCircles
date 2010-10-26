@@ -247,6 +247,7 @@ fieldset#fancyform { background-color: #fff; border: 4px solid #d3d3d3; padding:
 fieldset#fancyform legend { color: rgb(39, 49, 28); font-size: 1.4em; font-weight: bold; }
 #fancyform label { font-size: 0.9em; }
 label { font-size: 0.9em; }
+#address_field{ width:100%;}
 
 
 /*======================

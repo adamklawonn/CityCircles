@@ -147,9 +147,32 @@ module ApplicationHelper
     post_gmap.overlay_init GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( 20, 20 ), :icon_anchor => GPoint.new( 10, 10 ), :info_window_anchor => GPoint.new( 10, 10 ) ) )
     post_gmap.record_init "poiBounds = GCircle( postcontentmap, new GLatLng( #{ poi.lat }, #{ poi.lng } ), new GLatLng( #{ poi.lat } + 0.004166666666667, #{ poi.lng } ), '#000000', '#79AB75' );"
     post_gmap.record_init "latlngMarker = null;"
-    post_gmap.record_init "GEvent.addListener( postcontentmap, 'click', function( overlay, latlng, overlaylatlng ) { if( overlaylatlng != undefined ) { $( 'lat' ).value = overlaylatlng.lat();$( 'lng' ).value = overlaylatlng.lng();$( 'lat' ).value = overlaylatlng.lat();$( 'lng' ).value = overlaylatlng.lng();$( 'location-msg' ).appear(); } } );"
-    post_gmap.record_init "GEvent.addListener( postcontentmap, 'click', function( overlay, latlng, overlaylatlng ) { if( overlaylatlng != undefined ) { if( latlngMarker == null ) { latlngMarker = new GMarker( new GLatLng( overlaylatlng.lat(), overlaylatlng.lng() ) );postcontentmap.addOverlay( latlngMarker ); } else { latlngMarker.setLatLng( new GLatLng( overlaylatlng.lat(), overlaylatlng.lng() ) ) } } } );"
-    post_gmap.record_init "postcontentmap.enableScrollWheelZoom();postcontentmap.getDragObject().setDraggableCursor( 'pointer' );postcontentmap.savePosition();postcontentmap.addOverlay( poiBounds ); postcontentmap.returnToSavedPosition();"
+    post_gmap.record_init "GEvent.addListener( postcontentmap, 'click', function( overlay, latlng, overlaylatlng ) {
+    document.getElementById('address_field').value = ''; 
+    if( overlaylatlng != undefined ) { 
+      $( 'lat' ).value = overlaylatlng.lat();
+      $( 'lng' ).value = overlaylatlng.lng();
+      $( 'location-msg' ).appear(); 
+    } else{
+      alert('Please make a selection within the green radius.');
+    } 
+} );"
+    post_gmap.record_init "GEvent.addListener( postcontentmap, 'click', function( overlay, latlng, overlaylatlng ) { 
+    if( overlaylatlng != undefined ) { 
+      if( latlngMarker == null ) { 
+        latlngMarker = new GMarker( new GLatLng( overlaylatlng.lat(), overlaylatlng.lng() ) );
+        postcontentmap.addOverlay( latlngMarker ); 
+      }else { 
+        latlngMarker.setLatLng( new GLatLng( overlaylatlng.lat(), overlaylatlng.lng() ) );
+      } 
+    }  
+} );"
+    post_gmap.record_init "postcontentmap.enableScrollWheelZoom();
+    postcontentmap.getDragObject().setDraggableCursor( 'pointer' );
+    postcontentmap.savePosition();
+    postcontentmap.addOverlay( poiBounds ); 
+    postcontentmap.returnToSavedPosition();"
+    
     post_gmap
     
   end
