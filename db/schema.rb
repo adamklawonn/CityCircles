@@ -424,7 +424,7 @@ ActiveRecord::Schema.define(:version => 20101011180415) do
   end
 
   create_table "user_details", :force => true do |t|
-    t.integer  "user_id",             :null => false
+    t.integer  "user_id",                          :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "twitter_username"
@@ -436,6 +436,7 @@ ActiveRecord::Schema.define(:version => 20101011180415) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "facebook_uid",        :limit => 8
   end
 
   create_table "user_hobbies", :force => true do |t|
