@@ -31,20 +31,47 @@ var RadiatingPOI = Class.create({
 
         scope = this;
 
-		//add listeners that triger radiating
-		for ( var i=0; i < scope.map.layers.length; i++ )
-		{
-		  	if(scope.map.layers[i].name != scope.animation_layer_name)
-			{
-				scope.map.layers[i].events.on({'click': scope.poiMouseOverHandler} );				
-			}
-		}
-		
 		//layer that contains all the animations
 		//points in scope are copied to it for animation
 		//original points are invisible during animation
 		this.animation_layer = new OpenLayers.Layer.Vector(this.animation_layer_name);
 		this.map.addLayer(this.animation_layer);
+
+		//add listeners that triger radiating
+		var selectedLayers = [];
+		for ( var i=0; i < scope.map.layers.length; i++ )
+		{
+			var layer = scope.map.layers[i];
+		  	if(layer.name != scope.animation_layer_name && layer.name != "Google" && layer.name != "Stations" )
+			{
+				//scope.map.layers[i].events.on({'featureselected': scope.poiMouseOverHandler} );				
+				layer.events.on({
+					"featureselected": function(e) {
+				        alert("selected feature "+e.feature.id+" on Vector Layer 1");
+	                },
+	                "featureunselected": function(e) {
+	                    alert("unselected feature "+e.feature.id+" on Vector Layer 1");
+	                },
+					"click":function(e){
+						alert("clicked "+e.feature.id);
+					}
+				});
+				selectedLayers[i] = layer;
+			}
+		}
+		
+		this.selectControl = new OpenLayers.Control.SelectFeature(
+		                    selectedLayers,
+		                    {
+		                       	clickout: false, toggle: false,
+		                        multiple: false, hover: false,
+		                        toggleKey: "ctrlKey", // ctrl key removes from selection
+		                        multipleKey: "shiftKey" // shift key adds to selection
+		                    });
+		this.map.addControl(this.selectControl);
+        this.selectControl.activate();
+		
+		
 		
 		//OpenLayers.Tween class proved unfited to use for a multi-part animation,
 		//using Animator class from: http://berniecode.com/writing/animator.html
@@ -53,7 +80,7 @@ var RadiatingPOI = Class.create({
 		this.animation.addSubject(this.animatePOIs);
 		
 		//reset any radiating artifacts on map zoom or move
-		scope.map.events.on({"movestart": scope.resetRadiatingPOIs});
+		//scope.map.events.on({"movestart": scope.resetRadiatingPOIs});
 		
 		
 		

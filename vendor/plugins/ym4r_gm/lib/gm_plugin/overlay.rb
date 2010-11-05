@@ -346,7 +346,7 @@ module Ym4r
 
       def create 
         js_marker = '[' + @markers.collect do |marker|
-          add_description(marker)
+            add_description(marker)
         end.join(",") + ']'
 
         "new Clusterer(#{js_marker},#{MappingObject.javascriptify_variable(@icon)},#{MappingObject.javascriptify_variable(@max_visible_markers)},#{MappingObject.javascriptify_variable(@grid_size)},#{MappingObject.javascriptify_variable(@min_markers_per_cluster)},#{MappingObject.javascriptify_variable(@max_lines_per_info_box)})"

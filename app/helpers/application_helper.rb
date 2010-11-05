@@ -61,10 +61,10 @@ module ApplicationHelper
     
     marker_groups = []
     line_groups = []
-    #Pathfinder
+    #Pathfinder edit
     #Create a storage for a complete list of POIs
-    #deprecated
-    #poi_collection = CompleteMarkerCollection.new
+    poi_collection = CompleteMarkerCollection.new
+    
     map.map_layers.each do | layer |
       case layer.shortname
         when "lightrailline"
@@ -79,7 +79,7 @@ module ApplicationHelper
           end
           marker_groups << marker_group
           
-          #Pathfinder
+          #Pathfinder edit
           #Add markers to cc_poi_list
           #deprecated
           #poi_collection.addMarkersToCollection(marker_group => :markers)
@@ -89,14 +89,17 @@ module ApplicationHelper
           marker_groups << marker_group
           
           #Pathfinder
-          #Add markers to cc_poi_list
-          #deprecated
-          #poi_collection.addMarkersToCollection(marker_group => :markers)
-        
+          #Add markers to poi_collection if there is something to add
+          markers = marker_group[:markers]
+          n = markers.length
+         # debugger
+          if n != 0
+            poi_collection.addMarkersToCollection(marker_group[:markers])
+          end  
+          
       end
       
     end
-    
     # Initialize the map.
     gmap = GMap.new( "map", "map" )
 
@@ -119,9 +122,18 @@ module ApplicationHelper
     
     # Add markers to each individual layer on the map.
     marker_groups.each do | mg |
-      gmap.overlay_global_init GMarkerGroup.new( true, mg[:markers] ), mg[:layer_name]
+      #gmap.overlay_global_init GMarkerGroup.new( true, mg[:markers] ), mg[:layer_name]
+      if mg[:layer_name] == "lightrailline"
+        # clusterer = Clusterer.new(mg[:markers])
+        # gmap.overlay_global_init clusterer, mg[:layer_name]
+        gmap.overlay_global_init GMarkerGroup.new( true, mg[:markers] ), mg[:layer_name]
+      end
     end
+    #debugger
     
+    clusterer = Clusterer.new(poi_collection.poi_list)
+    gmap.overlay_global_init clusterer, "one_layer"
+
     gmap
     
   end
@@ -186,22 +198,21 @@ module ApplicationHelper
     comments_path( :commentable_type => commentable, :commentable_id => controller.instance_variable_get( "@#{ commentable }" ).id )
   end
   
-  #Pathfinder
-  #deprecated
-  #class CompleteMarkerCollection
-  #  
-  #  def initialize
-  #    @poi_list = []
-  #  end 
-  #  def poi_list
-  #    @poi_list
-  #  end
-  #  
-  #  def addMarkersToCollection( markers )
-  #    markers.each do | marker |
-  #      poi_list.push(marker)
-  #    end
-  #  end
-  #end  
+  #Pathfinder edit
+  class CompleteMarkerCollection
+     
+     def initialize
+       @poi_list = []
+     end 
+     def poi_list
+       @poi_list
+     end
+     
+     def addMarkersToCollection( markers )
+       markers.each do | marker |
+         poi_list.push(marker)
+       end
+     end
+  end  
   
 end

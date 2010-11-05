@@ -24,6 +24,7 @@ group :development do
     gem "josevalim-rails-footnotes", :require => "rails-footnotes"
     gem "cucumber"
     #gem "rspec-rails"
+    gem "ruby-debug"
 end
 
 group :test do
