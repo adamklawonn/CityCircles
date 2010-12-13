@@ -1,6 +1,6 @@
 class CreateUserWirelessProfiles < ActiveRecord::Migration
   def self.up
-    create_table :user_wireless_profiles, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :user_wireless_profiles do |t|
       t.integer :user_id, :null => false
       t.string :wireless_carrier_id, :nil => false
       t.string :wireless_number, :default => nil

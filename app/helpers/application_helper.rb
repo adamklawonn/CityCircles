@@ -68,7 +68,7 @@ module ApplicationHelper
     map.map_layers.each do | layer |
       case layer.shortname
         when "lightrailline"
-          line_categories = InterestLine.find( :all, :group => "shortname", :conditions => [ "map_layer_id = ?", layer.id ] )
+          line_categories = InterestLine.find :all, :select => 'distinct(shortname)', :conditions => [ "map_layer_id = ?", layer.id ]
           marker_group = { :layer_name => layer.shortname, 
                            :markers => layer.interest_points.collect { | poi | GMarker.new( [ poi.lat, poi.lng ], :icon => GIcon.new( :image => poi.map_icon.image_url, :icon_size => GSize.new( 20, 20 ), :icon_anchor => GPoint.new( 10, 10 ), :info_window_anchor => GPoint.new( 10, 10 ) ), :title => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.label : poi.label ), :info_window => ( ( !poi_override.nil? and poi.id == poi_override.id ) ? poi_override.body : poi.body ) ) } }
           line_categories.each do | lc | 

@@ -1,6 +1,6 @@
 class CreateMaps < ActiveRecord::Migration
   def self.up
-    create_table :maps, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :maps do |t|
       t.string :title, :null => false
       t.string :description, :length => 5000, :null => false
       t.string :shortname, :null => false

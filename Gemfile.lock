@@ -60,11 +60,11 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
-    mysql (2.8.1)
     oauth (0.4.3)
     paperclip (2.3.3)
       activerecord
       activesupport
+    pg (0.10.0)
     rack (1.1.0)
     rails (2.3.9)
       actionmailer (= 2.3.9)
@@ -104,8 +104,8 @@ DEPENDENCIES
   josevalim-rails-footnotes
   kete-tiny_mce
   mongrel
-  mysql
   paperclip
+  pg
   rails (~> 2.3.9)
   random_data
   ruby-debug

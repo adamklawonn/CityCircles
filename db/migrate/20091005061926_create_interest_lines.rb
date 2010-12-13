@@ -1,6 +1,6 @@
 class CreateInterestLines < ActiveRecord::Migration
   def self.up
-    create_table :interest_lines, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :interest_lines do |t|
       t.integer :map_id, :null => false
       t.integer :map_layer_id, :null => false
       t.string :label, :null => false

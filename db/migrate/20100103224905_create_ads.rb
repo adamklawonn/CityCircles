@@ -1,6 +1,6 @@
 class CreateAds < ActiveRecord::Migration
   def self.up
-    create_table :ads, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :ads do |t|
       t.integer :organization_id, :null => false
       t.string :placement, :null => false
       t.datetime :starts_at, :null => false

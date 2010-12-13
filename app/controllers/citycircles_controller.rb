@@ -14,8 +14,10 @@ class CitycirclesController < ApplicationController
     @fix_its = Post.find( :all, :conditions => [ 'post_type_id = ? and map_layers.map_id = ? and ( posts.created_at >= ? and posts.created_at <= ? ) and is_draft = ?', PostType.find_by_shortname('fixit'), @default_map.id, 14.days.ago, 14.days.from_now, false ], :include => [ :map_layer => :map ], :order => "posts.sticky desc, posts.created_at desc", :limit => 8 )
     
     # ads
-    @under_map_ad = Ad.find( :first, :conditions => [ 'placement = ? and is_approved = ? and ( ? between starts_at and ends_at )', 'Homepage Under Map', true, Time.now ] , :order => "RAND()")
-    @map_ads = Ad.find( :all, :conditions => [ 'placement = ? and is_approved = ? and ( ? between starts_at and ends_at )', 'Homepage Map', true, Time.now ], :order => "weight asc", :limit => 2 )
+    #@under_map_ad = Ad.find( :first, :conditions => [ 'placement = ? and is_approved = ? and ( ? between starts_at and ends_at )', 'Homepage Under Map', true, Time.now ] , :order => "RAND()")
+    #@map_ads = Ad.find( :all, :conditions => [ 'placement = ? and is_approved = ? and ( ? between starts_at and ends_at )', 'Homepage Map', true, Time.now ], :order => "weight asc", :limit => 2 )
+    @under_map_ad = Ad.find :first, :conditions => ['placement = ? and is_approved = ? and (starts_at >= ? and ends_at <= ?)', 'Homepage Under Map', true, Time.now.strftime('%Y/%m/%d %H:%M:%S'), Time.now.strftime('%Y/%m/%d %H:%M:%S')]
+    @map_ads = Ad.find :all, :conditions => ['placement = ? and is_approved = ? and (starts_at >= ? and ends_at <= ?)', 'Homepage Map', true, Time.now.strftime('%Y/%m/%d %H:%M:%S'), Time.now.strftime('%Y/%m/%d %H:%M:%S')]
   end
   
   def universal_add_content

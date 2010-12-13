@@ -1,6 +1,6 @@
 class CreatePages < ActiveRecord::Migration
   def self.up
-    create_table :pages, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :pages do |t|
       t.string :title, :null => false
       t.string :shortname, :null => false
       t.boolean :show_in_navigation, :default => false

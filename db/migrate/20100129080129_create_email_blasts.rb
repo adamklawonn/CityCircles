@@ -1,6 +1,6 @@
 class CreateEmailBlasts < ActiveRecord::Migration
   def self.up
-    create_table :email_blasts, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :email_blasts do |t|
       t.datetime :send_at, :null => true
       t.boolean :is_active, :default => false
       t.boolean :was_sent, :default => false

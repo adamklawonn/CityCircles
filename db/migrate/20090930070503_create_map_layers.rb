@@ -1,6 +1,6 @@
 class CreateMapLayers < ActiveRecord::Migration
   def self.up
-    create_table :map_layers, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :map_layers do |t|
       t.integer :map_id, :null => false
       t.string :title, :null => false
       t.string :shortname, :null => false

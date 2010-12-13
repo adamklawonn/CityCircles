@@ -1,6 +1,6 @@
 class CreatePosts < ActiveRecord::Migration
   def self.up
-    create_table :posts, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :posts do |t|
       t.integer :post_type_id, :null => false
       t.integer :interest_point_id, :null => false
       t.integer :map_layer_id, :null => false

@@ -1,6 +1,6 @@
 class CreatePostAttachments < ActiveRecord::Migration
   def self.up
-    create_table :post_attachments, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :post_attachments do |t|
       t.integer :post_id, :null => false
       t.string :caption, :null => false
       t.string :oembed, :default => nil

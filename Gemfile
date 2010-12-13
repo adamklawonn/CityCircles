@@ -2,7 +2,7 @@ source :gemcutter
 source "http://gems.github.com"
 
 gem "rails", "~> 2.3.9"
-gem "mysql"
+gem "pg"
 gem "haml"
 gem "authlogic"
 gem "geokit"

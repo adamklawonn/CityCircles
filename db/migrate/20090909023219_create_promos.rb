@@ -1,6 +1,6 @@
 class CreatePromos < ActiveRecord::Migration
   def self.up
-    create_table :promos, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :promos do |t|
       t.integer :organization_id, :null => false
       t.integer :post_id, :null => false
       t.string :title, :null => false

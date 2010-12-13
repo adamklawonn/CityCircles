@@ -1,6 +1,6 @@
 class CreateUserHobbies < ActiveRecord::Migration
   def self.up
-    create_table :user_hobbies, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :user_hobbies do |t|
       t.integer :user_id, :null => false
       t.integer :hobby_id, :null => false
       t.timestamps

@@ -1,7 +1,7 @@
 class CreateTypusUsers < ActiveRecord::Migration
 
   def self.up
-    create_table :typus_users, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :typus_users do |t|
       t.string :first_name, :default => "", :null => false
       t.string :last_name, :default => "", :null => false
       t.string :role, :null => false

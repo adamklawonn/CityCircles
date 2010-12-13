@@ -1,6 +1,6 @@
 class CreateMapIcons < ActiveRecord::Migration
   def self.up
-    create_table :map_icons, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :map_icons do |t|
       t.string :shortname, :null => false
       t.string :image_url, :null => false
       t.string :icon_size, :null => false

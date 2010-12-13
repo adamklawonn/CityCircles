@@ -1,6 +1,6 @@
 class CreateComments < ActiveRecord::Migration
   def self.up
-    create_table :comments, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    create_table :comments do |t|
       t.string :title, :null => false
       t.string :body, :length => 1000, :null => false
       t.integer :author_id, :null => false
