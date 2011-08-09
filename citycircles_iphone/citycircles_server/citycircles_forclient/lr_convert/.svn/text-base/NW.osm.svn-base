@@ -1,0 +1,1274 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='Merkaartor'>
+<bound box='33.414775,-112.099909,33.521021,-111.870919' origin='http://www.openstreetmap.org/api/0.6' />
+  <node id="330671046" lat="33.41485389" lon="-111.87091852">
+    <tag k="name" v="28. Sycamore"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <way id="30030611">
+    <nd ref="330671046"/>
+    <nd ref="41601592"/>
+    <nd ref="330670908"/>
+    <nd ref="330670906"/>
+    <nd ref="330671048"/>
+    <nd ref="41669390"/>
+    <nd ref="41624288"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="41601592" lat="33.41485389" lon="-111.87446331">
+  </node>
+
+  <node id="330670908" lat="33.41483956" lon="-111.87574214">
+  </node>
+
+  <node id="330670906" lat="33.41485389" lon="-111.87698668">
+  </node>
+
+  <node id="330671048" lat="33.41484668" lon="-111.87895224">
+  </node>
+
+  <node id="41669390" lat="33.41481810" lon="-111.88305493">
+  </node>
+
+  <node id="41624288" lat="33.41481039" lon="-111.88455538">
+  </node>
+
+  <node id="330674575" lat="33.41481039" lon="-111.88488152">
+  </node>
+
+  <way id="30030776">
+    <nd ref="330674575"/>
+    <nd ref="330675144"/>
+    <nd ref="330675145"/>
+    <nd ref="41624285"/>
+    <nd ref="1215674009"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="330675144" lat="33.41481106" lon="-111.88626503">
+  </node>
+
+  <node id="330675145" lat="33.41478944" lon="-111.88982701">
+    <tag k="name" v="27. Price-101"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41624285" lat="33.41478944" lon="-111.89071959">
+  </node>
+
+  <node id="1215674009" lat="33.41478633" lon="-111.89096309">
+  </node>
+
+  <node id="41624283" lat="33.41479052" lon="-111.89172794">
+  </node>
+
+  <way id="30031353">
+    <nd ref="41624283"/>
+    <nd ref="337829273"/>
+    <nd ref="337829277"/>
+    <nd ref="337829282"/>
+    <nd ref="330686490"/>
+    <nd ref="337829289"/>
+    <nd ref="330686492"/>
+    <nd ref="337829293"/>
+    <nd ref="337829296"/>
+    <nd ref="337829301"/>
+    <nd ref="337829306"/>
+    <nd ref="337829310"/>
+    <nd ref="330686499"/>
+    <nd ref="337829316"/>
+    <nd ref="337829321"/>
+    <nd ref="330690173"/>
+    <nd ref="330689435"/>
+    <nd ref="317655163"/>
+    <nd ref="337829329"/>
+    <nd ref="337829333"/>
+    <nd ref="317577797"/>
+    <nd ref="330691265"/>
+    <nd ref="330691284"/>
+    <nd ref="330691269"/>
+    <nd ref="330692456"/>
+    <nd ref="330692457"/>
+    <nd ref="330692458"/>
+    <nd ref="330692459"/>
+    <nd ref="330692462"/>
+    <nd ref="330692465"/>
+    <nd ref="330692468"/>
+    <nd ref="330692470"/>
+    <nd ref="330693951"/>
+    <nd ref="330694011"/>
+    <nd ref="330692473"/>
+    <nd ref="330693538"/>
+    <nd ref="41754703"/>
+    <nd ref="316884963"/>
+    <nd ref="316008787"/>
+    <nd ref="316008312"/>
+    <nd ref="330693535"/>
+    <nd ref="316008311"/>
+    <nd ref="330693534"/>
+    <nd ref="316008310"/>
+    <nd ref="330693684"/>
+    <nd ref="330694709"/>
+    <nd ref="335604779"/>
+    <nd ref="330694708"/>
+    <nd ref="330694707"/>
+    <nd ref="330695763"/>
+    <nd ref="330695762"/>
+    <nd ref="330695748"/>
+    <nd ref="330695761"/>
+    <nd ref="330695760"/>
+    <nd ref="330695758"/>
+    <nd ref="41563519"/>
+    <nd ref="330695757"/>
+    <nd ref="330695756"/>
+    <nd ref="330695755"/>
+    <nd ref="330695754"/>
+    <nd ref="330696566"/>
+    <nd ref="330696552"/>
+    <nd ref="330696567"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="337829273" lat="33.41478944" lon="-111.89191259">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829277" lat="33.41478231" lon="-111.89619558">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829282" lat="33.41478231" lon="-111.90048711">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330686490" lat="33.41477510" lon="-111.90105356">
+    <tag k="name" v="26. Smith-Martin"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="337829289" lat="33.41477493" lon="-111.90154734">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330686492" lat="33.41477510" lon="-111.90828907">
+    <tag k="name" v="25. McClintock Dr"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="337829293" lat="33.41477510" lon="-111.90911309">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829296" lat="33.41477510" lon="-111.91232320">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829301" lat="33.41477510" lon="-111.91246661">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829306" lat="33.41477510" lon="-111.91424584">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829310" lat="33.41477510" lon="-111.91475219">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330686499" lat="33.41478147" lon="-111.91685512">
+    <tag k="name" v="24. Dorsey Ln"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="337829316" lat="33.41478231" lon="-111.91712108">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829321" lat="33.41478944" lon="-111.91767043">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330690173" lat="33.41479656" lon="-111.92015952">
+  </node>
+
+  <node id="330689435" lat="33.41485247" lon="-111.92026253">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="317655163" lat="33.41494701" lon="-111.92038273">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829329" lat="33.41675960" lon="-111.92239967">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="337829333" lat="33.41750517" lon="-111.92322118">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="317577797" lat="33.42021982" lon="-111.92627923">
+  </node>
+
+  <node id="330691265" lat="33.42027707" lon="-111.92634788">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330691284" lat="33.42080731" lon="-111.92696588">
+    <tag k="name" v="23. University Dr"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="330691269" lat="33.42201774" lon="-111.92828770">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330692456" lat="33.42225427" lon="-111.92855383">
+  </node>
+
+  <node id="330692457" lat="33.42240481" lon="-111.92874259">
+  </node>
+
+  <node id="330692458" lat="33.42260539" lon="-111.92896572">
+  </node>
+
+  <node id="330692459" lat="33.42279164" lon="-111.92919748">
+  </node>
+
+  <node id="330692462" lat="33.42294922" lon="-111.92940350">
+  </node>
+
+  <node id="330692465" lat="33.42307101" lon="-111.92960953">
+  </node>
+
+  <node id="330692468" lat="33.42319280" lon="-111.92994422">
+  </node>
+
+  <node id="330692470" lat="33.42325013" lon="-111.93016743">
+  </node>
+
+  <node id="330693951" lat="33.42322590" lon="-111.93040732">
+  </node>
+
+  <node id="330694011" lat="33.42321107" lon="-111.93055417">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330692473" lat="33.42320000" lon="-111.93066523">
+  </node>
+
+  <node id="330693538" lat="33.42326438" lon="-111.93095700">
+  </node>
+
+  <node id="41754703" lat="33.42337753" lon="-111.93123042">
+  </node>
+
+  <node id="316884963" lat="33.42355104" lon="-111.93148062">
+  </node>
+
+  <node id="316008787" lat="33.42417423" lon="-111.93218437">
+  </node>
+
+  <node id="316008312" lat="33.42448093" lon="-111.93252903">
+  </node>
+
+  <node id="330693535" lat="33.42463976" lon="-111.93275090">
+  </node>
+
+  <node id="316008311" lat="33.42475451" lon="-111.93297403">
+  </node>
+
+  <node id="330693534" lat="33.42486188" lon="-111.93325733">
+  </node>
+
+  <node id="316008310" lat="33.42523438" lon="-111.93446751">
+  </node>
+
+  <node id="330693684" lat="33.42529171" lon="-111.93452761">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330694709" lat="33.42562120" lon="-111.93480220">
+  </node>
+
+  <node id="335604779" lat="33.42572028" lon="-111.93498040">
+  </node>
+
+  <node id="330694708" lat="33.42582178" lon="-111.93516271">
+  </node>
+
+  <node id="330694707" lat="33.42615848" lon="-111.93606393">
+    <tag k="name" v="22. Veterans Way"/>
+    <tag k="phoenixbikeguide" v="#4"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="330695763" lat="33.42741920" lon="-111.93903372">
+  </node>
+
+  <node id="330695762" lat="33.42747654" lon="-111.93946279">
+  </node>
+
+  <node id="330695748" lat="33.42747662" lon="-111.93998046">
+  </node>
+
+  <node id="330695761" lat="33.42746941" lon="-111.94075034">
+    <tag k="name" v="21. Mill Ave"/>
+    <tag k="phoenixbikeguide" v="#3"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="330695760" lat="33.42746941" lon="-111.94196052">
+  </node>
+
+  <node id="330695758" lat="33.42758399" lon="-111.94234684">
+  </node>
+
+  <node id="41563519" lat="33.42772011" lon="-111.94266426">
+  </node>
+
+  <node id="330695757" lat="33.42787769" lon="-111.94287892">
+  </node>
+
+  <node id="330695756" lat="33.42808540" lon="-111.94309350">
+  </node>
+
+  <node id="330695755" lat="33.42834331" lon="-111.94329952">
+  </node>
+
+  <node id="330695754" lat="33.42860122" lon="-111.94341964">
+  </node>
+
+  <node id="330696566" lat="33.42889492" lon="-111.94349692">
+  </node>
+
+  <node id="330696552" lat="33.42952097" lon="-111.94348711">
+  </node>
+
+  <node id="330696567" lat="33.43082888" lon="-111.94345400">
+  </node>
+
+  <way id="30031799">
+    <nd ref="330696567"/>
+    <nd ref="330696568"/>
+    <nd ref="330696569"/>
+    <nd ref="330696570"/>
+    <nd ref="330696571"/>
+    <nd ref="330696572"/>
+    <nd ref="330696574"/>
+    <tag k="bridge" v="yes"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="layer" v="1"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="330696568" lat="33.43111537" lon="-111.94345400">
+  </node>
+
+  <node id="330696569" lat="33.43137328" lon="-111.94344537">
+  </node>
+
+  <node id="330696570" lat="33.43213972" lon="-111.94352257">
+  </node>
+
+  <node id="330696571" lat="33.43324999" lon="-111.94361703">
+  </node>
+
+  <node id="330696572" lat="33.43473267" lon="-111.94376296">
+  </node>
+
+  <node id="330696574" lat="33.43534153" lon="-111.94390034">
+  </node>
+
+  <node id="41698456" lat="33.44828712" lon="-112.02469149">
+  </node>
+
+  <way id="5668611">
+    <nd ref="41698456"/>
+    <nd ref="41632312"/>
+    <nd ref="41996563"/>
+    <nd ref="41697778"/>
+    <nd ref="41566549"/>
+    <nd ref="41786877"/>
+    <nd ref="42321025"/>
+    <nd ref="41822265"/>
+    <nd ref="41700679"/>
+    <nd ref="42321033"/>
+    <nd ref="41849758"/>
+    <nd ref="331865385"/>
+    <nd ref="41687377"/>
+    <nd ref="42227651"/>
+    <nd ref="41580179"/>
+    <nd ref="986255614"/>
+    <nd ref="41821297"/>
+    <nd ref="986255615"/>
+    <nd ref="330713487"/>
+    <nd ref="41890321"/>
+    <nd ref="256195155"/>
+    <nd ref="330713232"/>
+    <nd ref="41397730"/>
+    <nd ref="41387798"/>
+    <nd ref="41387809"/>
+    <nd ref="41931689"/>
+    <nd ref="42282651"/>
+    <nd ref="331858454"/>
+    <nd ref="331857789"/>
+    <nd ref="41630024"/>
+    <nd ref="255915427"/>
+    <nd ref="330713237"/>
+    <nd ref="331856866"/>
+    <nd ref="42321095"/>
+    <nd ref="41576895"/>
+    <nd ref="42415336"/>
+    <nd ref="42415345"/>
+    <nd ref="42415348"/>
+    <nd ref="42415353"/>
+    <nd ref="42415357"/>
+    <nd ref="42415362"/>
+    <nd ref="255823718"/>
+    <nd ref="42415376"/>
+    <nd ref="42415380"/>
+    <nd ref="330699349"/>
+    <nd ref="42415383"/>
+    <nd ref="42415387"/>
+    <nd ref="255915630"/>
+    <nd ref="42415391"/>
+    <nd ref="42415396"/>
+    <nd ref="330699351"/>
+    <nd ref="42415404"/>
+    <nd ref="42415410"/>
+    <nd ref="317498623"/>
+    <nd ref="42415415"/>
+    <nd ref="42415420"/>
+    <nd ref="42415423"/>
+    <nd ref="330700608"/>
+    <nd ref="330699466"/>
+    <nd ref="330696580"/>
+    <nd ref="330696578"/>
+    <nd ref="330696577"/>
+    <nd ref="330696576"/>
+    <nd ref="330696575"/>
+    <nd ref="330696574"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="41632312" lat="33.44828712" lon="-112.02374744">
+  </node>
+
+  <node id="41996563" lat="33.44826282" lon="-112.02154023">
+  </node>
+
+  <node id="41697778" lat="33.44824413" lon="-112.01935289">
+  </node>
+
+  <node id="41566549" lat="33.44822258" lon="-112.01725004">
+  </node>
+
+  <node id="41786877" lat="33.44821546" lon="-112.01289841">
+  </node>
+
+  <node id="42321025" lat="33.44820833" lon="-112.01111306">
+  </node>
+
+  <node id="41822265" lat="33.44820113" lon="-112.01008318">
+  </node>
+
+  <node id="41700679" lat="33.44819400" lon="-112.00740516">
+  </node>
+
+  <node id="42321033" lat="33.44819400" lon="-112.00368879">
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41849758" lat="33.44819400" lon="-112.00286477">
+  </node>
+
+  <node id="331865385" lat="33.44818554" lon="-111.99992079">
+    <tag k="name" v="17. 38th St"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41687377" lat="33.44817246" lon="-111.99392982">
+  </node>
+
+  <node id="42227651" lat="33.44817246" lon="-111.99277966">
+  </node>
+
+  <node id="41580179" lat="33.44816182" lon="-111.99161231">
+  </node>
+
+  <node id="986255614" lat="33.44816182" lon="-111.99064764">
+  </node>
+
+  <node id="41821297" lat="33.44816182" lon="-111.99055653">
+  </node>
+
+  <node id="986255615" lat="33.44816182" lon="-111.99014338">
+  </node>
+
+  <node id="330713487" lat="33.44816182" lon="-111.98795587">
+    <tag k="name" v="18. PHX Airport Shuttle"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41890321" lat="33.44818118" lon="-111.98717191">
+    <tag k="highway" v="traffic_signals"/>
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="256195155" lat="33.44808311" lon="-111.98507200">
+  </node>
+
+  <node id="330713232" lat="33.44800432" lon="-111.98391320">
+  </node>
+
+  <node id="41397730" lat="33.44791078" lon="-111.98298063">
+  </node>
+
+  <node id="41387798" lat="33.44776803" lon="-111.98162159">
+  </node>
+
+  <node id="41387809" lat="33.44761758" lon="-111.98049724">
+  </node>
+
+  <node id="41931689" lat="33.44739026" lon="-111.97843219">
+  </node>
+
+  <node id="42282651" lat="33.44650027" lon="-111.97119307">
+  </node>
+
+  <node id="331858454" lat="33.44638234" lon="-111.97020501">
+  </node>
+
+  <node id="331857789" lat="33.44622970" lon="-111.96892770">
+  </node>
+
+  <node id="41630024" lat="33.44573752" lon="-111.96480749">
+  </node>
+
+  <node id="255915427" lat="33.44528632" lon="-111.96104812">
+  </node>
+
+  <node id="330713237" lat="33.44523620" lon="-111.96058460">
+  </node>
+
+  <node id="331856866" lat="33.44517886" lon="-111.96008680">
+  </node>
+
+  <node id="42321095" lat="33.44506428" lon="-111.95958037">
+  </node>
+
+  <node id="41576895" lat="33.44489589" lon="-111.95906664">
+  </node>
+
+  <node id="42415336" lat="33.44475977" lon="-111.95877470">
+  </node>
+
+  <node id="42415345" lat="33.44447998" lon="-111.95831998">
+  </node>
+
+  <node id="42415348" lat="33.44417974" lon="-111.95791639">
+  </node>
+
+  <node id="42415353" lat="33.44386458" lon="-111.95764180">
+  </node>
+
+  <node id="42415357" lat="33.44346351" lon="-111.95731331">
+  </node>
+
+  <node id="42415362" lat="33.44313410" lon="-111.95703009">
+  </node>
+
+  <node id="255823718" lat="33.44260411" lon="-111.95656028">
+  </node>
+
+  <node id="42415376" lat="33.44199533" lon="-111.95603666">
+    <tag k="name" v="19. Priest Dr"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="42415380" lat="33.44142226" lon="-111.95555613">
+  </node>
+
+  <node id="330699349" lat="33.44110006" lon="-111.95521281">
+  </node>
+
+  <node id="42415383" lat="33.44089227" lon="-111.95492950">
+  </node>
+
+  <node id="42415387" lat="33.44071332" lon="-111.95457763">
+  </node>
+
+  <node id="255915630" lat="33.44052707" lon="-111.95404546">
+  </node>
+
+  <node id="42415391" lat="33.44040529" lon="-111.95349619">
+  </node>
+
+  <node id="42415396" lat="33.44011879" lon="-111.95191688">
+  </node>
+
+  <node id="330699351" lat="33.43988963" lon="-111.95075816">
+  </node>
+
+  <node id="42415404" lat="33.43967480" lon="-111.94973683">
+  </node>
+
+  <node id="42415410" lat="33.43935956" lon="-111.94877551">
+  </node>
+
+  <node id="317498623" lat="33.43912034" lon="-111.94826547">
+  </node>
+
+  <node id="42415415" lat="33.43878372" lon="-111.94768183">
+  </node>
+
+  <node id="42415420" lat="33.43819934" lon="-111.94675840">
+    <tag k="name" v="20. Center Pkwy"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="42415423" lat="33.43783112" lon="-111.94622271">
+  </node>
+
+  <node id="330700608" lat="33.43757623" lon="-111.94577998">
+  </node>
+
+  <node id="330699466" lat="33.43737556" lon="-111.94548821">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="330696580" lat="33.43721086" lon="-111.94529928">
+  </node>
+
+  <node id="330696578" lat="33.43693157" lon="-111.94494741">
+  </node>
+
+  <node id="330696577" lat="33.43660208" lon="-111.94459553">
+  </node>
+
+  <node id="330696576" lat="33.43628692" lon="-111.94434659">
+  </node>
+
+  <node id="330696575" lat="33.43579272" lon="-111.94407192">
+  </node>
+
+  <way id="28885384">
+    <nd ref="41698456"/>
+    <nd ref="331870602"/>
+    <nd ref="331870603"/>
+    <nd ref="331870604"/>
+    <nd ref="331871418"/>
+    <nd ref="331870605"/>
+    <nd ref="331870606"/>
+    <nd ref="331870607"/>
+    <nd ref="331870608"/>
+    <nd ref="331893015"/>
+    <nd ref="331893016"/>
+    <nd ref="331893017"/>
+    <nd ref="331893018"/>
+    <nd ref="331893020"/>
+    <nd ref="331893021"/>
+    <nd ref="331893022"/>
+    <nd ref="331893023"/>
+    <nd ref="331893024"/>
+    <nd ref="331893025"/>
+    <nd ref="331899397"/>
+    <nd ref="331893026"/>
+    <nd ref="331893028"/>
+    <nd ref="41644378"/>
+    <nd ref="331901571"/>
+    <nd ref="331901572"/>
+    <nd ref="331901573"/>
+    <nd ref="331901574"/>
+    <nd ref="331901576"/>
+    <nd ref="331903319"/>
+    <nd ref="331901577"/>
+    <nd ref="331901579"/>
+    <nd ref="331909967"/>
+    <nd ref="331908806"/>
+    <nd ref="331910937"/>
+    <nd ref="331908809"/>
+    <nd ref="331908810"/>
+    <nd ref="331908811"/>
+    <nd ref="331913906"/>
+    <nd ref="331908812"/>
+    <nd ref="331908815"/>
+    <nd ref="331908816"/>
+    <nd ref="331908818"/>
+    <nd ref="331908820"/>
+    <nd ref="331908821"/>
+    <nd ref="331908823"/>
+    <nd ref="331908825"/>
+    <nd ref="331908826"/>
+    <nd ref="331915425"/>
+    <nd ref="41629271"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="oneway" v="yes"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="331870602" lat="33.44828972" lon="-112.02546103">
+  </node>
+
+  <node id="331870603" lat="33.44825779" lon="-112.02783990">
+  </node>
+
+  <node id="331870604" lat="33.44825779" lon="-112.02900767">
+  </node>
+
+  <node id="331871418" lat="33.44826332" lon="-112.02947546">
+    <tag k="name" v="16. 24th St"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="331870605" lat="33.44827128" lon="-112.03016203">
+  </node>
+
+  <node id="331870606" lat="33.44828059" lon="-112.03239371">
+  </node>
+
+  <node id="331870607" lat="33.44828059" lon="-112.03459094">
+  </node>
+
+  <node id="331870608" lat="33.44828897" lon="-112.03650872">
+  </node>
+
+  <node id="331893015" lat="33.44831051" lon="-112.03805409">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893016" lat="33.44832359" lon="-112.03896830">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893017" lat="33.44830062" lon="-112.04121750">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893018" lat="33.44830598" lon="-112.04337568">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893020" lat="33.44830062" lon="-112.04552631">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893021" lat="33.44830121" lon="-112.04775489">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893022" lat="33.44830213" lon="-112.04988582">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893023" lat="33.44829492" lon="-112.05205707">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893024" lat="33.44828059" lon="-112.05422848">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893025" lat="33.44826424" lon="-112.05641758">
+    <tag k="railway" v="crossing"/>
+  </node>
+
+  <node id="331899397" lat="33.44825326" lon="-112.05775642">
+    <tag k="name" v="15. 12th St"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="331893026" lat="33.44824329" lon="-112.05899317">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331893028" lat="33.44825703" lon="-112.06201368">
+  </node>
+
+  <node id="41644378" lat="33.44828469" lon="-112.06211426">
+  </node>
+
+  <node id="331901571" lat="33.44832149" lon="-112.06220260">
+  </node>
+
+  <node id="331901572" lat="33.44832652" lon="-112.06367019">
+  </node>
+
+  <node id="331901573" lat="33.44832719" lon="-112.06512504">
+  </node>
+
+  <node id="331901574" lat="33.44828981" lon="-112.06747918">
+  </node>
+
+  <node id="331901576" lat="33.44828922" lon="-112.06995352">
+  </node>
+
+  <node id="331903319" lat="33.44830489" lon="-112.07083739">
+    <tag k="name" v="14. 3rd St"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="331901577" lat="33.44831428" lon="-112.07124911">
+  </node>
+
+  <node id="331901579" lat="33.44832149" lon="-112.07254520">
+  </node>
+
+  <node id="331909967" lat="33.44831428" lon="-112.07379830">
+  </node>
+
+  <node id="331908806" lat="33.44836441" lon="-112.07384976">
+  </node>
+
+  <node id="331910937" lat="33.44881560" lon="-112.07385622">
+    <tag k="name" v="13. Washington &amp; Central"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="331908809" lat="33.44935598" lon="-112.07386393">
+  </node>
+
+  <node id="331908810" lat="33.45038788" lon="-112.07386393">
+  </node>
+
+  <node id="331908811" lat="33.45140813" lon="-112.07383258">
+  </node>
+
+  <node id="331913906" lat="33.45200240" lon="-112.07384113">
+    <tag k="name" v="12. Van Buren St"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="331908812" lat="33.45240608" lon="-112.07384683">
+  </node>
+
+  <node id="331908815" lat="33.45349514" lon="-112.07387248">
+  </node>
+
+  <node id="331908816" lat="33.45450113" lon="-112.07386108">
+  </node>
+
+  <node id="331908818" lat="33.45471579" lon="-112.07386108">
+  </node>
+
+  <node id="331908820" lat="33.45556806" lon="-112.07385261">
+  </node>
+
+  <node id="331908821" lat="33.45661102" lon="-112.07384683">
+  </node>
+
+  <node id="331908823" lat="33.45669266" lon="-112.07384398">
+  </node>
+
+  <node id="331908825" lat="33.45764460" lon="-112.07384398">
+  </node>
+
+  <node id="331908826" lat="33.45865420" lon="-112.07384398">
+  </node>
+
+  <node id="331915425" lat="33.45938837" lon="-112.07384398">
+    <tag k="name" v="11. Roosevelt St"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41629271" lat="33.46000419" lon="-112.07380970">
+  </node>
+
+  <node id="41869873" lat="33.50381606" lon="-112.07376678">
+  </node>
+
+  <way id="30122359">
+    <nd ref="41869873"/>
+    <nd ref="41804519"/>
+    <nd ref="331956746"/>
+    <nd ref="42028806"/>
+    <nd ref="42028800"/>
+    <nd ref="41577671"/>
+    <nd ref="331949407"/>
+    <nd ref="621060297"/>
+    <nd ref="41641986"/>
+    <nd ref="42028778"/>
+    <nd ref="41701216"/>
+    <nd ref="42028771"/>
+    <nd ref="42028764"/>
+    <nd ref="41968850"/>
+    <nd ref="41622803"/>
+    <nd ref="42028752"/>
+    <nd ref="331948317"/>
+    <nd ref="41563869"/>
+    <nd ref="42005612"/>
+    <nd ref="42028742"/>
+    <nd ref="331942050"/>
+    <nd ref="41676007"/>
+    <nd ref="41882089"/>
+    <nd ref="42028716"/>
+    <nd ref="41748004"/>
+    <nd ref="42028700"/>
+    <nd ref="41574349"/>
+    <nd ref="41610422"/>
+    <nd ref="42028682"/>
+    <nd ref="42028675"/>
+    <nd ref="42028671"/>
+    <nd ref="42028665"/>
+    <nd ref="42028661"/>
+    <nd ref="42028654"/>
+    <nd ref="42028648"/>
+    <nd ref="42028640"/>
+    <nd ref="41507961"/>
+    <nd ref="42028630"/>
+    <nd ref="41739546"/>
+    <nd ref="415087482"/>
+    <nd ref="415088887"/>
+    <nd ref="41595171"/>
+    <nd ref="42028611"/>
+    <nd ref="415168902"/>
+    <nd ref="415168908"/>
+    <nd ref="42011592"/>
+    <nd ref="419495178"/>
+    <nd ref="419495177"/>
+    <nd ref="41629271"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="41804519" lat="33.50207690" lon="-112.07376678">
+  </node>
+
+  <node id="331956746" lat="33.50145102" lon="-112.07376971">
+    <tag k="name" v="5. Campbell Ave"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="42028806" lat="33.50025182" lon="-112.07377533">
+  </node>
+
+  <node id="42028800" lat="33.49799039" lon="-112.07378388">
+  </node>
+
+  <node id="41577671" lat="33.49661584" lon="-112.07379251">
+  </node>
+
+  <node id="331949407" lat="33.49577874" lon="-112.07379654">
+    <tag k="name" v="6. Indian School Rd"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="621060297" lat="33.49481633" lon="-112.07379561">
+  </node>
+
+  <node id="41641986" lat="33.49474382" lon="-112.07379553">
+  </node>
+
+  <node id="42028778" lat="33.49239991" lon="-112.07380106">
+  </node>
+
+  <node id="41701216" lat="33.49117590" lon="-112.07379251">
+  </node>
+
+  <node id="42028771" lat="33.49078220" lon="-112.07379251">
+  </node>
+
+  <node id="42028764" lat="33.49066770" lon="-112.07379251">
+  </node>
+
+  <node id="41968850" lat="33.48968702" lon="-112.07379251">
+  </node>
+
+  <node id="41622803" lat="33.48872780" lon="-112.07378388">
+  </node>
+
+  <node id="42028752" lat="33.48753958" lon="-112.07379251">
+  </node>
+
+  <node id="331948317" lat="33.48697439" lon="-112.07378874">
+    <tag k="name" v="7. Osborn Rd"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41563869" lat="33.48625824" lon="-112.07378388">
+  </node>
+
+  <node id="42005612" lat="33.48527026" lon="-112.07377533">
+  </node>
+
+  <node id="42028742" lat="33.48389588" lon="-112.07378388">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331942050" lat="33.48225646" lon="-112.07378388">
+  </node>
+
+  <node id="41676007" lat="33.48204926" lon="-112.07378388">
+  </node>
+
+  <node id="41882089" lat="33.48122574" lon="-112.07377533">
+    <tag k="name" v="8. Thomas Rd"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="42028716" lat="33.48025210" lon="-112.07377533">
+  </node>
+
+  <node id="41748004" lat="33.47935004" lon="-112.07378388">
+  </node>
+
+  <node id="42028700" lat="33.47884168" lon="-112.07377533">
+  </node>
+
+  <node id="41574349" lat="33.47761037" lon="-112.07378388">
+  </node>
+
+  <node id="41610422" lat="33.47664394" lon="-112.07378388">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="42028682" lat="33.47613558" lon="-112.07377533">
+  </node>
+
+  <node id="42028675" lat="33.47574180" lon="-112.07377533">
+  </node>
+
+  <node id="42028671" lat="33.47526210" lon="-112.07377533">
+  </node>
+
+  <node id="42028665" lat="33.47484686" lon="-112.07377533">
+  </node>
+
+  <node id="42028661" lat="33.47438871" lon="-112.07377533">
+  </node>
+
+  <node id="42028654" lat="33.47397347" lon="-112.07377533">
+    <tag k="name" v="9. Encanto Blvd"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="42028648" lat="33.47353669" lon="-112.07376678">
+  </node>
+
+  <node id="42028640" lat="33.47292104" lon="-112.07377533">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="41507961" lat="33.47176827" lon="-112.07377533">
+  </node>
+
+  <node id="42028630" lat="33.47113829" lon="-112.07378388">
+  </node>
+
+  <node id="41739546" lat="33.47060847" lon="-112.07377533">
+  </node>
+
+  <node id="415087482" lat="33.46989131" lon="-112.07377634">
+  </node>
+
+  <node id="415088887" lat="33.46716342" lon="-112.07378028">
+  </node>
+
+  <node id="41595171" lat="33.46469428" lon="-112.07378388">
+    <tag k="name" v="10. McDowell Rd"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="42028611" lat="33.46394578" lon="-112.07381221">
+  </node>
+
+  <node id="415168902" lat="33.46362056" lon="-112.07380970">
+  </node>
+
+  <node id="415168908" lat="33.46309786" lon="-112.07380559">
+  </node>
+
+  <node id="42011592" lat="33.46251758" lon="-112.07380106">
+  </node>
+
+  <node id="419495178" lat="33.46122727" lon="-112.07380551">
+  </node>
+
+  <node id="419495177" lat="33.46064733" lon="-112.07380752">
+  </node>
+
+  <node id="41879048" lat="33.52102084" lon="-112.09975990">
+  </node>
+
+  <way id="5678612">
+    <nd ref="41879048"/>
+    <nd ref="331956254"/>
+    <nd ref="41879045"/>
+    <nd ref="41754551"/>
+    <nd ref="41879039"/>
+    <nd ref="41879036"/>
+    <nd ref="41879034"/>
+    <nd ref="41879032"/>
+    <nd ref="41732852"/>
+    <nd ref="41879029"/>
+    <nd ref="41874187"/>
+    <nd ref="331954960"/>
+    <nd ref="331955484"/>
+    <nd ref="331954169"/>
+    <nd ref="331955479"/>
+    <nd ref="331953900"/>
+    <nd ref="331953896"/>
+    <nd ref="41654150"/>
+    <nd ref="41934617"/>
+    <nd ref="42498755"/>
+    <nd ref="41584124"/>
+    <nd ref="42377446"/>
+    <nd ref="42424590"/>
+    <nd ref="331953557"/>
+    <nd ref="361576785"/>
+    <nd ref="41601235"/>
+    <nd ref="331953400"/>
+    <nd ref="331953459"/>
+    <nd ref="331952755"/>
+    <nd ref="331952756"/>
+    <nd ref="331956587"/>
+    <nd ref="331956681"/>
+    <nd ref="331952757"/>
+    <nd ref="41908638"/>
+    <nd ref="41820156"/>
+    <nd ref="41559476"/>
+    <nd ref="42028815"/>
+    <tag k="electrified" v="contact_line"/>
+    <tag k="name" v="Light Rail"/>
+    <tag k="railway" v="light_rail"/>
+  </way>
+
+  <node id="331956254" lat="33.52058079" lon="-112.09976677">
+    <tag k="name" v="1. Montebello"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41879045" lat="33.51992599" lon="-112.09977708">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="41754551" lat="33.51852353" lon="-112.09980282">
+  </node>
+
+  <node id="41879039" lat="33.51689191" lon="-112.09980282">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="41879036" lat="33.51642680" lon="-112.09982000">
+  </node>
+
+  <node id="41879034" lat="33.51615489" lon="-112.09982000">
+  </node>
+
+  <node id="41879032" lat="33.51543212" lon="-112.09982863">
+  </node>
+
+  <node id="41732852" lat="33.51470943" lon="-112.09983718">
+  </node>
+
+  <node id="41879029" lat="33.51399379" lon="-112.09985428">
+  </node>
+
+  <node id="41874187" lat="33.51327101" lon="-112.09985428">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331954960" lat="33.50981817" lon="-112.09990851">
+  </node>
+
+  <node id="331955484" lat="33.50976101" lon="-112.09988270">
+  </node>
+
+  <node id="331954169" lat="33.50970334" lon="-112.09983023">
+    <tag k="highway" v="traffic_signals"/>
+  </node>
+
+  <node id="331955479" lat="33.50966076" lon="-112.09976258">
+  </node>
+
+  <node id="331953900" lat="33.50963930" lon="-112.09967667">
+  </node>
+
+  <node id="331953896" lat="33.50960980" lon="-112.09882482">
+    <tag k="name" v="2. 19th Ave"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="41654150" lat="33.50957828" lon="-112.09750257">
+  </node>
+
+  <node id="41934617" lat="33.50956403" lon="-112.09564858">
+  </node>
+
+  <node id="42498755" lat="33.50951391" lon="-112.09291063">
+  </node>
+
+  <node id="41584124" lat="33.50950083" lon="-112.09124682">
+  </node>
+
+  <node id="42377446" lat="33.50945658" lon="-112.08908261">
+  </node>
+
+  <node id="42424590" lat="33.50942800" lon="-112.08688530">
+  </node>
+
+  <node id="331953557" lat="33.50938399" lon="-112.08351234">
+    <tag k="name" v="3. 7th Ave"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="361576785" lat="33.50935843" lon="-112.08249720">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="41601235" lat="33.50935130" lon="-112.07811984">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331953400" lat="33.50933462" lon="-112.07687764">
+  </node>
+
+  <node id="331953459" lat="33.50926991" lon="-112.07673196">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331952755" lat="33.50865443" lon="-112.07534610">
+    <tag k="name" v="4. Camelback Rd"/>
+    <tag k="railway" v="station"/>
+  </node>
+
+  <node id="331952756" lat="33.50808899" lon="-112.07398127">
+  </node>
+
+  <node id="331956587" lat="33.50801388" lon="-112.07384348">
+    <tag k="railway" v="level_crossing"/>
+  </node>
+
+  <node id="331956681" lat="33.50797809" lon="-112.07379201">
+  </node>
+
+  <node id="331952757" lat="33.50792797" lon="-112.07376619">
+  </node>
+
+  <node id="41908638" lat="33.50748038" lon="-112.07374960">
+  </node>
+
+  <node id="41820156" lat="33.50567718" lon="-112.07376678">
+  </node>
+
+  <node id="41559476" lat="33.50473933" lon="-112.07376678">
+  </node>
+
+  <node id="42028815" lat="33.50403793" lon="-112.07376678">
+  </node>
+
+</osm>

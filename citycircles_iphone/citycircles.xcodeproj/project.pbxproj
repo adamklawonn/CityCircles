@@ -1,0 +1,789 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* citycirclesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* citycirclesAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		2899E5220DE3E06400AC0155 /* citycirclesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* citycirclesViewController.xib */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		28D7ACF80DDB3853001CB0EB /* citycirclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* citycirclesViewController.m */; };
+		640B65691349511300475B4E /* jquery-1.5.1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 640B65681349511300475B4E /* jquery-1.5.1.txt */; };
+		641B7965132B2694006DD368 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B7384132B2690006DD368 /* __init__.py */; };
+		641B7966132B2694006DD368 /* citycircles_data.db in Resources */ = {isa = PBXBuildFile; fileRef = 641B7385132B2690006DD368 /* citycircles_data.db */; };
+		641B7967132B2694006DD368 /* download_gtiles_and_update_db.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B7386132B2690006DD368 /* download_gtiles_and_update_db.py */; };
+		641B7968132B2694006DD368 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B7388132B2690006DD368 /* __init__.py */; };
+		641B7969132B2694006DD368 /* initial_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 641B738A132B2690006DD368 /* initial_data.json */; };
+		641B796A132B2694006DD368 /* models.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B738B132B2690006DD368 /* models.py */; };
+		641B796B132B2694006DD368 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 641B738D132B2690006DD368 /* index.html */; };
+		641B796C132B2694006DD368 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 641B738E132B2690006DD368 /* test.html */; };
+		641B796D132B2694006DD368 /* tests.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B738F132B2690006DD368 /* tests.py */; };
+		641B796E132B2694006DD368 /* views.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B7390132B2690006DD368 /* views.py */; };
+		641B796F132B2694006DD368 /* globalmaptiles.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B7391132B2690006DD368 /* globalmaptiles.py */; };
+		641B7F3A132B2694006DD368 /* manage.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B795D132B2694006DD368 /* manage.py */; };
+		641B7F3B132B2694006DD368 /* pntsandrects.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B795E132B2694006DD368 /* pntsandrects.py */; };
+		641B7F3C132B2694006DD368 /* settings.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B795F132B2694006DD368 /* settings.py */; };
+		641B7F3D132B2694006DD368 /* simple_python_googlemap.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B7960132B2694006DD368 /* simple_python_googlemap.py */; };
+		641B7F3E132B2694006DD368 /* raphael-min.js in Sources */ = {isa = PBXBuildFile; fileRef = 641B7962132B2694006DD368 /* raphael-min.js */; };
+		641B7F3F132B2694006DD368 /* raphael.txt in Resources */ = {isa = PBXBuildFile; fileRef = 641B7963132B2694006DD368 /* raphael.txt */; };
+		641B7F40132B2694006DD368 /* urls.py in Resources */ = {isa = PBXBuildFile; fileRef = 641B7964132B2694006DD368 /* urls.py */; };
+		641B7F62132B3FCB006DD368 /* MyUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B7F61132B3FCB006DD368 /* MyUIWebView.m */; };
+		641B7F65132C3C50006DD368 /* GlobalMercator.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B7F64132C3C50006DD368 /* GlobalMercator.m */; };
+		641B7FC7132D7D64006DD368 /* HtmlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B7FC6132D7D64006DD368 /* HtmlGenerator.m */; };
+		641B801F132F3F44006DD368 /* Models.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B801E132F3F44006DD368 /* Models.m */; };
+		641B804513302773006DD368 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B803C13302772006DD368 /* NSObject+SBJSON.m */; };
+		641B804613302773006DD368 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B803E13302772006DD368 /* NSString+SBJSON.m */; };
+		641B804713302773006DD368 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B804013302772006DD368 /* SBJsonBase.m */; };
+		641B804813302773006DD368 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B804213302772006DD368 /* SBJsonParser.m */; };
+		641B804913302773006DD368 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 641B804413302773006DD368 /* SBJsonWriter.m */; };
+		642A7709136A304A00A95C1E /* user_data.db.rsd in Resources */ = {isa = PBXBuildFile; fileRef = 642A7708136A304A00A95C1E /* user_data.db.rsd */; };
+		642A77B2136B403F00A95C1E /* star-icone-9823-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 642A77B0136B403F00A95C1E /* star-icone-9823-48.png */; };
+		642A77B3136B403F00A95C1E /* star-off-icone-7870-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 642A77B1136B403F00A95C1E /* star-off-icone-7870-48.png */; };
+		642A78A7136BBA3900A95C1E /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 642A78A6136BBA3900A95C1E /* loader.gif */; };
+		642ED39F136BC6110088AA1A /* ScheduleStationSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 642ED39D136BC6110088AA1A /* ScheduleStationSelect.m */; };
+		642ED3A0136BC6110088AA1A /* ScheduleStationSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642ED39E136BC6110088AA1A /* ScheduleStationSelect.xib */; };
+		642ED488136BC9CF0088AA1A /* ScheduleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642ED487136BC9CF0088AA1A /* ScheduleNavigationController.m */; };
+		642ED4BD136BCD7B0088AA1A /* ScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 642ED4BB136BCD7B0088AA1A /* ScheduleView.m */; };
+		642ED4BE136BCD7B0088AA1A /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642ED4BC136BCD7B0088AA1A /* ScheduleView.xib */; };
+		642ED4C4136BD4510088AA1A /* ScheduleDOWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642ED4C2136BD4510088AA1A /* ScheduleDOWViewController.m */; };
+		642ED4C5136BD4510088AA1A /* ScheduleDOWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642ED4C3136BD4510088AA1A /* ScheduleDOWViewController.xib */; };
+		643057DB136078D1007DA27D /* CC-Tab-1-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 643057D6136078D1007DA27D /* CC-Tab-1-01.png */; };
+		643057DC136078D1007DA27D /* CC-Tab-1-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 643057D7136078D1007DA27D /* CC-Tab-1-02.png */; };
+		643057DD136078D1007DA27D /* CC-Tab-1-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 643057D8136078D1007DA27D /* CC-Tab-1-03.png */; };
+		643057DE136078D1007DA27D /* CC-Tab-1-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 643057D9136078D1007DA27D /* CC-Tab-1-04.png */; };
+		643057DF136078D1007DA27D /* CC-Tab-1-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 643057DA136078D1007DA27D /* CC-Tab-1-05.png */; };
+		643057E1136078E0007DA27D /* Icon-City-Circles.png in Resources */ = {isa = PBXBuildFile; fileRef = 643057E0136078E0007DA27D /* Icon-City-Circles.png */; };
+		643058DC136391DD007DA27D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643058DB136391DD007DA27D /* CoreLocation.framework */; };
+		64305C251368CAAC007DA27D /* EventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64305C231368CAAC007DA27D /* EventView.m */; };
+		64305C261368CAAC007DA27D /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64305C241368CAAC007DA27D /* EventView.xib */; };
+		64357EE313049D5C0029638A /* HomeNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64357EE213049D5C0029638A /* HomeNavController.m */; };
+		64357F141304AAEC0029638A /* MyWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64357F131304AAEC0029638A /* MyWebView.m */; };
+		64357F611304B3360029638A /* MyWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64357F601304B3360029638A /* MyWebView.xib */; };
+		64357FD713071B760029638A /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 64357FCE13071B760029638A /* 1.png */; };
+		64357FD813071B760029638A /* business.png in Resources */ = {isa = PBXBuildFile; fileRef = 64357FCF13071B760029638A /* business.png */; };
+		64357FDD13071B760029638A /* station.png in Resources */ = {isa = PBXBuildFile; fileRef = 64357FD413071B760029638A /* station.png */; };
+		64357FDE13071B760029638A /* train-east.png in Resources */ = {isa = PBXBuildFile; fileRef = 64357FD513071B760029638A /* train-east.png */; };
+		64357FDF13071B760029638A /* train-west.png in Resources */ = {isa = PBXBuildFile; fileRef = 64357FD613071B760029638A /* train-west.png */; };
+		64357FE613071C810029638A /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 64357FE513071C810029638A /* style.css */; };
+		64358029130721670029638A /* CityCircles.html in Resources */ = {isa = PBXBuildFile; fileRef = 64357FD013071B760029638A /* CityCircles.html */; };
+		643581161310B74A0029638A /* BusinessNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643581151310B74A0029638A /* BusinessNavController.m */; };
+		6435811A1310BA0C0029638A /* MainBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643581181310BA0C0029638A /* MainBusinessViewController.m */; };
+		6435811B1310BA0C0029638A /* MainBusinessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643581191310BA0C0029638A /* MainBusinessViewController.xib */; };
+		64358192131475590029638A /* BusinessCategorySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64358190131475590029638A /* BusinessCategorySelectViewController.m */; };
+		64358193131475590029638A /* BusinessCategorySelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64358191131475590029638A /* BusinessCategorySelectViewController.xib */; };
+		64388B851350E9D20058BE22 /* BusinessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64388B831350E9D20058BE22 /* BusinessView.m */; };
+		64388B861350E9D20058BE22 /* BusinessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64388B841350E9D20058BE22 /* BusinessView.xib */; };
+		64388C051351211E0058BE22 /* basic_cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64388C041351211E0058BE22 /* basic_cell.xib */; };
+		6444A767134F774300C16549 /* BusinessSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6444A765134F774300C16549 /* BusinessSelect.m */; };
+		6444A768134F774300C16549 /* BusinessSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6444A766134F774300C16549 /* BusinessSelect.xib */; };
+		644C5979137C75260094A344 /* bluedot.png in Resources */ = {isa = PBXBuildFile; fileRef = 644C5978137C75260094A344 /* bluedot.png */; };
+		64548D171332C99400F90A63 /* test2.html in Resources */ = {isa = PBXBuildFile; fileRef = 64548D161332C99400F90A63 /* test2.html */; };
+		646C56251376361C00D0BA47 /* MapKitAnnotationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 646C56241376361C00D0BA47 /* MapKitAnnotationProvider.m */; };
+		646C562813763A3000D0BA47 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646C562713763A3000D0BA47 /* MyAnnotation.m */; };
+		646C562A13763A5E00D0BA47 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646C562913763A5E00D0BA47 /* MapKit.framework */; };
+		646C575C1378EE2F00D0BA47 /* ico-gmap-s.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C575B1378EE2F00D0BA47 /* ico-gmap-s.png */; };
+		646F0502137910BB003F1BBD /* CSMapRouteLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 646F0501137910BB003F1BBD /* CSMapRouteLayerView.m */; };
+		648F86CE137F5C6C00AD57BA /* TrainPlotter.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F86CD137F5C6C00AD57BA /* TrainPlotter.m */; };
+		64B3E8511380292C007B8BF7 /* train-east.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B3E84F1380292C007B8BF7 /* train-east.png */; };
+		64B3E8521380292C007B8BF7 /* train-west.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B3E8501380292C007B8BF7 /* train-west.png */; };
+		64B3E98F138050DB007B8BF7 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B3E98E138050DB007B8BF7 /* header.png */; };
+		64D6487A136FCA69007ADBFA /* EventPerCatList.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D64878136FCA69007ADBFA /* EventPerCatList.m */; };
+		64D6487B136FCA69007ADBFA /* EventPerCatList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D64879136FCA69007ADBFA /* EventPerCatList.xib */; };
+		64D64930136FEEA9007ADBFA /* Icon_train.png in Resources */ = {isa = PBXBuildFile; fileRef = 64D6492F136FEEA9007ADBFA /* Icon_train.png */; };
+		64D64938136FEEE4007ADBFA /* downarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 64D64937136FEEE4007ADBFA /* downarrow.png */; };
+		64D64A7C1370E6E7007ADBFA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 64D64A7B1370E6E7007ADBFA /* Default.png */; };
+		64D64A8D1370E87C007ADBFA /* Icon-City-Circles.png in Resources */ = {isa = PBXBuildFile; fileRef = 64D64A8C1370E87C007ADBFA /* Icon-City-Circles.png */; };
+		64D64AC71370F3B6007ADBFA /* topper.png in Resources */ = {isa = PBXBuildFile; fileRef = 64D64AC61370F3B6007ADBFA /* topper.png */; };
+		64D64AD21370F538007ADBFA /* MyUINavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D64AD11370F538007ADBFA /* MyUINavBar.m */; };
+		64D64AEE1370F8F5007ADBFA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 64D64AED1370F8F5007ADBFA /* background.png */; };
+		64ED840A136CAE3500D44F3D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ED8408136CAE3500D44F3D /* FavoritesViewController.m */; };
+		64ED840B136CAE3500D44F3D /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED8409136CAE3500D44F3D /* FavoritesViewController.xib */; };
+		64ED842B136CBDFB00D44F3D /* FavNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ED842A136CBDFB00D44F3D /* FavNavController.m */; };
+		64ED84A5136DC0F500D44F3D /* StationInfoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ED84A3136DC0F500D44F3D /* StationInfoMainViewController.m */; };
+		64ED84A6136DC0F500D44F3D /* StationInfoMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED84A4136DC0F500D44F3D /* StationInfoMainViewController.xib */; };
+		64ED855C136E6A7300D44F3D /* EventCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ED855A136E6A7300D44F3D /* EventCategoryView.m */; };
+		64ED855D136E6A7300D44F3D /* EventCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED855B136E6A7300D44F3D /* EventCategoryView.xib */; };
+		64ED8560136E6CE400D44F3D /* EventNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ED855F136E6CE400D44F3D /* EventNavController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* citycirclesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citycirclesAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* citycirclesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citycirclesAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* CityCircles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityCircles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2899E5210DE3E06400AC0155 /* citycirclesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = citycirclesViewController.xib; sourceTree = "<group>"; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* citycirclesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citycirclesViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* citycirclesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citycirclesViewController.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* citycircles_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citycircles_Prefix.pch; sourceTree = "<group>"; };
+		640B65681349511300475B4E /* jquery-1.5.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "jquery-1.5.1.txt"; path = "Classes/jquery-1.5.1.txt"; sourceTree = "<group>"; };
+		641B7384132B2690006DD368 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		641B7385132B2690006DD368 /* citycircles_data.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = citycircles_data.db; sourceTree = "<group>"; };
+		641B7386132B2690006DD368 /* download_gtiles_and_update_db.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = download_gtiles_and_update_db.py; sourceTree = "<group>"; };
+		641B7388132B2690006DD368 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		641B738A132B2690006DD368 /* initial_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initial_data.json; sourceTree = "<group>"; };
+		641B738B132B2690006DD368 /* models.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = models.py; sourceTree = "<group>"; };
+		641B738D132B2690006DD368 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		641B738E132B2690006DD368 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		641B738F132B2690006DD368 /* tests.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = tests.py; sourceTree = "<group>"; };
+		641B7390132B2690006DD368 /* views.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = views.py; sourceTree = "<group>"; };
+		641B7391132B2690006DD368 /* globalmaptiles.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = globalmaptiles.py; sourceTree = "<group>"; };
+		641B795D132B2694006DD368 /* manage.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = manage.py; sourceTree = "<group>"; };
+		641B795E132B2694006DD368 /* pntsandrects.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = pntsandrects.py; sourceTree = "<group>"; };
+		641B795F132B2694006DD368 /* settings.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = settings.py; sourceTree = "<group>"; };
+		641B7960132B2694006DD368 /* simple_python_googlemap.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = simple_python_googlemap.py; sourceTree = "<group>"; };
+		641B7962132B2694006DD368 /* raphael-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "raphael-min.js"; sourceTree = "<group>"; };
+		641B7963132B2694006DD368 /* raphael.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = raphael.txt; sourceTree = "<group>"; };
+		641B7964132B2694006DD368 /* urls.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = urls.py; sourceTree = "<group>"; };
+		641B7F60132B3FCB006DD368 /* MyUIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIWebView.h; sourceTree = "<group>"; };
+		641B7F61132B3FCB006DD368 /* MyUIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIWebView.m; sourceTree = "<group>"; };
+		641B7F63132C3C50006DD368 /* GlobalMercator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMercator.h; sourceTree = "<group>"; };
+		641B7F64132C3C50006DD368 /* GlobalMercator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalMercator.m; sourceTree = "<group>"; };
+		641B7FC5132D7D64006DD368 /* HtmlGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlGenerator.h; sourceTree = "<group>"; };
+		641B7FC6132D7D64006DD368 /* HtmlGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlGenerator.m; sourceTree = "<group>"; };
+		641B801D132F3F44006DD368 /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
+		641B801E132F3F44006DD368 /* Models.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Models.m; sourceTree = "<group>"; };
+		641B803A13302772006DD368 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		641B803B13302772006DD368 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		641B803C13302772006DD368 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		641B803D13302772006DD368 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		641B803E13302772006DD368 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		641B803F13302772006DD368 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		641B804013302772006DD368 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		641B804113302772006DD368 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		641B804213302772006DD368 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		641B804313302772006DD368 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		641B804413302773006DD368 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		642A7708136A304A00A95C1E /* user_data.db.rsd */ = {isa = PBXFileReference; lastKnownFileType = file; path = user_data.db.rsd; sourceTree = "<group>"; };
+		642A77B0136B403F00A95C1E /* star-icone-9823-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-icone-9823-48.png"; sourceTree = "<group>"; };
+		642A77B1136B403F00A95C1E /* star-off-icone-7870-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-off-icone-7870-48.png"; sourceTree = "<group>"; };
+		642A78A6136BBA3900A95C1E /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
+		642ED39C136BC6110088AA1A /* ScheduleStationSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleStationSelect.h; sourceTree = "<group>"; };
+		642ED39D136BC6110088AA1A /* ScheduleStationSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleStationSelect.m; sourceTree = "<group>"; };
+		642ED39E136BC6110088AA1A /* ScheduleStationSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleStationSelect.xib; path = Classes/ScheduleStationSelect.xib; sourceTree = "<group>"; };
+		642ED486136BC9CF0088AA1A /* ScheduleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleNavigationController.h; sourceTree = "<group>"; };
+		642ED487136BC9CF0088AA1A /* ScheduleNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleNavigationController.m; sourceTree = "<group>"; };
+		642ED4BA136BCD7B0088AA1A /* ScheduleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleView.h; sourceTree = "<group>"; };
+		642ED4BB136BCD7B0088AA1A /* ScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleView.m; sourceTree = "<group>"; };
+		642ED4BC136BCD7B0088AA1A /* ScheduleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleView.xib; path = Classes/ScheduleView.xib; sourceTree = "<group>"; };
+		642ED4C1136BD4510088AA1A /* ScheduleDOWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleDOWViewController.h; sourceTree = "<group>"; };
+		642ED4C2136BD4510088AA1A /* ScheduleDOWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleDOWViewController.m; sourceTree = "<group>"; };
+		642ED4C3136BD4510088AA1A /* ScheduleDOWViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScheduleDOWViewController.xib; path = Classes/ScheduleDOWViewController.xib; sourceTree = "<group>"; };
+		643057D6136078D1007DA27D /* CC-Tab-1-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CC-Tab-1-01.png"; sourceTree = "<group>"; };
+		643057D7136078D1007DA27D /* CC-Tab-1-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CC-Tab-1-02.png"; sourceTree = "<group>"; };
+		643057D8136078D1007DA27D /* CC-Tab-1-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CC-Tab-1-03.png"; sourceTree = "<group>"; };
+		643057D9136078D1007DA27D /* CC-Tab-1-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CC-Tab-1-04.png"; sourceTree = "<group>"; };
+		643057DA136078D1007DA27D /* CC-Tab-1-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CC-Tab-1-05.png"; sourceTree = "<group>"; };
+		643057E0136078E0007DA27D /* Icon-City-Circles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-City-Circles.png"; sourceTree = "<group>"; };
+		643058DB136391DD007DA27D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		64305C221368CAAC007DA27D /* EventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventView.h; sourceTree = "<group>"; };
+		64305C231368CAAC007DA27D /* EventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventView.m; sourceTree = "<group>"; };
+		64305C241368CAAC007DA27D /* EventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventView.xib; path = Classes/EventView.xib; sourceTree = "<group>"; };
+		64357EE113049D5C0029638A /* HomeNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeNavController.h; path = ../HomeNavController.h; sourceTree = "<group>"; };
+		64357EE213049D5C0029638A /* HomeNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeNavController.m; path = ../HomeNavController.m; sourceTree = "<group>"; };
+		64357F121304AAEC0029638A /* MyWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebView.h; sourceTree = "<group>"; };
+		64357F131304AAEC0029638A /* MyWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebView.m; sourceTree = "<group>"; };
+		64357F601304B3360029638A /* MyWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyWebView.xib; sourceTree = "<group>"; };
+		64357FCE13071B760029638A /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		64357FCF13071B760029638A /* business.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = business.png; sourceTree = "<group>"; };
+		64357FD013071B760029638A /* CityCircles.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CityCircles.html; sourceTree = "<group>"; };
+		64357FD413071B760029638A /* station.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = station.png; sourceTree = "<group>"; };
+		64357FD513071B760029638A /* train-east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train-east.png"; sourceTree = "<group>"; };
+		64357FD613071B760029638A /* train-west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train-west.png"; sourceTree = "<group>"; };
+		64357FE513071C810029638A /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		643581141310B74A0029638A /* BusinessNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessNavController.h; sourceTree = "<group>"; };
+		643581151310B74A0029638A /* BusinessNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessNavController.m; sourceTree = "<group>"; };
+		643581171310BA0C0029638A /* MainBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainBusinessViewController.h; sourceTree = "<group>"; };
+		643581181310BA0C0029638A /* MainBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainBusinessViewController.m; sourceTree = "<group>"; };
+		643581191310BA0C0029638A /* MainBusinessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainBusinessViewController.xib; path = Classes/MainBusinessViewController.xib; sourceTree = "<group>"; };
+		6435818F131475590029638A /* BusinessCategorySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCategorySelectViewController.h; sourceTree = "<group>"; };
+		64358190131475590029638A /* BusinessCategorySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCategorySelectViewController.m; sourceTree = "<group>"; };
+		64358191131475590029638A /* BusinessCategorySelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BusinessCategorySelectViewController.xib; path = Classes/BusinessCategorySelectViewController.xib; sourceTree = "<group>"; };
+		64388B821350E9D20058BE22 /* BusinessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessView.h; sourceTree = "<group>"; };
+		64388B831350E9D20058BE22 /* BusinessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessView.m; sourceTree = "<group>"; };
+		64388B841350E9D20058BE22 /* BusinessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BusinessView.xib; path = Classes/BusinessView.xib; sourceTree = "<group>"; };
+		64388C041351211E0058BE22 /* basic_cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = basic_cell.xib; sourceTree = "<group>"; };
+		6444A764134F774300C16549 /* BusinessSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessSelect.h; sourceTree = "<group>"; };
+		6444A765134F774300C16549 /* BusinessSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessSelect.m; sourceTree = "<group>"; };
+		6444A766134F774300C16549 /* BusinessSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BusinessSelect.xib; path = Classes/BusinessSelect.xib; sourceTree = "<group>"; };
+		644C5978137C75260094A344 /* bluedot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluedot.png; path = ../../Desktop/bluedot.png; sourceTree = SOURCE_ROOT; };
+		64548D161332C99400F90A63 /* test2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test2.html; sourceTree = "<group>"; };
+		646C56231376361C00D0BA47 /* MapKitAnnotationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapKitAnnotationProvider.h; sourceTree = "<group>"; };
+		646C56241376361C00D0BA47 /* MapKitAnnotationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapKitAnnotationProvider.m; sourceTree = "<group>"; };
+		646C562613763A3000D0BA47 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		646C562713763A3000D0BA47 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		646C562913763A5E00D0BA47 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		646C575B1378EE2F00D0BA47 /* ico-gmap-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico-gmap-s.png"; sourceTree = "<group>"; };
+		646F0500137910BB003F1BBD /* CSMapRouteLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMapRouteLayerView.h; sourceTree = "<group>"; };
+		646F0501137910BB003F1BBD /* CSMapRouteLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMapRouteLayerView.m; sourceTree = "<group>"; };
+		648F86CC137F5C6C00AD57BA /* TrainPlotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainPlotter.h; sourceTree = "<group>"; };
+		648F86CD137F5C6C00AD57BA /* TrainPlotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainPlotter.m; sourceTree = "<group>"; };
+		64B3E84F1380292C007B8BF7 /* train-east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "train-east.png"; path = "Classes/train-east.png"; sourceTree = "<group>"; };
+		64B3E8501380292C007B8BF7 /* train-west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "train-west.png"; path = "Classes/train-west.png"; sourceTree = "<group>"; };
+		64B3E98E138050DB007B8BF7 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
+		64D64877136FCA69007ADBFA /* EventPerCatList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventPerCatList.h; sourceTree = "<group>"; };
+		64D64878136FCA69007ADBFA /* EventPerCatList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventPerCatList.m; sourceTree = "<group>"; };
+		64D64879136FCA69007ADBFA /* EventPerCatList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventPerCatList.xib; path = Classes/EventPerCatList.xib; sourceTree = "<group>"; };
+		64D6492F136FEEA9007ADBFA /* Icon_train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon_train.png; path = Classes/Icon_train.png; sourceTree = "<group>"; };
+		64D64937136FEEE4007ADBFA /* downarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downarrow.png; sourceTree = "<group>"; };
+		64D64A7B1370E6E7007ADBFA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		64D64A8C1370E87C007ADBFA /* Icon-City-Circles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-City-Circles.png"; path = "Classes/Icon-City-Circles.png"; sourceTree = "<group>"; };
+		64D64AC61370F3B6007ADBFA /* topper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topper.png; sourceTree = "<group>"; };
+		64D64AD01370F538007ADBFA /* MyUINavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUINavBar.h; sourceTree = "<group>"; };
+		64D64AD11370F538007ADBFA /* MyUINavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUINavBar.m; sourceTree = "<group>"; };
+		64D64AED1370F8F5007ADBFA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		64ED8407136CAE3500D44F3D /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		64ED8408136CAE3500D44F3D /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		64ED8409136CAE3500D44F3D /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = Classes/FavoritesViewController.xib; sourceTree = "<group>"; };
+		64ED8429136CBDFB00D44F3D /* FavNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavNavController.h; sourceTree = "<group>"; };
+		64ED842A136CBDFB00D44F3D /* FavNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavNavController.m; sourceTree = "<group>"; };
+		64ED84A2136DC0F500D44F3D /* StationInfoMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationInfoMainViewController.h; sourceTree = "<group>"; };
+		64ED84A3136DC0F500D44F3D /* StationInfoMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationInfoMainViewController.m; sourceTree = "<group>"; };
+		64ED84A4136DC0F500D44F3D /* StationInfoMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationInfoMainViewController.xib; path = Classes/StationInfoMainViewController.xib; sourceTree = "<group>"; };
+		64ED8559136E6A7300D44F3D /* EventCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCategoryView.h; sourceTree = "<group>"; };
+		64ED855A136E6A7300D44F3D /* EventCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCategoryView.m; sourceTree = "<group>"; };
+		64ED855B136E6A7300D44F3D /* EventCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventCategoryView.xib; path = Classes/EventCategoryView.xib; sourceTree = "<group>"; };
+		64ED855E136E6CE400D44F3D /* EventNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventNavController.h; sourceTree = "<group>"; };
+		64ED855F136E6CE400D44F3D /* EventNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventNavController.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* citycircles-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "citycircles-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				643058DC136391DD007DA27D /* CoreLocation.framework in Frameworks */,
+				646C562A13763A5E00D0BA47 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* citycirclesAppDelegate.h */,
+				1D3623250D0F684500981E51 /* citycirclesAppDelegate.m */,
+				28D7ACF60DDB3853001CB0EB /* citycirclesViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* citycirclesViewController.m */,
+				64357EE113049D5C0029638A /* HomeNavController.h */,
+				64357EE213049D5C0029638A /* HomeNavController.m */,
+				643581141310B74A0029638A /* BusinessNavController.h */,
+				643581151310B74A0029638A /* BusinessNavController.m */,
+				646F0500137910BB003F1BBD /* CSMapRouteLayerView.h */,
+				646F0501137910BB003F1BBD /* CSMapRouteLayerView.m */,
+				642ED486136BC9CF0088AA1A /* ScheduleNavigationController.h */,
+				642ED487136BC9CF0088AA1A /* ScheduleNavigationController.m */,
+				64ED8429136CBDFB00D44F3D /* FavNavController.h */,
+				64ED842A136CBDFB00D44F3D /* FavNavController.m */,
+				64ED855E136E6CE400D44F3D /* EventNavController.h */,
+				64ED855F136E6CE400D44F3D /* EventNavController.m */,
+				64357F121304AAEC0029638A /* MyWebView.h */,
+				64357F131304AAEC0029638A /* MyWebView.m */,
+				641B803A13302772006DD368 /* JSON.h */,
+				641B803B13302772006DD368 /* NSObject+SBJSON.h */,
+				641B803C13302772006DD368 /* NSObject+SBJSON.m */,
+				641B803D13302772006DD368 /* NSString+SBJSON.h */,
+				641B803E13302772006DD368 /* NSString+SBJSON.m */,
+				641B803F13302772006DD368 /* SBJsonBase.h */,
+				641B804013302772006DD368 /* SBJsonBase.m */,
+				641B804113302772006DD368 /* SBJsonParser.h */,
+				641B804213302772006DD368 /* SBJsonParser.m */,
+				641B804313302772006DD368 /* SBJsonWriter.h */,
+				641B804413302773006DD368 /* SBJsonWriter.m */,
+				643581171310BA0C0029638A /* MainBusinessViewController.h */,
+				643581181310BA0C0029638A /* MainBusinessViewController.m */,
+				6435818F131475590029638A /* BusinessCategorySelectViewController.h */,
+				64358190131475590029638A /* BusinessCategorySelectViewController.m */,
+				6444A764134F774300C16549 /* BusinessSelect.h */,
+				6444A765134F774300C16549 /* BusinessSelect.m */,
+				64388B821350E9D20058BE22 /* BusinessView.h */,
+				64388B831350E9D20058BE22 /* BusinessView.m */,
+				641B7F60132B3FCB006DD368 /* MyUIWebView.h */,
+				641B7F61132B3FCB006DD368 /* MyUIWebView.m */,
+				641B7F63132C3C50006DD368 /* GlobalMercator.h */,
+				641B7F64132C3C50006DD368 /* GlobalMercator.m */,
+				641B7FC5132D7D64006DD368 /* HtmlGenerator.h */,
+				641B7FC6132D7D64006DD368 /* HtmlGenerator.m */,
+				641B801D132F3F44006DD368 /* Models.h */,
+				641B801E132F3F44006DD368 /* Models.m */,
+				64305C221368CAAC007DA27D /* EventView.h */,
+				64305C231368CAAC007DA27D /* EventView.m */,
+				64ED84A2136DC0F500D44F3D /* StationInfoMainViewController.h */,
+				64ED84A3136DC0F500D44F3D /* StationInfoMainViewController.m */,
+				642ED39C136BC6110088AA1A /* ScheduleStationSelect.h */,
+				642ED39D136BC6110088AA1A /* ScheduleStationSelect.m */,
+				642ED4C1136BD4510088AA1A /* ScheduleDOWViewController.h */,
+				642ED4C2136BD4510088AA1A /* ScheduleDOWViewController.m */,
+				642ED4BA136BCD7B0088AA1A /* ScheduleView.h */,
+				642ED4BB136BCD7B0088AA1A /* ScheduleView.m */,
+				64ED8407136CAE3500D44F3D /* FavoritesViewController.h */,
+				64ED8408136CAE3500D44F3D /* FavoritesViewController.m */,
+				64ED8559136E6A7300D44F3D /* EventCategoryView.h */,
+				64ED855A136E6A7300D44F3D /* EventCategoryView.m */,
+				64D64877136FCA69007ADBFA /* EventPerCatList.h */,
+				64D64878136FCA69007ADBFA /* EventPerCatList.m */,
+				64D64AD01370F538007ADBFA /* MyUINavBar.h */,
+				64D64AD11370F538007ADBFA /* MyUINavBar.m */,
+				646C56231376361C00D0BA47 /* MapKitAnnotationProvider.h */,
+				646C56241376361C00D0BA47 /* MapKitAnnotationProvider.m */,
+				646C562613763A3000D0BA47 /* MyAnnotation.h */,
+				646C562713763A3000D0BA47 /* MyAnnotation.m */,
+				648F86CC137F5C6C00AD57BA /* TrainPlotter.h */,
+				648F86CD137F5C6C00AD57BA /* TrainPlotter.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* CityCircles.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* citycircles_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				64B3E84F1380292C007B8BF7 /* train-east.png */,
+				64B3E8501380292C007B8BF7 /* train-west.png */,
+				64B3E98E138050DB007B8BF7 /* header.png */,
+				644C5978137C75260094A344 /* bluedot.png */,
+				646C575B1378EE2F00D0BA47 /* ico-gmap-s.png */,
+				64D64AED1370F8F5007ADBFA /* background.png */,
+				64D64A8C1370E87C007ADBFA /* Icon-City-Circles.png */,
+				64D64937136FEEE4007ADBFA /* downarrow.png */,
+				64D6492F136FEEA9007ADBFA /* Icon_train.png */,
+				64D64879136FCA69007ADBFA /* EventPerCatList.xib */,
+				64ED855B136E6A7300D44F3D /* EventCategoryView.xib */,
+				64ED84A4136DC0F500D44F3D /* StationInfoMainViewController.xib */,
+				64ED8409136CAE3500D44F3D /* FavoritesViewController.xib */,
+				64D64AC61370F3B6007ADBFA /* topper.png */,
+				64D64A7B1370E6E7007ADBFA /* Default.png */,
+				642ED4BC136BCD7B0088AA1A /* ScheduleView.xib */,
+				642ED39E136BC6110088AA1A /* ScheduleStationSelect.xib */,
+				642ED4C3136BD4510088AA1A /* ScheduleDOWViewController.xib */,
+				642A78A6136BBA3900A95C1E /* loader.gif */,
+				642A77B0136B403F00A95C1E /* star-icone-9823-48.png */,
+				642A77B1136B403F00A95C1E /* star-off-icone-7870-48.png */,
+				64305C241368CAAC007DA27D /* EventView.xib */,
+				643057E0136078E0007DA27D /* Icon-City-Circles.png */,
+				643057D6136078D1007DA27D /* CC-Tab-1-01.png */,
+				642A7708136A304A00A95C1E /* user_data.db.rsd */,
+				643057D7136078D1007DA27D /* CC-Tab-1-02.png */,
+				643057D8136078D1007DA27D /* CC-Tab-1-03.png */,
+				643057D9136078D1007DA27D /* CC-Tab-1-04.png */,
+				643057DA136078D1007DA27D /* CC-Tab-1-05.png */,
+				64388B841350E9D20058BE22 /* BusinessView.xib */,
+				640B65681349511300475B4E /* jquery-1.5.1.txt */,
+				641B7383132B2690006DD368 /* citycircles_forclient */,
+				64358191131475590029638A /* BusinessCategorySelectViewController.xib */,
+				643581191310BA0C0029638A /* MainBusinessViewController.xib */,
+				6444A766134F774300C16549 /* BusinessSelect.xib */,
+				64357FE513071C810029638A /* style.css */,
+				64357FCE13071B760029638A /* 1.png */,
+				64357FCF13071B760029638A /* business.png */,
+				64357FD013071B760029638A /* CityCircles.html */,
+				64357FD413071B760029638A /* station.png */,
+				64357FD513071B760029638A /* train-east.png */,
+				64357FD613071B760029638A /* train-west.png */,
+				2899E5210DE3E06400AC0155 /* citycirclesViewController.xib */,
+				64357F601304B3360029638A /* MyWebView.xib */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* citycircles-Info.plist */,
+				64388C041351211E0058BE22 /* basic_cell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				643058DB136391DD007DA27D /* CoreLocation.framework */,
+				646C562913763A5E00D0BA47 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		641B7383132B2690006DD368 /* citycircles_forclient */ = {
+			isa = PBXGroup;
+			children = (
+				641B7384132B2690006DD368 /* __init__.py */,
+				641B7385132B2690006DD368 /* citycircles_data.db */,
+				641B7386132B2690006DD368 /* download_gtiles_and_update_db.py */,
+				641B7387132B2690006DD368 /* gis2raphael */,
+				641B7391132B2690006DD368 /* globalmaptiles.py */,
+				641B795D132B2694006DD368 /* manage.py */,
+				641B795E132B2694006DD368 /* pntsandrects.py */,
+				641B795F132B2694006DD368 /* settings.py */,
+				641B7960132B2694006DD368 /* simple_python_googlemap.py */,
+				641B7961132B2694006DD368 /* static */,
+				641B7964132B2694006DD368 /* urls.py */,
+			);
+			name = citycircles_forclient;
+			path = Classes/citycircles_forclient;
+			sourceTree = "<group>";
+		};
+		641B7387132B2690006DD368 /* gis2raphael */ = {
+			isa = PBXGroup;
+			children = (
+				641B7388132B2690006DD368 /* __init__.py */,
+				641B7389132B2690006DD368 /* fixtures */,
+				641B738B132B2690006DD368 /* models.py */,
+				641B738C132B2690006DD368 /* templates */,
+				641B738F132B2690006DD368 /* tests.py */,
+				641B7390132B2690006DD368 /* views.py */,
+			);
+			path = gis2raphael;
+			sourceTree = "<group>";
+		};
+		641B7389132B2690006DD368 /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				641B738A132B2690006DD368 /* initial_data.json */,
+			);
+			path = fixtures;
+			sourceTree = "<group>";
+		};
+		641B738C132B2690006DD368 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				641B738D132B2690006DD368 /* index.html */,
+				641B738E132B2690006DD368 /* test.html */,
+				64548D161332C99400F90A63 /* test2.html */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
+		641B7961132B2694006DD368 /* static */ = {
+			isa = PBXGroup;
+			children = (
+				641B7962132B2694006DD368 /* raphael-min.js */,
+				641B7963132B2694006DD368 /* raphael.txt */,
+			);
+			path = static;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* CityCircles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CityCircles" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CityCircles;
+			productName = citycircles;
+			productReference = 1D6058910D05DD3D006BFB54 /* CityCircles.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "citycircles" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* CityCircles */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				2899E5220DE3E06400AC0155 /* citycirclesViewController.xib in Resources */,
+				64357F611304B3360029638A /* MyWebView.xib in Resources */,
+				64357FD713071B760029638A /* 1.png in Resources */,
+				64357FD813071B760029638A /* business.png in Resources */,
+				64357FDD13071B760029638A /* station.png in Resources */,
+				64357FDE13071B760029638A /* train-east.png in Resources */,
+				64357FDF13071B760029638A /* train-west.png in Resources */,
+				64357FE613071C810029638A /* style.css in Resources */,
+				64358029130721670029638A /* CityCircles.html in Resources */,
+				6435811B1310BA0C0029638A /* MainBusinessViewController.xib in Resources */,
+				64358193131475590029638A /* BusinessCategorySelectViewController.xib in Resources */,
+				641B7965132B2694006DD368 /* __init__.py in Resources */,
+				641B7966132B2694006DD368 /* citycircles_data.db in Resources */,
+				641B7967132B2694006DD368 /* download_gtiles_and_update_db.py in Resources */,
+				641B7968132B2694006DD368 /* __init__.py in Resources */,
+				641B7969132B2694006DD368 /* initial_data.json in Resources */,
+				641B796A132B2694006DD368 /* models.py in Resources */,
+				641B796B132B2694006DD368 /* index.html in Resources */,
+				641B796C132B2694006DD368 /* test.html in Resources */,
+				641B796D132B2694006DD368 /* tests.py in Resources */,
+				641B796E132B2694006DD368 /* views.py in Resources */,
+				641B796F132B2694006DD368 /* globalmaptiles.py in Resources */,
+				641B7F3A132B2694006DD368 /* manage.py in Resources */,
+				641B7F3B132B2694006DD368 /* pntsandrects.py in Resources */,
+				641B7F3C132B2694006DD368 /* settings.py in Resources */,
+				641B7F3D132B2694006DD368 /* simple_python_googlemap.py in Resources */,
+				641B7F3F132B2694006DD368 /* raphael.txt in Resources */,
+				641B7F40132B2694006DD368 /* urls.py in Resources */,
+				64548D171332C99400F90A63 /* test2.html in Resources */,
+				640B65691349511300475B4E /* jquery-1.5.1.txt in Resources */,
+				6444A768134F774300C16549 /* BusinessSelect.xib in Resources */,
+				64388B861350E9D20058BE22 /* BusinessView.xib in Resources */,
+				64388C051351211E0058BE22 /* basic_cell.xib in Resources */,
+				643057DB136078D1007DA27D /* CC-Tab-1-01.png in Resources */,
+				643057DC136078D1007DA27D /* CC-Tab-1-02.png in Resources */,
+				643057DD136078D1007DA27D /* CC-Tab-1-03.png in Resources */,
+				643057DE136078D1007DA27D /* CC-Tab-1-04.png in Resources */,
+				643057DF136078D1007DA27D /* CC-Tab-1-05.png in Resources */,
+				643057E1136078E0007DA27D /* Icon-City-Circles.png in Resources */,
+				64305C261368CAAC007DA27D /* EventView.xib in Resources */,
+				642A7709136A304A00A95C1E /* user_data.db.rsd in Resources */,
+				642A77B2136B403F00A95C1E /* star-icone-9823-48.png in Resources */,
+				642A77B3136B403F00A95C1E /* star-off-icone-7870-48.png in Resources */,
+				642A78A7136BBA3900A95C1E /* loader.gif in Resources */,
+				642ED3A0136BC6110088AA1A /* ScheduleStationSelect.xib in Resources */,
+				642ED4BE136BCD7B0088AA1A /* ScheduleView.xib in Resources */,
+				642ED4C5136BD4510088AA1A /* ScheduleDOWViewController.xib in Resources */,
+				64ED840B136CAE3500D44F3D /* FavoritesViewController.xib in Resources */,
+				64ED84A6136DC0F500D44F3D /* StationInfoMainViewController.xib in Resources */,
+				64ED855D136E6A7300D44F3D /* EventCategoryView.xib in Resources */,
+				64D6487B136FCA69007ADBFA /* EventPerCatList.xib in Resources */,
+				64D64930136FEEA9007ADBFA /* Icon_train.png in Resources */,
+				64D64938136FEEE4007ADBFA /* downarrow.png in Resources */,
+				64D64A7C1370E6E7007ADBFA /* Default.png in Resources */,
+				64D64A8D1370E87C007ADBFA /* Icon-City-Circles.png in Resources */,
+				64D64AC71370F3B6007ADBFA /* topper.png in Resources */,
+				64D64AEE1370F8F5007ADBFA /* background.png in Resources */,
+				646C575C1378EE2F00D0BA47 /* ico-gmap-s.png in Resources */,
+				644C5979137C75260094A344 /* bluedot.png in Resources */,
+				64B3E8511380292C007B8BF7 /* train-east.png in Resources */,
+				64B3E8521380292C007B8BF7 /* train-west.png in Resources */,
+				64B3E98F138050DB007B8BF7 /* header.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* citycirclesAppDelegate.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* citycirclesViewController.m in Sources */,
+				64357EE313049D5C0029638A /* HomeNavController.m in Sources */,
+				64357F141304AAEC0029638A /* MyWebView.m in Sources */,
+				643581161310B74A0029638A /* BusinessNavController.m in Sources */,
+				6435811A1310BA0C0029638A /* MainBusinessViewController.m in Sources */,
+				64358192131475590029638A /* BusinessCategorySelectViewController.m in Sources */,
+				641B7F3E132B2694006DD368 /* raphael-min.js in Sources */,
+				641B7F62132B3FCB006DD368 /* MyUIWebView.m in Sources */,
+				641B7F65132C3C50006DD368 /* GlobalMercator.m in Sources */,
+				641B7FC7132D7D64006DD368 /* HtmlGenerator.m in Sources */,
+				641B801F132F3F44006DD368 /* Models.m in Sources */,
+				641B804513302773006DD368 /* NSObject+SBJSON.m in Sources */,
+				641B804613302773006DD368 /* NSString+SBJSON.m in Sources */,
+				641B804713302773006DD368 /* SBJsonBase.m in Sources */,
+				641B804813302773006DD368 /* SBJsonParser.m in Sources */,
+				641B804913302773006DD368 /* SBJsonWriter.m in Sources */,
+				6444A767134F774300C16549 /* BusinessSelect.m in Sources */,
+				64388B851350E9D20058BE22 /* BusinessView.m in Sources */,
+				64305C251368CAAC007DA27D /* EventView.m in Sources */,
+				642ED39F136BC6110088AA1A /* ScheduleStationSelect.m in Sources */,
+				642ED488136BC9CF0088AA1A /* ScheduleNavigationController.m in Sources */,
+				642ED4BD136BCD7B0088AA1A /* ScheduleView.m in Sources */,
+				642ED4C4136BD4510088AA1A /* ScheduleDOWViewController.m in Sources */,
+				64ED840A136CAE3500D44F3D /* FavoritesViewController.m in Sources */,
+				64ED842B136CBDFB00D44F3D /* FavNavController.m in Sources */,
+				64ED84A5136DC0F500D44F3D /* StationInfoMainViewController.m in Sources */,
+				64ED855C136E6A7300D44F3D /* EventCategoryView.m in Sources */,
+				64ED8560136E6CE400D44F3D /* EventNavController.m in Sources */,
+				64D6487A136FCA69007ADBFA /* EventPerCatList.m in Sources */,
+				64D64AD21370F538007ADBFA /* MyUINavBar.m in Sources */,
+				646C56251376361C00D0BA47 /* MapKitAnnotationProvider.m in Sources */,
+				646C562813763A3000D0BA47 /* MyAnnotation.m in Sources */,
+				646F0502137910BB003F1BBD /* CSMapRouteLayerView.m in Sources */,
+				648F86CE137F5C6C00AD57BA /* TrainPlotter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = citycircles_Prefix.pch;
+				INFOPLIST_FILE = "citycircles-Info.plist";
+				PRODUCT_NAME = citycircles;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = citycircles_Prefix.pch;
+				INFOPLIST_FILE = "citycircles-Info.plist";
+				PRODUCT_NAME = citycircles;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64B3EA7413832137007B8BF7 /* iphoneDistribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-lsqlite3";
+				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+			};
+			name = iphoneDistribution;
+		};
+		64B3EA7513832137007B8BF7 /* iphoneDistribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = citycircles_Prefix.pch;
+				INFOPLIST_FILE = "citycircles-Info.plist";
+				PRODUCT_NAME = CityCircles;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = iphoneDistribution;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-lsqlite3";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-lsqlite3";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CityCircles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				64B3EA7513832137007B8BF7 /* iphoneDistribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "citycircles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				64B3EA7413832137007B8BF7 /* iphoneDistribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

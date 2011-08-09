@@ -1,0 +1,454 @@
+<html>
+    <head>
+        <!-- mobile tags -->
+	<meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" name="viewport">
+	<!-- allow fullscreen mode for iPhone -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- set iPhone status bar to black -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+        <script src='raphael.txt'></script>
+		<script src='jquery-1.5.1.txt'></script>
+		
+		
+        <script type="text/javascript">
+		function rgbToHsl(r, g, b){
+    r /= 255, g /= 255, b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+
+    if(max == min){
+        h = s = 0; // achromatic
+    }else{
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch(max){
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+
+    return [h, s, l];
+}
+		
+		Raphael.fn.ball = function (x, y, r, hue) {
+            hue = hue || 0;
+            return this.set(
+                //this.ellipse(x, y + r - r / 5, r, r / 2).attr({fill: "rhsb(" + hue + ", 1, .25)-hsb(" + hue + ", 1, .25)", stroke: "none", opacity: 0})//,
+                this.ellipse(x, y, r, r).attr({fill: "r(.5,.9)hsb(" + hue + ", 1, .75)-hsb(" + hue + ", .5, .25)", stroke: "none"}),
+                this.ellipse(x, y, r - r / 5, r - r / 20).attr({stroke: "none", fill: "r(.5,.1)#ccc-#ccc", opacity: 0})
+            );
+        };
+		
+		
+			var num_of_stations = 28;
+			var zoom_lvls = [10,12,15];
+			var south_stations = %@;
+			var north_stations = %@;
+				
+			var businesses = ["{{businesses}}"];
+				
+			var dct_north_schedules = %@;
+			var dct_south_schedules = %@;
+			
+			var tiles = %@;
+			var world_origin_x = %@;
+			var world_origin_y = %@;
+			
+			var dct_south_paths = {};
+			var dct_north_paths = {};
+			
+			var dct_animated_trains = {};
+			var paper;
+			var now;
+			
+			var curr_zl = %@;
+			var next_zl = %@;
+			
+			var all_events = %@;
+			
+			var dct_south_paths = %@;
+			var dct_north_paths = %@;
+			
+			var curr_location_circle;
+			
+			var single_event = 0;
+			
+			function updateLocation(x, y){
+				curr_location_circle.animate({cx: x, cy: y}, 100, "<>");
+		}
+			
+			/*
+			GET THE SOONEST ARRIVAL TIME FOR THIS STATION
+			*/
+			function get_next_arrival_time(direction, index){
+				
+				closest_time = new Date(new Date().toDateString() + ' ' + '23:59:59');
+				if (direction == "S"){
+					var this_schedule = dct_south_schedules;
+				} else {
+					var this_schedule = dct_north_schedules;
+				} 
+				var arScheds = this_schedule[index.toString()];
+				
+				if (arScheds == undefined){
+				    arScheds = [];
+				}
+				var this_time;
+				for (x = 0; x < arScheds.length; x++){
+					this_time = new Date(new Date().toDateString() + ' ' + arScheds[x][2]);
+					if (this_time > now){
+						if ((this_time - now) < (closest_time - now)){
+						closest_time = this_time;
+						}
+					}
+				}
+				if ((closest_time - new Date(new Date().toDateString() + ' ' + '23:59:59')) == 0){
+				    return null;
+				}
+				return closest_time;
+			}
+			
+			/*
+			GET THE CLOSEST DEPARTURE TIME FOR THIS STATION
+			*/
+			function get_prev_station_time(direction, index, next_station_time){
+				closest_time = new Date(new Date().toDateString() + ' ' + '00:00:00');
+				if (direction == "S"){
+					var this_schedule = dct_south_schedules;
+				} else {
+					var this_schedule = dct_north_schedules;
+				} 
+				var arScheds = this_schedule[index.toString()];
+				if (arScheds == undefined){
+				    arScheds = [];
+				}
+				var this_time;
+				for (x = 0; x < arScheds.length; x++){
+					this_time = new Date(new Date().toDateString() + ' ' + arScheds[x][2]);
+					if (this_time < next_station_time){
+						if ((next_station_time - this_time) < (next_station_time - closest_time)){
+						closest_time = this_time;
+						}
+					}
+				}
+				
+				if ((closest_time - new Date(new Date().toDateString() + ' ' + '00:00:00')) == 0){
+				    return null;
+				}
+				return closest_time;
+			}
+			function animate_callback(){
+			    delete dct_animated_trains[this.end_station];
+			    animate_trains(paper);
+			    this.remove();
+			}
+			
+			function animate_trains(paper){
+			    now = new Date();
+				var nxt_time;
+				var prev_time;
+				var path_length;
+				var start_point;
+				var length_complete;
+				var sub_path;
+				for(var x = 2; x <= num_of_stations; x++){
+				    if (dct_animated_trains[x.toString()] != null){
+						continue;
+				    }
+					if (dct_south_paths[(x - 1).toString()] == null){
+						continue; //path not viewable at this level
+					}
+				    
+					nxt_time = get_next_arrival_time("S", x);
+					prev_time = get_prev_station_time("S", x - 1, nxt_time);
+					
+					if ((nxt_time == null) || (prev_time == null) ){
+					    continue;
+					}
+					/*
+					if the current time is between the previous stations closest departure
+					and the next stations soonest arrival
+					*/
+					if (now > prev_time && now < nxt_time){
+						
+						var path = dct_south_paths[(x - 1).toString()];
+						//Start the train animation
+						
+						path_length = path.getTotalLength();
+						perc_to_go = (nxt_time - now) / (nxt_time - prev_time);
+						length_to_go = path_length * perc_to_go;
+						length_complete = path_length - length_to_go;
+						
+						sub_path = path.getSubpath(length_complete, path_length);
+						
+						start_point = path.getPointAtLength(length_complete);
+						
+						//var e = paper.ellipse(start_point.x,start_point.y, 20, 4).attr({stroke: "#000", fill: "#ff0000"});
+						var e = paper.image("Icon_train.png", start_point.x - 25, start_point.y, 50, 12.5);
+						e.end_station = x.toString();
+						dct_animated_trains[x.toString()] = e;
+						
+						e.animateAlong(sub_path, nxt_time - now, rotate = true, animate_callback);
+					}
+				}
+			}
+
+        
+            window.onload = function () {
+			
+                
+				//alert (new Date (new Date().toDateString() + ' ' + '10:55'))
+				
+                
+                var point_set;
+                paper = new Raphael(document.getElementById('canvas_container'), 320, 250);
+                var current_line;
+                var c = "#f00";
+                var pathParams = {stroke: c, "stroke-width": 2, "stroke-linecap": "round"};
+                var path_str;
+                //var circle = paper.circle(100, 100, 80);
+				var path;
+				var circle;
+                
+                
+                
+                //NOW DRAW THE TILES
+                var tile_data;
+                for(var i=0; i<tiles.length;i++){
+                    tile_data = tiles[i];
+                    var c = paper.image(tile_data[0], tile_data[1], tile_data[2], 256, 256);
+		    c.node.onclick=function(evt){
+				$('#loader').show();
+				$('#canvas_container').animate({
+				opacity: 0.0,
+				left: '-=250',
+				height: 'toggle'
+				}, 500, function() {
+					window.location = "/test/" + curr_zl.toString() + "/" + next_zl.toString() + "/" + evt.clientX.toString() + "/" + evt.clientY.toString() + "/" + world_origin_x.toString() + "/" + world_origin_y.toString() + "/";
+				});
+				};
+                }
+				
+				function draw_path(path_str){
+					path = paper.path(path_str);
+					path.attr("stroke-width", 5);
+					path.attr("stroke", "#91cef4");
+					return path;
+				}
+				
+				
+				var path_str;
+				for (var s_idx in dct_north_paths){
+					path_str = dct_north_paths[s_idx];
+					var path = draw_path(path_str);
+					dct_north_paths[s_idx] = path;
+				}
+				
+				for (var s_idx in dct_south_paths){
+					path_str = dct_south_paths[s_idx];
+					var path = draw_path(path_str);
+					dct_south_paths[s_idx] = path;
+				}
+				
+				var s_x;
+				var s_y;
+				var s_xs = [-6, 326];
+				var s_ys = [-6, 256];
+				
+				//DRAW THE STATIONS
+				for(i=0; i<south_stations.length;i++){
+					point_set = south_stations[i];
+					curr_x = point_set[2];
+					curr_y = point_set[3];
+					station_name = point_set[0];
+					
+					if (curr_zl == 10){
+						s_x = s_xs[Math.floor(Math.random()*s_xs.length)];
+						s_y = s_ys[Math.floor(Math.random()*s_ys.length)];
+						//alert(s_x);
+						//alert(s_y);
+					
+						var circle = paper.circle(s_x, s_y, 6);
+						
+						circle.animate({cx: curr_x, cy: curr_y}, 500, "<>");
+					} else {
+						var circle = paper.circle(curr_x, curr_y, 10);
+					}
+					circle.attr("fill", "#f00");
+					// Sets the stroke attribute of the circle to white
+					circle.attr("stroke", "#fff");
+					circle.station_name = station_name;
+					
+					if (curr_zl > 10){
+					circle.click(function(evt){
+						t = paper.text(evt.clientX, evt.clientY - 15, this.station_name);
+						//t.attr("fill", "#000");
+						t.attr("stroke", "#000");
+						t.attr("font-size", "15");
+						t.animate({"opacity": 1}, 100, "backOut", function(){
+							this.animate({"opacity": 0}, 5000, "backOut", function(){
+								this.remove();
+							});
+						});
+						
+						//paper.print(evt.clientX, evt.clientY, this.station_name, paper.getFont("Times", 800), 15);
+						this.animate({fill: "#333", stroke: "#666", r: 12}, 500, "backOut", function(){
+							this.animate({fill: "#f00", stroke: "#fff", r: 10}, 100);
+							
+							
+						});
+						paper.safari();
+					});
+					}
+					
+				}
+				
+				
+				
+				//Draw the businesses
+				
+				if (typeof businesses[0] != "string"){
+					//alert(typeof businesses[0]);
+					for(i=0;i<businesses.length;i++){
+						point_set = businesses[i];
+						curr_x = point_set[1];
+						curr_y = point_set[2];
+						var circle = paper.circle(curr_x, curr_y, 8);
+						circle.attr("fill", "#f00");
+						// Sets the stroke attribute of the circle to white
+						circle.attr("stroke", "#fff");
+						
+						var aimg = paper.image("downarrow.png", curr_x-12, curr_y - 35, 25, 25);
+					}
+				}
+				if (curr_zl > 10){
+				
+				
+				/*
+				var train_sets = [];
+				
+				var now = new Date();
+				var curr_time;
+				var nxt_time;
+				for (x = 1; x < num_of_stations; x++){
+					curr_time = train_schedule[x];
+					
+					new Date (new Date().toDateString() + ' ' + '10:55');
+				}
+				*/
+				//Start the train animation
+				//var star_pnt = points[0];
+				//alert(points[0]);
+				//e = paper.ellipse(star_pnt[1],star_pnt[2], 20, 4).attr({stroke: "none", fill: "#663399"}),
+				//e.animateAlong(path, 100000, rotate = true);
+				
+				//call the animate trains function
+				animate_trains(paper);
+				
+				}
+				
+				if (curr_zl > 12){
+					//DRAW THE EVENTS
+					for (x = 0; x < all_events.length; x++){
+						point_set = all_events[x];
+						curr_x = point_set[2];
+						curr_y = point_set[3];
+						event_id = point_set[4];
+						
+						event_name = point_set[0];
+					
+						var circle = paper.circle(curr_x, curr_y, 8);
+						circle.attr("fill", "#ffff99");
+						circle.event_name = event_name;
+						circle.event_id = 
+						
+						circle.click(function(evt){
+							//paper.print(evt.clientX, evt.clientY, this.station_name, paper.getFont("Times", 800), 15);
+							this.animate({fill: "#333", stroke: "#666", r: 12}, 500, "backOut", function(){
+								this.animate({fill: "#f00", stroke: "#ffff99", r: 8}, 100);
+								window.location = "/evnt/" + event_id.toString() + "/";
+							});
+							paper.safari();
+						});
+						
+						
+
+					
+					}
+				}
+				
+				//DRAW CURRENT LOCATION
+				var cur_Locx = %@;
+				var cur_Locy = %@;
+
+				//var circle = paper.circle(cur_Locx, cur_Locy, 6);
+				//var ahue = Math.random();
+				
+				curr_location_circle = paper.ball(cur_Locx, cur_Locy, 6, 0.62);
+				
+				curr_location_circle.click(function(evt){
+					t = paper.text(evt.clientX, evt.clientY - 15, "Current Location");
+					t.attr("stroke", "#000");
+					t.attr("font-size", "15");
+					t.animate({"opacity": 1}, 100, "backOut", function(){
+						this.animate({"opacity": 0}, 5000, "backOut", function(){
+							this.remove();
+						});
+					});
+
+				});
+				//alert(ahue);
+				//circle.attr("fill", "#00f");
+					// Sets the stroke attribute of the circle to white
+				//circle.attr("stroke", "#00f");
+				
+				$('#canvas_container').animate({
+				opacity: 1.0,
+				}, 500, function() {
+					$('#loader').hide();
+				});
+				
+		
+            };        
+        
+        </script>
+        
+        
+        <style type="text/css">  
+            #canvas_container {  
+                width: 320px;
+                height: 250px;
+                border: 1px solid #aaa;  
+				padding: 0;
+				margin: 0;
+				opacity: 0.0;
+				
+            }  
+			div#loader{
+			position: absolute;
+			top: 125px;
+			left: 160px;
+			}
+			
+			body{
+			margin: 0;
+			padding: 0;
+			height: 380px;
+			background-image: url(background.png);
+			background-position: bottom;
+			text-align: center;
+			font-size: 14pt;
+			font-weight: bold;
+			}
+        </style>
+    </head>
+    <body>
+        <div id="canvas_container"></div>
+		<div id="loader"><img src="loader.gif"/></div>
+		<p>Tap the map to zoom in. </p>
+		
+    </body>
+</html>

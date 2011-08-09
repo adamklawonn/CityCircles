@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <!-- mobile tags -->
+	<meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" name="viewport">
+	<!-- allow fullscreen mode for iPhone -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- set iPhone status bar to black -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script src='/static/raphael-min.js'></script>
+        <script type="text/javascript">
+        
+            window.onload = function () {
+                var points = {{points|safe}};
+                var tiles = {{tiles|safe}};
+                var point_set;
+                var paper = new Raphael(document.getElementById('canvas_container'), 320, 250);
+                var current_line;
+                var c = "#f00";
+                var pathParams = {stroke: c, "stroke-width": 2, "stroke-linecap": "round"};
+                var path_str;
+                var circle = paper.circle(100, 100, 80);
+                
+                
+                
+                //NOW DRAW THE TILES
+                var tile_data;
+                for(var i=0; i<tiles.length;i++){
+                    tile_data = tiles[i];
+                    var c = paper.image(tile_data[0], tile_data[1], tile_data[2], 256, 256);
+                }
+                
+                for(i=0; i<points.length;i++){
+                    point_set = points[i];
+                    curr_x = point_set[0][0];
+                    curr_y = point_set[0][1];
+                    path_str = "M " + curr_x.toString() + " " + curr_y.toString() + " ";
+                    //current_line = paper.path(pathParams).moveTo(Math.round(start_x), Math.round(start_y) );
+                    for(var pi=1; pi < point_set.length; pi++){
+                        next_x = point_set[pi][0];
+                        next_y = point_set[pi][1];
+                        rel_x = next_x - curr_x;
+                        rel_y = next_y - curr_y;
+                        path_str += "l " + rel_x.toString() + " " + rel_y.toString() + " ";
+                        
+                        curr_x = next_x;
+                        curr_y = next_y;
+                        
+                    }
+                    path_str += " ";
+                    paper.path(path_str);
+                }
+            };
+        
+        
+        </script>
+        
+        
+        <style type="text/css">  
+            #canvas_container {  
+                width: 320px;
+                height: 250px;
+                border: 1px solid #aaa;  
+            }  
+        </style>
+    </head>
+    <body>
+        
+        
+        
+        <div id="canvas_container"></div>  
+    </body>
+</html>

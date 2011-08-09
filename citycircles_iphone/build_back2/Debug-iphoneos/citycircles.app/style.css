@@ -1,0 +1,115 @@
+
+	/* page */
+		
+		body {
+		
+			font-family: helvetica, sans-serif;
+			background: #444;	
+			color: #ccc;
+			margin: 0;
+		}
+		
+		h1
+		{
+			padding: 5px;
+			margin: 0;
+			text-align: center;	
+			color: #999;
+			background: #222;
+			font-size: 130%;
+		}
+
+	/* container */	
+	
+		#container
+		{
+			width: 320px;
+			height: 250px;
+			position:relative;	
+			overflow: hidden;
+			z-index:50;
+		}
+		
+	/* Raphael canvas */
+		#container #raphael
+		{
+			z-index: 50;
+			position:absolute;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+		}
+		
+	/* tile container */
+		#container #tiles
+		{
+			position:absolute;
+			z-index: 10;
+			top: 0px;
+			left: 0px;
+		}
+	
+	/* markers */
+	
+		#container .station,
+		#container .business,
+		#container .train,
+		#container .route
+		{
+			position: absolute;
+			border: none;
+			width: 27px;
+			height: 27px;
+		}
+	
+		/* stations */
+		#container .station
+		{
+			z-index: 200;
+		}
+		
+		/* route */
+		#container .route
+		{
+			background: #ccc;
+			border: solid 1px #fff;
+		}
+		
+		/* businesses */
+		#container .business
+		{
+			z-index: 100;
+		}
+		
+		/* trains */
+		#container .train
+		{
+			z-index: 300;
+		}
+
+
+	/* time override */
+	
+		#controls
+		{
+			margin: 15px;
+		}
+	
+	/* debug window */
+
+		#debug
+		{
+			position: absolute;
+			top: 10px;
+			left: 340px;
+			width: 400px;
+			height: 90%;
+			overflow: auto;
+			font-size: 90%;
+			color: #ccc;
+		}
+		#debug .div
+		{
+			margin-bottom: 5px;
+		}
